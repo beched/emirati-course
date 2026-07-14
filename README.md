@@ -5,17 +5,19 @@ verb‑conjugation drill engine, Anki‑style flashcards, a graded ~850‑word v
 a reviewed conversation phrasebook, a root/word builder, and an English→Emirati
 "arabicizer". All Arabic is fully vowel‑marked and every line has optional Arabizi.
 
-It runs **fully offline** as an installable PWA on iPhone/Safari, or as a single HTML file.
+It runs **fully offline** as an installable PWA on iPhone/Safari.
 
 ## Contents
 
-| File | What it is |
+| Path | What it is |
 |---|---|
-| `pwa/` | Installable offline **PWA** (`index.html` + `manifest.json` + `sw.js` + icons) |
-| `emirati-course.html` | The same app as a **single self‑contained file** (works offline when opened locally) |
+| `pwa/index.html` | **The app** — one self‑contained file (all HTML/CSS/JS inline). Works as an installable offline PWA *and* opens standalone as a local file. |
+| `pwa/manifest.json`, `pwa/sw.js`, `pwa/icon-*.png` | PWA plumbing (web‑app manifest, offline service worker, icons) |
 | `emirati-ebook.html` | Companion **ebook** (print / read in a browser) |
 | `emirati-ebook.epub` | The ebook as a validated **EPUB** (Apple Books / e‑readers) |
-| `emirati-pwa.zip` | The `pwa/` folder zipped, for one‑click hosting (e.g. Netlify Drop) |
+
+There is deliberately **one** copy of the app — edit `pwa/index.html` directly; there is no
+build step.
 
 > The four Al Ramsa sample PDFs used as source material are **not** included (third‑party
 > copyright); they're excluded via `.gitignore`.
@@ -31,7 +33,7 @@ A service worker needs HTTPS, so host it and install from Safari:
 4. **Share → Add to Home Screen** → it opens as a standalone app.
 5. Toggle **Airplane Mode** and reopen from the Home Screen — it works offline.
 
-Alternative one‑click host: drag `emirati-pwa.zip` onto **app.netlify.com/drop**.
+Alternative one‑click host: drag the **`pwa`** folder onto **app.netlify.com/drop**.
 
 Local test on a Mac (service workers are allowed on `localhost`):
 
@@ -41,9 +43,9 @@ cd pwa && python3 -m http.server 8000   # then open http://localhost:8000
 
 ## Updating
 
-Edit `pwa/index.html` (or regenerate it from `emirati-course.html`), then **bump the cache
-name** in `pwa/sw.js` (`emirati-arabic-v1` → `v2`) so installed devices fetch the new
-version on their next online load.
+Edit `pwa/index.html`, then **bump the cache name** in `pwa/sw.js`
+(`emirati-arabic-v1` → `v2`) so installed devices fetch the new version on their next
+online load.
 
 ## Notes
 
