@@ -1807,6 +1807,7 @@ function go(tab){S.tab=tab;save();
  document.querySelectorAll('.view').forEach(x=>x.classList.remove('on'));
  document.getElementById('v-'+tab).classList.add('on');
  document.querySelectorAll('nav.tabs button').forEach(b=>b.classList.toggle('on',b.dataset.v===tab));
+ if(tab==='home')renderHome();   /* refresh dashboard from latest progress each time it's opened */
  window.scrollTo(0,0);}
 function renderAll(){renderHome();renderLessons();renderDrill();renderCards();renderRef();}
 applyToggles();renderAll();go(S.tab);
