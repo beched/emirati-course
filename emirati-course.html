@@ -1,0 +1,1815 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0f1420">
+<title>Emirati Arabic — Speak in 1 Hour</title>
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230f1420'/%3E%3Ctext x='50' y='68' font-size='58' text-anchor='middle' fill='%23e63946'%3E%D8%B9%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#0f1420;--bg2:#161c2b;--card:#1b2233;--card2:#222b40;
+  --ink:#eef2fb;--muted:#95a2c0;--line:#2b3550;
+  --red:#ef4457;--grn:#2ecc71;--gold:#f0b429;--blue:#5aa9ff;--purp:#a78bfa;
+  --ar:#ffffff;--az:#8fe3b0;--radius:16px;
+  --arfont:"SF Arabic","Geeza Pro","Noto Naskh Arabic","Amiri","Times New Roman",serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-text-size-adjust:100%;line-height:1.5;padding-bottom:92px}
+a{color:var(--blue)}
+h1,h2,h3{line-height:1.2;margin:0 0 .4em}
+h2{font-size:1.25rem}h3{font-size:1.02rem;color:var(--gold)}
+p{margin:.5em 0}small,.note{color:var(--muted);font-size:.82rem}
+.wrap{max-width:780px;margin:0 auto;padding:0 14px}
+
+header{position:sticky;top:0;z-index:30;backdrop-filter:blur(12px);
+  background:rgba(15,20,32,.82);border-bottom:1px solid var(--line);
+  padding:calc(8px + env(safe-area-inset-top)) 0 8px}
+.hrow{display:flex;align-items:center;gap:10px}
+.logo{font-family:var(--arfont);font-size:1.5rem;color:var(--red);font-weight:700;line-height:1}
+.brand b{font-size:.98rem}.brand small{display:block;font-size:.66rem;letter-spacing:.5px;text-transform:uppercase;color:var(--muted)}
+.toggles{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.tg{font-size:.72rem;border:1px solid var(--line);background:var(--card);color:var(--muted);
+  border-radius:999px;padding:5px 9px;cursor:pointer;user-select:none;white-space:nowrap}
+.tg b{color:var(--ink)}.tg.on{border-color:var(--grn)}.tg.on b{color:var(--az)}
+
+nav.tabs{position:fixed;bottom:0;left:0;right:0;z-index:40;display:flex;
+  background:rgba(20,26,40,.94);backdrop-filter:blur(12px);border-top:1px solid var(--line);
+  padding-bottom:env(safe-area-inset-bottom)}
+nav.tabs button{flex:1;background:none;border:none;color:var(--muted);font-size:.6rem;
+  padding:9px 2px 8px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;font-family:inherit}
+nav.tabs .ic{font-size:1.15rem;line-height:1}
+nav.tabs button.on{color:var(--ink)}
+nav.tabs button.on{position:relative}
+nav.tabs button.on::after{content:"";position:absolute;top:0;width:26px;height:3px;border-radius:3px;background:var(--red)}
+
+section.view{display:none;padding:16px 0 10px}
+section.view.on{display:block;animation:fade .22s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+.ar{font-family:var(--arfont);color:var(--ar);direction:rtl;unicode-bidi:isolate;font-size:1.55rem;line-height:1.9}
+.ar.big{font-size:2rem}
+.az{color:var(--az);font-style:italic;font-size:.95rem}
+.en{color:var(--ink)}
+.iso{unicode-bidi:isolate;display:inline-block}
+.vguide{width:100%;border-collapse:collapse;font-size:.88rem;margin:8px 0}
+.vguide td{border:1px solid var(--line);padding:5px 8px}
+.vguide .v{color:var(--gold);font-weight:700;font-family:ui-monospace,monospace}
+.hide-az .az{display:none!important}
+.gloss .ar{font-size:1.7rem}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:14px 15px;margin:12px 0}
+.card.tight{padding:11px 13px}.card h3:first-child{margin-top:0}
+.hd{display:flex;align-items:center;gap:8px;margin:22px 0 6px}
+.hd .n{font-size:.72rem;color:var(--bg);background:var(--gold);border-radius:6px;padding:2px 7px;font-weight:700}
+.lead{color:var(--muted);font-size:.92rem;margin:.2em 0 .8em}
+
+.rowlist{display:flex;flex-direction:column;gap:1px;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+.row{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;background:var(--card);padding:9px 12px}
+.row .l{min-width:0}.row .en{font-size:.9rem}.row .az{font-size:.8rem}
+.row .ar{font-size:1.35rem;text-align:right}
+.row.head{background:var(--card2);color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.5px}
+.tag{display:inline-block;font-size:.62rem;padding:1px 6px;border-radius:5px;background:var(--card2);color:var(--muted);border:1px solid var(--line);margin-left:6px;vertical-align:middle}
+
+.chips{display:flex;gap:7px;flex-wrap:wrap;margin:8px 0}
+.chip{font-size:.8rem;border:1px solid var(--line);background:var(--card2);border-radius:999px;padding:6px 12px;cursor:pointer;color:var(--muted)}
+.chip.on{background:var(--red);border-color:var(--red);color:#fff}
+.chip.g.on{background:var(--grn);border-color:var(--grn)}
+.chip.b.on{background:var(--blue);border-color:var(--blue)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;background:var(--red);color:#fff;
+  border:none;border-radius:12px;padding:12px 16px;font-size:.95rem;font-weight:600;cursor:pointer;font-family:inherit}
+.btn.ghost{background:var(--card2);color:var(--ink);border:1px solid var(--line)}
+.btn.grn{background:var(--grn)}.btn.gold{background:var(--gold);color:#20160a}
+.btn.blk{background:var(--card);border:1px solid var(--line);color:var(--ink)}
+.btn.blue{background:var(--blue);color:#04203f}
+.btn:active{transform:scale(.97)}.btn:disabled{opacity:.4}
+.btnrow{display:flex;gap:8px;flex-wrap:wrap}.btnrow .btn{flex:1;min-width:110px}
+.btn.sm{padding:8px 12px;font-size:.82rem;border-radius:10px}
+
+input[type=text]{width:100%;background:var(--bg2);border:1px solid var(--line);color:var(--ink);
+  border-radius:12px;padding:12px 14px;font-size:1rem;font-family:inherit}
+input:focus{outline:none;border-color:var(--blue)}
+label.fld{display:block;font-size:.75rem;color:var(--muted);margin:10px 0 4px;text-transform:uppercase;letter-spacing:.4px}
+
+.callout{border-left:3px solid var(--gold);background:var(--card2);border-radius:0 12px 12px 0;padding:10px 12px;margin:10px 0;font-size:.9rem}
+.callout.g{border-color:var(--grn)}.callout.r{border-color:var(--red)}.callout.b{border-color:var(--blue)}
+.kbd{font-family:var(--arfont);background:var(--bg2);border:1px solid var(--line);border-radius:6px;padding:1px 8px;color:var(--gold);font-size:1.1rem}
+
+table.key{width:100%;border-collapse:collapse;font-size:.9rem}
+table.key td,table.key th{border:1px solid var(--line);padding:6px 8px;text-align:left}
+table.key th{background:var(--card2);color:var(--muted);font-weight:600;font-size:.72rem;text-transform:uppercase}
+table.key .k{font-family:var(--arfont);color:var(--gold);font-size:1.2rem;text-align:center}
+
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;margin:8px 0;padding:0 13px}
+details summary{cursor:pointer;padding:12px 0;font-weight:600;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";color:var(--gold)}details[open] summary::before{content:"▾ "}
+details .body{padding:0 0 12px}
+
+/* progress bits */
+.prog{height:7px;background:var(--card2);border-radius:6px;overflow:hidden}
+.prog i{display:block;height:100%;background:linear-gradient(90deg,var(--grn),var(--gold));width:0;transition:width .3s}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 10px;text-align:center}
+.tile b{display:block;font-size:1.7rem;line-height:1;color:var(--gold)}
+.tile span{font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.4px}
+.tile.grn b{color:var(--grn)}.tile.red b{color:var(--red)}.tile.blue b{color:var(--blue)}
+
+/* lesson list */
+.lesson{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);
+  border-radius:14px;padding:12px 14px;margin:9px 0;cursor:pointer}
+.lesson:active{transform:scale(.99)}
+.lesson .badge{width:34px;height:34px;border-radius:9px;background:var(--card2);display:flex;align-items:center;
+  justify-content:center;font-weight:700;color:var(--muted);flex:0 0 auto}
+.lesson.done .badge{background:var(--grn);color:#04210f}
+.lesson.started .badge{background:var(--gold);color:#20160a}
+.lesson .lmeta{min-width:0;flex:1}
+.lesson .lmeta b{display:block;font-size:.95rem}
+.lesson .lmeta small{color:var(--muted)}
+.lesson .arrow{color:var(--muted)}
+
+/* drill / quiz */
+.stage{background:linear-gradient(160deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:20px;
+  padding:22px 16px;min-height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:12px;text-align:center;position:relative}
+.stage .tasktag{position:absolute;top:10px;left:14px;font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:.6px}
+.stage .dir{position:absolute;top:10px;right:14px;font-size:.62rem;color:var(--blue);text-transform:uppercase;letter-spacing:.6px}
+.stage .prompt{font-size:1.4rem;font-weight:600}
+.stage .prompt.ar{font-size:2rem;font-weight:400}
+.stage .ansbox{width:100%;border-top:1px dashed var(--line);padding-top:12px}
+.opt{display:block;width:100%;text-align:left;background:var(--card2);border:1px solid var(--line);color:var(--ink);
+  border-radius:12px;padding:12px 14px;margin:8px 0;cursor:pointer;font-family:inherit;font-size:1rem}
+.opt .ar{font-size:1.5rem}
+.opt.correct{border-color:var(--grn);background:rgba(46,204,113,.15)}
+.opt.wrong{border-color:var(--red);background:rgba(239,68,87,.15)}
+.opt:disabled{opacity:1}
+.feedback{font-weight:700;font-size:1rem}
+.feedback.ok{color:var(--grn)}.feedback.no{color:var(--red)}
+.segrow{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0}
+.matrix{width:100%;border-collapse:collapse;font-size:.86rem}
+.matrix td,.matrix th{border:1px solid var(--line);padding:5px 7px;text-align:center}
+.matrix th{background:var(--card2);color:var(--muted);font-size:.7rem}
+.matrix .p{color:var(--muted);text-align:right;font-size:.78rem;white-space:nowrap}
+.matrix .ar{font-size:1.15rem;white-space:nowrap}
+.matrix .azc{color:var(--az);font-size:.74rem;font-style:italic}
+.weakrow{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 12px;margin:6px 0}
+.weakrow .mn{margin-left:auto;color:var(--red);font-weight:700}
+.flash{background:linear-gradient(160deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:22px;
+  padding:28px 18px;min-height:210px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:12px;text-align:center;position:relative;cursor:pointer}
+.flash .front{font-size:1.3rem;font-weight:600}.flash .kind{position:absolute;top:12px;left:14px;font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:.6px}
+.flash .tap{position:absolute;bottom:12px;font-size:.7rem;color:var(--muted)}
+.flash .ar{font-size:2.2rem}.flash .divider{width:40px;height:2px;background:var(--line)}
+.grade{display:none;gap:8px;margin-top:12px}.grade.on{display:flex}.grade .btn{flex:1}
+.pattern{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;align-items:baseline;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;margin:8px 0}
+.pattern .tpl{font-family:var(--arfont);color:var(--gold);font-size:1.4rem;direction:rtl}
+.reveal{color:var(--muted);cursor:pointer;font-size:.85rem;border:1px dashed var(--line);border-radius:8px;padding:8px 10px;display:inline-block;margin-top:6px}
+.answer{color:var(--az);font-family:var(--arfont);direction:rtl;font-size:1.35rem}
+.footy{color:var(--muted);font-size:.8rem;text-align:center;padding:20px 0 10px}
+.big-ar-out{font-family:var(--arfont);direction:rtl;font-size:2rem;color:#fff;text-align:center;margin:6px 0}
+hr.sep{border:none;border-top:1px solid var(--line);margin:18px 0}
+.intro-hero{background:linear-gradient(135deg,#1a2338,#141b2c);border:1px solid var(--line);border-radius:20px;padding:20px;margin:6px 0 14px;text-align:center}
+.flagline{height:4px;border-radius:4px;background:linear-gradient(90deg,var(--grn) 0 25%,#fff 25% 50%,#111 50% 75%,var(--red) 75% 100%);margin:8px auto;max-width:220px}
+.pill-count{font-size:.72rem;color:var(--muted)}
+.back{color:var(--blue);cursor:pointer;font-size:.9rem;display:inline-block;margin:2px 0 8px}
+ol.ex,ul.ex{padding-inline-start:20px}ol.ex li,ul.ex li{margin:.35em 0}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap hrow">
+    <span class="logo">ع</span>
+    <div class="brand"><b>Emirati Arabic</b><small>Speak in 1 hour</small></div>
+    <div class="toggles">
+      <span class="tg on" id="tgAz" onclick="toggleAz()">Arabizi <b id="azState">ON</b></span>
+      <span class="tg" id="tgGen" onclick="toggleGender()">Speaker <b id="genState">♂ male</b></span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="view on" id="v-home"></section>
+  <section class="view" id="v-lessons"></section>
+  <section class="view" id="v-drill"></section>
+  <section class="view" id="v-cards"></section>
+  <section class="view" id="v-ref"></section>
+</main>
+
+<nav class="tabs">
+  <button class="on" data-v="home" onclick="go('home')"><span class="ic">📊</span>Home</button>
+  <button data-v="lessons" onclick="go('lessons')"><span class="ic">📘</span>Lessons</button>
+  <button data-v="drill" onclick="go('drill')"><span class="ic">🔁</span>Drills</button>
+  <button data-v="cards" onclick="go('cards')"><span class="ic">🎴</span>Cards</button>
+  <button data-v="ref" onclick="go('ref')"><span class="ic">📚</span>Reference</button>
+</nav>
+
+<script>
+/* ============================================================
+   DATA — grounded in Al Ramsa Institute Emirati Arabic A1–B2
+   Arabizi: 7=ح 3=ع gh=غ kh=خ th=ث dh=ذ/ظ sh=ش  g=ق  ch=ك→چ  y=ج
+   ============================================================ */
+const LEX = {
+pronouns:[
+ {en:"I / me",ar:"أَنا",az:"ana"},{en:"you (m)",ar:"إنْتَ",az:"enta"},{en:"you (f)",ar:"إنْتِ",az:"enti"},
+ {en:"he",ar:"هُوْ",az:"hu"},{en:"she",ar:"هِيْ",az:"hi"},{en:"we",ar:"إحْنا",az:"e7na"},
+ {en:"you (pl)",ar:"إنْتُوا",az:"entoo"},{en:"they",ar:"هُمْ",az:"hum"},
+],
+possess:[
+ {en:"my",ar:"ـي",az:"-i",note:"baiti"},{en:"your (m)",ar:"ـَك",az:"-ak",note:"baitak"},
+ {en:"your (f)",ar:"ـِچ",az:"-ich",note:"baitich"},{en:"his",ar:"ـَه",az:"-ah",note:"baitah"},
+ {en:"her",ar:"ـها",az:"-ha",note:"baitha"},{en:"our",ar:"ـنا",az:"-na",note:"baitna"},
+ {en:"your (pl)",ar:"ـكُم",az:"-kum"},{en:"their",ar:"ـهُم",az:"-hum"},
+],
+questions:[
+ {en:"what?",ar:"شُو؟",az:"shoo?"},{en:"who?",ar:"مِنُو؟",az:"minoo?"},{en:"where?",ar:"وِيْن؟",az:"wain?"},
+ {en:"when?",ar:"مِتى؟",az:"meta?"},{en:"why?",ar:"لِيْش؟",az:"laish?"},{en:"how?",ar:"چِيْف؟",az:"chaif?"},
+ {en:"how much / many?",ar:"كَمْ؟",az:"kam?"},{en:"which?",ar:"أيّ؟",az:"ay?"},
+ {en:"how much (price)?",ar:"بِكَمْ؟",az:"bekam?"},{en:"is there…?",ar:"فِيْ…؟",az:"fee…?"},
+],
+particles:[
+ {en:"yes",ar:"هِيَه",az:"haih"},{en:"no",ar:"لا",az:"la"},{en:"not (noun/adj)",ar:"مُبْ",az:"mub"},
+ {en:"not / didn't (verb)",ar:"ما",az:"ma"},{en:"there is / in",ar:"فِيْ",az:"fee"},{en:"there isn't",ar:"ما فِيْ",az:"ma fee"},
+ {en:"I have",ar:"عِنْدي",az:"3indi"},{en:"I want",ar:"أبا",az:"aba"},{en:"I know",ar:"أعْرَفْ",az:"a3ref"},
+ {en:"I'm aware",ar:"أدْري",az:"adri"},{en:"very",ar:"وايِدْ",az:"wayed"},{en:"a little",ar:"شْوَيْ",az:"shway"},
+ {en:"only / just",ar:"بَسْ",az:"bas"},{en:"also",ar:"بَعَدْ",az:"ba3ad"},{en:"maybe",ar:"يِمْكِنْ",az:"yimkin"},
+ {en:"of course",ar:"أكِيدْ",az:"akeed"},{en:"must / have to",ar:"لازِمْ",az:"laazim"},{en:"I can",ar:"أقْدَرْ",az:"agdar"},
+ {en:"good / ok",ar:"زِيْنْ",az:"zain"},{en:"perfect / done",ar:"تَمامْ",az:"tamaam"},{en:"like this",ar:"چِذي",az:"chidhi"},
+ {en:"every",ar:"كِلْ",az:"kil"},{en:"thing",ar:"شِيْ",az:"shai"},{en:"God willing",ar:"إنْ شاءَ الله",az:"in shaa Allah"},
+ {en:"thank God",ar:"الحَمْدُ لله",az:"el 7amdulillah"},{en:"let's / c'mon",ar:"يَلّا",az:"yalla"},
+ {en:"available / present",ar:"مَوْجودْ",az:"mawjood"},{en:"crowded / traffic",ar:"زَحْمَة",az:"za7ma"},
+],
+connectors:[
+ {en:"and",ar:"وْ",az:"wo"},{en:"or",ar:"أوْ",az:"aw"},{en:"but",ar:"بَسْ",az:"bas"},
+ {en:"because",ar:"عَشانْ",az:"3ashaan"},{en:"that's why",ar:"عَشانْ چِيْ",az:"3ashaan chee"},
+ {en:"so",ar:"فَـ",az:"fa"},{en:"and then",ar:"وْبَعْدَيْنْ",az:"wo ba3dain"},
+ {en:"which / who / that",ar:"اللّي",az:"elly"},{en:"that (I think that)",ar:"إنّ",az:"enna"},
+ {en:"if",ar:"إذا",az:"edha"},{en:"until",ar:"لَيْنْ",az:"lain"},{en:"with (a person)",ar:"وِيا",az:"wiya"},
+ {en:"before",ar:"قَبِلْ",az:"gabel"},{en:"after",ar:"بَعَدْ",az:"ba3ad"},
+],
+prepositions:[
+ {en:"in / at",ar:"فِيْ",az:"fee"},{en:"on",ar:"عَلى",az:"3ala"},{en:"from",ar:"مِنْ",az:"min"},
+ {en:"to / for",ar:"حَقّ",az:"7ag"},{en:"about",ar:"عَنْ",az:"3an"},{en:"with",ar:"مَعَ",az:"ma3a"},
+ {en:"next to",ar:"يَمّ",az:"yamm"},{en:"under",ar:"تَحْت",az:"ta7t"},{en:"above",ar:"فوقْ",az:"foog"},
+ {en:"in front of",ar:"قِدّامْ",az:"giddaam"},{en:"behind",ar:"وَرا",az:"wara"},{en:"between",ar:"بِيْنْ",az:"bain"},
+ {en:"here",ar:"هِنِي",az:"hini"},{en:"there",ar:"هِناكْ",az:"hinaak"},
+],
+demonstr:[
+ {en:"this (m)",ar:"هٰذا",az:"haadha"},{en:"this (f)",ar:"هٰذي",az:"haadhi"},{en:"this + noun",ar:"هالـ",az:"hal-"},
+ {en:"these",ar:"هٰذولا",az:"hadhola"},{en:"that (m)",ar:"ذاكْ",az:"dhaak"},{en:"that (f)",ar:"ذيچْ",az:"dheech"},
+],
+people:[
+ {en:"man",ar:"رَيّالْ",az:"rayyaal"},{en:"woman",ar:"حُرْمَة",az:"7urma"},{en:"boy / son",ar:"وَلَدْ",az:"walad"},
+ {en:"girl / daughter",ar:"بِنْتْ",az:"bent"},{en:"kid",ar:"يّاهِلْ",az:"yaahil"},{en:"people",ar:"ناسْ",az:"naas"},
+ {en:"my dad",ar:"أبوي",az:"ubooy"},{en:"my mom",ar:"أُمّي",az:"ommi"},{en:"brother",ar:"أخوي",az:"akhooy"},
+ {en:"sister",ar:"أُخْتي",az:"okhti"},{en:"friend (m)",ar:"رِبِعْ",az:"rabee3"},{en:"friend (f)",ar:"رِبيعَة",az:"rabee3a"},
+ {en:"my friends",ar:"رَبْعي",az:"rab3i"},{en:"family",ar:"الأهَلْ",az:"el ahal"},{en:"neighbor",ar:"جارْ",az:"jaar"},
+ {en:"name",ar:"اِسِمْ",az:"ism"},
+],
+places:[
+ {en:"house / home",ar:"بِيْتْ",az:"bait"},{en:"flat",ar:"شَقّة",az:"sheggah"},{en:"room",ar:"غُرْفَة",az:"ghurfa"},
+ {en:"door",ar:"بابْ",az:"baab"},{en:"tower",ar:"بُرْجْ",az:"burj"},{en:"car",ar:"سَيّارَة / موتَرْ",az:"sayyaara / motar"},
+ {en:"road / way",ar:"دَرِبْ",az:"darb"},{en:"street",ar:"شارِعْ",az:"shaari3"},{en:"city",ar:"مَدينَة",az:"madeena"},
+ {en:"country",ar:"دَوْلَة",az:"dawla"},{en:"place",ar:"مَكانْ",az:"makaan"},{en:"market",ar:"سوقْ",az:"soog"},
+ {en:"mall",ar:"مولْ",az:"mall"},{en:"shop",ar:"مَحَلْ",az:"ma7al"},{en:"restaurant",ar:"مَطْعَمْ",az:"mat3am"},
+ {en:"café",ar:"كوفي شوبْ",az:"koofi shop"},{en:"hospital",ar:"مُسْتَشْفى",az:"mustashfa"},
+ {en:"sea / beach",ar:"بَحَرْ",az:"ba7ar"},{en:"desert",ar:"بَرّ",az:"barr"},{en:"airport",ar:"مَطارْ",az:"mataar"},
+ {en:"school",ar:"مَدْرَسَة",az:"madrasa"},{en:"work / job",ar:"شِغِلْ",az:"sheghel"},{en:"office hours",ar:"دَوامْ",az:"dawaam"},
+ {en:"meeting",ar:"اِجْتِماعْ",az:"ijtimaa3"},{en:"trip / travel",ar:"سَفَرْ / سَفْرَة",az:"safar"},
+],
+things:[
+ {en:"phone",ar:"تِلِفونْ",az:"telifoon"},{en:"key",ar:"مِفْتاحْ",az:"muftaa7"},{en:"bag",ar:"شَنْطَة",az:"shanta"},
+ {en:"book",ar:"كِتابْ",az:"kitaab"},{en:"chair",ar:"كُرْسي",az:"kursi"},{en:"table",ar:"طاوْلَة",az:"taawla"},
+ {en:"money",ar:"فْلوسْ / بيزاتْ",az:"floos / baizaat"},{en:"water",ar:"مايْ",az:"maay"},{en:"tea",ar:"چايْ",az:"chai"},
+ {en:"coffee",ar:"قَهْوَة",az:"gahwa"},{en:"food",ar:"أكِلْ",az:"akil"},{en:"bread",ar:"خُبِزْ",az:"khubz"},
+ {en:"rice",ar:"عَيْشْ",az:"3aish"},{en:"chicken",ar:"دْياي",az:"diyaay"},{en:"fish",ar:"سِمَچْ",az:"simach"},
+ {en:"meat",ar:"لَحَمْ",az:"la7am"},{en:"apple",ar:"تُفّاحَة",az:"tuffaa7a"},{en:"machboos (rice dish)",ar:"مَجْبوسْ",az:"machboos"},
+ {en:"clothes",ar:"هْدومْ",az:"hdoom"},{en:"outfit / dress",ar:"لِبِسْ",az:"libs"},{en:"abaya",ar:"عَباة",az:"3abaaya"},
+ {en:"shirt",ar:"قَميصْ",az:"qamees"},{en:"shoes",ar:"جوتي",az:"joti"},{en:"movie",ar:"فيلمْ",az:"film"},
+ {en:"computer",ar:"كُمْبيوتَرْ",az:"computer"},{en:"thing",ar:"شِيْ",az:"shai"},
+],
+weather:[
+ {en:"the weather",ar:"الجَوّ",az:"el jaw"},{en:"summer",ar:"صَيْفْ",az:"sayf"},{en:"winter",ar:"شِتا",az:"shita"},
+ {en:"autumn",ar:"خَريفْ",az:"khareef"},{en:"spring",ar:"رَبيعْ",az:"rabee3"},{en:"season",ar:"فَصِلْ",az:"fasel"},
+ {en:"rain",ar:"مَطَرْ",az:"matar"},{en:"cloud",ar:"غَيْمْ",az:"ghaim"},{en:"cloudy",ar:"مْغَيِّمْ",az:"imghayyem"},
+ {en:"humidity",ar:"رُطوبَة",az:"rutooba"},{en:"fog",ar:"ضَبابْ",az:"dhabaab"},{en:"dust",ar:"غْبارْ",az:"ighbaar"},
+ {en:"dusty",ar:"مْغَبِّرْ",az:"imghabber"},{en:"hot / heat",ar:"حَرّ",az:"7arr"},{en:"cold",ar:"بارِدْ",az:"baarid"},
+],
+time:[
+ {en:"time",ar:"وَقِتْ",az:"wagt"},{en:"day",ar:"يومْ",az:"youm"},{en:"today",ar:"اليومْ",az:"el youm"},
+ {en:"tomorrow",ar:"باچِرْ",az:"baacher"},{en:"yesterday",ar:"أمْسْ",az:"ams"},{en:"now",ar:"الحِيْنْ",az:"el7een"},
+ {en:"hour / o'clock",ar:"ساعَة",az:"saa3a"},{en:"week",ar:"أسْبوعْ",az:"usboo3"},{en:"weekend",ar:"وِيْكِنْدْ",az:"weekend"},
+ {en:"vacation",ar:"إجازَة",az:"ejaaza"},{en:"month",ar:"شَهَرْ",az:"shahar"},{en:"year",ar:"سَنَة",az:"sana"},
+ {en:"morning",ar:"الصُّبِحْ",az:"el sub7"},{en:"evening",ar:"المَسا",az:"el masa"},{en:"night",ar:"اللَّيْلْ",az:"el lail"},
+ {en:"Friday",ar:"الجُمْعَة",az:"el yum3a"},{en:"Saturday",ar:"السَّبْتْ",az:"el sabt"},{en:"Sunday",ar:"الأحَدْ",az:"el a7ad"},
+],
+adjectives:[
+ {en:"big",ar:"كِبيرْ",az:"kbeer",f:{ar:"كِبيرَة",az:"kbeera"}},{en:"small",ar:"صْغيرْ",az:"sgheer",f:{ar:"صْغيرَة",az:"sgheera"}},
+ {en:"nice / sweet",ar:"حِلو",az:"7elo",f:{ar:"حِلوَة",az:"7elwa"}},{en:"amazing",ar:"روعَة",az:"raw3a"},
+ {en:"new",ar:"يِديدْ",az:"yedeed",f:{ar:"يِديدَة",az:"yedeeda"}},{en:"old",ar:"قَديمْ",az:"gadeem",f:{ar:"قَديمَة",az:"gadeema"}},
+ {en:"hot",ar:"حارّ",az:"7aar"},{en:"cold",ar:"بارِدْ",az:"baarid",f:{ar:"بارْدَة",az:"baarda"}},
+ {en:"happy",ar:"مَبْسوطْ",az:"mabsoot",f:{ar:"مَبْسوطَة",az:"mabsoota"}},{en:"sad / upset",ar:"زَعْلانْ",az:"za3laan",f:{ar:"زَعْلانَة",az:"za3laana"}},
+ {en:"tired",ar:"تَعْبانْ",az:"ta3baan",f:{ar:"تَعْبانَة",az:"ta3baana"}},{en:"hungry",ar:"يوعانْ",az:"yoo3aan",f:{ar:"يوعانَة",az:"yoo3aana"}},
+ {en:"thirsty",ar:"عَطْشانْ",az:"3atshaan",f:{ar:"عَطْشانَة",az:"3atshaana"}},{en:"busy",ar:"مَشْغولْ",az:"mashghool",f:{ar:"مَشْغولَة",az:"mashghoola"}},
+ {en:"excited",ar:"مِتْحَمِّسْ",az:"met7ammes",f:{ar:"مِتْحَمّسَة",az:"met7ammsa"}},{en:"expensive",ar:"غالي",az:"ghaali"},
+ {en:"cheap",ar:"رَخيصْ",az:"rakhees"},{en:"easy",ar:"سَهِلْ",az:"sahel"},{en:"hard",ar:"صَعِبْ",az:"sa3ab"},
+ {en:"close",ar:"قَريبْ",az:"gareeb"},{en:"far",ar:"بَعيدْ",az:"ba3eed"},{en:"important",ar:"مُهِمّ",az:"muhim"},
+ {en:"delicious",ar:"لَذيذْ",az:"ladheedh"},{en:"free / available",ar:"فاضي",az:"faadhi"},{en:"suitable / fits",ar:"لايِقْ",az:"laayeg"},
+ {en:"a lot",ar:"وايِدْ",az:"wayed"},{en:"little",ar:"قَليلْ",az:"galeel"},{en:"all",ar:"كِلْ",az:"kil"},
+ {en:"same",ar:"نَفْسْ",az:"nafs"},{en:"other",ar:"ثاني",az:"thaani"},{en:"best",ar:"أحْسَنْ / أحْلى",az:"a7san / a7la"},
+],
+colors:[
+ {en:"white",ar:"أبْيَضْ",az:"abyadh"},{en:"black",ar:"أسْوَدْ",az:"aswad"},{en:"red",ar:"أحْمَرْ",az:"a7mar"},
+ {en:"green",ar:"أخْضَرْ",az:"akhdar"},{en:"blue",ar:"أزْرَقْ",az:"azrag"},{en:"yellow",ar:"أصْفَرْ",az:"asfar"},
+ {en:"brown",ar:"بُنّي",az:"bunni"},{en:"colour",ar:"لونْ",az:"loon"},
+],
+adverbs:[
+ {en:"now",ar:"الحِيْنْ",az:"el7een"},{en:"later",ar:"بَعْدَيْنْ",az:"ba3dain"},{en:"always",ar:"دايْماً",az:"daayman"},
+ {en:"sometimes",ar:"أحْياناً",az:"a7yaanan"},{en:"never",ar:"أبَداً",az:"abadan"},{en:"together",ar:"سَوا",az:"sawa"},
+ {en:"alone",ar:"بْروحي",az:"broo7i"},{en:"again",ar:"مَرّة ثانْيَة",az:"marra thaanya"},{en:"quickly",ar:"بْسُرْعَة",az:"bsur3a"},
+ {en:"honestly",ar:"بِصَراحَة",az:"bsara7a"},{en:"almost",ar:"تَقْريباً",az:"tagreeban"},{en:"early",ar:"بَدْري",az:"badri"},
+ {en:"late",ar:"مِتْأخِّرْ",az:"met'akhkher"},
+],
+numbers:[
+ {en:"0",ar:"صِفِرْ",az:"sifer"},{en:"1",ar:"واحِدْ",az:"waa7ed"},{en:"2",ar:"اثْنَيْنْ",az:"ethnain"},
+ {en:"3",ar:"ثْلاثَة",az:"thalatha"},{en:"4",ar:"أرْبَعَة",az:"arba3a"},{en:"5",ar:"خَمْسَة",az:"khamsa"},
+ {en:"6",ar:"سِتّة",az:"sitta"},{en:"7",ar:"سَبْعَة",az:"sab3a"},{en:"8",ar:"ثْمانْيَة",az:"themanya"},
+ {en:"9",ar:"تِسْعَة",az:"tes3a"},{en:"10",ar:"عَشْرَة",az:"3ashra"},
+],
+};
+
+/* ===== PHRASEBOOK — every example from the Al Ramsa A1–B2 books ===== */
+const PHR = {
+"Greetings (A1)":[
+ {en:"Peace be upon you",ar:"السَّلامُ عَلَيْكُمْ",az:"salam 3alikum"},
+ {en:"(reply) and upon you peace",ar:"وْعَلَيْكُمُ السَّلامْ",az:"wo 3alikum essalam"},
+ {en:"Good morning",ar:"صَباحْ الخِيْرْ",az:"sabaa7 el khair"},
+ {en:"(reply) good morning",ar:"صَباحْ النّورْ",az:"sabaa7 el noor"},
+ {en:"Good evening",ar:"مَسا الخِيْرْ",az:"masa el khair"},
+ {en:"(reply) good evening",ar:"مَسا النّورْ",az:"masa el noor"},
+ {en:"Hello",ar:"مَرْحَبا",az:"mar7aba"},
+ {en:"Hello (warmer)",ar:"مَرْحَبا السّاعْ",az:"mar7aba essaa3"},
+ {en:"Hello to you too",ar:"مَرْحَبا مِلْيونْ",az:"mar7aba milyoon"},
+ {en:"Thank you (m / f)",ar:"مَشْكورْ / مَشْكورَة",az:"mashkoor / mashkoora"},
+ {en:"Thanks",ar:"شُكْراً",az:"shukran"},
+ {en:"You're welcome",ar:"عَفْواً",az:"3afwan"},
+ {en:"How are you? (m / f / pl)",ar:"اِشْحالَكْ؟ / اِشْحالِچْ؟ / اِشْحالْكُم؟",az:"esh7alek? / esh7alech? / esh7alkum?"},
+ {en:"Fine, thank God",ar:"الحَمْدُ لله بِخِيْرْ",az:"el 7amdulillah bkhair"},
+ {en:"What's new? (m / f)",ar:"شَخْبارَكْ؟ / شَخْبارِچْ؟",az:"shakhbarek? / shakhbarech?"},
+ {en:"Thank God, I'm good",ar:"الحَمْدُلله تَمامْ",az:"el 7amdulillah tamaam"},
+ {en:"Goodbye (reply the same)",ar:"مَعَ السَّلامَة",az:"ma3a essalama"},
+ {en:"Nice to meet you",ar:"تْشَرَّفْنا",az:"tsharrafna"},
+ {en:"(reply) the pleasure is ours",ar:"الشَّرَفْ لْنا",az:"el sharaf lena"},
+],
+"Entering a home / courtesy (A1)":[
+ {en:"I'm coming in (men entering host's house)",ar:"هودْ هودْ",az:"hood hood"},
+ {en:"Come in (permission granted)",ar:"هَدى.. هَدى",az:"heda.. heda"},
+ {en:"Sorry (m / f)",ar:"آسِفْ / آسْفَة",az:"aasif / aasfa"},
+ {en:"Sorry / excuse me",ar:"السّْموحَة",az:"essumoo7a"},
+ {en:"It's alright / no worries",ar:"ما عْلَيْه / عادي",az:"ma 3laih / 3aadi"},
+ {en:"May God reward you (m / f)",ar:"يْزاكْ اللهْ خِيْرْ / يْزاچْ اللهْ خِيْرْ",az:"yizaak Allah khair / yizaach Allah khair"},
+ {en:"May God protect you (m / f / pl)",ar:"تِسْلَمْ / تِسْلَمينْ / تِسْلَمونْ",az:"teslam / teslameen / teslamoon"},
+ {en:"Please",ar:"لو سَمَحْتْ",az:"low sama7t"},
+],
+"Introduce yourself (A1)":[
+ {en:"My name is …",ar:"اِسْمي …",az:"ismi …"},
+ {en:"I'm from …",ar:"أنا مِنْ …",az:"ana min …"},
+ {en:"I work at …",ar:"أشْتِغِلْ فِيْ …",az:"ashteghel fee …"},
+ {en:"I know a little Arabic",ar:"أعْرَفْ عَرَبي شْوَيْ",az:"a3ref 3arabi shway"},
+ {en:"I live in … (m / f)",ar:"ساكِنْ فِيْ … / ساكْنَة فِيْ …",az:"saakin fee … / saakna fee …"},
+ {en:"I'm learning Emirati",ar:"أتْعَلَّمْ الرَّمْسَة الإماراتِيّة",az:"at3allam el ramsa el emaratiyya"},
+],
+"Feelings & mood (A2)":[
+ {en:"The place has a nice vibe",ar:"المَكانْ جَوّه حِلو",az:"el makaan jawwah 7elo"},
+ {en:"I want to change my mood today",ar:"أبا أغَيِّرْ جَوّ اليومْ",az:"aba aghayyer jaw el youm"},
+ {en:"Not my type / not my thing",ar:"مُبْ جَوّي",az:"mub jawwee"},
+ {en:"I'm excited",ar:"أنا مِتْحَمِّسْ",az:"ana met7ammes"},
+ {en:"I'm busy, I won't go",ar:"أنا مَشْغولْ، ما بَسيرْ",az:"ana mashghool, ma baseer"},
+],
+"Weather (A2 & B2)":[
+ {en:"The weather is amazing today",ar:"الجَوّ روعَة اليومْ",az:"el jaw raw3a el youm"},
+ {en:"The weather became nice",ar:"الجَوّ احْلَوّ",az:"el jaw e7lawo"},
+ {en:"The weather today is cloudy",ar:"الجَوّ اليومْ مْغَيِّمْ",az:"el jaw el youm imghayyem"},
+ {en:"The sky is cloudy",ar:"السَّما مْغَيّمَة",az:"el sama imghayyma"},
+ {en:"It looks like it'll rain today",ar:"شَكْلَه بْيَطيحْ مَطَرْ اليومْ",az:"shaklah bytee7 matar el youm"},
+ {en:"Mashallah, the rain is heavy today",ar:"ماشاءالله المَطَرْ غَزيرْ اليومْ",az:"mashallah el matar ghazeer el youm"},
+ {en:"The weather is dusty today",ar:"اليومْ الجَوّ مْغَبِّرْ",az:"el youm el jaw imghabber"},
+ {en:"It's very hot today",ar:"وايِدْ حَرّ اليومْ",az:"wayed 7arr el youm"},
+ {en:"It's extremely hot",ar:"حَرّ لاهوبْ",az:"7arr laahoub"},
+ {en:"It's unbearably hot",ar:"حَرّ موتْ",az:"7arr moot"},
+ {en:"Congratulations on the mercy (of rain)",ar:"مَبْروكْ عَلَيْكُمُ الرَّحْمَة",az:"mabrook 3alikum el ra7ma"},
+ {en:"(reply) upon us and upon you, God willing",ar:"عَلينا وْعَلَيْكُمْ إنْ شاءَ الله",az:"3alina wo 3alikum in shaa Allah"},
+],
+"Opinions (B1)":[
+ {en:"What do you think? (m / f)",ar:"شُو رايَكْ؟ / شُو رايِچْ؟",az:"shoo rayek? / shoo rayech?"},
+ {en:"What do you think about…? (add fee)",ar:"شُو رايَكْ فِيْ…؟",az:"shoo rayek fee…?"},
+ {en:"How about we go to the mall today?",ar:"شُو رايَكْ نْسيرْ المولْ اليومْ؟",az:"shoo rayek nseer el mall el youm?"},
+ {en:"What do you think about the issue?",ar:"شُو رايَكْ فِيْ المَوْضوعْ؟",az:"shoo rayek fee el mawdoo3?"},
+ {en:"The choice is yours (polite dodge)",ar:"الرّايْ رايَكْ",az:"el ray rayek"},
+ {en:"I think that…",ar:"أعْتِقِدْ إنّ…",az:"a3teqed enna…"},
+ {en:"For me / as for me…",ar:"بِالنِّسْبَة لي…",az:"bilnesba lee…"},
+ {en:"Honestly, frankly…",ar:"بِصَراحَة…",az:"bsara7a…"},
+ {en:"I feel that…",ar:"أحِسّ إنّ…",az:"a7ess enna…"},
+ {en:"Can I say…?",ar:"عادي أقولْ…؟",az:"3aadi agool…?"},
+ {en:"What's your point of view?",ar:"شُو وِجْهَة نَظَرَكْ؟",az:"shoo wejhat nadharak?"},
+],
+"Small talk & weekend (B2)":[
+ {en:"What are you going to do on the weekend? (m / f)",ar:"شُو بْتِسَوّي فِيْ الوِيْكِنْدْ؟ / بْتِسَوّينْ؟",az:"shoo betsawwee fee el weekend? / betsawween?"},
+ {en:"Where do you like to go on the weekend? (m)",ar:"وِيْنْ تْحِبّ تْروحْ فِيْ الوِيْكِنْدْ؟",az:"wain t7eb troo7 fee el weekend?"},
+ {en:"What did you do on the weekend? (m)",ar:"شُو سَوّيْتْ فِيْ الوِيْكِنْدْ؟",az:"shoo sawwait fee el weekend?"},
+ {en:"How was the vacation?",ar:"كِيْفْ كانَتْ الإجازَة؟",az:"kaif kaanat el ejaaza?"},
+ {en:"Did you travel during the vacation? (m)",ar:"سافَرْتْ فِيْ الإجازَة؟",az:"saafart fee el ejaaza?"},
+ {en:"Nothing really, I was just home",ar:"ماشي والله، كِلَّه فِيْ البِيْتْ",az:"ma shai wallah, killah fel bait"},
+ {en:"I didn't do anything, I stayed home",ar:"ما سَوّيْتْ شِيْ، تَمّيْتْ فِيْ البِيْتْ",az:"ma sawwait shai, tammait fel bait"},
+ {en:"I didn't go anywhere, just with family",ar:"ما سِرْتْ مَكانْ، بَسْ وِيا الأهَلْ",az:"ma sert makaan, bas wiya el ahal"},
+ {en:"I went to Ras Al Khaimah with my friends",ar:"سِرْتْ راسْ الخِيْمَة وِيا رَبْعي",az:"sirt Ras Al Khaimah wiya rab3i"},
+ {en:"I love to sleep and relax on vacation",ar:"أحِبّ أرْقُدْ وْأرْتاحْ فِيْ الإجازَة",az:"a7ebb argud wo artaa7 fee el ejaaza"},
+ {en:"I like to work out on the weekend",ar:"أحِبّ أسَوّي رِياضَة فِيْ الوِيْكِنْدْ",az:"a7ebb asawwi riyadha fee el weekend"},
+ {en:"Nice idea!",ar:"فِكْرَة حِلوَة!",az:"fekra 7elwa!"},
+ {en:"Let's go to the desert",ar:"يَلّا نْروحْ البَرّ",az:"yalla nroo7 el barr"},
+],
+"Compliments (B2)":[
+ {en:"Your outfit is nice! (f)",ar:"لِبْسِچْ وايِدْ حِلو!",az:"lebsech wayed 7elo!"},
+ {en:"Your shoes are nice, where'd you get them? (m)",ar:"جوتيكْ وايِدْ حِلو، مِنْ وِيْنْ خَذْتَه؟",az:"joteek wayed 7elo, min wain khadhtah?"},
+ {en:"This colour looks nice on you (m / f)",ar:"هاللّونْ وايِدْ حِلو عَلَيْكْ / عَلَيْچْ",az:"hal loon wayed 7elo 3alaik / 3alaich"},
+ {en:"I love your abaya! (f)",ar:"عَباتِچْ وايِدْ حِلوَة!",az:"3abaatech wayed 7elwa!"},
+ {en:"This colour suits you well (m)",ar:"هاللّونْ لايِقْ عَلَيْكْ!",az:"hal loon laayeg 3alaik!"},
+ {en:"Your shirt is nice, where'd you buy it? (f)",ar:"قَميصِچْ وايِدْ حِلو، مِنْ وِيْنْ اِشْتَريْتيه؟",az:"qameesch wayed 7elo, min wain ishtaraiteeh?"},
+ {en:"Thank you! (reply to a compliment)",ar:"عْيونِچْ الحِلوَة!",az:"3yoonech el 7elwa!"},
+ {en:"(reply) may your eyes be well (m / f)",ar:"تِسْلَمْ عْيونَكْ / تِسْلَمْ عْيونِچْ",az:"teslam 3yoonek / teslam 3yoonech"},
+ {en:"Mashallah",ar:"ماشاءالله",az:"mashallah"},
+],
+"Connector examples (A2)":[
+ {en:"He's late because the road is jammed",ar:"هُوْ تْأخَّرْ عَشانْ الدَّرِبْ زَحْمَة",az:"hu ta'kher 3ashaan el darb za7ma"},
+ {en:"I want to buy a computer from Sharaf DG",ar:"أبا أشْتِري كُمْبيوتَرْ مِنْ شَرَفْ دي جي",az:"aba ashtri computer min Sharaf DG"},
+ {en:"From today until tomorrow",ar:"مِنْ اليومْ لَيْنْ باچِرْ",az:"min el youm lain baacher"},
+ {en:"The money is on the table",ar:"الفْلوسْ عَلى الطّاوْلَة",az:"el floos 3ala el taawla"},
+ {en:"I'm at work",ar:"أنا فِيْ الدَّوامْ",az:"ana fee el dawaam"},
+ {en:"Mariam is talking about the weather",ar:"مَرْيَمْ تِتْكَلَّمْ عَنْ الجَوّ",az:"Mariam titkallam 3an el jaw"},
+ {en:"And then what happened?",ar:"وْبَعْدَيْنْ شُو صارْ؟",az:"wo ba3dain shoo saar?"},
+ {en:"So I went to the hospital, then I went to work",ar:"فَ سِرْتْ المُسْتَشْفى وْبَعْدَيْنْ سِرْتْ الدَّوامْ",az:"fa sirt el mustashfa wo ba3dain sirt el dawaam"},
+ {en:"That's why I don't want to go to this shop",ar:"عَشانْ چِيْ ما أبا أسيرْ هالمَحَلْ",az:"3ashaan chee ma aba aseer hal ma7al"},
+ {en:"Today I have a lot of work, I can't go out",ar:"اليومْ عِنْدي وايِدْ شِغِلْ، ما أقْدَرْ أطْلَعْ",az:"el youm 3indi wayed sheghel, ma agdar atla3"},
+],
+"Everyday one-liners (A1–B2)":[
+ {en:"There's a good restaurant next to the house",ar:"فِيْ مَطْعَمْ زِيْنْ يَمّ البِيْتْ",az:"fee mat3am zain yamm el bait"},
+ {en:"The key is on the table",ar:"المِفْتاحْ مَوْجودْ عَلى الطّاوْلَة",az:"el muftaa7 mawjood 3ala el taawla"},
+ {en:"I'll finish the meeting, we'll have lunch",ar:"بَخَلِّصْ الاِجْتِماعْ بْنِتْغَدّى",az:"bakhalles el ijtimaa3 bnetghadda"},
+ {en:"I'll stay here till 5 o'clock",ar:"بَيْلِسْ هِنِي السّاعَة خَمْسْ",az:"bayles hini essaa3a khams"},
+ {en:"I'll finish work, we'll go watch a movie",ar:"بَخَلِّصْ الدَّوامْ، بْنِسيرْ نْشوفْ فيلمْ",az:"bakhalles el dawaam, bnseer nshoof film"},
+ {en:"This is my friend, she lives in Sharjah",ar:"هٰذي رِبيعْتي، ساكْنَة فِيْ الشّارْجَة",az:"haadhi rabee3ti, saakna fee el Sharja"},
+ {en:"They're talking about the trip, I'm excited",ar:"هُمْ يِتْكَلّمونْ عَنْ السَّفَرْ، أنا مِتْحَمِّسْ",az:"hum yetkallamoon 3an el safar, ana met7ammes"},
+ {en:"I parked the car here so it'd be close to home",ar:"وَقَّفْتْ السَّيّارَة هِنِي تْكونْ قَريبَة مِنْ البِيْتْ",az:"waggaft el sayyaara hini tkoon gareeba min el bait"},
+ {en:"Let's meet at 4 o'clock",ar:"خَلّينا نِتْلاقى السّاعَة أرْبَعْ",az:"khalleena netlaaga essaa3a arba3"},
+],
+};
+
+/* Extended graded vocabulary. [en, ar(voweled), az, pos, band]
+   band 2 = next-most-common (A2), 3 = B1 core, 4 = upper B1.
+   pos: n,v,adj,adv,x(function/other). Verbs given as he/I dict form. */
+/* Conversation phrasebook — reviewed for Emirati accuracy, transliteration
+   normalized to course scheme, tashkeel added, non-Emirati "mish" removed. */
+const PHR2 = {
+"Greetings (extended)":[
+ {en:"Hello / peace be upon you",ar:"السَّلامُ عَلَيْكُمْ",az:"as-salaam 3alaikum"},
+ {en:"(reply) and peace upon you",ar:"وْعَلَيْكُمُ السَّلامْ",az:"wa 3alaikum as-salaam"},
+ {en:"A warm hello",ar:"مَرْحَبْتَيْنْ",az:"mar7abtain"},
+ {en:"Hi",ar:"هَلا",az:"hala"},
+ {en:"Hey! great to see you",ar:"هَلا واللهْ",az:"hala wallah"},
+ {en:"Welcome / hello",ar:"يا هَلا",az:"ya hala"},
+ {en:"A very warm welcome",ar:"يا هَلا وْمَرْحَبا",az:"ya hala w-mar7aba"},
+ {en:"Welcome; may God preserve you",ar:"حَيّاكْ اللهْ",az:"7ayyaak Allah"},
+ {en:"(reply) to 7ayyaak Allah",ar:"اللهْ يْحَيّيكْ",az:"Allah yi7ayyeek"},
+ {en:"Good evening",ar:"مَسّاكْ اللهْ بِالخِيْرْ",az:"massaak Allah bil-khair"},
+ {en:"(reply) good evening",ar:"اللهْ يْمَسّيكْ بِالخِيْرْ",az:"Allah yimasseek bil-khair"},
+ {en:"Good night (to m / f)",ar:"تِصْبَحْ عَلى خِيْرْ / تِصْبَحينْ عَلى خِيْرْ",az:"tisba7 3ala khair / tisba7een 3ala khair"},
+ {en:"(reply, to m / f) and you among its people",ar:"وْإنْتَ مِنْ أهْلَه / وْإنْتِ مِنْ أهْلَه",az:"w-inta min ahlah / w-inti min ahlah"},
+],
+"How are you (extended)":[
+ {en:"How are you? (to m / f)",ar:"شْحالَكْ؟ / شْحالِچْ؟",az:"sh7aalak? / sh7aalich?"},
+ {en:"How are you? (plural)",ar:"شْحالْكُمْ؟",az:"sh7aalkum?"},
+ {en:"How are things? (to m / f)",ar:"شَخْبارَكْ؟ / شَخْبارِچْ؟",az:"shakhbaarak? / shakhbaarich?"},
+ {en:"Hope you're well?",ar:"عَساكْ بِخِيْرْ؟",az:"3asaak bikhair?"},
+ {en:"Tell us you're okay / update us",ar:"طَمِّنّا عَنَّكْ",az:"tammanna 3annak"},
+ {en:"Fine, thank God",ar:"بِخِيْرْ الحَمْدُ لله",az:"bikhair, il-7amdillah"},
+ {en:"Good, thank God",ar:"زِيْنْ الحَمْدُ لله",az:"zain, il-7amdillah"},
+ {en:"Excellent / nothing to complain about",ar:"ما عَلَيْه كَلامْ",az:"ma 3alaih kalaam"},
+ {en:"Everything is fine",ar:"كِلْ شِيْ تَمامْ",az:"kil shay tamaam"},
+ {en:"Things are good",ar:"الأُمورْ طَيّبَة",az:"il-umoor tayyiba"},
+ {en:"We're getting by",ar:"ماشينْ",az:"maasheen"},
+ {en:"Thank you; may God keep you safe",ar:"اللهْ يْسَلّمَكْ",az:"Allah yisallmak"},
+ {en:"May it always remain so",ar:"دومْ إنْ شاءَ الله",az:"doom in shaa Allah"},
+],
+"Introductions (extended)":[
+ {en:"What's your name? (to m / f)",ar:"شُو اِسْمَكْ؟ / شُو اِسْمِچْ؟",az:"shu ismak? / shu ismich?"},
+ {en:"My name is …",ar:"اِسْمي …",az:"ismi …"},
+ {en:"Where are you from? (to m / f)",ar:"مِنْ وِيْنْ إنْتَ؟ / مِنْ وِيْنْ إنْتِ؟",az:"min wain inta? / min wain inti?"},
+ {en:"I'm from …",ar:"أنا مِنْ …",az:"ana min …"},
+ {en:"Where do you live? (to m / f)",ar:"وِيْنْ ساكِنْ؟ / وِيْنْ ساكْنَة؟",az:"wain saakin? / wain saakna?"},
+ {en:"What do you do for work? (to m / f)",ar:"شُو تِشْتِغِلْ؟ / شُو تِشْتِغْلينْ؟",az:"shu tishtaghil? / shu tishtaghleen?"},
+ {en:"Nice to meet you",ar:"تْشَرَّفْنا",az:"tsharrafna"},
+ {en:"The pleasure is mine",ar:"الشَّرَفْ لي",az:"ish-sharaf li"},
+ {en:"Long time no see",ar:"مِنْ زَمانْ عَنَّكْ",az:"min zamaan 3annak"},
+ {en:"Where have you been?",ar:"وِيْنْ هالغِيْبَة؟",az:"wain hal-ghaiba?"},
+ {en:"You lit up the place",ar:"نَوَّرْتْ المَكانْ",az:"nawwart il-makaan"},
+ {en:"(reply) it shines because of its people",ar:"المَكانْ مْنَوَّرْ بْأهْلَه",az:"il-makaan mnawwar b-ahlah"},
+],
+"Yes/no & reacting":[
+ {en:"Yes",ar:"هِيَه",az:"heih"},{en:"No",ar:"لا",az:"laa"},{en:"Maybe",ar:"يِمْكِنْ",az:"yimkin"},{en:"Of course",ar:"أكِيدْ",az:"akeed"},
+ {en:"Really?",ar:"صِدِقْ؟",az:"sidg?"},{en:"Seriously? / is that true?",ar:"صِدْقَكْ؟",az:"sidgak?"},{en:"Really?",ar:"واللهْ؟",az:"wallah?"},
+ {en:"Okay then / so…",ar:"إنْزَيْنْ",az:"inzain"},{en:"Good / okay",ar:"زِيْنْ",az:"zain"},{en:"Enough / done / settled",ar:"خَلاصْ",az:"khalaas"},
+ {en:"It's okay / normal",ar:"عادي",az:"3aadi"},{en:"It's not okay / unusual",ar:"مُبْ عادي",az:"mub 3aadi"},
+ {en:"No problem",ar:"مُبْ مُشْكِلَة",az:"mub mushkila"},{en:"Never mind / it's okay",ar:"ما عَلَيْه",az:"ma 3alaih"},{en:"Don't worry about it",ar:"وَلا يْهِمَّكْ",az:"wala yihimmak"},
+ {en:"Correct / wrong",ar:"صَحّ / غَلَطْ",az:"sa7 / ghalat"},
+ {en:"I know / I don't know",ar:"أدْري / ما أدْري",az:"adri / ma adri"},
+ {en:"I understood / I didn't understand",ar:"فْهَمْتْ / ما فْهَمْتْ",az:"fahamt / ma fahamt"},
+ {en:"Do you understand me?",ar:"فْهَمْتْ عَلَيّ؟",az:"fahamt 3alay?"},
+ {en:"What does it mean?",ar:"شُو يَعْني؟",az:"shu ya3ni?"},
+ {en:"What do you mean? (to m / f)",ar:"شُو تِقْصِدْ؟ / شُو تِقْصِدينْ؟",az:"shu tigsid? / shu tigsideen?"},
+ {en:"Which one?",ar:"أيّ واحِدْ؟",az:"ay waa7id?"},
+],
+"Asking to repeat":[
+ {en:"What did you say?",ar:"شُو قِلْتْ؟",az:"shu gilt?"},
+ {en:"Again",ar:"مَرّة ثانْيَة",az:"marra thaanya"},
+ {en:"Repeat, please",ar:"عيدْ لو سَمَحْتْ",az:"3eed law sama7t"},
+ {en:"Slowly",ar:"شْوَيْ شْوَيْ",az:"shway shway"},
+ {en:"Speak slowly",ar:"تْكَلَّمْ شْوَيْ شْوَيْ",az:"takallam shway shway"},
+ {en:"Speak a little louder",ar:"اِرْفَعْ صوتَكْ شْوَيْ",az:"irfa3 sootak shway"},
+ {en:"I didn't hear you",ar:"ما سْمَعْتَكْ",az:"ma sima3tak"},
+ {en:"I didn't understand you",ar:"ما فْهَمْتْ عَلَيْكْ",az:"ma fahamt 3alaik"},
+ {en:"Do you speak English?",ar:"تِتْكَلَّمْ إنْقِليزي؟",az:"titkallam ingleezi?"},
+ {en:"What is this called in Arabic?",ar:"شُو اِسْمْ هالشِّيْ بِالعَرَبي؟",az:"shu ism hal-shay bil-3arabi?"},
+ {en:"How do I say … in Arabic?",ar:"كِيْفْ أقولْ … بِالعَرَبي؟",az:"kaif agool … bil-3arabi?"},
+],
+"Wants & needs (extended)":[
+ {en:"I want …",ar:"أبْغي …",az:"abghi …"},
+ {en:"I want … (shorter)",ar:"أبا …",az:"aba …"},
+ {en:"I don't want",ar:"ما أبْغي",az:"ma abghi"},
+ {en:"What do you want? (to m / f)",ar:"شُو تِبْغي؟ / شُو تِبْغينْ؟",az:"shu tibghi? / shu tibgheen?"},
+ {en:"I need …",ar:"أحْتاجْ …",az:"a7taaj …"},
+ {en:"I don't need",ar:"ما أحْتاجْ",az:"ma a7taaj"},
+ {en:"Do you have …? (to m / f / shop)",ar:"عِنْدَكْ …؟ / عِنْدِچْ …؟ / عِنْدْكُمْ …؟",az:"3indak…? / 3indich…? / 3indkum…?"},
+ {en:"I don't have",ar:"ما عِنْدي",az:"ma 3indi"},
+ {en:"Give me …",ar:"عَطْني …",az:"3atni …"},
+ {en:"Bring / hand me …",ar:"هاتْ …",az:"haat …"},
+ {en:"Take it (to m / f)",ar:"خُذْ / خُذي",az:"khudh / khudhi"},
+ {en:"Let me see",ar:"خَلّني أشوفْ",az:"khallni ashoof"},
+ {en:"Let's go",ar:"خَلّنا نْروحْ",az:"khallna nroo7"},
+ {en:"I want to speak with you",ar:"أبْغي أتْكَلَّمْ وِياكْ",az:"abghi atkallam wayaak"},
+ {en:"May I / is it possible …?",ar:"مُمْكِنْ …؟",az:"mumkin …?"},
+],
+"Everyday Emirati (in phrases)":[
+ {en:"What's going on? / what's the story?",ar:"شُو السّالْفَة؟",az:"shu is-saalfa?"},
+ {en:"What is this whole situation?",ar:"شُو هالسّالْفَة؟",az:"shu hal-saalfa?"},
+ {en:"What's new?",ar:"شُو اليَديدْ؟",az:"shu il-yadeed?"},
+ {en:"Nothing new",ar:"ما شي يَديدْ",az:"ma shi yadeed"},
+ {en:"There isn't any / nothing",ar:"ما شي",az:"ma shi"},
+ {en:"Is something wrong?",ar:"فيهْ شِيْ؟",az:"fi shay?"},
+ {en:"Nothing is wrong",ar:"ما فيهْ شِيْ",az:"ma fi shay"},
+ {en:"A lot / very",ar:"وايِدْ",az:"waayid"},
+ {en:"Very nice",ar:"وايِدْ حِلو",az:"waayid 7ilu"},
+ {en:"A little / a little bit",ar:"شْوَيْ / شْوَيّة",az:"shway / shwayya"},
+ {en:"Now",ar:"الحِيْنْ",az:"il-7een"},
+ {en:"Later / after",ar:"عَقُبْ",az:"3agab"},
+ {en:"Before",ar:"قَبِلْ",az:"gabil"},
+ {en:"I just … (m)",ar:"تَوّني",az:"tawwani"},
+ {en:"I just arrived",ar:"تَوّني وْصَلْتْ",az:"tawwani wasalt"},
+ {en:"I'm still … / not yet",ar:"بَعَدْني",az:"ba3dani"},
+ {en:"I haven't finished yet",ar:"بَعَدْني ما خَلَّصْتْ",az:"ba3dani ma khallast"},
+ {en:"A long time ago",ar:"مِنْ زَمانْ",az:"min zamaan"},
+ {en:"Every day",ar:"كِلْ يومْ",az:"kil yoom"},
+],
+"Politeness & thanks (extended)":[
+ {en:"Please / excuse me (to m / f)",ar:"لو سَمَحْتْ / لو سَمَحْتي",az:"law sama7t / law sama7ti"},
+ {en:"Sorry / pardon me",ar:"السّْموحَة",az:"is-smoo7a"},
+ {en:"Excuse me / allow me",ar:"اِسْمَحْ لي",az:"isma7 li"},
+ {en:"Sorry (m / f speaker)",ar:"آسِفْ / آسْفَة",az:"aasif / aasfa"},
+ {en:"Thank you (to m / f)",ar:"مَشْكورْ / مَشْكورَة",az:"mashkoor / mashkoora"},
+ {en:"Thanks / bless you (to m / f)",ar:"تِسْلَمْ / تِسْلَمينْ",az:"tislam / tislameen"},
+ {en:"Thank you; you've done more than enough",ar:"ما قَصَّرْتْ",az:"ma gassart"},
+ {en:"Thank you all; you did more than enough",ar:"ما قَصَّرْتوا",az:"ma gassartaw"},
+ {en:"You're welcome",ar:"العَفو",az:"il-3afu"},
+ {en:"At your service",ar:"حاضْرينْ",az:"7aadhreen"},
+ {en:"Gladly / consider it done",ar:"مِنْ عْيوني",az:"min 3yooni"},
+ {en:"You deserve it (to m / f)",ar:"تِسْتاهِلْ / تِسْتاهْلينْ",az:"tistaahil / tistaahleen"},
+ {en:"May God give you strength",ar:"يَعْطيكْ العافْيَة",az:"ya3teek il-3aafya"},
+ {en:"(reply) may God grant you health",ar:"اللهْ يْعافيكْ",az:"Allah y3aafeek"},
+],
+"Directions & moving":[
+ {en:"Where are you? (to m / f)",ar:"وِيْنَكْ؟ / وِيْنِچْ؟",az:"wainak? / wainich?"},
+ {en:"I'm here / I'm there",ar:"أنا هِني / أنا هْناكْ",az:"ana hni / ana hnaak"},
+ {en:"Where is the place?",ar:"وِيْنْ المَكانْ؟",az:"wain il-makaan?"},
+ {en:"Where is the entrance / exit?",ar:"وِيْنْ المَدْخَلْ؟ / وِيْنْ المَخْرَجْ؟",az:"wain il-madkhal? / wain il-makhraj?"},
+ {en:"Where is the bathroom?",ar:"وِيْنْ الحَمّامْ؟",az:"wain il-7ammaam?"},
+ {en:"Is it near / far?",ar:"قَريبْ؟ / بْعيدْ؟",az:"gareeb? / b3eed?"},
+ {en:"Straight ahead",ar:"سيدَة",az:"seeda"},
+ {en:"Go straight",ar:"روحْ سيدَة",az:"roo7 seeda"},
+ {en:"Right / left",ar:"يْمينْ / يْسارْ",az:"yameen / yasaar"},
+ {en:"Turn right / left",ar:"لِفّ يْمينْ / لِفّ يْسارْ",az:"lif yameen / lif yasaar"},
+ {en:"Stop here",ar:"وَقِّفْ هِني",az:"waggif hni"},
+ {en:"Come (to m / f / pl)",ar:"تَعالْ / تَعالي / تَعالوا",az:"ta3aal / ta3aali / ta3aalaw"},
+ {en:"Go (to m / f)",ar:"روحْ / روحي",az:"roo7 / roo7i"},
+ {en:"Let's go",ar:"يَلّا نْروحْ",az:"yalla nroo7"},
+ {en:"I'm coming (m / f)",ar:"أنا ياي / أنا ياية",az:"ana yaay / ana yaaya"},
+ {en:"I arrived",ar:"وْصَلْتْ",az:"wasalt"},
+ {en:"On the way",ar:"بِالطّريجْ",az:"bit-tareej"},
+ {en:"I'm a little late",ar:"تْأخَّرْتْ شْوَيْ",az:"ta'akhkhart shway"},
+ {en:"Wait a little / one minute",ar:"اِنْتِظِرْ شْوَيْ / دَقيقَة",az:"intidhir shway / dageega"},
+],
+"Shopping (extended)":[
+ {en:"How much is this? (m / f object)",ar:"بْكَمْ هٰذا؟ / بْكَمْ هٰذي؟",az:"bkam haadha? / bkam haadhi?"},
+ {en:"What's the price?",ar:"كَمْ السِّعِرْ؟",az:"kam is-si3ir?"},
+ {en:"Expensive / very expensive",ar:"غالي / وايِدْ غالي",az:"ghaali / waayid ghaali"},
+ {en:"Cheap",ar:"رْخيصْ",az:"rakhees"},
+ {en:"Final price?",ar:"آخِرْ سِعِرْ؟",az:"aakhir si3ir?"},
+ {en:"Is there no discount?",ar:"ما فيهْ خَصِمْ؟",az:"ma fi khasm?"},
+ {en:"Give me a discount",ar:"سَوِّ لي خَصِمْ",az:"sawwi li khasm"},
+ {en:"I want this / I don't want this",ar:"أبْغي هٰذا / ما أبْغي هٰذا",az:"abghi haadha / ma abghi haadha"},
+ {en:"Do you have another one?",ar:"عِنْدْكُمْ غِيْرَه؟",az:"3indkum ghairah?"},
+ {en:"Do you have a bigger / smaller one?",ar:"عِنْدْكُمْ أكْبَرْ؟ / عِنْدْكُمْ أصْغَرْ؟",az:"3indkum akbar? / 3indkum asghar?"},
+ {en:"Another colour?",ar:"عِنْدْكُمْ لونْ ثاني؟",az:"3indkum loon thaani?"},
+ {en:"I'm just looking",ar:"بَسْ أشوفْ",az:"bas ashoof"},
+ {en:"I'll pay cash / by card",ar:"بَدْفَعْ كاشْ / بَدْفَعْ بِالبِطاقَة",az:"badfa3 kaash / badfa3 bil-bitaaga"},
+ {en:"Give me the receipt",ar:"عَطْني الفاتورَة",az:"3atni il-faatoora"},
+],
+"Food & restaurants (extended)":[
+ {en:"Hungry (m / f)",ar:"يوعانْ / يوعانَة",az:"yoo3aan / yoo3aana"},
+ {en:"Thirsty (m / f)",ar:"عَطْشانْ / عَطْشانَة",az:"3atshaan / 3atshaana"},
+ {en:"What do you have?",ar:"شُو عِنْدْكُمْ؟",az:"shu 3indkum?"},
+ {en:"What do you recommend?",ar:"شُو تِنْصَحْني؟",az:"shu tinsa7ni?"},
+ {en:"Without …",ar:"بْدونْ …",az:"bidoon …"},
+ {en:"Don't put …",ar:"لا تْحُطّ …",az:"laa ti7utt …"},
+ {en:"Put a little / add a little more",ar:"حُطّ شْوَيْ / زيدْ شْوَيْ",az:"7utt shway / zeed shway"},
+ {en:"Spicy / not spicy",ar:"حارّ / مُبْ حارّ",az:"7aar / mub 7aar"},
+ {en:"Delicious / very delicious",ar:"لَذيذْ / وايِدْ لَذيذْ",az:"latheedh / waayid latheedh"},
+ {en:"Enjoy your meal",ar:"بِالعافْيَة",az:"bil-3aafya"},
+ {en:"(reply) to bil-3aafya",ar:"اللهْ يْعافيكْ",az:"Allah y3aafeek"},
+ {en:"I'm full",ar:"شْبَعْتْ",az:"shiba3t"},
+ {en:"The bill, please",ar:"الحْسابْ لو سَمَحْتْ",az:"il-7isaab law sama7t"},
+ {en:"Takeaway / for here",ar:"سَفَري / هِني",az:"safari / hni"},
+],
+"Visiting a home / majlis":[
+ {en:"Welcome, everyone",ar:"حَيّاكُمْ اللهْ",az:"7ayyaakum Allah"},
+ {en:"Make yourselves at home",ar:"البِيْتْ بِيْتْكُمْ",az:"il-bait baitkum"},
+ {en:"You've brightened the place",ar:"مْنَوّرينْ",az:"mnawwareen"},
+ {en:"Please, come in / have some (m / f / pl)",ar:"تْفَضَّلْ / تْفَضَّلي / تْفَضَّلوا",az:"tfaddal / tfaddali / tfaddalaw"},
+ {en:"Come closer / sit closer",ar:"اِقْرَبْ",az:"igrab"},
+ {en:"Yes? / at your service",ar:"سَمّ",az:"samm"},
+ {en:"Yes, sir (respectful)",ar:"سَمّ طالْ عُمْرَكْ",az:"samm, taal 3umrak"},
+ {en:"May you remain strong",ar:"عَساكْ عَالقُوّة",az:"3asaak 3al-guwwa"},
+ {en:"(reply) may God strengthen you",ar:"اللهْ يْقَوّيكْ",az:"Allah yigawweek"},
+ {en:"The coffee is good",ar:"القَهْوَة طَيّبَة",az:"il-gahwa tayyiba"},
+ {en:"Thank you for your generosity",ar:"كَثَّرْ اللهْ خِيْرْكُمْ",az:"kaththar Allah khairkum"},
+ {en:"It's our duty / our pleasure",ar:"واجِبْنا",az:"waajibna"},
+ {en:"You're welcome anytime",ar:"حَيّاكُمْ فِيْ أيّ وَقِتْ",az:"7ayyaakum fi ay wagt"},
+],
+"Compliments & reactions (extended)":[
+ {en:"Expression of admiration",ar:"ماشاءَ الله",az:"ma shaa Allah"},
+ {en:"God has blessed it",ar:"تْبارَكْ الرَّحْمٰنْ",az:"tabaarak ir-Ra7maan"},
+ {en:"Nice / very nice",ar:"حِلو / وايِدْ حِلو",az:"7ilu / waayid 7ilu"},
+ {en:"Stylish / fancy",ar:"كَشْخَة",az:"kashkha"},
+ {en:"Neat / well arranged",ar:"مْرَتَّبْ",az:"mrattab"},
+ {en:"Amazing / remarkable",ar:"عَجيبْ",az:"3ajeeb"},
+ {en:"Awesome",ar:"رَهيبْ",az:"raheeb"},
+ {en:"Excellent / brilliantly done",ar:"فَنّانْ",az:"fannaan"},
+ {en:"Well done / worthy",ar:"كَفو",az:"kafu"},
+ {en:"Well done, you!",ar:"كَفو عَلَيْكْ",az:"kafu 3alaik"},
+ {en:"Enjoy it (clothes/purchases)",ar:"عَلَيْكْ بِالعافْيَة",az:"3alaik bil-3aafya"},
+ {en:"Is it new?",ar:"يَديدْ؟",az:"yadeed?"},
+ {en:"Enjoy wearing it",ar:"مَلْبوسْ العافْيَة",az:"malboos il-3aafya"},
+ {en:"You deserve every good thing",ar:"تِسْتاهِلْ كِلْ خِيْرْ",az:"tistaahil kil khair"},
+ {en:"I liked it / I didn't like it",ar:"حَبّيْتْ / ما حَبّيْتْ",az:"7abbait / ma 7abbait"},
+],
+"Invitations & plans":[
+ {en:"Are you free today? (m / f)",ar:"فاضي اليومْ؟ / فاضْيَة اليومْ؟",az:"faadhi il-yoom? / faadhya il-yoom?"},
+ {en:"What are you doing today?",ar:"شُو عِنْدَكْ اليومْ؟",az:"shu 3indak il-yoom?"},
+ {en:"Where / when are we going?",ar:"وِيْنْ بِنْروحْ؟ / مِتى بِنْروحْ؟",az:"wain binroo7? / mata binroo7?"},
+ {en:"Let's go out",ar:"خَلّنا نِطْلَعْ",az:"khallna nitla3"},
+ {en:"Will you come visit us?",ar:"تْمُرّ عَلَيْنا؟",az:"timurr 3alaina?"},
+ {en:"God willing",ar:"إنْ شاءَ الله",az:"in shaa Allah"},
+ {en:"Hopefully I can / I can't",ar:"إنْ شاءَ الله أقْدَرْ / ما أقْدَرْ",az:"in shaa Allah agdar / ma agdar"},
+ {en:"I have work",ar:"عِنْدي شُغِلْ",az:"3indi shughl"},
+ {en:"Another time, God willing",ar:"مَرّة ثانْيَة إنْ شاءَ الله",az:"marra thaanya in shaa Allah"},
+ {en:"Agreed / done",ar:"اِتّفَقْنا / تَمّ",az:"ittafaagna / tamm"},
+ {en:"Let me know (to m / f)",ar:"خَبِّرْني / خَبّريني",az:"khabbirni / khabbireeni"},
+ {en:"I'll call you",ar:"بَدِقّ عَلَيْكْ",az:"badigg 3alaik"},
+ {en:"Send it to me",ar:"اِطْرِشْ لي",az:"itrish li"},
+ {en:"Send me the location",ar:"اِطْرِشْ لي اللوكيشِنْ",az:"itrish li il-location"},
+ {en:"I'll see you later",ar:"بَشوفَكْ عَقُبْ",az:"bashoofak 3agab"},
+],
+"Problems & emergencies":[
+ {en:"There's a problem",ar:"فيهْ مُشْكِلَة",az:"fi mushkila"},
+ {en:"What's the problem?",ar:"شُو المُشْكِلَة؟",az:"shu il-mushkila?"},
+ {en:"The car isn't working",ar:"السَّيّارَة ما تِشْتِغِلْ",az:"is-sayyaara ma tishtaghil"},
+ {en:"I lost my phone",ar:"ضَيّعْتْ تِلِفوني",az:"dhayya3t tilifooni"},
+ {en:"I couldn't find it",ar:"ما حَصَّلْتَه",az:"ma 7assaltah"},
+ {en:"Help me",ar:"ساعِدْني",az:"saa3idni"},
+ {en:"Call the police / an ambulance",ar:"اِتِّصِلْ بِالشُّرْطَة / اِتِّصِلْ بِالإسْعافْ",az:"ittisil bish-shurta / ittisil bil-is3aaf"},
+ {en:"I'm unwell / tired (m / f)",ar:"أنا تَعْبانْ / أنا تَعْبانَة",az:"ana ta3baan / ana ta3baana"},
+ {en:"It hurts here",ar:"يْعَوّرْني هِني",az:"y3awwarni hni"},
+ {en:"Where is the hospital?",ar:"وِيْنْ المُسْتَشْفى؟",az:"wain il-mustashfa?"},
+ {en:"Be careful (to m / f)",ar:"اِنْتِبِهْ / اِنْتِبْهي",az:"intibih / intibhi"},
+ {en:"Don't be afraid (to m / f)",ar:"لا تْخافْ / لا تْخافينْ",az:"laa tikhaaf / laa tikhaafeen"},
+],
+"Goodbyes & well-wishes":[
+ {en:"Goodbye",ar:"مَعَ السَّلامَة",az:"ma3a s-salaama"},
+ {en:"Go in God's protection",ar:"فِيْ أمانْ الله",az:"fi amaan Allah"},
+ {en:"May God protect you",ar:"اللهْ يْحْفَظَكْ",az:"Allah yi7fadhak"},
+ {en:"See you well / later",ar:"نْشوفَكْ عَلى خِيْرْ",az:"nshoofak 3ala khair"},
+ {en:"See you later / tomorrow",ar:"أشوفَكْ عَقُبْ / أشوفَكْ باچِرْ",az:"ashoofak 3agab / ashoofak baachir"},
+ {en:"Take care (to m / f)",ar:"ديرْ بالَكْ / ديري بالِچْ",az:"deer baalak / deeri baalich"},
+ {en:"Arrive safely",ar:"توصَلْ بِالسَّلامَة",az:"toosal bis-salaama"},
+ {en:"Have a pleasant trip",ar:"رِحْلَة سَعيدَة",az:"ri7la sa3eeda"},
+ {en:"God be with you",ar:"اللهْ وياكْ",az:"Allah wayaak"},
+ {en:"In God's protection",ar:"فِيْ حِفْظْ الرَّحْمٰنْ",az:"fi 7ifdh ir-Ra7maan"},
+],
+"Sound more local":[
+ {en:"Yeah, okay",ar:"هِيَه، زِيْنْ",az:"heih, zain"},
+ {en:"Okay, then what happened?",ar:"إنْزَيْنْ، عَقُبْ شو؟",az:"inzain, 3agab shu?"},
+ {en:"I'll come now",ar:"الحِيْنْ بايي",az:"il-7een bayi"},
+ {en:"Forgive me / sorry",ar:"السّْموحَة مِنَّكْ",az:"is-smoo7a minnak"},
+ {en:"It's fine, never mind",ar:"عادي، ما عَلَيْه",az:"3aadi, ma 3alaih"},
+ {en:"Done, God willing",ar:"تَمّ، إنْ شاءَ الله",az:"tamm, in shaa Allah"},
+ {en:"Consider it done / your wish granted",ar:"فالَكْ طَيّبْ",az:"faalak tayyib"},
+ {en:"Certainly / consider it done (to m)",ar:"أبْشِرْ",az:"abshir"},
+],
+};
+
+const EXT = [
+/* ============ BAND 2 — everyday concrete (A2) ============ */
+// body
+["head","راسْ","raas","n",2],["hair","شَعَرْ","sha3ar","n",2],["face","ويهْ","waih","n",2],["eye","عِيْنْ","3ain","n",2],["eyes","عْيونْ","3yoon","n",2],["ear","اذِنْ","idhin","n",2],["nose","خَشِمْ","khashim","n",2],["mouth","ثِمّ","thumm","n",2],["tooth","سِنّ","sinn","n",2],["tongue","لِسانْ","lisaan","n",2],["neck","رَقَبَة","ragaba","n",2],["hand","إيدْ","eed","n",2],["finger","إصْبَعْ","isba3","n",2],["arm","ذْراعْ","dhraa3","n",2],["leg","رِيْلْ","rijl","n",2],["foot","قَدَمْ","gadam","n",2],["stomach","بَطِنْ","batin","n",2],["back","ظَهَرْ","dhahar","n",2],["heart","قَلِبْ","galb","n",2],["blood","دَمّ","damm","n",2],["skin","جِلِدْ","jild","n",2],
+// house & furniture
+["kitchen","مَطْبَخْ","matbakh","n",2],["bathroom","حَمّامْ","7ammaam","n",2],["bedroom","غُرْفَة النّومْ","ghurfat el noom","n",2],["living room","الصّالَة","el saala","n",2],["window","دِريشَة","dreesha","n",2],["wall","جِدارْ","jidaar","n",2],["floor","أرْضِيّة","ardhiyya","n",2],["roof / ceiling","سَقِفْ","sagf","n",2],["bed","سِريرْ","sireer","n",2],["sofa","كَنَبَة","kanaba","n",2],["carpet","سِجّادَة","siyyaada","n",2],["fridge","ثَلّاجَة","thallaaja","n",2],["oven","فِرِنْ","firin","n",2],["lamp / light","ضَوّ","dhaww","n",2],["mirror","مِراية","miraaya","n",2],["cupboard","دولابْ","doolaab","n",2],["plate","صَحِنْ","sa7in","n",2],["cup / glass","كوبْ","koob","n",2],["spoon","مِلْعَقَة","mil3aga","n",2],["knife","سِچّينْ","sichcheen","n",2],["fork","شوكَة","shooka","n",2],["towel","مِنْشَفَة","minshafa","n",2],["soap","صابونْ","saaboon","n",2],["clock","ساعَة الحيطْ","saa3at el 7eet","n",2],
+// food & drink
+["breakfast","ريوقْ","rayoog","n",2],["lunch","غَدا","ghada","n",2],["dinner","عَشا","3asha","n",2],["sugar","شَكَرْ","shakar","n",2],["salt","مِلِحْ","mil7","n",2],["egg","بيضْ","baidh","n",2],["cheese","جِبِنْ","jibin","n",2],["milk","حَليبْ","7aleeb","n",2],["juice","عَصيرْ","3aseer","n",2],["oil","دِهِنْ","dihin","n",2],["vegetables","خُضارْ","khudhaar","n",2],["fruit","فْواكِه","fwaakih","n",2],["banana","موزْ","mooz","n",2],["orange","بُرْتُقالْ","burtugaal","n",2],["dates","تَمِرْ","tamr","n",2],["tomato","طَماطَة","tamaata","n",2],["potato","بَطاطَة","bataata","n",2],["onion","بَصَلْ","basal","n",2],["soup","شورْبَة","shorba","n",2],["sweets","حَلا","7ala","n",2],["ice","ثَلِجْ","thalj","n",2],["hot (food)","حارّ / سِخِنْ","sikhin","adj",2],["sweet","حِلو","7elo","adj",2],["salty","مالِحْ","maali7","adj",2],
+// clothing
+["clothes","مَلابِسْ","malaabis","n",2],["kandura (men's robe)","كَنْدورَة","kandoora","n",2],["ghutra (headscarf)","غُتْرَة","ghutra","n",2],["trousers","بَنْطَلونْ","bantaloon","n",2],["dress","نَفْنوفْ","nafnoof","n",2],["watch","ساعَة","saa3a","n",2],["glasses","نَظّارَة","nadhdhaara","n",2],["ring","خاتِمْ","khaatim","n",2],["bag / purse","جَنْطَة","janta","n",2],
+// family extended
+["grandfather","يِدّي","yiddi","n",2],["grandmother","يِدّتي","yiddeti","n",2],["uncle (paternal)","عَمّ","3amm","n",2],["uncle (maternal)","خالْ","khaal","n",2],["aunt (paternal)","عَمّة","3amma","n",2],["aunt (maternal)","خالَة","khaala","n",2],["cousin (m)","اِبِنْ العَمّ","ibn el 3amm","n",2],["husband","الزّوجْ","el zooj","n",2],["wife","الزّوجَة","el zooja","n",2],["son","الوَلَدْ","el walad","n",2],["baby","بيبي","bebe","n",2],["guest","ضَيْفْ","dhaif","n",2],["neighbor","جارْ","jaar","n",2],
+// nature & weather
+["sun","شَمِسْ","shams","n",2],["moon","قَمَرْ","gamar","n",2],["star","نَجْمَة","najma","n",2],["sky","سَما","sama","n",2],["earth / ground","أرْضْ","ardh","n",2],["sea","بَحَرْ","ba7ar","n",2],["mountain","جَبَلْ","jabal","n",2],["tree","شَيَرَة","shayara","n",2],["flower","وَرْدَة","warda","n",2],["sand","رَمِلْ","raml","n",2],["stone","حَيَرْ","7ayar","n",2],["fire","نارْ","naar","n",2],["wind","هَوا","hawa","n",2],["air","هَوا","hawa","n",2],["light","نورْ","noor","n",2],["shade / shadow","ظِلّ","dhill","n",2],
+// animals
+["cat","قِطو","gattu","n",2],["dog","چَلِبْ","chalb","n",2],["camel","بِعيرْ","b3eer","n",2],["horse","حْصانْ","7saan","n",2],["bird","طيرْ","tair","n",2],["goat","عَنْزَة","3anza","n",2],["sheep","خَروفْ","kharoof","n",2],["fish (animal)","سِمَچَة","simacha","n",2],["cow","بَقَرَة","bagara","n",2],
+// transport & city
+["bus","باصْ","baas","n",2],["taxi","تاكْسي","taxi","n",2],["plane","طَيّارَة","tayyaara","n",2],["metro","مِتْرو","metro","n",2],["boat","بَبورْ / قارِبْ","gaarib","n",2],["bicycle","سيكِلْ","seekal","n",2],["station","مَحَطّة","ma7atta","n",2],["bridge","جِسِرْ","jisr","n",2],["park / garden","حَديقَة","7adeeqa","n",2],["bank","بَنْكْ","bank","n",2],["pharmacy","صَيْدَلِيّة","saidaliyya","n",2],["supermarket","سوبَرْماركِتْ","supermarket","n",2],["petrol station","مَحَطّة بَنْزينْ","ma7attat banzeen","n",2],["police","شُرْطَة","shurta","n",2],["mosque","مَسْيِدْ","masyid","n",2],
+// common verbs (dict he/I)
+["to sit","يِجْلِسْ / أجْلِسْ","yayles / ayles","v",2],["to stand / stop","يوقَفْ / أوقَفْ","yoogaf / oogaf","v",2],["to open","يِفْتَحْ / أفْتَحْ","yifta7 / afta7","v",2],["to close","يْسَكِّرْ / أسَكِّرْ","ysakker / asakker","v",2],["to enter","يِدْخُلْ / أدْخُلْ","yidkhul / adkhul","v",2],["to return / come back","يِرْجَعْ / أرْجَعْ","yirja3 / arja3","v",2],["to give","يِعْطي / أعْطي","ya3ti / a3ti","v",2],["to bring","يِيبْ / أجيبْ","yeeb / ayeeb","v",2],["to put","يْحُطّ / أحُطّ","y7ott / a7ott","v",2],["to find / get","يِلْقى / ألْقى","yalga / alga","v",2],["to ask","يِسْأَلْ / أسْأَلْ","yis'al / as'al","v",2],["to answer","يْرُدّ / أرُدّ","yridd / aridd","v",2],["to wait","يِنْتِظِرْ / أنْتِظِرْ","yintidhir / antidhir","v",2],["to help","يْساعِدْ / أساعِدْ","ysaa3id / asaa3id","v",2],["to understand","يِفْهَمْ / أفْهَمْ","yifham / afham","v",2],["to remember","يِتْذَكَّرْ / أتْذَكَّرْ","yitdhakkar / atdhakkar","v",2],["to forget","يِنْسى / أنْسى","yinsa / ansa","v",2],["to start","يِبْدا / أبْدا","yibda / abda","v",2],["to stay","يْتَمّ / أتَمّ","ytamm / atamm","v",2],["to arrive","يوصَلْ / أوصَلْ","yoosal / oosal","v",2],["to hear","يِسْمَعْ / أسْمَعْ","yisma3 / asma3","v",2],["to wear","يِلْبَسْ / ألْبَسْ","yilbas / albas","v",2],["to pay","يِدْفَعْ / أدْفَعْ","yidfa3 / adfa3","v",2],["to cook","يِطْبَخْ / أطْبَخْ","yitbakh / atbakh","v",2],["to wash","يِغْسِلْ / أغْسِلْ","yighsil / aghsil","v",2],["to drive","يْسوقْ / أسوقْ","ysoog / asoog","v",2],
+// common adjectives
+["long / tall","طَويلْ","taweel","adj",2],["short","قَصيرْ","gseer","adj",2],["wide","واسِعْ","waasi3","adj",2],["narrow","ضَيِّقْ","dhayyig","adj",2],["heavy","ثَقيلْ","thageel","adj",2],["light (weight)","خَفيفْ","khafeef","adj",2],["clean","نَظيفْ","nadheef","adj",2],["dirty","وَسِخْ","wasikh","adj",2],["full","مَلانْ","malaan","adj",2],["empty","فاضي","faadhi","adj",2],["strong","قَوي","gawi","adj",2],["weak","ضَعيفْ","dha3eef","adj",2],["young","صْغيرْ","sgheer","adj",2],["old (person)","كِبيرْ بِالعُمُرْ","kbeer bil3umur","adj",2],["rich","غَني","ghani","adj",2],["poor","فَقيرْ","fageer","adj",2],["ready","جاهِزْ","jaahiz","adj",2],["famous","مَشْهورْ","mash-hoor","adj",2],["true / real","حَقيقي","7ageege","adj",2],["dangerous","خَطيرْ","khateer","adj",2],["quiet","هادي","haadi","adj",2],["crowded","زَحْمَة","za7ma","adj",2],
+// feelings
+["afraid","خايِفْ","khaayif","adj",2],["angry","مِتْعَصِّبْ","met3assib","adj",2],["bored","مَلانْ / زَهْقانْ","zah-gaan","adj",2],["comfortable","مِرْتاحْ","mirtaa7","adj",2],["worried","قَلْقانْ","galgaan","adj",2],["surprised","مِتْفاجِئْ","metfaaji'","adj",2],["proud","فَخورْ","fakhoor","adj",2],["shy","مِسْتِحي","misti7i","adj",2],["sick","مَريضْ","mareedh","adj",2],["healthy","سَليمْ","saleem","adj",2],
+// quantity, numbers, direction
+["eleven","احْدَعَشْ","i7da3ash","x",2],["twelve","اثْنَعَشْ","ithna3ash","x",2],["twenty","عِشْرينْ","3ishreen","x",2],["thirty","ثْلاثينْ","thalatheen","x",2],["fifty","خَمْسينْ","khamseen","x",2],["hundred","مِيَة","miya","x",2],["thousand","ألِفْ","alf","x",2],["half","نُصّ","nuss","x",2],["quarter","رُبِعْ","rubu3","x",2],["a lot of","وايِدْ","wayed","x",2],["a few","شْوَيّة","shwayya","x",2],["more","أكْثَرْ","akthar","x",2],["less","أقَلّ","agall","x",2],["enough","يِكْفي / بَسْ","yikfi","x",2],["right (direction)","يْمينْ","ymeen","x",2],["left","يْسارْ / شْمالْ","yasaar","x",2],["straight","سيدَة","seeda","x",2],["north","شْمالْ","shamaal","n",2],["south","جْنوبْ","jnoob","n",2],["east","شَرْقْ","sharg","n",2],["west","غَرْبْ","gharb","n",2],
+// time more
+["minute","دَقيقَة","dageega","n",2],["second","ثانْيَة","thaanya","n",2],["noon","الظُّهُرْ","el dhuhur","n",2],["midnight","نُصّ اللَّيْلْ","nuss el lail","n",2],["Sunday","الأحَدْ","el a7ad","n",2],["Monday","الاثْنينْ","el ithnain","n",2],["Tuesday","الثّلاثا","el thalatha","n",2],["Wednesday","الأرْبَعا","el arba3a","n",2],["Thursday","الخَميسْ","el khamees","n",2],["spring","الرّبيعْ","el rabee3","n",2],["last (previous)","اللّي فاتْ","elly faat","x",2],["next","الياي","el yaay","x",2],
+// common abstract nouns
+["idea","فِكْرَة","fikra","n",3],["problem","مُشْكِلَة","mushkila","n",3],["reason","سَبَبْ","sabab","n",3],["difference","فَرْقْ","farg","n",3],["story / situation","سالْفَة","saalfa","n",3],["news","خَبَرْ","khabar","n",3],["matter / topic","مَوْضوعْ","mawdoo3","n",3],["way / method","طَريقَة","tareeqa","n",3],["chance / opportunity","فُرْصَة","fursa","n",3],["life","حَياة","7ayaat","n",3],["world","عالَمْ","3aalam","n",3],["question","سُؤالْ","su'aal","n",3],["answer","جَوابْ","jawaab","n",3],["example","مِثالْ","mithaal","n",3],["mistake","غَلْطَة","ghalta","n",3],["plan","خُطّة","khutta","n",3],["dream","حِلِمْ","7ilm","n",3],["feeling","إحْساسْ","i7saas","n",3],["thought / mind","بالْ","baal","n",3],["truth","حَقيقَة","7ageeqa","n",3],["secret","سِرّ","sirr","n",3],["price","سِعِرْ","si3ir","n",3],["number","رَقَمْ","ragam","n",3],["part","جُزْءْ","juz'","n",3],["type / kind","نوعْ","noo3","n",3],["size","حَجِمْ","7ajm","n",3],["picture / photo","صورَة","soora","n",3],["video","فيديو","video","n",3],["message","مِسِجْ","message","n",3],["word","كِلْمَة","kilma","n",3],["language","لُغَة","lugha","n",3],["gift","هَدِيّة","hadiyya","n",3],["ticket","تَذْكَرَة","tadhkara","n",3],
+// people / society
+["someone","أحَدْ","a7ad","n",3],["everyone","الكِلّ","el kill","n",3],["nobody","ما حَدْ","ma 7ad","x",3],["child","طِفِلْ","tifl","n",3],["boss","المُدِيرْ","el mudeer","n",3],["colleague","زَميلْ","zameel","n",3],["teacher","مْدَرِّسْ","mdarris","n",3],["student","طالِبْ","taalib","n",3],["doctor","دُكْتورْ","doktoor","n",3],["driver","سايِقْ","saayig","n",3],["worker","عامِلْ","3aamil","n",3],["government","الحُكومَة","el 7ukooma","n",3],["company","شَرِكَة","sharika","n",3],["group / team","فْريقْ","freeg","n",3],
+// tech / everyday
+["internet","الإنْتَرْنِتْ","el internet","n",3],["wifi","الوايْفايْ","el wifi","n",3],["app","تَطْبيقْ","tatbeeg","n",3],["screen","شاشَة","shaasha","n",3],["battery","بَطّاريّة","battaariyya","n",3],["charger","شاحِنْ","shaa7in","n",3],["camera","كاميرا","camera","n",3],["password","الرَّقَمْ السِّرّي","el ragam el sirri","n",3],["account","حِسابْ","7isaab","n",3],["email","إيميلْ","email","n",3],
+// travel / city
+["passport","جَوازْ","jawaaz","n",3],["hotel","فُنْدُقْ","fundug","n",3],["map","خَريطَة","khareeta","n",3],["visa","فيزا","visa","n",3],["flight","رِحْلَة","ri7la","n",3],["luggage / bag","شَنْطَة","shanta","n",3],["border","حَدْ","7add","n",3],["ticket office","شِبّاكْ التَّذاكِرْ","shibbaak el tadhaakir","n",3],
+// education
+["class / row","صَفّ","saff","n",3],["exam","اِخْتِبارْ","ikhtibaar","n",3],["page","صَفْحَة","saf7a","n",3],["notebook","دَفْتَرْ","daftar","n",3],["homework","واجِبْ","waajib","n",3],
+// home / objects
+["remote","الرّيموتْ","el remote","n",3],["AC","المُكَيِّفْ","el mukayyef","n",3],["fan","المِرْوَحَة","el mirwa7a","n",3],["switch","المِفْتاحْ","el muftaa7","n",3],["stairs","الدَّرَجْ","el daraj","n",3],["elevator","المَصْعَدْ","el mas3ad","n",3],["garden","الحَديقَة","el 7adeeqa","n",3],["garage","الكَراجْ","el karaaj","n",3],["gate","البَوّابَة","el bawwaaba","n",3],
+// food / restaurant
+["menu","المِنيو","el menu","n",3],["waiter","الجَرْسونْ","el jarsoon","n",3],["order","طَلَبْ","talab","n",3],["bill","الحْسابْ","el 7isaab","n",3],["meal","وَجْبَة","wajba","n",3],["dessert","الحَلا","el 7ala","n",3],["bottle","قارورَة","gaaroora","n",3],
+// health / body
+["medicine","دَوا","dawa","n",3],["pain","ألَمْ","alam","n",3],["fever","حَرارَة","7araara","n",3],["cold (illness)","بَرِدْ","bard","n",3],["clinic","العِيادَة","el 3iyaada","n",3],
+// nature
+["river","نَهَرْ","nahar","n",3],["island","جِزيرَة","jizeera","n",3],["animal","حَيَوانْ","7ayawaan","n",3],["plant","نَبْتَة","nabta","n",3],["wave","موجَة","mooja","n",3],["insect","حَشَرَة","7ashara","n",3],["weather","الطَّقِسْ","el tags","n",3],
+// personality / traits
+["kind (nice-hearted)","طَيِّبْ","tayyib","adj",3],["generous","كَريمْ","kareem","adj",3],["honest","صادِقْ","saadig","adj",3],["smart","ذَكي","dhaki","adj",3],["funny","مُضْحِكْ","mudh7ik","adj",3],["serious","جادّ","jaadd","adj",3],["lazy","كَسْلانْ","kaslaan","adj",3],["patient","صَبورْ","saboor","adj",3],["calm","هادي","haadi","adj",3],["brave","شُجاعْ","shujaa3","adj",3],["polite","مْؤَدَّبْ","m'addab","adj",3],["rude","قَليلْ أدَبْ","galeel adab","adj",3],["friendly","وِدّي","widdi","adj",3],["lucky","مَحْظوظْ","ma7dhoodh","adj",3],
+// common adjectives
+["possible","مُمْكِنْ","mumkin","adj",3],["impossible","مُسْتَحيلْ","musta7eel","adj",3],["necessary","ضْروري","dharoori","adj",3],["normal","عادي","3aadi","adj",3],["strange","غَريبْ","ghareeb","adj",3],["special","خاصّ","khaas","adj",3],["fake","مُزَيَّفْ","muzayyaf","adj",3],["similar","نَفْسْ الشِّيْ","nafs el shai","adj",3],["different","مِخْتِلِفْ","mikhtilif","adj",3],["safe","آمِنْ","aamin","adj",3],["true","صَحيحْ","sa7ee7","adj",3],["wrong / broken","خَرْبانْ","kharbaan","adj",3],["asleep","نايِمْ","naayem","adj",3],["awake","صاحي","saa7i","adj",3],
+// adverbs / discourse
+["probably","غالِباً","ghaaliban","adv",3],["certainly","أكيدْ","akeed","adv",3],["suddenly","فَجْأة","faj'a","adv",3],["finally","أخيراً","akheeran","adv",3],["especially","خاصَّةً","khaassatan","adv",3],["actually / really","بِالحَقيقَة","bil7ageeqa","adv",3],["anyway","عَالعُمومْ","3al3umoom","adv",3],["instead","بَدالْ","badaal","adv",3],["however / but","بَسْ","bas","adv",3],["exactly","بِالضَّبْطْ","bil dhabt","adv",3],["everywhere","كِلْ مَكانْ","kil makaan","adv",3],["soon","قَريبْ","gareeb","adv",3],["recently","مُؤَخَّراً","mu'akhkharan","adv",3],["still / yet","بَعَدْ","ba3ad","adv",3],["directly","سيدَة / مْباشَرَة","seeda","adv",3],
+// verbs (dictionary he/I)
+["to think","يْفَكِّرْ / أفَكِّرْ","yfakker / afakker","v",3],["to feel","يْحِسّ / أحِسّ","y7iss / a7iss","v",3],["to hope","يِتْمَنّى / أتْمَنّى","yitmanna / atmanna","v",3],["to believe","يِعْتِقِدْ / أعْتِقِدْ","ya3teqed / a3teqed","v",3],["to decide","يْقَرِّرْ / أقَرِّرْ","ygarrir / agarrir","v",3],["to try","يْجَرِّبْ / أجَرِّبْ","yjarrib / ajarrib","v",3],["to change","يْغَيِّرْ / أغَيِّرْ","yghayyir / aghayyir","v",3],["to learn","يِتْعَلَّمْ / أتْعَلَّمْ","yit3allam / at3allam","v",3],["to teach","يْدَرِّسْ / أدَرِّسْ","ydarris / adarris","v",3],["to meet","يْقابِلْ / أقابِلْ","ygaabil / agaabil","v",3],["to stop","يْوَقِّفْ / أوَقِّفْ","ywaggif / awaggif","v",3],["to continue","يْكَمِّلْ / أكَمِّلْ","ykammil / akammil","v",3],["to win","يِفوزْ / أفوزْ","yfooz / afooz","v",3],["to lose","يْخَسِّرْ / أخَسِّرْ","ykhasser / akhasser","v",3],["to break","يْكَسِّرْ / أكَسِّرْ","ykasser / akasser","v",3],["to fix","يْصَلِّحْ / أصَلِّحْ","ysalli7 / asalli7","v",3],["to build","يِبْني / أبْني","yibni / abni","v",3],["to carry","يْشيلْ / أشيلْ","ysheel / asheel","v",3],["to send","يْطَرِّشْ / أطَرِّشْ","ytarrish / atarrish","v",3],["to receive / get","يِسْتِلِمْ / أسْتِلِمْ","yistilim / astilim","v",3],["to choose","يِخْتارْ / أخْتارْ","yikhtaar / akhtaar","v",3],["to show","يْوَرّي / أوَرّي","ywarri / awarri","v",3],["to tell","يْقولْ / أقولْ","ygool / agool","v",3],["to explain","يِشْرَحْ / أشْرَحْ","yishra7 / ashra7","v",3],["to promise","يْوعِدْ / أوعِدْ","yoo3id / oo3id","v",3],["to invite","يِعْزِمْ / أعْزِمْ","ya3zim / a3zim","v",3],["to visit","يْزورْ / أزورْ","yzoor / azoor","v",3],["to need","يِحْتاجْ / أحْتاجْ","yi7taaj / a7taaj","v",3],["to hate","يِكْرَه / أكْرَه","yikrah / akrah","v",3],["to prefer","يْفَضِّلْ / أفَضِّلْ","yfaddil / afaddil","v",3],["to enjoy","يِسْتَمْتِعْ / أسْتَمْتِعْ","yistamti3 / astamti3","v",3],["to miss (someone)","يِشْتاقْ / أشْتاقْ","yishtaag / ashtaag","v",3],["to laugh","يِضْحَكْ / أضْحَكْ","yidh7ak / adh7ak","v",3],["to cry","يِبْچي / أبْچي","yibchi / abchi","v",3],["to listen","يِسْمَعْ / أسْمَعْ","yisma3 / asma3","v",3],["to swim","يِسْبَحْ / أسْبَحْ","yisba7 / asba7","v",3],["to run","يِرْكُضْ / أرْكُضْ","yirkudh / arkudh","v",3],["to spend (money)","يِصْرِفْ / أصْرِفْ","yisrif / asrif","v",3],["to rent","يِسْتَأجِرْ / أسْتَأجِرْ","yista'jir / asta'jir","v",3],["to cost","يْكَلِّفْ / تْكَلِّفْ","ykallif","v",3],
+// feelings & relationships
+["love (n)","حُبّ","7ubb","n",4],["friendship","صَداقَة","sadaaqa","n",4],["marriage","زَواجْ","zawaaj","n",4],["wedding","عِرِسْ","3iris","n",4],["trust","ثِقَة","thiqa","n",4],["respect","اِحْتِرامْ","i7tiraam","n",4],["happiness","سَعادَة","sa3aada","n",4],["sadness","حُزْنْ","7uzn","n",4],["fear","خوفْ","khoof","n",4],["hope","أمَلْ","amal","n",4],["patience","صَبِرْ","sabr","n",4],["luck","حَظّ","7adh","n",4],["surprise","مُفاجَأة","mufaaja'a","n",4],["anger","غَضَبْ","ghadhab","n",4],
+// life & events
+["birthday","عيدْ ميلادْ","3eed meelaad","n",4],["party","حَفْلَة","7afla","n",4],["Eid / feast","عيدْ","3eed","n",4],["appointment","مَوْعِدْ","maw3id","n",4],["celebration","اِحْتِفالْ","i7tifaal","n",4],["invitation","عَزيمَة","3azeema","n",4],
+// concepts
+["freedom","حُرِّيّة","7urriyya","n",4],["peace","سَلامْ","salaam","n",4],["war","حَرْبْ","7arb","n",4],["death","موتْ","moot","n",4],["health","صِحّة","si77a","n",4],["success","نَجاحْ","najaa7","n",4],["failure","فَشَلْ","fashal","n",4],["experience","خِبْرَة","khibra","n",4],["knowledge","عِلِمْ","3ilm","n",4],["culture","ثَقافَة","thaqaafa","n",4],["religion","دينْ","deen","n",4],["history","تاريخْ","taareekh","n",4],["future","المُسْتَقْبَلْ","el mustaqbal","n",4],["past","الماضي","el maadhi","n",4],
+// nature & animals
+["valley","وادي","waadi","n",4],["storm","عاصْفَة","3aasfa","n",4],["thunder","رَعِدْ","ra3d","n",4],["lightning","بَرْقْ","barg","n",4],["snow","ثَلِجْ","thalj","n",4],["palm tree","نَخْلَة","nakhla","n",4],["falcon","صَقِرْ","sagr","n",4],["snake","حَيّة","7ayya","n",4],["lion","أسَدْ","asad","n",4],["donkey","حْمارْ","7maar","n",4],["fly (insect)","ذُبابَة","dhubaaba","n",4],["ant","نَمْلَة","namla","n",4],["bee","نَحْلَة","na7la","n",4],
+// food & drink
+["garlic","ثومْ","thoom","n",4],["pepper","فِلْفِلْ","filfil","n",4],["lemon","لَيْمونْ","laimoon","n",4],["mango","هَمْبَا","hamba","n",4],["grapes","عِنَبْ","3inab","n",4],["watermelon","بَطّيخْ","batteekh","n",4],["cucumber","خْيارْ","khyaar","n",4],["carrot","جَزَرْ","jazar","n",4],["yogurt / laban","لَبَنْ","laban","n",4],["honey","عَسَلْ","3asal","n",4],["butter","زِبْدَة","zibda","n",4],["nuts","مْكَسَّراتْ","mkassaraat","n",4],["saffron","زَعْفَرانْ","za3faraan","n",4],["soup","شورْبَة","shorba","n",4],
+// house & city
+["neighborhood","حَيّ","7ay","n",4],["building","عِمارَة","3imaara","n",4],["balcony","بَلْكونَة","balkoona","n",4],["furniture","أثاثْ","athaath","n",4],["pillow","مِخَدّة","mikhadda","n",4],["blanket","بَطّانِيّة","battaaniyya","n",4],["lock","قُفِلْ","gufl","n",4],["yard / courtyard","حوشْ","7oosh","n",4],["museum","مَتْحَفْ","mat7af","n",4],["library","مَكْتَبَة","maktaba","n",4],["cinema","سينَما","sinama","n",4],["port","ميناءْ","meena","n",4],["neighbour's house","بِيْتْ الجارْ","bait el jaar","n",4],
+// body & health
+["cheek","خَدّ","khadd","n",4],["lip","شِفَة","shiffa","n",4],["shoulder","چِتِفْ","chitf","n",4],["knee","رِكْبَة","rikba","n",4],["nail","ظِفِرْ","dhifr","n",4],["bone","عَظِمْ","3adhm","n",4],["brain / mind","مُخّ","mukh","n",4],["breath","نَفَسْ","nafas","n",4],["tear","دَمْعَة","dam3a","n",4],["fever","سُخونَة","sukhoona","n",4],
+// time & measure
+["moment","لَحْظَة","la7dha","n",4],["period / while","فَتْرَة","fatra","n",4],["dawn","الفَجِرْ","el fajr","n",4],["sunrise","الشُّروقْ","el shuroog","n",4],["sunset","الغُروبْ","el ghuroob","n",4],["age","العُمُرْ","el 3umur","n",4],["meter","مِتِرْ","mitr","n",4],["kilo","كيلو","keelo","n",4],["degree","دَرَجَة","daraja","n",4],["century","قَرِنْ","garn","n",4],
+// adjectives (nuanced)
+["beautiful","جَميلْ","jameel","adj",4],["ugly","شينْ","sheen","adj",4],["clever","شاطِرْ","shaater","adj",4],["stupid","غَبي","ghabi","adj",4],["gentle / soft","ناعِمْ","naa3im","adj",4],["rough","خِشِنْ","khishin","adj",4],["deep","عَميقْ","3ameeg","adj",4],["sharp","حادّ","7aadd","adj",4],["thick","سَميچْ","sameech","adj",4],["thin","رَقيقْ","rageeg","adj",4],["wet","مْبَلَّلْ","mballal","adj",4],["dry","ناشِفْ","naashif","adj",4],["dark","مِظْلِمْ","midhlim","adj",4],["clear / obvious","واضِحْ","waadhi7","adj",4],["loud","عالي","3aali","adj",4],["sour","حامِضْ","7aamedh","adj",4],["bitter","مُرّ","murr","adj",4],["fresh","طازَة","taaza","adj",4],["ripe","مِسْتِوي","mistiwi","adj",4],["cruel / harsh","قاسي","gaasi","adj",4],
+// adverbs / discourse
+["immediately","حالاً","7aalan","adv",4],["usually","عادَةً","3aadatan","adv",4],["rarely","نادِراً","naadiran","adv",4],["mostly","غالِباً","ghaaliban","adv",4],["nearly / almost","تَقْريباً","tagreeban","adv",4],["forever","لِلأبَدْ","lil'abad","adv",4],["unfortunately","لِلأسَفْ","lil'asaf","adv",4],["luckily","لِحُسْنْ الحَظّ","li7usn el 7adh","adv",4],["obviously","واضِحْ","waadhi7","adv",4],["seriously / really","بِجِدّ","bjidd","adv",4],["approximately","حَوالي","7awaali","adv",4],["suddenly","فَجْأة","faj'a","adv",4],
+// verbs (dictionary he/I)
+["to happen","يْصيرْ / يْصيرْ","yseer","v",4],["to become","صارْ / يْصيرْ","saar / yseer","v",4],["to seem / appear","يْبَيِّنْ / يْبَيِّنْ","ybayyin","v",4],["to leave (behind)","يْخَلّي / أخَلّي","ykhalli / akhalli","v",4],["to marry","يِتْزَوَّجْ / أتْزَوَّجْ","yitzawwaj / atzawwaj","v",4],["to die","يْموتْ / أموتْ","ymoot / amoot","v",4],["to protect","يِحْمي / أحْمي","yi7mi / a7mi","v",4],["to allow","يِسْمَحْ / أسْمَحْ","yisma7 / asma7","v",4],["to refuse","يِرْفُضْ / أرْفُضْ","yirfudh / arfudh","v",4],["to accept","يِقْبَلْ / أقْبَلْ","yigbal / agbal","v",4],["to agree","يْوافِقْ / أوافِقْ","ywaafig / awaafig","v",4],["to argue / fight","يْتْخانَقْ / أتْخانَقْ","yitkhaanag / atkhaanag","v",4],["to grow","يِكْبَرْ / أكْبَرْ","yikbar / akbar","v",4],["to plant","يِزْرَعْ / أزْرَعْ","yizra3 / azra3","v",4],["to expect","يِتْوَقَّعْ / أتْوَقَّعْ","yitwaqqa3 / atwaqqa3","v",4],["to worry","يِقْلَقْ / أقْلَقْ","yiglag / aglag","v",4],["to relax / rest","يِرْتاحْ / أرْتاحْ","yirtaa7 / artaa7","v",4],["to dream","يِحْلَمْ / أحْلَمْ","yi7lam / a7lam","v",4],["to shout","يْصيحْ / أصيحْ","ysee7 / asee7","v",4],["to repeat","يْعيدْ / أعيدْ","y3eed / a3eed","v",4],["to translate","يْتَرْجِمْ / أتَرْجِمْ","ytarjim / atarjim","v",4],["to count","يْعُدّ / أعُدّ","y3idd / a3idd","v",4],["to knock","يْدُقّ / أدُقّ","ydigg / adigg","v",4],["to press / click","يِضْغَطْ / أضْغَطْ","yidhghat / adhghat","v",4],["to type / write up","يِكْتِبْ / أكْتِبْ","yiktib / aktib","v",4],["to copy","يِنْسَخْ / أنْسَخْ","yinsakh / ansakh","v",4],["to delete","يِمْسَحْ / أمْسَحْ","yimsa7 / amsa7","v",4],["to download","يْنَزِّلْ / أنَزِّلْ","ynazzil / anazzil","v",4],["to save (keep)","يْحَفَظْ / أحْفَظْ","y7afadh / a7fadh","v",4],["to lend","يْسَلِّفْ / أسَلِّفْ","ysallif / asallif","v",4],["to borrow","يِسْتَلِفْ / أسْتَلِفْ","yistalif / astalif","v",4],["to wake up","يْفيقْ / أفيقْ","yfeeg / afeeg","v",4],["to feed","يْطَعِّمْ / أطَعِّمْ","yta33im / ata33im","v",4],["to ride","يِرْكَبْ / أرْكَبْ","yirkab / arkab","v",4],["to fly","يْطيرْ / أطيرْ","yteer / ateer","v",4],["to fall","يْطيحْ / أطيحْ","ytee7 / atee7","v",4],["to smile","يِبْتِسِمْ / أبْتِسِمْ","yibtisim / abtisim","v",4],["to keep / stay","يِضِلّ / أضِلّ","yidhill / adhill","v",4],
+];
+
+/* ===== CONJUGATION ENGINE DATA (Petrov "verb matrix") =====
+   Person order: ana, enta, enti, hu, hi, e7na, entoo, hum
+   Imperative order: enta(m), enti(f), entoo(pl)
+   Future = b- + present. Negatives built by rule. All hand-verified. */
+const PRN = [
+ {az:"ana",ar:"أنا",en:"I",third:false},
+ {az:"enta",ar:"إنْتَ",en:"you",third:false,g:"m"},
+ {az:"enti",ar:"إنْتِ",en:"you",third:false,g:"f"},
+ {az:"hu",ar:"هُوْ",en:"he",third:true},
+ {az:"hi",ar:"هِيْ",en:"she",third:true},
+ {az:"e7na",ar:"إحْنا",en:"we",third:false},
+ {az:"entoo",ar:"إنْتُوا",en:"you all",third:false},
+ {az:"hum",ar:"هُمْ",en:"they",third:false},
+];
+const VERBS = [
+{id:"go",en:["go","goes","went"],mode:"motion",
+ objs:[{ar:"البِيْتْ",az:"el bait",en:"home"},{ar:"المَدْرَسَة",az:"el madrasa",en:"to school"},{ar:"المولْ",az:"el mall",en:"to the mall"},{ar:"البَرّ",az:"el barr",en:"to the desert"}],
+ az:{pa:["ri7t","ri7t","ri7ti","raa7","raa7at","ri7na","ri7taw","raa7aw"],pr:["aroo7","troo7","troo7een","yroo7","troo7","nroo7","troo7oon","yroo7oon"],im:["rooo7","roo7ay","roo7aw"]},
+ ar:{pa:["رِحِتْ","رِحِتْ","رِحْتي","راحْ","راحَتْ","رِحْنا","رِحْتوا","راحوا"],pr:["أروحْ","تْروحْ","تْروحينْ","يْروحْ","تْروحْ","نْروحْ","تْروحونْ","يْروحونْ"],im:["روحْ","روحي","روحوا"]}},
+
+{id:"eat",en:["eat","eats","ate"],mode:"trans",
+ objs:[{ar:"تُفّاحَة",az:"tuffaa7a",en:"an apple"},{ar:"عَيْشْ",az:"3aish",en:"rice"},{ar:"سِمَچْ",az:"simach",en:"fish"},{ar:"خُبِزْ",az:"khubz",en:"bread"}],
+ az:{pa:["akalt","akalt","akalti","akal","aklat","akalna","akaltaw","aklaw"],pr:["aakil","taakil","taakleen","yaakil","taakil","naakil","taakloon","yaakloon"],im:["kil","kili","kilaw"]},
+ ar:{pa:["أكَلْتْ","أكَلْتْ","أكَلْتي","أكَلْ","أكْلَتْ","أكَلْنا","أكَلْتوا","أكْلوا"],pr:["آكِلْ","تاكِلْ","تاكْلينْ","ياكِلْ","تاكِلْ","ناكِلْ","تاكْلونْ","ياكْلونْ"],im:["كِلْ","كِلي","كِلوا"]}},
+
+{id:"drink",en:["drink","drinks","drank"],mode:"trans",
+ objs:[{ar:"مايْ",az:"maay",en:"water"},{ar:"قَهْوَة",az:"gahwa",en:"coffee"},{ar:"چايْ",az:"chai",en:"tea"},{ar:"حَليبْ",az:"7aleeb",en:"milk"}],
+ az:{pa:["shirabt","shirabt","shirabti","shirab","shirbat","shirabna","shirabtaw","shirbaw"],pr:["ashrab","tishrab","tishrbeen","yishrab","tishrab","nishrab","tishrboon","yishrboon"],im:["ishrab","ishrbi","ishrbaw"]},
+ ar:{pa:["شِرَبْتْ","شِرَبْتْ","شِرَبْتي","شِرَبْ","شِرْبَتْ","شِرَبْنا","شِرَبْتوا","شِرْبوا"],pr:["أشْرَبْ","تِشْرَبْ","تِشْرَبينْ","يِشْرَبْ","تِشْرَبْ","نِشْرَبْ","تِشْرَبونْ","يِشْرَبونْ"],im:["اِشْرَبْ","اِشْرَبي","اِشْرَبوا"]}},
+
+{id:"do",en:["do","does","did"],mode:"trans",
+ objs:[{ar:"الشِّغِلْ",az:"el sheghel",en:"the work"},{ar:"رِياضَة",az:"riyadha",en:"sport"},{ar:"الواجِبْ",az:"el waajib",en:"the homework"}],
+ az:{pa:["sawwait","sawwait","sawwaiti","sawwa","sawwat","sawwaina","sawwaitaw","sawwaw"],pr:["asawwi","tsawwi","tsawween","ysawwi","tsawwi","nsawwi","tsawwoon","ysawwoon"],im:["sawwi","sawway","sawwaw"]},
+ ar:{pa:["سَوّيْتْ","سَوّيْتْ","سَوّيْتي","سَوّى","سَوّتْ","سَوّيْنا","سَوّيْتوا","سَوّوا"],pr:["أسَوّي","تْسَوّي","تْسَوّينْ","يْسَوّي","تْسَوّي","نْسَوّي","تْسَوّونْ","يْسَوّونْ"],im:["سَوِّ","سَوّي","سَوّوا"]}},
+
+{id:"see",en:["see","sees","saw"],mode:"trans",
+ objs:[{ar:"فيلمْ",az:"film",en:"a movie"},{ar:"البَحَرْ",az:"el ba7ar",en:"the sea"},{ar:"رِبْعي",az:"rab3i",en:"my friend"}],
+ az:{pa:["shift","shift","shifti","shaaf","shaafat","shifna","shiftaw","shaafaw"],pr:["ashoof","tshoof","tshoofeen","yshoof","tshoof","nshoof","tshoofoon","yshoofoon"],im:["shoof","shoofi","shoofaw"]},
+ ar:{pa:["شِفْتْ","شِفْتْ","شِفْتي","شافْ","شافَتْ","شِفْنا","شِفْتوا","شافوا"],pr:["أشوفْ","تْشوفْ","تْشوفينْ","يْشوفْ","تْشوفْ","نْشوفْ","تْشوفونْ","يْشوفونْ"],im:["شوفْ","شوفي","شوفوا"]}},
+
+{id:"want",en:["want","wants","wanted"],mode:"modal",noFut:true,noImp:true,
+ objs:[{ar:"قَهْوَة",az:"gahwa",en:"coffee"},{ar:"فْلوسْ",az:"floos",en:"money"},{ar:"سَيّارَة",az:"sayyaara",en:"a car"}],
+ az:{pa:["baghait","baghait","baghaiti","bagha","baghat","baghaina","baghaitaw","baghaw"],pr:["aba","taba","tabeen","yaba","taba","naba","taboon","yaboon"],im:["","",""]},
+ ar:{pa:["بَغيْتْ","بَغيْتْ","بَغيْتي","بَغى","بَغَتْ","بَغيْنا","بَغيْتوا","بَغوا"],pr:["أبا","تْبا","تْبينْ","يْبا","تْبا","نْبا","تْبونْ","يْبونْ"],im:["","",""]}},
+
+{id:"write",en:["write","writes","wrote"],mode:"trans",
+ objs:[{ar:"رِسالَة",az:"risaala",en:"a letter"},{ar:"اِسْمي",az:"ismi",en:"my name"},{ar:"مِسِجْ",az:"message",en:"a message"}],
+ az:{pa:["kitabt","kitabt","kitabti","kitab","kitbat","kitabna","kitabtaw","kitbaw"],pr:["aktib","tiktib","tiktbeen","yiktib","tiktib","niktib","tiktboon","yiktboon"],im:["iktib","iktbi","iktbaw"]},
+ ar:{pa:["كِتَبْتْ","كِتَبْتْ","كِتَبْتي","كِتَبْ","كِتْبَتْ","كِتَبْنا","كِتَبْتوا","كِتْبوا"],pr:["أكْتِبْ","تِكْتِبْ","تِكْتْبينْ","يِكْتِبْ","تِكْتِبْ","نِكْتِبْ","تِكْتْبونْ","يِكْتْبونْ"],im:["اِكْتِبْ","اِكْتْبي","اِكْتْبوا"]}},
+
+{id:"read",en:["read","reads","read"],mode:"trans",
+ objs:[{ar:"كِتابْ",az:"kitaab",en:"a book"},{ar:"الدَّرِسْ",az:"el dars",en:"the lesson"}],
+ az:{pa:["garait","garait","garaiti","gara","garat","garaina","garaitaw","garaw"],pr:["agra","tigra","tigreen","yigra","tigra","nigra","tigroon","yigroon"],im:["igra","igray","igraw"]},
+ ar:{pa:["قَريْتْ","قَريْتْ","قَريْتي","قَرا","قَرَتْ","قَريْنا","قَريْتوا","قَروا"],pr:["أقْرا","تِقْرا","تِقْرينْ","يِقْرا","تِقْرا","نِقْرا","تِقْرونْ","يِقْرونْ"],im:["اِقْرا","اِقْري","اِقْروا"]}},
+
+{id:"buy",en:["buy","buys","bought"],mode:"trans",
+ objs:[{ar:"سَيّارَة",az:"sayyaara",en:"a car"},{ar:"هْدومْ",az:"hdoom",en:"clothes"},{ar:"خُبِزْ",az:"khubz",en:"bread"}],
+ az:{pa:["ishtarait","ishtarait","ishtaraiti","ishtara","ishtarat","ishtaraina","ishtaraitaw","ishtaraw"],pr:["ashtri","tishtri","tishtreen","yishtri","tishtri","nishtri","tishtroon","yishtroon"],im:["ishtri","ishtray","ishtraw"]},
+ ar:{pa:["اِشْتَريْتْ","اِشْتَريْتْ","اِشْتَريْتي","اِشْتَرى","اِشْتَرَتْ","اِشْتَريْنا","اِشْتَريْتوا","اِشْتَروا"],pr:["أشْتِري","تِشْتِري","تِشْتِرينْ","يِشْتِري","تِشْتِري","نِشْتِري","تِشْتِرونْ","يِشْتِرونْ"],im:["اِشْتِري","اِشْتِري","اِشْتِروا"]}},
+
+{id:"love",en:["love","loves","loved"],mode:"trans",
+ objs:[{ar:"القَهْوَة",az:"el gahwa",en:"coffee"},{ar:"أهْلي",az:"ahli",en:"my family"},{ar:"البَحَرْ",az:"el ba7ar",en:"the sea"},{ar:"دُبَيْ",az:"Dubai",en:"Dubai"}],
+ az:{pa:["7abbait","7abbait","7abbaiti","7abb","7abbat","7abbaina","7abbaitaw","7abbaw"],pr:["a7ebb","t7ebb","t7ebbeen","y7ebb","t7ebb","n7ebb","t7ebboon","y7ebboon"],im:["7ebb","7ebbi","7ebbaw"]},
+ ar:{pa:["حَبّيْتْ","حَبّيْتْ","حَبّيْتي","حَبّ","حَبّتْ","حَبّيْنا","حَبّيْتوا","حَبّوا"],pr:["أحِبّ","تْحِبّ","تْحِبّينْ","يْحِبّ","تْحِبّ","نْحِبّ","تْحِبّونْ","يْحِبّونْ"],im:["حِبّ","حِبّي","حِبّوا"]}},
+
+{id:"know",en:["know","knows","knew"],mode:"trans",noImp:true,
+ objs:[{ar:"الجَوابْ",az:"el jawaab",en:"the answer"},{ar:"عَرَبي",az:"3arabi",en:"Arabic"},{ar:"الدَّرِبْ",az:"el darb",en:"the way"}],
+ az:{pa:["3iraft","3iraft","3irafti","3iraf","3irfat","3irafna","3iraftaw","3irfaw"],pr:["a3ref","ti3ref","ti3rfeen","yi3ref","ti3ref","ni3ref","ti3rfoon","yi3rfoon"],im:["","",""]},
+ ar:{pa:["عِرَفْتْ","عِرَفْتْ","عِرَفْتي","عِرَفْ","عِرْفَتْ","عِرَفْنا","عِرَفْتوا","عِرْفوا"],pr:["أعْرَفْ","تِعْرَفْ","تِعْرْفينْ","يِعْرَفْ","تِعْرَفْ","نِعْرَفْ","تِعْرْفونْ","يِعْرْفونْ"],im:["","",""]}},
+
+{id:"work",en:["work","works","worked"],mode:"intrans",
+ objs:[{ar:"هِنِي",az:"hini",en:"here"},{ar:"اليومْ",az:"el youm",en:"today"},{ar:"وايِدْ",az:"wayed",en:"a lot"}],
+ az:{pa:["ishtaghalt","ishtaghalt","ishtaghalti","ishtaghal","ishtaghlat","ishtaghalna","ishtaghaltaw","ishtaghlaw"],pr:["ashteghel","tishteghel","tishteghleen","yishteghel","tishteghel","nishteghel","tishteghloon","yishteghloon"],im:["ishteghel","ishteghli","ishteghlaw"]},
+ ar:{pa:["اِشْتَغَلْتْ","اِشْتَغَلْتْ","اِشْتَغَلْتي","اِشْتَغَلْ","اِشْتَغْلَتْ","اِشْتَغَلْنا","اِشْتَغَلْتوا","اِشْتَغْلوا"],pr:["أشْتِغِلْ","تِشْتِغِلْ","تِشْتِغْلينْ","يِشْتِغِلْ","تِشْتِغِلْ","نِشْتِغِلْ","تِشْتِغْلونْ","يِشْتِغْلونْ"],im:["اِشْتِغِلْ","اِشْتِغْلي","اِشْتِغْلوا"]}},
+
+{id:"sleep",en:["sleep","sleeps","slept"],mode:"intrans",
+ objs:[{ar:"بَدْري",az:"badri",en:"early"},{ar:"هِنِي",az:"hini",en:"here"},{ar:"وايِدْ",az:"wayed",en:"a lot"}],
+ az:{pa:["ragadt","ragadt","ragadti","ragad","ragdat","ragadna","ragadtaw","ragdaw"],pr:["argud","targud","targudeen","yargud","targud","nargud","targudoon","yargudoon"],im:["irgid","irgidi","irgidaw"]},
+ ar:{pa:["رَقَدْتْ","رَقَدْتْ","رَقَدْتي","رَقَدْ","رَقْدَتْ","رَقَدْنا","رَقَدْتوا","رَقْدوا"],pr:["أرْقُدْ","تَرْقُدْ","تَرْقُدينْ","يَرْقُدْ","تَرْقُدْ","نَرْقُدْ","تَرْقُدونْ","يَرْقُدونْ"],im:["اِرْقِدْ","اِرْقِدي","اِرْقِدوا"]}},
+
+{id:"go out",en:["go out","goes out","went out"],mode:"intrans",
+ objs:[{ar:"اليومْ",az:"el youm",en:"today"},{ar:"مِنْ البِيْتْ",az:"min el bait",en:"from home"},{ar:"بَدْري",az:"badri",en:"early"}],
+ az:{pa:["tila3t","tila3t","tila3ti","tila3","til3at","tila3na","tila3taw","til3aw"],pr:["atla3","titla3","titla3een","yitla3","titla3","nitla3","titla3oon","yitla3oon"],im:["itla3","itla3i","itla3aw"]},
+ ar:{pa:["طِلَعْتْ","طِلَعْتْ","طِلَعْتي","طِلَعْ","طِلْعَتْ","طِلَعْنا","طِلَعْتوا","طِلْعوا"],pr:["أطْلَعْ","تِطْلَعْ","تِطْلَعينْ","يِطْلَعْ","تِطْلَعْ","نِطْلَعْ","تِطْلَعونْ","يِطْلَعونْ"],im:["اِطْلَعْ","اِطْلَعي","اِطْلَعوا"]}},
+
+{id:"play",en:["play","plays","played"],mode:"trans",
+ objs:[{ar:"طابَة",az:"taaba",en:"football"},{ar:"هِنِي",az:"hini",en:"here"}],
+ az:{pa:["li3abt","li3abt","li3abti","li3ab","li3bat","li3abna","li3abtaw","li3baw"],pr:["al3ab","til3ab","til3abeen","yil3ab","til3ab","nil3ab","til3aboon","yil3aboon"],im:["il3ab","il3abi","il3abaw"]},
+ ar:{pa:["لِعَبْتْ","لِعَبْتْ","لِعَبْتي","لِعَبْ","لِعْبَتْ","لِعَبْنا","لِعَبْتوا","لِعْبوا"],pr:["ألْعَبْ","تِلْعَبْ","تِلْعَبينْ","يِلْعَبْ","تِلْعَبْ","نِلْعَبْ","تِلْعَبونْ","يِلْعَبونْ"],im:["اِلْعَبْ","اِلْعَبي","اِلْعَبوا"]}},
+
+{id:"talk",en:["talk","talks","talked"],mode:"intrans",
+ objs:[{ar:"وِيا رِبْعي",az:"wiya rab3i",en:"with my friend"},{ar:"عَنْ السَّفَرْ",az:"3an el safar",en:"about the trip"}],
+ az:{pa:["ramast","ramast","ramasti","ramas","ramsat","ramasna","ramastaw","ramsaw"],pr:["armes","tirmes","tirmseen","yirmes","tirmes","nirmes","tirmsoon","yirmsoon"],im:["irmes","irmsi","irmsaw"]},
+ ar:{pa:["رَمَسْتْ","رَمَسْتْ","رَمَسْتي","رَمَسْ","رَمْسَتْ","رَمَسْنا","رَمَسْتوا","رَمْسوا"],pr:["أرْمِسْ","تِرْمِسْ","تِرْمْسينْ","يِرْمِسْ","تِرْمِسْ","نِرْمِسْ","تِرْمْسونْ","يِرْمْسونْ"],im:["اِرْمِسْ","اِرْمْسي","اِرْمْسوا"]}},
+{id:"understand",en:["understand","understands","understood"],mode:"trans",
+ objs:[{ar:"الدَّرِسْ",az:"el dars",en:"the lesson"},{ar:"عَرَبي",az:"3arabi",en:"Arabic"}],
+ az:{pa:["fihamt","fihamt","fihamti","fiham","fihmat","fihamna","fihamtaw","fihmaw"],pr:["afham","tifham","tifhmeen","yifham","tifham","nifham","tifhmoon","yifhmoon"],im:["ifham","ifhmi","ifhmaw"]},
+ ar:{pa:["فِهَمْتْ","فِهَمْتْ","فِهَمْتي","فِهَمْ","فِهْمَتْ","فِهَمْنا","فِهَمْتوا","فِهْموا"],pr:["أفْهَمْ","تِفْهَمْ","تِفْهْمينْ","يِفْهَمْ","تِفْهَمْ","نِفْهَمْ","تِفْهْمونْ","يِفْهْمونْ"],im:["اِفْهَمْ","اِفْهْمي","اِفْهْموا"]}},
+
+{id:"give",en:["give","gives","gave"],mode:"trans",
+ objs:[{ar:"فْلوسْ",az:"floos",en:"money"},{ar:"الكِتابْ",az:"el kitaab",en:"the book"}],
+ az:{pa:["3atait","3atait","3ataiti","3ata","3atat","3ataina","3ataitaw","3ataw"],pr:["a3ti","ta3ti","ta3teen","ya3ti","ta3ti","na3ti","ta3toon","ya3toon"],im:["3ati","3atay","3ataw"]},
+ ar:{pa:["عَطيْتْ","عَطيْتْ","عَطيْتي","عَطى","عَطَتْ","عَطيْنا","عَطيْتوا","عَطوا"],pr:["أعْطي","تِعْطي","تِعْطينْ","يِعْطي","تِعْطي","نِعْطي","تِعْطونْ","يِعْطونْ"],im:["عَطِ","عَطي","عَطوا"]}},
+
+{id:"take",en:["take","takes","took"],mode:"trans",
+ objs:[{ar:"الشَّنْطَة",az:"el shanta",en:"the bag"},{ar:"المِفْتاحْ",az:"el muftaa7",en:"the key"}],
+ az:{pa:["khadht","khadht","khadhti","khadh","khadhat","khadhna","khadhtaw","khadhaw"],pr:["aakhidh","taakhidh","taakhdheen","yaakhidh","taakhidh","naakhidh","taakhdhoon","yaakhdhoon"],im:["khudh","khudhi","khudhaw"]},
+ ar:{pa:["خَذْتْ","خَذْتْ","خَذْتي","خَذْ","خَذَتْ","خَذْنا","خَذْتوا","خَذوا"],pr:["آخِذْ","تاخِذْ","تاخْذينْ","ياخِذْ","تاخِذْ","ناخِذْ","تاخْذونْ","ياخْذونْ"],im:["خُذْ","خُذي","خُذوا"]}},
+
+{id:"put",en:["put","puts","put"],mode:"trans",
+ objs:[{ar:"الشَّنْطَة",az:"el shanta",en:"the bag"},{ar:"الفْلوسْ",az:"el floos",en:"the money"}],
+ az:{pa:["7attait","7attait","7attaiti","7att","7attat","7attaina","7attaitaw","7attaw"],pr:["a7ott","t7ott","t7otteen","y7ott","t7ott","n7ott","t7ottoon","y7ottoon"],im:["7ott","7otti","7ottaw"]},
+ ar:{pa:["حَطّيْتْ","حَطّيْتْ","حَطّيْتي","حَطّ","حَطّتْ","حَطّيْنا","حَطّيْتوا","حَطّوا"],pr:["أحُطّ","تْحُطّ","تْحُطّينْ","يْحُطّ","تْحُطّ","نْحُطّ","تْحُطّونْ","يْحُطّونْ"],im:["حُطّ","حُطّي","حُطّوا"]}},
+
+{id:"call",en:["call","calls","called"],mode:"intrans",
+ objs:[{ar:"عَلى أخوي",az:"3ala akhooy",en:"my brother"},{ar:"عَلَيْكْ",az:"3alaik",en:"you"}],
+ az:{pa:["ittasalt","ittasalt","ittasalti","ittasal","ittaslat","ittasalna","ittasaltaw","ittaslaw"],pr:["attesel","tittesel","tittesleen","yittesel","tittesel","nittesel","tittesloon","yittesloon"],im:["ittesel","itteslee","itteslaw"]},
+ ar:{pa:["اِتّصَلْتْ","اِتّصَلْتْ","اِتّصَلْتي","اِتّصَلْ","اِتّصْلَتْ","اِتّصَلْنا","اِتّصَلْتوا","اِتّصْلوا"],pr:["أتِّصِلْ","تِتِّصِلْ","تِتِّصْلينْ","يِتِّصِلْ","تِتِّصِلْ","نِتِّصِلْ","تِتِّصْلونْ","يِتِّصْلونْ"],im:["اِتِّصِلْ","اِتِّصْلي","اِتِّصْلوا"]}},
+
+{id:"travel",en:["travel","travels","travelled"],mode:"intrans",
+ objs:[{ar:"باچِرْ",az:"baacher",en:"tomorrow"},{ar:"وايِدْ",az:"wayed",en:"a lot"}],
+ az:{pa:["saafart","saafart","saafarti","saafar","saafrat","saafarna","saafartaw","saafraw"],pr:["asaafir","tsaafir","tsaafreen","ysaafir","tsaafir","nsaafir","tsaafroon","ysaafroon"],im:["saafir","saafri","saafraw"]},
+ ar:{pa:["سافَرْتْ","سافَرْتْ","سافَرْتي","سافَرْ","سافْرَتْ","سافَرْنا","سافَرْتوا","سافْروا"],pr:["أسافِرْ","تْسافِرْ","تْسافْرينْ","يْسافِرْ","تْسافِرْ","نْسافِرْ","تْسافْرونْ","يْسافْرونْ"],im:["سافِرْ","سافْري","سافْروا"]}},
+
+{id:"sit",en:["sit","sits","sat"],mode:"intrans",
+ objs:[{ar:"هِنِي",az:"hini",en:"here"},{ar:"هِناكْ",az:"hinaak",en:"there"}],
+ az:{pa:["ga3adt","ga3adt","ga3adti","ga3ad","ga3dat","ga3adna","ga3adtaw","ga3daw"],pr:["ag3ad","tig3ad","tig3adeen","yig3ad","tig3ad","nig3ad","tig3adoon","yig3adoon"],im:["ig3ad","ig3adi","ig3adaw"]},
+ ar:{pa:["قِعَدْتْ","قِعَدْتْ","قِعَدْتي","قِعَدْ","قِعْدَتْ","قِعَدْنا","قِعَدْتوا","قِعْدوا"],pr:["أقْعَدْ","تِقْعَدْ","تِقْعَدينْ","يِقْعَدْ","تِقْعَدْ","نِقْعَدْ","تِقْعَدونْ","يِقْعَدونْ"],im:["اِقْعَدْ","اِقْعَدي","اِقْعَدوا"]}},
+
+{id:"open",en:["open","opens","opened"],mode:"trans",
+ objs:[{ar:"البابْ",az:"el baab",en:"the door"},{ar:"الدِّريشَة",az:"el dreesha",en:"the window"}],
+ az:{pa:["fita7t","fita7t","fita7ti","fita7","fit7at","fita7na","fita7taw","fit7aw"],pr:["afta7","tifta7","tift7een","yifta7","tifta7","nifta7","tift7oon","yift7oon"],im:["ifta7","ift7i","ift7aw"]},
+ ar:{pa:["فِتَحْتْ","فِتَحْتْ","فِتَحْتي","فِتَحْ","فِتْحَتْ","فِتَحْنا","فِتَحْتوا","فِتْحوا"],pr:["أفْتَحْ","تِفْتَحْ","تِفْتْحينْ","يِفْتَحْ","تِفْتَحْ","نِفْتَحْ","تِفْتْحونْ","يِفْتْحونْ"],im:["اِفْتَحْ","اِفْتْحي","اِفْتْحوا"]}},
+
+{id:"speak",en:["speak","speaks","spoke"],mode:"intrans",
+ objs:[{ar:"عَرَبي",az:"3arabi",en:"Arabic"},{ar:"إنْقِليزي",az:"ingleezi",en:"English"}],
+ az:{pa:["takallamt","takallamt","takallamti","takallam","takallamat","takallamna","takallamtaw","takallamaw"],pr:["atkallam","titkallam","titkallmeen","yitkallam","titkallam","nitkallam","titkallmoon","yitkallmoon"],im:["itkallam","itkallami","itkallamaw"]},
+ ar:{pa:["تْكَلَّمْتْ","تْكَلَّمْتْ","تْكَلَّمْتي","تْكَلَّمْ","تْكَلّمَتْ","تْكَلَّمْنا","تْكَلَّمْتوا","تْكَلّموا"],pr:["أتْكَلَّمْ","تِتْكَلَّمْ","تِتْكَلّمينْ","يِتْكَلَّمْ","تِتْكَلَّمْ","نِتْكَلَّمْ","تِتْكَلّمونْ","يِتْكَلّمونْ"],im:["اِتْكَلَّمْ","اِتْكَلّمي","اِتْكَلّموا"]}},
+
+{id:"look for",en:["look for","looks for","looked for"],mode:"trans",
+ objs:[{ar:"مِفْتاحي",az:"muftaa7i",en:"my key"},{ar:"الدَّرِبْ",az:"el darb",en:"the way"}],
+ az:{pa:["dawwart","dawwart","dawwarti","dawwar","dawwarat","dawwarna","dawwartaw","dawwaraw"],pr:["adawwir","tdawwir","tdawwreen","ydawwir","tdawwir","ndawwir","tdawwroon","ydawwroon"],im:["dawwir","dawwri","dawwraw"]},
+ ar:{pa:["دَوَّرْتْ","دَوَّرْتْ","دَوَّرْتي","دَوَّرْ","دَوّرَتْ","دَوَّرْنا","دَوَّرْتوا","دَوّروا"],pr:["أدَوِّرْ","تْدَوِّرْ","تْدَوّرينْ","يْدَوِّرْ","تْدَوِّرْ","نْدَوِّرْ","تْدَوّرونْ","يْدَوّرونْ"],im:["دَوِّرْ","دَوّري","دَوّروا"]}},
+];
+
+/* ===== STRUCTURED COURSE =====
+   Each lesson: id, t(itle), sub, html(teaching), ex[] (exercises).
+   Exercise types:
+     mcq  {t:'mcq', q:'English', opts:[{az,ar}], a:idx}   pick correct Emirati
+     en   {t:'en',  q:{az,ar},   opts:['English'], a:idx} pick meaning
+     say  {t:'say', q:'English', ans:{az,ar}}              self-graded reveal   */
+const G=(ar,az,en)=>`<div class="gloss" style="margin:11px 0"><div class="ar" style="font-size:1.5rem">${ar}</div><div class="az">${az}</div><div class="en note">${en}</div></div>`;
+const LESSONS=[
+{id:"sound",t:"The sound code",sub:"Arabizi, vowels & stress",drill:null,words:[],html:`
+<p class="lead">Everything is written in Arabic (with vowel marks) and in <i>Arabizi</i> — the chat alphabet. Numbers = throat sounds English lacks.</p>
+<table class="key"><tr><th>Code</th><th>Letter</th><th>Sound</th></tr>
+<tr><td>7</td><td class="k">ح</td><td>hard breathy H</td></tr>
+<tr><td>3</td><td class="k">ع</td><td>‘ayn — tight throat vowel</td></tr>
+<tr><td>kh / gh</td><td class="k"><span class="iso">خ</span> / <span class="iso">غ</span></td><td>Bach / gargled R</td></tr>
+<tr><td>g</td><td class="k">ق</td><td><b>Emirati:</b> <span class="iso">ق</span> → hard G (gool)</td></tr>
+<tr><td>ch</td><td class="k"><span class="iso">ك</span> → <span class="iso">چ</span></td><td><b>Emirati:</b> some K → CH (esh7alech)</td></tr>
+<tr><td>y</td><td class="k"><span class="iso">ج</span> → <span class="iso">ي</span></td><td><b>Emirati:</b> some J → Y (yedeed)</td></tr></table>
+<div class="callout g">One rule: soften formal Arabic — <b>q→g, j→y, k→ch</b>.</div>
+<h3>Vowels: short vs long</h3>
+<table class="vguide"><tr><td><span class="v">a</span> / <span class="v">aa</span></td><td>short а / long а̄ — bas · baab (held)</td></tr>
+<tr><td><span class="v">i</span>, <span class="v">e</span></td><td>short, a clipped <b>и</b> (closer to и than э; leans to э only next to 7, 3, gh, q)</td></tr>
+<tr><td><span class="v">ee</span></td><td>long <b>и</b> as in “see” / мир — yed<b>ee</b>d</td></tr>
+<tr><td><span class="v">o</span> / <span class="v">oo</span></td><td>short о / long <b>у</b> as in “moon” / суп — r<b>oo</b>7</td></tr></table>
+<div class="callout b"><b>Stress:</b> on the long vowel (aa/ee/oo), usually the last — a-<b>ROO7</b>, ta3-<b>BAAN</b>, <b>BAA</b>-cher. No long vowel? Stress the first syllable — <b>MAR</b>-7aba. Arabic stress is light; clean consonants matter more.</div>`,
+ex:[
+ {t:'mcq',q:"Which sound does “7” stand for?",opts:[{az:"ح — a hard breathy H"},{az:"خ — kh"},{az:"ه — soft h"},{az:"ع"}],a:0},
+ {t:'mcq',q:"In Emirati, ق (qaf) is pronounced…",opts:[{az:"g — a hard G (gool)"},{az:"k"},{az:"a deep q"},{az:"silent"}],a:0},
+ {t:'mcq',q:"“ee” (as in yedeed) is read closest to…",opts:[{az:"и (long, like ‘see’)"},{az:"э"},{az:"ы"},{az:"e as in ‘bed’, short"}],a:0},
+]},
+
+{id:"pron",t:"Pronouns & “to be”",sub:"your first sentences",drill:{gen:'tobe'},
+words:[
+ {en:"I",ar:"أنا",az:"ana"},{en:"you (m)",ar:"إنْتَ",az:"enta"},{en:"you (f)",ar:"إنْتِ",az:"enti"},
+ {en:"he",ar:"هُوْ",az:"hu"},{en:"she",ar:"هِيْ",az:"hi"},{en:"we",ar:"إحْنا",az:"e7na"},
+ {en:"you (pl)",ar:"إنْتُوا",az:"entoo"},{en:"they",ar:"هُمْ",az:"hum"},
+ {en:"from",ar:"مِنْ",az:"min"},{en:"tired",ar:"تَعْبانْ",az:"ta3baan"},{en:"happy",ar:"مَبْسوطْ",az:"mabsoot"},
+ {en:"hungry",ar:"يوعانْ",az:"yoo3aan"},{en:"busy",ar:"مَشْغولْ",az:"mashghool"},{en:"big",ar:"كِبيرْ",az:"kbeer"},{en:"nice",ar:"حِلو",az:"7elo"}],
+html:`<p class="lead"><b>There is no “am / is / are”.</b> Put a pronoun next to a describing word and you have a sentence.</p>
+${G("أنا تَعْبانْ","ana ta3baan","I'm tired")}
+${G("هُوْ مِنْ دُبَيْ","hu min Dubai","he's from Dubai")}
+${G("إحْنا مَبْسوطينْ","e7na mabsooteen","we're happy")}
+<div class="callout">Adjectives take <b>-a</b> for a female (ana ta3baan → ta3baan<b>a</b>). Your speaker gender (top-right) sets which one the drills use.</div>`,
+ex:[
+ {t:'say',q:"I'm hungry",ans:{az:"ana yoo3aan",ar:"أنا يوعانْ"}},
+ {t:'say',q:"he's from Russia",ans:{az:"hu min Russia",ar:"هُوْ مِنْ روسْيا"}},
+ {t:'mcq',q:"How do you say “she's busy”?",opts:[{az:"hi mashghoola",ar:"هِيْ مَشْغولَة"},{az:"hi mashghool",ar:"هِيْ مَشْغولْ"},{az:"ana mashghoola",ar:"أنا مَشْغولَة"},{az:"hu mashghool",ar:"هُوْ مَشْغولْ"}],a:0},
+]},
+
+{id:"this",t:"This, that, the",sub:"pointing at things",drill:{gen:'thisis'},
+words:[
+ {en:"this (m)",ar:"هٰذا",az:"haadha"},{en:"this (f)",ar:"هٰذي",az:"haadhi"},{en:"this + noun",ar:"هالـ",az:"hal-"},
+ {en:"that (m)",ar:"ذاكْ",az:"dhaak"},{en:"that (f)",ar:"ذيچْ",az:"dheech"},
+ {en:"house (m)",ar:"بِيْتْ",az:"bait"},{en:"book (m)",ar:"كِتابْ",az:"kitaab"},{en:"boy (m)",ar:"وَلَدْ",az:"walad"},
+ {en:"car (f)",ar:"سَيّارَة",az:"sayyaara"},{en:"girl (f)",ar:"بِنْتْ",az:"bent"},{en:"coffee (f)",ar:"قَهْوَة",az:"gahwa"},
+ {en:"big",ar:"كِبيرْ",az:"kbeer"},{en:"small",ar:"صْغيرْ",az:"sgheer"},{en:"nice",ar:"حِلو",az:"7elo"},{en:"new",ar:"يِديدْ",az:"yedeed"}],
+html:`<p class="lead">Use <b>haadha</b> for masculine things, <b>haadhi</b> for feminine. Glue <b>hal-</b> to a noun for “this …”.</p>
+${G("هٰذا بِيْتْ","haadha bait","this is a house")}
+${G("هٰذي سَيّارَة","haadhi sayyaara","this is a car")}
+${G("هالبِيْتْ كِبيرْ","hal bait kbeer","this house is big")}
+<div class="callout">How do you know a noun's gender? Most words ending in <b>-a (ة)</b> are feminine (sayyaara, gahwa); the rest are usually masculine.</div>`,
+ex:[
+ {t:'mcq',q:"“this car” — which is right?",opts:[{az:"haadhi sayyaara",ar:"هٰذي سَيّارَة"},{az:"haadha sayyaara",ar:"هٰذا سَيّارَة"},{az:"hal sayyaara kbeer",ar:"هالسَيّارَة كِبيرْ"},{az:"dhaak sayyaara",ar:"ذاكْ سَيّارَة"}],a:0},
+ {t:'say',q:"this is a book",ans:{az:"haadha kitaab",ar:"هٰذا كِتابْ"}},
+ {t:'say',q:"this house is nice",ans:{az:"hal bait 7elo",ar:"هالبِيْتْ حِلو"}},
+]},
+
+{id:"have",t:"My, your & having",sub:"the endings that do the work",drill:{gen:'possess'},
+words:[
+ {en:"my",ar:"ـي",az:"-i"},{en:"your (m)",ar:"ـَك",az:"-ak"},{en:"his",ar:"ـَه",az:"-ah"},
+ {en:"her",ar:"ـها",az:"-ha"},{en:"our",ar:"ـنا",az:"-na"},{en:"their",ar:"ـهُم",az:"-hum"},
+ {en:"I have",ar:"عِنْدي",az:"3indi"},{en:"you have",ar:"عِنْدَكْ",az:"3indak"},{en:"he has",ar:"عِنْدَه",az:"3indah"},
+ {en:"name (m)",ar:"اِسِمْ",az:"ism"},{en:"money",ar:"فْلوسْ",az:"floos"},{en:"time",ar:"وَقِتْ",az:"wagt"}],
+html:`<p class="lead">One set of endings does both jobs: glue it to a noun for <b>my/your/his</b>, or to <b>3ind</b> (“at”) for <b>have</b>.</p>
+${G("بِيْتي كِبيرْ","baiti kbeer","my house is big")}
+${G("هٰذا كِتابَكْ","haadha kitaabak","this is your book")}
+${G("عِنْدي سَيّارَة","3indi sayyaara","I have a car")}
+<table class="vguide"><tr><td class="v">-i / -ak / -ah</td><td>my / your / his — bait<b>i</b>, bait<b>ak</b>, bait<b>ah</b></td></tr>
+<tr><td class="v">-ha / -na / -hum</td><td>her / our / their</td></tr></table>`,
+ex:[
+ {t:'say',q:"this is my book",ans:{az:"haadha kitaabi",ar:"هٰذا كِتابي"}},
+ {t:'say',q:"I have a car",ans:{az:"3indi sayyaara",ar:"عِنْدي سَيّارَة"}},
+ {t:'mcq',q:"“his name”",opts:[{az:"ismah",ar:"اِسْمَه"},{az:"ismi",ar:"اِسْمي"},{az:"ismak",ar:"اِسْمَكْ"},{az:"3indah ism",ar:"عِنْدَه اِسِمْ"}],a:0},
+]},
+
+{id:"iform",t:"Core verbs — “I ___”",sub:"one prefix unlocks dozens",drill:{gen:'iform'},
+words:[
+ {en:"I write",ar:"أكْتِبْ",az:"aktib"},{en:"I read",ar:"أقْرا",az:"agra"},{en:"I see",ar:"أشوفْ",az:"ashoof"},
+ {en:"I buy",ar:"أشْتِري",az:"ashtri"},{en:"I speak",ar:"أتْكَلَّمْ",az:"atkallam"},{en:"I chat (Emirati)",ar:"أرْمِسْ",az:"armes"},
+ {en:"I love",ar:"أحِبّ",az:"a7ebb"},{en:"I understand",ar:"أفْهَمْ",az:"afham"},{en:"I want",ar:"أبا",az:"aba"},
+ {en:"I take",ar:"آخِذْ",az:"aakhidh"},{en:"I put",ar:"أحُطّ",az:"a7ott"},{en:"I give",ar:"أعْطي",az:"a3ti"},
+ {en:"I look for",ar:"أدَوِّرْ",az:"adawwir"},{en:"I go",ar:"أسيرْ / أروحْ",az:"aseer / aroo7"},{en:"I work",ar:"أشْتِغِلْ",az:"ashteghel"},
+ {en:"I call",ar:"أتِّصِلْ",az:"attesel"},{en:"I travel",ar:"أسافِرْ",az:"asaafer"},{en:"I eat",ar:"آكِلْ",az:"aakil"},
+ {en:"I drink",ar:"أشْرَبْ",az:"ashrab"},{en:"I sleep",ar:"أرْقُدْ",az:"argud"}],
+html:`<p class="lead">To say “I do X”, start the verb with <b>a-</b> (أ). Every Arabic verb grows from a <b>3-letter root</b>; the “I” form pours it into the shape <b>a‑ _ _ i _</b>.</p>
+<table class="matrix"><tr><td class="p">root k·t·b <small>(writing)</small></td><td class="ar">أكْتِبْ</td><td class="azc">a-ktib = I write</td></tr>
+<tr><td class="p">root sh·r·b <small>(drinking)</small></td><td class="ar">أشْرَبْ</td><td class="azc">a-shrab = I drink</td></tr>
+<tr><td class="p">root l·3·b <small>(playing)</small></td><td class="ar">ألْعَبْ</td><td class="azc">a-l3ab = I play</td></tr></table>
+<div class="callout g">The payoff: the moment you know a root you can build “I …” — <b>k·t·b → aktib</b> (I write), <b>f·h·m → afham</b> (I understand). The <b>Word Builder</b> (Reference) shows how the same root makes the noun, the doer and the place too.</div>
+${G("أرْمِسْ عَرَبي شْوَيْ بَسْ","armes 3arabi shway bas","I speak a little Arabic")}
+${G("أسيرْ المولْ وْبَعْدَيْنْ أرْقُدْ","aseer el mall wo ba3dain argud","I go to the mall and then I sleep")}
+<div class="callout">A few verbs bend the vowels (hollow: aroo7 / aseer / ashoof; doubled: a7ebb / a7ott) — but they all still start with <b>a-</b>. The full “he/you/we…” set comes in the Present-tense lesson.</div>`,
+ex:[
+ {t:'mcq',q:"The root k·t·b is about writing. So “I write” =",opts:[{az:"aktib",ar:"أكْتِبْ"},{az:"yiktib",ar:"يِكْتِبْ"},{az:"kitaab",ar:"كِتابْ"},{az:"maktab",ar:"مَكْتَبْ"}],a:0},
+ {t:'say',q:"I speak a little Arabic",ans:{az:"armes 3arabi shway",ar:"أرْمِسْ عَرَبي شْوَيْ"}},
+ {t:'say',q:"I go home",ans:{az:"aroo7 el bait",ar:"أروحْ البِيْتْ"}},
+ {t:'mcq',q:"“I understand”",opts:[{az:"afham",ar:"أفْهَمْ"},{az:"yifham",ar:"يِفْهَمْ"},{az:"fahamt",ar:"فْهَمْتْ"},{az:"mafhoom",ar:"مَفْهومْ"}],a:0},
+]},
+
+{id:"aboutme",t:"About me",sub:"name, age, where you live & work",drill:{gen:'aboutme'},
+words:[
+ {en:"my name",ar:"اِسْمي",az:"ismi"},{en:"my age / I'm … (old)",ar:"عُمْري",az:"3umri"},{en:"year",ar:"سَنَة",az:"sana"},
+ {en:"living / I live (m)",ar:"ساكِنْ",az:"saakin"},{en:"the UAE",ar:"الإماراتْ",az:"el Emaraat"},
+ {en:"for / since",ar:"مِنْ",az:"min"},{en:"I work at",ar:"أشْتِغِلْ فِيْ",az:"ashteghel fee"},
+ {en:"I speak / chat",ar:"أرْمِسْ",az:"armes"},{en:"Arabic",ar:"عَرَبي",az:"3arabi"},
+ {en:"how many years?",ar:"كَمْ سَنَة؟",az:"kam sana?"},{en:"welcome (to you)",ar:"حَيّاكْ اللهْ",az:"7ayyaak Allah"}],
+html:`<p class="lead">Now introduce yourself. These frames reuse the “my …” endings (L4) and the “I …” verbs (L5).</p>
+${G("أنا اِسْمي … وْ عُمْري … سَنَة","ana ismi … wo 3umri … sana","my name is … and I'm … years old")}
+${G("أنا مِنْ … وْ ساكِنْ فِيْ الإماراتْ مِنْ … سَنَة","ana min … wo saakin fee el Emaraat min … sana","I'm from … and I've lived in the UAE for … years")}
+${G("أشْتِغِلْ فِيْ … وْ أرْمِسْ عَرَبي شْوَيْ بَسْ","ashteghel fee … wo armes 3arabi shway bas","I work at … and I speak a little Arabic")}
+<h3>A first-meeting dialogue</h3>
+${G("السَّلامُ عَلَيْكُمْ، شْحالَكْ؟","salam 3alaikum, sh7aalak?","— Peace be upon you, how are you?")}
+${G("الحَمْدُلله بِخِيْرْ، شَخْبارَكْ؟","el 7amdillah bkhair, shakhbarek?","— Fine, praise God — how are things?")}
+${G("أنا أحمد مِنْ الإماراتْ","ana Ahmed min el Emaraat","— I'm Ahmed, from the UAE")}
+${G("أنا جاك، مِنْ أمْريكا","ana Jack, min America","— I'm Jack, from America")}
+${G("تْشَرَّفْنا — الشَّرَفْ لْنا","tsharrafna — el sharaf lena","— Nice to meet you — The pleasure is ours")}
+${G("كَمْ سَنَة إنْتَ فِيْ الإماراتْ؟","kam sana enta fee el Emaraat?","— How many years have you been in the UAE?")}
+${G("مِنْ ١٥ سَنَة، أشْتِغِلْ فِيْ دو","min 15 sana, ashteghel fee Du","— For 15 years; I work at Du")}
+${G("حَيّاكْ اللهْ فِيْ الإماراتْ","7ayyaak Allah fee el Emaraat","— Welcome to the UAE!")}`,
+ex:[
+ {t:'say',q:"I'm 20 years old",ans:{az:"3umri 3ishreen sana",ar:"عُمْري عِشْرينْ سَنَة"}},
+ {t:'say',q:"I work in Dubai",ans:{az:"ashteghel fee Dubai",ar:"أشْتِغِلْ فِيْ دُبَيْ"}},
+ {t:'say',q:"I've lived in the UAE for 10 years",ans:{az:"saakin fee el Emaraat min 3ashar sana",ar:"ساكِنْ فِيْ الإماراتْ مِنْ عَشْرْ سَنَة"}},
+ {t:'mcq',q:"“how many years in the UAE?”",opts:[{az:"kam sana fee el Emaraat?",ar:"كَمْ سَنَة فِيْ الإماراتْ؟"},{az:"wain el Emaraat?",ar:"وِيْنْ الإماراتْ؟"},{az:"meta el Emaraat?",ar:"مِتى الإماراتْ؟"},{az:"minoo el Emaraat?",ar:"مِنُو الإماراتْ؟"}],a:0},
+]},
+
+{id:"not",t:"Saying NOT",sub:"mub vs ma — now you can deny anything",drill:{gen:'neg'},
+words:[
+ {en:"not (before noun/adj)",ar:"مُبْ",az:"mub"},{en:"not / don't (before verb)",ar:"ما",az:"ma"},
+ {en:"there is / in",ar:"فِيْ",az:"fee"},{en:"there isn't",ar:"ما فِيْ",az:"ma fee"},
+ {en:"I don't have",ar:"ما عِنْدي",az:"ma 3indi"},{en:"water",ar:"مايْ",az:"maay"}],
+html:`<p class="lead">Two “not”s. <b>mub</b> goes before a noun or adjective. <b>ma</b> goes before a verb or before <b>3ind</b>/<b>fee</b>.</p>
+${G("أنا مُبْ تَعْبانْ","ana mub ta3baan","I'm not tired")}
+${G("هٰذا مُبْ بِيْتي","haadha mub baiti","this isn't my house")}
+${G("ما عِنْدي وَقِتْ","ma 3indi wagt","I don't have time")}
+${G("ما فِيْ مايْ","ma fee maay","there's no water")}
+<div class="callout r">Everything here uses only words from lessons 1–4 plus <b>mub</b> / <b>ma</b>. Nothing new to guess.</div>`,
+ex:[
+ {t:'say',q:"this isn't my house",ans:{az:"haadha mub baiti",ar:"هٰذا مُبْ بِيْتي"}},
+ {t:'say',q:"I don't have money",ans:{az:"ma 3indi floos",ar:"ما عِنْدي فْلوسْ"}},
+ {t:'mcq',q:"Which “not” goes with an adjective? “I'm not busy”",opts:[{az:"ana mub mashghool",ar:"أنا مُبْ مَشْغولْ"},{az:"ana ma mashghool",ar:"أنا ما مَشْغولْ"},{az:"ma ana mashghool",ar:"ما أنا مَشْغولْ"},{az:"ana mashghool mub",ar:"أنا مَشْغولْ مُبْ"}],a:0},
+]},
+
+{id:"want",t:"Want · like · must · can",sub:"asking for things",drill:{gen:'want'},
+words:[
+ {en:"I want",ar:"أبا",az:"aba"},{en:"I like / love",ar:"أحِبّ",az:"a7ebb"},{en:"I must / have to",ar:"لازِمْ",az:"laazim"},
+ {en:"I can",ar:"أقْدَرْ",az:"agdar"},{en:"to go",ar:"أروحْ",az:"aroo7"},{en:"to work",ar:"أشْتِغِلْ",az:"ashteghel"},
+ {en:"to sleep",ar:"أرْقُدْ",az:"argud"},{en:"tea",ar:"چايْ",az:"chai"}],
+html:`<p class="lead">These four take a noun <i>or</i> another action right after them.</p>
+${G("أبا قَهْوَة","aba gahwa","I want coffee")}
+${G("أحِبّ أروحْ البَرّ","a7ebb aroo7 el barr","I like going to the desert")}
+${G("لازِمْ أشْتِغِلْ","laazim ashteghel","I have to work")}
+${G("ما أقْدَرْ أروحْ","ma agdar aroo7","I can't go")}
+<div class="callout">Negate any of them with <b>ma</b> (from lesson 5): ma aba, ma agdar.</div>`,
+ex:[
+ {t:'say',q:"I want tea",ans:{az:"aba chai",ar:"أبا چايْ"}},
+ {t:'say',q:"I have to sleep",ans:{az:"laazim argud",ar:"لازِمْ أرْقُدْ"}},
+ {t:'say',q:"I can't work",ans:{az:"ma agdar ashteghel",ar:"ما أقْدَرْ أشْتِغِلْ"}},
+]},
+
+{id:"present",t:"Present tense — the matrix",sub:"the verb engine (Petrov core)",drill:{gen:'verb',layer:'present'},
+words:[
+ {en:"I / you / he / we (prefixes)",ar:"أ / تْ / يْ / نْ",az:"a- / t- / y- / n-"},
+ {en:"to eat",ar:"ياكِلْ",az:"yaakil"},{en:"to drink",ar:"يِشْرَبْ",az:"yishrab"},{en:"to see",ar:"يْشوفْ",az:"yshoof"},
+ {en:"rice",ar:"عَيْشْ",az:"3aish"},{en:"the desert",ar:"البَرّ",az:"el barr"},{en:"the mall",ar:"المولْ",az:"el mall"}],
+html:`<p class="lead">Present verbs change the <b>front</b> letter for each person — this is the “multiplication table” you bring to automatism.</p>
+<table class="matrix"><tr><td class="p">I go</td><td class="ar">أروحْ</td><td class="azc">aroo7</td><td class="p">he goes</td><td class="ar">يْروحْ</td><td class="azc">yroo7</td></tr>
+<tr><td class="p">you go</td><td class="ar">تْروحْ</td><td class="azc">troo7</td><td class="p">we go</td><td class="ar">نْروحْ</td><td class="azc">nroo7</td></tr>
+<tr><td class="p">you-f</td><td class="ar">تْروحينْ</td><td class="azc">troo7een</td><td class="p">they go</td><td class="ar">يْروحونْ</td><td class="azc">yroo7oon</td></tr></table>
+<div class="callout b"><b>a-</b>=I · <b>t-</b>=you/she · <b>y-</b>=he/they · <b>n-</b>=we. The drill below runs random verbs through random persons — do it until it's automatic. Tap <b>Verb matrix</b> in the Drills tab to see any verb's full table.</div>`,
+ex:[
+ {t:'mcq',q:"“we drink”",opts:[{az:"nishrab",ar:"نِشْرَبْ"},{az:"ashrab",ar:"أشْرَبْ"},{az:"yishrab",ar:"يِشْرَبْ"},{az:"tishrab",ar:"تِشْرَبْ"}],a:0},
+ {t:'say',q:"I eat rice",ans:{az:"aakil 3aish",ar:"آكِلْ عَيْشْ"}},
+ {t:'say',q:"he sees the mall",ans:{az:"yshoof el mall",ar:"يْشوفْ المولْ"}},
+]},
+
+{id:"future",t:"Future — add b-",drill:{gen:'verb',layer:'future'},
+words:[{en:"future prefix",ar:"بْـ",az:"b-"},{en:"tomorrow",ar:"باچِرْ",az:"baacher"}],sub:"tomorrow-talk",
+html:`<p class="lead">Glue <b>b-</b> onto the present tense.</p>
+${G("بَروحْ المولْ باچِرْ","baroo7 el mall baacher","I'll go to the mall tomorrow")}
+${G("بْنِشْرَبْ قَهْوَة","bnishrab gahwa","we'll drink coffee")}`,
+ex:[
+ {t:'say',q:"I'll work tomorrow",ans:{az:"bashteghel baacher",ar:"بَشْتِغِلْ باچِرْ"}},
+ {t:'mcq',q:"“she'll eat”",opts:[{az:"btaakil",ar:"بْتاكِلْ"},{az:"taakil",ar:"تاكِلْ"},{az:"aakil",ar:"آكِلْ"},{az:"aklat",ar:"أكْلَتْ"}],a:0},
+]},
+
+{id:"past",t:"Past tense",drill:{gen:'verb',layer:'past'},sub:"telling what happened",
+words:[{en:"was / were",ar:"كانْ",az:"kaan"},{en:"yesterday",ar:"أمْسْ",az:"ams"}],
+html:`<p class="lead">Past changes the <b>end</b> of the verb. An <b>-t</b> ending = I/you did it.</p>
+${G("أمْسْ رِحِتْ البَرّ","ams ri7t el barr","yesterday I went to the desert")}
+${G("شافْ فيلمْ حِلو","shaaf film 7elo","he saw a nice movie")}
+<div class="callout"><b>kaan</b> = was/were. “I've been to Dubai” is just past: <i>ri7t Dubai</i>.</div>`,
+ex:[
+ {t:'say',q:"I ate rice",ans:{az:"akalt 3aish",ar:"أكَلْتْ عَيْشْ"}},
+ {t:'say',q:"she went home",ans:{az:"raa7at el bait",ar:"راحَتْ البِيْتْ"}},
+ {t:'mcq',q:"“we drank”",opts:[{az:"shirabna",ar:"شِرَبْنا"},{az:"nishrab",ar:"نِشْرَبْ"},{az:"shirab",ar:"شِرَبْ"},{az:"shirbaw",ar:"شِرْبوا"}],a:0},
+]},
+
+{id:"imp",t:"Orders (imperative)",drill:{gen:'verb',layer:'imperative'},sub:"telling someone to do it",
+words:[{en:"go!",ar:"روحْ",az:"rooo7"},{en:"come!",ar:"تَعالْ",az:"ta3aal"},{en:"give me!",ar:"عَطْني",az:"3atni"},{en:"don't…",ar:"لا…",az:"la…"},{en:"please",ar:"لو سَمَحْتْ",az:"low sama7t"}],
+html:`<p class="lead">Drop the “you” prefix. Add <b>la</b> for “don't”.</p>
+${G("روحْ البِيْتْ","rooo7 el bait","go home!")}
+${G("لا تْروحْ هِناكْ","la troo7 hinaak","don't go there!")}
+${G("عَطْني مايْ لو سَمَحْتْ","3atni maay low sama7t","give me water, please")}`,
+ex:[
+ {t:'say',q:"eat! (to a man)",ans:{az:"kil",ar:"كِلْ"}},
+ {t:'say',q:"don't go!",ans:{az:"la troo7",ar:"لا تْروحْ"}},
+]},
+
+{id:"quest",t:"Asking questions",drill:{gen:'verb',layer:'questions'},sub:"the question words",
+words:[
+ {en:"what?",ar:"شُو؟",az:"shoo?"},{en:"who?",ar:"مِنُو؟",az:"minoo?"},{en:"where?",ar:"وِيْن؟",az:"wain?"},
+ {en:"when?",ar:"مِتى؟",az:"meta?"},{en:"why?",ar:"لِيْش؟",az:"laish?"},{en:"how?",ar:"چِيْف؟",az:"chaif?"},{en:"how much?",ar:"كَمْ؟",az:"kam?"}],
+html:`<p class="lead">Put the question word first; everything else stays the same. Yes/no questions = just raise your voice.</p>
+${G("شُو تْبا؟","shoo tiba?","what do you want?")}
+${G("وِيْنْ رِحِتْ؟","wain ri7t?","where did you go?")}
+${G("تِعْرَفْ عَرَبي؟","ti3ref 3arabi?","do you know Arabic?")}`,
+ex:[
+ {t:'mcq',q:"“where did you eat?”",opts:[{az:"wain akalt?",ar:"وِيْنْ أكَلْتْ؟"},{az:"shoo akalt?",ar:"شُو أكَلْتْ؟"},{az:"meta akalt?",ar:"مِتى أكَلْتْ؟"},{az:"minoo akalt?",ar:"مِنُو أكَلْتْ؟"}],a:0},
+ {t:'say',q:"what did you drink?",ans:{az:"shoo shirabt?",ar:"شُو شِرَبْتْ؟"}},
+]},
+
+{id:"conn",t:"Connectors",drill:{gen:'conn'},sub:"turning fragments into talk",
+words:[
+ {en:"and",ar:"وْ",az:"wo"},{en:"but",ar:"بَسْ",az:"bas"},{en:"because",ar:"عَشانْ",az:"3ashaan"},
+ {en:"so",ar:"فَـ",az:"fa"},{en:"and then",ar:"وْبَعْدَيْنْ",az:"wo ba3dain"},{en:"with",ar:"وِيا",az:"wiya"},{en:"which/that",ar:"اللّي",az:"elly"}],
+html:`<p class="lead">These stitch your short sentences together.</p>
+${G("ما أبا أروحْ عَشانْ تَعْبانْ","ma aba aroo7 3ashaan ta3baan","I don't want to go because I'm tired")}
+${G("رِحِتْ الدَّوامْ وْبَعْدَيْنْ رِحِتْ المولْ","ri7t el dawaam wo ba3dain ri7t el mall","I went to work and then to the mall")}`,
+ex:[
+ {t:'mcq',q:"“because”",opts:[{az:"3ashaan",ar:"عَشانْ"},{az:"bas",ar:"بَسْ"},{az:"fa",ar:"فَـ"},{az:"wiya",ar:"وِيا"}],a:0},
+ {t:'say',q:"I'm tired but I'll go",ans:{az:"ana ta3baan bas baroo7",ar:"أنا تَعْبانْ بَسْ بَروحْ"}},
+]},
+
+{id:"prep",t:"Prepositions & comparing",drill:{gen:'prep'},sub:"place words + “-er”",
+words:[
+ {en:"in / at",ar:"فِيْ",az:"fee"},{en:"on",ar:"عَلى",az:"3ala"},{en:"next to",ar:"يَمّ",az:"yamm"},
+ {en:"in front of",ar:"قِدّامْ",az:"giddaam"},{en:"behind",ar:"وَرا",az:"wara"},
+ {en:"bigger",ar:"أكْبَرْ",az:"akbar"},{en:"nicer",ar:"أحْلى",az:"a7la"},{en:"the best",ar:"أحْسَنْ",az:"a7san"}],
+html:`<p class="lead">Place words, then comparison: “more/-er” = pattern <b>a‑‑‑</b>, “the most” adds <b>el</b>.</p>
+${G("الفْلوسْ عَلى الطّاوْلَة","el floos 3ala el taawla","the money is on the table")}
+${G("دُبَيْ أكْبَرْ مِنْ الشّارْجَة","Dubai akbar min el Sharja","Dubai is bigger than Sharjah")}
+${G("هٰذا أحْسَنْ شِيْ","haadha a7san shai","this is the best thing")}`,
+ex:[
+ {t:'mcq',q:"“next to”",opts:[{az:"yamm",ar:"يَمّ"},{az:"3ala",ar:"عَلى"},{az:"wara",ar:"وَرا"},{az:"giddaam",ar:"قِدّامْ"}],a:0},
+ {t:'say',q:"my house is nicer",ans:{az:"baiti a7la",ar:"بِيْتي أحْلى"}},
+]},
+
+{id:"plural",t:"Plurals",sub:"more than one (B1)",drill:{gen:'list',tag:'plural',items:[
+ {en:"cars",ar:"سَيّاراتْ",az:"sayyaaraat"},{en:"hours / watches",ar:"ساعاتْ",az:"saa3aat"},{en:"houses",ar:"بْيوتْ",az:"byoot"},
+ {en:"boys",ar:"أوْلادْ",az:"awlaad"},{en:"girls",ar:"بَناتْ",az:"banaat"},{en:"men",ar:"رْياييلْ",az:"ryaayeel"},
+ {en:"books",ar:"كُتُبْ",az:"kutub"},{en:"days",ar:"أيّامْ",az:"ayyaam"},{en:"restaurants",ar:"مَطاعِمْ",az:"mataa3im"},{en:"schools",ar:"مَدارِسْ",az:"madaaris"}]},
+words:[
+ {en:"cars",ar:"سَيّاراتْ",az:"sayyaaraat"},{en:"houses",ar:"بْيوتْ",az:"byoot"},{en:"boys",ar:"أوْلادْ",az:"awlaad"},
+ {en:"girls",ar:"بَناتْ",az:"banaat"},{en:"books",ar:"كُتُبْ",az:"kutub"},{en:"days",ar:"أيّامْ",az:"ayyaam"}],
+html:`<p class="lead">Arabic plurals mostly don't just “add -s”. Two things to know:</p>
+<h3>1. Feminine words (‑a) → add ‑aat</h3>
+${G("سَيّارَة → سَيّاراتْ","sayyaara → sayyaaraat","car → cars")}
+${G("ساعَة → ساعاتْ","saa3a → saa3aat","hour → hours")}
+<h3>2. Most others are “broken” — the word reshapes</h3>
+${G("بِيْتْ → بْيوتْ","bait → byoot","house → houses")}
+${G("وَلَدْ → أوْلادْ","walad → awlaad","boy → boys")}
+${G("كِتابْ → كُتُبْ","kitaab → kutub","book → books")}
+<div class="callout">There's no shortcut — broken plurals are learned per word (like English “man→men”). Drill the common ones; the rest you'll pick up by ear.</div>`,
+ex:[
+ {t:'mcq',q:"plural of سَيّارَة (car)",opts:[{az:"sayyaaraat",ar:"سَيّاراتْ"},{az:"sayyaarat",ar:"سَيّارَتْ"},{az:"sayaayir",ar:"سَيايِرْ"},{az:"sayyaarateen",ar:"سَيّارَتينْ"}],a:0},
+ {t:'mcq',q:"plural of بِيْتْ (house)",opts:[{az:"byoot",ar:"بْيوتْ"},{az:"baitaat",ar:"بِيْتاتْ"},{az:"abyaat",ar:"أبْياتْ"},{az:"biyoota",ar:"بِيوتَة"}],a:0},
+ {t:'say',q:"books (plural)",ans:{az:"kutub",ar:"كُتُبْ"}},
+]},
+
+{id:"idafa",t:"Possession: X of Y",sub:"the idafa chain (B1)",drill:{gen:'list',tag:'idafa',items:[
+ {en:"my father's house",ar:"بِيْتْ أبوي",az:"bait ubooy"},{en:"my brother's car",ar:"سَيّارَة أخوي",az:"sayyaarat akhooy"},
+ {en:"the house door",ar:"بابْ البِيْتْ",az:"baab el bait"},{en:"the car key",ar:"مِفْتاحْ السَّيّارَة",az:"muftaa7 el sayyaara"},
+ {en:"my friend's name",ar:"اِسِمْ رِبْعي",az:"ism rab3i"},{en:"the office door",ar:"بابْ المَكْتَبْ",az:"baab el maktab"}]},
+words:[
+ {en:"my father's house",ar:"بِيْتْ أبوي",az:"bait ubooy"},{en:"the car key",ar:"مِفْتاحْ السَّيّارَة",az:"muftaa7 el sayyaara"},
+ {en:"the door of the house",ar:"بابْ البِيْتْ",az:"baab el bait"}],
+html:`<p class="lead">To say “Y's X” or “the X of Y”, just put the two nouns together — <b>owned first, owner second</b>. No “of”, no apostrophe.</p>
+${G("بِيْتْ أبوي","bait ubooy","my father's house (house-of-my-father)")}
+${G("بابْ البِيْتْ","baab el bait","the house door (door-of-the-house)")}
+<div class="callout">If the first noun is feminine (ends in ‑a / ة), it takes a <b>‑t</b>: <i>sayyaara</i> → <i>sayyaarat akhooy</i> (my brother's car). Only the <b>last</b> noun takes “the” (el).</div>`,
+ex:[
+ {t:'say',q:"my father's house",ans:{az:"bait ubooy",ar:"بِيْتْ أبوي"}},
+ {t:'mcq',q:"“my brother's car” (note the ‑t)",opts:[{az:"sayyaarat akhooy",ar:"سَيّارَتْ أخوي"},{az:"sayyaara akhooy",ar:"سَيّارَة أخوي"},{az:"akhooy sayyaara",ar:"أخوي سَيّارَة"},{az:"el sayyaara akhooy",ar:"السَّيّارَة أخوي"}],a:0},
+ {t:'say',q:"the car key",ans:{az:"muftaa7 el sayyaara",ar:"مِفْتاحْ السَّيّارَة"}},
+]},
+
+{id:"objsuf",t:"Him, her, them (on verbs)",sub:"object endings (B1)",drill:{gen:'list',tag:'object suffix',items:[
+ {en:"I saw him",ar:"شِفْتَه",az:"shiftah"},{en:"I saw her",ar:"شِفْتْها",az:"shiftha"},{en:"I saw them",ar:"شِفْتْهُمْ",az:"shifthum"},
+ {en:"I love you (m)",ar:"أحِبَّكْ",az:"a7ebbak"},{en:"I love you (f)",ar:"أحِبِّچْ",az:"a7ebbich"},{en:"I understood you",ar:"فْهَمْتَكْ",az:"fahamtak"},
+ {en:"I took it",ar:"خَذْتَه",az:"khadhtah"},{en:"give me",ar:"عَطْني",az:"3atni"}]},
+words:[
+ {en:"…him",ar:"ـَه",az:"-ah"},{en:"…her",ar:"ـها",az:"-ha"},{en:"…them",ar:"ـهُم",az:"-hum"},
+ {en:"…you (m/f)",ar:"ـَك / ـِچ",az:"-ak / -ich"},{en:"…me",ar:"ـني",az:"-ni"}],
+html:`<p class="lead">The same “my/your/his” endings hook onto <b>verbs</b> to mean me/you/him/her/them.</p>
+${G("شِفْتَه أمْسْ","shiftah ams","I saw him yesterday")}
+${G("أحِبِّچْ","a7ebbich","I love you (to a woman)")}
+${G("عَطْني إيّاهْ","3atni iyyaah","give it to me")}
+<div class="callout"><b>-ni</b> = me · <b>-ak/-ich</b> = you (m/f) · <b>-ah</b> = him/it · <b>-ha</b> = her · <b>-hum</b> = them.</div>`,
+ex:[
+ {t:'say',q:"I saw him",ans:{az:"shiftah",ar:"شِفْتَه"}},
+ {t:'mcq',q:"“I love you” (to a woman)",opts:[{az:"a7ebbich",ar:"أحِبِّچْ"},{az:"a7ebbak",ar:"أحِبَّكْ"},{az:"a7ebbah",ar:"أحِبَّه"},{az:"a7ebbhum",ar:"أحِبّْهُمْ"}],a:0},
+ {t:'say',q:"I understood you (m)",ans:{az:"fahamtak",ar:"فْهَمْتَكْ"}},
+]},
+
+{id:"kaan",t:"Used to / was doing",sub:"kaan + present (B1)",drill:{gen:'list',tag:'kaan + present',items:[
+ {en:"I used to work in Dubai",ar:"كِنِتْ أشْتِغِلْ فِيْ دُبَيْ",az:"kint ashteghel fee Dubai"},{en:"he was sleeping",ar:"كانْ يَرْقُدْ",az:"kaan yargud"},
+ {en:"we used to live in Sharjah",ar:"كِنّا نِسْكُنْ فِيْ الشّارْجَة",az:"kinna niskun fee el Sharja"},{en:"I was eating",ar:"كِنِتْ آكِلْ",az:"kint aakil"},
+ {en:"she used to read a lot",ar:"كانَتْ تِقْرا وايِدْ",az:"kaanat tigra wayed"},{en:"they were playing",ar:"كانوا يِلْعَبونْ",az:"kaanaw yil3aboon"}]},
+words:[
+ {en:"I was / used to",ar:"كِنِتْ",az:"kint"},{en:"he was",ar:"كانْ",az:"kaan"},{en:"she was",ar:"كانَتْ",az:"kaanat"},
+ {en:"we were",ar:"كِنّا",az:"kinna"},{en:"they were",ar:"كانوا",az:"kaanaw"}],
+html:`<p class="lead">Put <b>kaan</b> (was/were) in front of a <b>present</b> verb to say “used to …” or “was …‑ing”.</p>
+${G("كِنِتْ أشْتِغِلْ فِيْ دُبَيْ","kint ashteghel fee Dubai","I used to work in Dubai")}
+${G("كانْ يَرْقُدْ","kaan yargud","he was sleeping")}
+<div class="callout"><b>kint</b> = I/you was · <b>kaan</b> = he · <b>kaanat</b> = she · <b>kinna</b> = we · <b>kaanaw</b> = they. Then the normal present verb.</div>`,
+ex:[
+ {t:'say',q:"I used to work in Dubai",ans:{az:"kint ashteghel fee Dubai",ar:"كِنِتْ أشْتِغِلْ فِيْ دُبَيْ"}},
+ {t:'mcq',q:"“he was sleeping”",opts:[{az:"kaan yargud",ar:"كانْ يَرْقُدْ"},{az:"kaan ragad",ar:"كانْ رَقَدْ"},{az:"yargud kaan",ar:"يَرْقُدْ كانْ"},{az:"kint argud",ar:"كِنِتْ أرْقُدْ"}],a:0},
+ {t:'say',q:"we used to live in Sharjah",ans:{az:"kinna niskun fee el Sharja",ar:"كِنّا نِسْكُنْ فِيْ الشّارْجَة"}},
+]},
+
+{id:"cond",t:"If … (conditionals)",sub:"edha & law (B1)",drill:{gen:'list',tag:'conditional',items:[
+ {en:"if I go to the mall, I'll call you",ar:"إذا رِحِتْ المولْ، بَتِّصِلْ عَلَيْكْ",az:"edha ri7t el mall, battesel 3alaik"},{en:"if you want, we'll go",ar:"إذا تْبا، بْنِروحْ",az:"edha tiba, bnroo7"},
+ {en:"if I had money, I'd buy a car",ar:"لو عِنْدي فْلوسْ، بَشْتِري سَيّارَة",az:"law 3indi floos, bashtri sayyaara"},{en:"if it rains, I'll stay home",ar:"إذا طاحْ مَطَرْ، بَقْعَدْ فِيْ البِيْتْ",az:"edha taa7 matar, bag3ad fee el bait"},
+ {en:"if you're tired, sleep",ar:"إذا تَعْبانْ، اِرْقِدْ",az:"edha ta3baan, irgid"}]},
+words:[
+ {en:"if (real)",ar:"إذا",az:"edha"},{en:"if (hypothetical)",ar:"لو",az:"law"}],
+html:`<p class="lead">Two “if”s: <b>edha</b> for real/likely conditions, <b>law</b> for hypothetical ones.</p>
+${G("إذا رِحِتْ المولْ، بَتِّصِلْ عَلَيْكْ","edha ri7t el mall, battesel 3alaik","if I go to the mall, I'll call you")}
+${G("لو عِنْدي فْلوسْ، بَشْتِري سَيّارَة","law 3indi floos, bashtri sayyaara","if I had money, I'd buy a car")}
+<div class="callout">Structure: <b>edha/law</b> + a clause, then your result (often a <b>b‑</b> future). Same building blocks you already know.</div>`,
+ex:[
+ {t:'mcq',q:"Which “if” for a hypothetical (“if I had money…”)?",opts:[{az:"law",ar:"لو"},{az:"edha",ar:"إذا"},{az:"elly",ar:"اللّي"},{az:"3ashaan",ar:"عَشانْ"}],a:0},
+ {t:'say',q:"if you want, we'll go",ans:{az:"edha tiba, bnroo7",ar:"إذا تْبا، بْنِروحْ"}},
+]},
+
+{id:"greet",t:"Greetings & courtesy",drill:{gen:'phrase',theme:"Greetings (A1)"},sub:"the full set (whole phrases)",
+words:[],
+html:`<p class="lead">These are fixed whole phrases — learn them as chunks. Reply-pairs matter: Emiratis expect the matching answer.</p>
+${G("مَرْحَبا — مَرْحَبا السّاعْ","mar7aba — mar7aba essaa3","hello — (warm reply) hello")}
+${G("اِشْحالَكْ؟ — الحَمْدُلله بِخِيْرْ","esh7alek? — el 7amdulillah bkhair","how are you? — fine, thank God")}
+${G("يْزاكْ اللهْ خِيْرْ","yizaak Allah khair","may God reward you (a warm thanks)")}
+<div class="callout">The full themed phrasebook lives in Reference → Phrasebook. The drill below quizzes these phrases both ways.</div>`,
+ex:[
+ {t:'en',q:{az:"mar7aba essaa3",ar:"مَرْحَبا السّاعْ"},opts:["a warm reply to “hello”","good night","see you","thank you"],a:0},
+ {t:'mcq',q:"reply to “esh7alek?”",opts:[{az:"el 7amdulillah bkhair",ar:"الحَمْدُلله بِخِيْرْ"},{az:"ma3a essalama",ar:"مَعَ السَّلامَة"},{az:"tsharrafna",ar:"تْشَرَّفْنا"},{az:"hood hood",ar:"هودْ هودْ"}],a:0},
+]},
+
+{id:"weath",t:"Weather & small talk",drill:{gen:'phrase',theme:"Weather (A2 & B2)"},sub:"chunks for daily chat",
+words:[],
+html:`<p class="lead">Weather is the #1 small-talk opener. Learn these as phrases.</p>
+${G("الجَوّ روعَة اليومْ","el jaw raw3a el youm","the weather is amazing today")}
+${G("شَكْلَه بْيَطيحْ مَطَرْ","shaklah bytee7 matar","it looks like it'll rain")}
+${G("وايِدْ حَرّ اليومْ","wayed 7arr el youm","it's very hot today")}`,
+ex:[
+ {t:'en',q:{az:"7arr moot",ar:"حَرّ موتْ"},opts:["unbearably hot","freezing","light rain","a nice breeze"],a:0},
+ {t:'say',q:"the weather is amazing today",ans:{az:"el jaw raw3a el youm",ar:"الجَوّ روعَة اليومْ"}},
+]},
+
+{id:"opin",t:"Opinions & compliments",drill:{gen:'phrase',theme:"Opinions (B1)"},sub:"say what you think",
+words:[],
+html:`<p class="lead">B1 conversation lives here: giving opinions and complimenting.</p>
+${G("شُو رايَكْ نْروحْ المولْ؟","shoo rayek nroo7 el mall?","how about we go to the mall?")}
+${G("أعْتِقِدْ إنّ المَوْضوعْ مُهِمّ","a3teqed enna el mawdoo3 muhim","I think the topic is important")}
+${G("هاللّونْ وايِدْ حِلو عَلَيْكْ","hal loon wayed 7elo 3alaik","this colour looks great on you")}`,
+ex:[
+ {t:'mcq',q:"“what do you think?” (to a man)",opts:[{az:"shoo rayek?",ar:"شُو رايَكْ؟"},{az:"shoo rayech?",ar:"شُو رايِچْ؟"},{az:"shoo raykum?",ar:"شُو رايْكُم؟"},{az:"shoo tabi?",ar:"شُو تْبي؟"}],a:0},
+ {t:'en',q:{az:"a3teqed enna…",ar:"أعْتِقِدْ إنّ…"},opts:["I think that…","honestly…","for me…","can I say…"],a:0},
+]},
+];
+
+/* ===== reference data (roots, patterns, transliterator, reading) ===== */
+const PATTERNS=[
+ {tpl:"فاعِل",az:"faa3il",role:"the DOER / active participle",ex:"kaatib = writer"},
+ {tpl:"مَفْعول",az:"maf3ool",role:"the DONE / passive participle",ex:"maktoob = written / a letter"},
+ {tpl:"مَفْعَل",az:"maf3al",role:"PLACE where it happens",ex:"maktab = office, matbakh = kitchen"},
+ {tpl:"فَعّال",az:"fa33aal",role:"PROFESSION / intensive doer",ex:"khabbaaz = baker"},
+ {tpl:"فْعيل",az:"f3eel",role:"an ADJECTIVE (quality)",ex:"kbeer = big, gareeb = near"},
+ {tpl:"تَفْعيل",az:"taf3eel",role:"the ACT of doing (verbal noun)",ex:"tadreeb = training"},
+];
+const ROOTS={
+ "k t b":{ar:["ك","ت","ب"],forms:[["كِتابْ","kitaab","book"],["كاتِبْ","kaatib","writer"],["مَكْتَبْ","maktab","office"],["مَكْتوبْ","maktoob","written / letter"],["يِكْتِبْ","yiktib","he writes"]]},
+ "d r s":{ar:["د","ر","س"],forms:[["دَرِسْ","dars","lesson"],["مَدْرَسَة","madrasa","school"],["مْدَرِّسْ","mdarris","teacher"],["يِدْرِسْ","yidris","he studies"],["دِراسَة","diraasa","studying"]]},
+ "3 r f":{ar:["ع","ر","ف"],forms:[["يِعْرَفْ","ya3ref","he knows"],["مَعْروفْ","ma3roof","well-known"],["مَعْرِفَة","ma3rifa","knowledge"],["عارِفْ","3aarif","knowing / aware"]]},
+ "l 3 b":{ar:["ل","ع","ب"],forms:[["يِلْعَبْ","yil3ab","he plays"],["لاعِبْ","laa3ib","player"],["مَلْعَبْ","mal3ab","pitch"],["لِعِبْ","li3ib","a game"]]},
+ "s k n":{ar:["س","ك","ن"],forms:[["يِسْكُنْ","yiskun","he lives"],["ساكِنْ","saakin","resident / living"],["مَسْكَنْ","maskan","dwelling"],["سَكَنْ","sakan","housing"]]},
+};
+const PHON={a:["ا","a"],b:["ب","b"],c:["ك","k"],d:["د","d"],e:["ي","e"],f:["ف","f"],g:["ق","g"],h:["ه","h"],i:["ي","i"],j:["ج","j"],k:["ك","k"],l:["ل","l"],m:["م","m"],n:["ن","n"],o:["و","o"],p:["ب","b"],q:["ك","k"],r:["ر","r"],s:["س","s"],t:["ت","t"],u:["و","u"],v:["ف","f"],w:["و","w"],x:["كس","ks"],y:["ي","y"],z:["ز","z"]};
+const DIGRAPH={th:["ث","th"],sh:["ش","sh"],ch:["تش","ch"],ph:["ف","f"],gh:["غ","gh"],kh:["خ","kh"],ck:["ك","k"],ng:["نق","ng"],oo:["و","oo"],ee:["ي","ee"]};
+const READ=[
+{title:"Who am I · مِنو أنا",lines:[
+ ["مَرْحَبا! أنا اِسْمي … وْ أنا مِنْ روسْيا.","mar7aba! ana ismi … wo ana min Russia.","Hello! My name is … and I'm from Russia."],
+ ["أعْرَفْ عَرَبي شْوَيْ بَسْ، بَسْ أتْعَلَّمْ.","a3ref 3arabi shway bas, bas at3allam.","I know only a little Arabic, but I'm learning."],
+ ["ساكِنْ فِيْ دُبَيْ الحِيْنْ، وْ وايِدْ حِلوَة.","saakin fee Dubai el7een, wo wayed 7elwa.","I live in Dubai now, and it's very nice."],
+ ["بِصَراحَة، الجَوّ حارّ وايِدْ، بَسْ عادي.","bsara7a, el jaw 7aar wayed, bas 3aadi.","Honestly, the weather is very hot, but it's ok."]]},
+{title:"My weekend · الوِيكِنْد مالي",lines:[
+ ["اليومْ الجُمْعَة، وْ أنا فاضي.","el youm el yum3a, wo ana faadhi.","Today is Friday, and I'm free."],
+ ["الصُّبِحْ رَقَدْتْ لَيْنْ عَشْرَة، بَعْدَيْنْ شِرِبْتْ قَهْوَة.","el sub7 ragadt lain 3ashra, ba3dain shiribt gahwa.","In the morning I slept till ten, then I drank coffee."],
+ ["بَعَدْ اتّصَلْتْ عَلى رِبْعي وْ قِلْتْ لَهُمْ: خَلّونا نْسيرْ البَرّ.","ba3ad ittasalt 3ala rab3i wo gilt lahum: khalloona nseer el barr.","Then I called my friends: let's go to the desert."],
+ ["فَ سِرْنا سَوا، وْ كانْ وايِدْ حِلو.","fa sirna sawa, wo kaan wayed 7elo.","So we went together, and it was very nice."]]},
+];
+const DRILL_TXT=[
+ {en:"I don't have a car.",ar:"ما عِنْدي سَيّارَة.",az:"ma 3indi sayyaara."},
+ {en:"There is no water here.",ar:"ما فِيْ مايْ هِني.",az:"ma fee maay hini."},
+ {en:"I'm from Russia, but I live in Dubai.",ar:"أنا مِنْ روسْيا، بَسْ ساكِنْ فِيْ دُبَيْ.",az:"ana min Russia, bas saakin fee Dubai."},
+ {en:"I'll finish work, then we'll go to the mall.",ar:"بَخَلِّصْ الشِّغِلْ، بَعْدَيْنْ بْنِسيرْ المولْ.",az:"bakhalles el sheghel, ba3dain bnseer el mall."},
+ {en:"This house is big and beautiful.",ar:"هالبِيْتْ كِبيرْ وْ حِلو.",az:"hal bait kbeer wo 7elo."},
+ {en:"My friends are coming with us.",ar:"رَبْعي بْيَيونْ وِيّانا.",az:"rab3i byayoon wiyana."},
+];
+
+/* ================= STATE & PROGRESS ================= */
+const S=JSON.parse(localStorage.getItem('emi_state')||'{}');
+if(S.az===undefined)S.az=true; if(!S.gender)S.gender='m'; if(!S.tab)S.tab='home'; if(!S.bandMax)S.bandMax=1;
+function maxBand(){return EXT.reduce((m,e)=>Math.max(m,e[4]),1);}
+function coreCount(){return Object.values(LEX).reduce((s,a)=>s+a.length,0)+VERBS.length;}
+function bandChips(ctx){let mb=maxBand(),h='<div class="chips">';
+ for(let n=1;n<=mb;n++){const cnt=n===1?coreCount():EXT.filter(e=>e[4]===n).length;
+   h+=`<span class="chip g ${S.bandMax>=n?'on':''}" onclick="setBand(${n},'${ctx}')">${n===1?'Core':'+ Band '+n} <span class="pill-count">(${cnt})</span></span>`;}
+ return h+'</div>';}
+function setBand(n,ctx){S.bandMax=n;save();if(ctx==='cards')renderCards();else renderRefBody();}
+function save(){localStorage.setItem('emi_state',JSON.stringify(S));}
+const PROG=JSON.parse(localStorage.getItem('emi_prog')||'{}');
+if(!PROG.lessons)PROG.lessons={}; if(!PROG.drill)PROG.drill={a:0,c:0,byVerb:{},byLayer:{}};
+function saveProg(){localStorage.setItem('emi_prog',JSON.stringify(PROG));}
+function lp(id){return PROG.lessons[id]||(PROG.lessons[id]={seen:false,done:false,a:0,c:0,miss:0});}
+function recLesson(id,ok){const l=lp(id);l.a++;if(ok)l.c++;else l.miss++;saveProg();}
+function recDrill(vid,layer,ok){const d=PROG.drill;d.a++;if(ok)d.c++;
+ (d.byVerb[vid]||(d.byVerb[vid]={a:0,c:0,miss:0}));d.byVerb[vid].a++;d.byVerb[vid][ok?'c':'miss']++;
+ (d.byLayer[layer]||(d.byLayer[layer]={a:0,c:0,miss:0}));d.byLayer[layer].a++;d.byLayer[layer][ok?'c':'miss']++;
+ saveProg();}
+function esc(s){return(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function pick(a){return a[Math.floor(Math.random()*a.length)];}
+function ri(n){return Math.floor(Math.random()*n);}
+
+function applyToggles(){
+ document.body.classList.toggle('hide-az',!S.az);
+ document.getElementById('azState').textContent=S.az?'ON':'OFF';
+ document.getElementById('tgAz').classList.toggle('on',S.az);
+ document.getElementById('genState').textContent=S.gender==='m'?'♂ male':'♀ female';
+ document.getElementById('tgGen').classList.toggle('on',S.gender==='f');
+}
+function toggleAz(){S.az=!S.az;save();applyToggles();}
+function toggleGender(){S.gender=S.gender==='m'?'f':'m';save();applyToggles();renderAll();}
+function gform(it){if(S.gender==='f'&&it.f)return{ar:it.f.ar,az:it.f.az};return{ar:it.ar,az:it.az};}
+function row(it){const note=it.note?`<span class="tag">${esc(it.note)}</span>`:'';
+ return `<div class="row"><div class="l"><div class="en">${esc(it.en)}${note}</div><div class="az">${esc(it.az)}</div></div><div class="ar">${it.ar}</div></div>`;}
+function rows(arr){return `<div class="rowlist">${arr.map(row).join('')}</div>`;}
+
+/* ================= HOME / DASHBOARD ================= */
+if(!PROG.drill.byKey)PROG.drill.byKey={};
+function recDrillKey(key,label,ok){const d=PROG.drill;d.a++;if(ok)d.c++;
+ const e=d.byKey[key]||(d.byKey[key]={a:0,c:0,miss:0,label:label});e.label=label;e.a++;e[ok?'c':'miss']++;saveProg();}
+
+/* ---- structure-generator slot banks (only taught, gender-correct) ---- */
+const SUF=[
+ {az:'i',arAdd:'ي',h3ar:'عِنْدي',h3az:'3indi',pron:'I',third:false,my:'my'},
+ {az:'ak',arAdd:'َك',h3ar:'عِنْدَكْ',h3az:'3indak',pron:'you',third:false,my:'your'},
+ {az:'ah',arAdd:'َه',h3ar:'عِنْدَه',h3az:'3indah',pron:'he',third:true,my:'his'},
+ {az:'ha',arAdd:'ْها',h3ar:'عِنْدْها',h3az:'3indha',pron:'she',third:true,my:'her'},
+ {az:'na',arAdd:'ْنا',h3ar:'عِنْدْنا',h3az:'3indna',pron:'we',third:false,my:'our'},
+ {az:'hum',arAdd:'ْهُمْ',h3ar:'عِنْدْهُمْ',h3az:'3indhum',pron:'they',third:false,my:'their'},
+];
+const BANK={
+ adjPerson:[{m:['تَعْبانْ','ta3baan'],f:['تَعْبانَة','ta3baana'],en:'tired'},{m:['مَبْسوطْ','mabsoot'],f:['مَبْسوطَة','mabsoota'],en:'happy'},
+  {m:['يوعانْ','yoo3aan'],f:['يوعانَة','yoo3aana'],en:'hungry'},{m:['مَشْغولْ','mashghool'],f:['مَشْغولَة','mashghoola'],en:'busy'}],
+ adjThing:[{m:['كِبيرْ','kbeer'],f:['كِبيرَة','kbeera'],en:'big'},{m:['صْغيرْ','sgheer'],f:['صْغيرَة','sgheera'],en:'small'},
+  {m:['حِلو','7elo'],f:['حِلوَة','7elwa'],en:'nice'},{m:['يِديدْ','yedeed'],f:['يِديدَة','yedeeda'],en:'new'}],
+ nounM:[{ar:'بِيْتْ',az:'bait',en:'house'},{ar:'كِتابْ',az:'kitaab',en:'book'},{ar:'وَلَدْ',az:'walad',en:'boy'}],
+ nounF:[{ar:'سَيّارَة',az:'sayyaara',en:'car'},{ar:'بِنْتْ',az:'bent',en:'girl'}],
+ possN:[{ar:'بِيْتْ',az:'bait',base:'بِيْت',en:'house'},{ar:'كِتابْ',az:'kitaab',base:'كِتاب',en:'book'},{ar:'اِسِمْ',az:'ism',base:'اِسِم',en:'name'},{ar:'وَلَدْ',az:'walad',base:'وَلَد',en:'son'}],
+ place:[{ar:'دُبَيْ',az:'Dubai',en:'Dubai'},{ar:'روسْيا',az:'Russia',en:'Russia'},{ar:'أبوظَبي',az:'Abu Dhabi',en:'Abu Dhabi'}],
+ obj:[{ar:'قَهْوَة',az:'gahwa',en:'coffee',bare:'coffee'},{ar:'فْلوسْ',az:'floos',en:'money',bare:'money'},{ar:'سَيّارَة',az:'sayyaara',en:'a car',bare:'car'},{ar:'وَقِتْ',az:'wagt',en:'time',bare:'time'},{ar:'كِتابْ',az:'kitaab',en:'a book',bare:'book'}],
+ verbInf:[{ar:'أروحْ',az:'aroo7',en:'go'},{ar:'أشْتِغِلْ',az:'ashteghel',en:'work'},{ar:'أرْقُدْ',az:'argud',en:'sleep'}],
+ modal:[{ar:'أبا',az:'aba',noun:true,enN:'I want',enV:'I want to'},{ar:'أحِبّ',az:'a7ebb',noun:true,enN:'I like',enV:'I like to'},{ar:'لازِمْ',az:'laazim',noun:false,enV:'I have to'},{ar:'أقْدَرْ',az:'agdar',noun:false,enV:'I can'}],
+};
+function isFemPerson(pi){return pi===2||pi===4||(pi===0&&S.gender==='f');}
+function adjFor(pi,A){return isFemPerson(pi)?A.f:A.m;}
+function beVerb(pi){return pi===0?'am':((pi===3||pi===4)?'is':'are');}
+const GENR={
+ tobe(){const pi=pick([0,1,2,3,4]);const P=PRN[pi];
+  if(Math.random()<0.5){const A=pick(BANK.adjPerson);const a=adjFor(pi,A);return {ar:`${P.ar} ${a[0]}`,az:`${P.az} ${a[1]}`,en:`${P.en} ${beVerb(pi)} ${A.en}`,tag:'to be'};}
+  const pl=pick(BANK.place);return {ar:`${P.ar} مِنْ ${pl.ar}`,az:`${P.az} min ${pl.az}`,en:`${P.en} ${beVerb(pi)} from ${pl.en}`,tag:'to be'};},
+ thisis(){const fem=Math.random()<0.5;const noun=pick(fem?BANK.nounF:BANK.nounM);const dem=fem?['هٰذي','haadhi']:['هٰذا','haadha'];
+  if(Math.random()<0.6)return {ar:`${dem[0]} ${noun.ar}`,az:`${dem[1]} ${noun.az}`,en:`this is a ${noun.en}`,tag:'this / that'};
+  const A=pick(BANK.adjThing);const a=fem?A.f:A.m;return {ar:`هالـ${noun.ar} ${a[0]}`,az:`hal ${noun.az} ${a[1]}`,en:`this ${noun.en} is ${A.en}`,tag:'this / that'};},
+ possess(){const suf=pick(SUF);
+  if(Math.random()<0.5){const n=pick(BANK.obj);return {ar:`${suf.h3ar} ${n.ar}`,az:`${suf.h3az} ${n.az}`,en:`${suf.pron} ${suf.third?'has':'have'} ${n.en}`,tag:'have / my'};}
+  const n=pick(BANK.possN);return {ar:`هٰذا ${n.base+suf.arAdd}`,az:`haadha ${n.az+suf.az}`,en:`this is ${suf.my} ${n.en}`,tag:'have / my'};},
+ neg(){const r=Math.random();
+  if(r<0.3){const pi=pick([0,1,2,3,4]);const P=PRN[pi];const A=pick(BANK.adjPerson);const a=adjFor(pi,A);return {ar:`${P.ar} مُبْ ${a[0]}`,az:`${P.az} mub ${a[1]}`,en:`${P.en} ${beVerb(pi)} not ${A.en}`,tag:'not'};}
+  if(r<0.55){const suf=pick(SUF);const n=pick(BANK.obj);return {ar:`ما ${suf.h3ar} ${n.ar}`,az:`ma ${suf.h3az} ${n.az}`,en:`${suf.pron} ${suf.third?"doesn't have":"don't have"} ${n.en}`,tag:'not'};}
+  if(r<0.8){const n=pick(BANK.obj);return {ar:`ما فِيْ ${n.ar}`,az:`ma fee ${n.az}`,en:`there is no ${n.bare}`,tag:'not'};}
+  const n=pick(BANK.possN);const suf=pick(SUF);return {ar:`هٰذا مُبْ ${n.base+suf.arAdd}`,az:`haadha mub ${n.az+suf.az}`,en:`this isn't ${suf.my} ${n.en}`,tag:'not'};},
+ want(){const m=pick(BANK.modal);
+  if(m.noun&&Math.random()<0.5){const n=pick(BANK.obj);return {ar:`${m.ar} ${n.ar}`,az:`${m.az} ${n.az}`,en:`${m.enN} ${n.en}`,tag:'want / can'};}
+  const v=pick(BANK.verbInf);return {ar:`${m.ar} ${v.ar}`,az:`${m.az} ${v.az}`,en:`${m.enV} ${v.en}`,tag:'want / can'};},
+};
+/* core "I ___" verbs (a- prefix) + about-me slots */
+const CORE_IFORM=[
+ {root:'k·t·b',az:'aktib',ar:'أكْتِبْ',en:'write',o:{ar:'رِسالَة',az:'risaala',en:'a letter'}},
+ {root:'g·r·a',az:'agra',ar:'أقْرا',en:'read',o:{ar:'كِتابْ',az:'kitaab',en:'a book'}},
+ {root:'sh·w·f',az:'ashoof',ar:'أشوفْ',en:'see',o:{ar:'فيلمْ',az:'film',en:'a movie'}},
+ {root:'sh·r·y',az:'ashtri',ar:'أشْتِري',en:'buy',o:{ar:'قَهْوَة',az:'gahwa',en:'coffee'}},
+ {root:'k·l·m',az:'atkallam',ar:'أتْكَلَّمْ',en:'speak',o:{ar:'عَرَبي',az:'3arabi',en:'Arabic'}},
+ {root:'r·m·s',az:'armes',ar:'أرْمِسْ',en:'chat',o:{ar:'وِيا رَبْعي',az:'wiya rab3i',en:'with my friends'}},
+ {root:'7·b·b',az:'a7ebb',ar:'أحِبّ',en:'love',o:{ar:'القَهْوَة',az:'el gahwa',en:'coffee'}},
+ {root:'f·h·m',az:'afham',ar:'أفْهَمْ',en:'understand',o:{ar:'الدَّرِسْ',az:'el dars',en:'the lesson'}},
+ {root:'b·gh·y',az:'aba',ar:'أبا',en:'want',o:{ar:'مايْ',az:'maay',en:'water'}},
+ {root:'a·kh·dh',az:'aakhidh',ar:'آخِذْ',en:'take',o:{ar:'الشَّنْطَة',az:'el shanta',en:'the bag'}},
+ {root:'7·t·t',az:'a7ott',ar:'أحُطّ',en:'put',o:{ar:'الفْلوسْ هِني',az:'el floos hini',en:'the money here'}},
+ {root:'3·t·y',az:'a3ti',ar:'أعْطي',en:'give',o:{ar:'الوَلَدْ فْلوسْ',az:'el walad floos',en:'the boy money'}},
+ {root:'d·w·r',az:'adawwir',ar:'أدَوِّرْ',en:'look for',o:{ar:'مِفْتاحي',az:'muftaa7i',en:'my key'}},
+ {root:'s·y·r',az:'aseer',ar:'أسيرْ',en:'go',o:{ar:'المولْ',az:'el mall',en:'to the mall'}},
+ {root:'sh·gh·l',az:'ashteghel',ar:'أشْتِغِلْ',en:'work',o:{ar:'فِيْ دُبَيْ',az:'fee Dubai',en:'in Dubai'}},
+ {root:'w·s·l',az:'attesel',ar:'أتِّصِلْ',en:'call',o:{ar:'عَلى أخوي',az:'3ala akhooy',en:'my brother'}},
+ {root:'s·f·r',az:'asaafer',ar:'أسافِرْ',en:'travel',o:{ar:'باچِرْ',az:'baacher',en:'tomorrow'}},
+ {root:'r·w·7',az:'aroo7',ar:'أروحْ',en:'go',o:{ar:'البِيْتْ',az:'el bait',en:'home'}},
+ {root:'a·k·l',az:'aakil',ar:'آكِلْ',en:'eat',o:{ar:'عَيْشْ',az:'3aish',en:'rice'}},
+ {root:'sh·r·b',az:'ashrab',ar:'أشْرَبْ',en:'drink',o:{ar:'چايْ',az:'chai',en:'tea'}},
+ {root:'r·g·d',az:'argud',ar:'أرْقُدْ',en:'sleep',o:{ar:'بَدْري',az:'badri',en:'early'}},
+];
+const AM_COUNTRY=[{ar:'روسْيا',az:'Russia',en:'Russia'},{ar:'أمْريكا',az:'America',en:'America'},{ar:'الهِنْدْ',az:'el Hind',en:'India'},{ar:'مِصِرْ',az:'Masr',en:'Egypt'},{ar:'بْريطانْيا',az:'Britanya',en:'Britain'}];
+const AM_NUM=[{ar:'عَشْرْ',az:'3ashar',en:'10'},{ar:'خَمْسْطَعَشْ',az:'khamsta3ash',en:'15'},{ar:'عِشْرينْ',az:'3ishreen',en:'20'},{ar:'ثْلاثينْ',az:'thalatheen',en:'30'}];
+const AM_WORK=[{ar:'دُبَيْ',az:'Dubai',en:'Dubai'},{ar:'شَرِكَة',az:'sherka',en:'a company'},{ar:'البَنْكْ',az:'el bank',en:'a bank'},{ar:'المُسْتَشْفى',az:'el mustashfa',en:'a hospital'}];
+GENR.iform=function(){const v=pick(CORE_IFORM);const s=Math.random()<0.5?['أنا ','ana ']:['',''];return {ar:`${s[0]}${v.ar} ${v.o.ar}`,az:`${s[1]}${v.az} ${v.o.az}`,en:`I ${v.en} ${v.o.en}`,tag:'I-form verb'};};
+GENR.aboutme=function(){const r=ri(5);
+ if(r===0){const n=pick(AM_NUM);return {ar:`عُمْري ${n.ar} سَنَة`,az:`3umri ${n.az} sana`,en:`I'm ${n.en} years old`,tag:'about me'};}
+ if(r===1){const c=pick(AM_COUNTRY);return {ar:`أنا مِنْ ${c.ar}`,az:`ana min ${c.az}`,en:`I'm from ${c.en}`,tag:'about me'};}
+ if(r===2){const n=pick(AM_NUM);return {ar:`ساكِنْ فِيْ الإماراتْ مِنْ ${n.ar} سَنَة`,az:`saakin fee el Emaraat min ${n.az} sana`,en:`I've lived in the UAE for ${n.en} years`,tag:'about me'};}
+ if(r===3){const w=pick(AM_WORK);return {ar:`أشْتِغِلْ فِيْ ${w.ar}`,az:`ashteghel fee ${w.az}`,en:`I work at ${w.en}`,tag:'about me'};}
+ return {ar:'أرْمِسْ عَرَبي شْوَيْ بَسْ',az:'armes 3arabi shway bas',en:'I speak a little Arabic',tag:'about me'};};
+const CONN=[
+ {ar:'ما أبا أروحْ عَشانْ تَعْبانْ',az:'ma aba aroo7 3ashaan ta3baan',en:"I don't want to go because I'm tired"},
+ {ar:'أنا يوعانْ بَسْ ما عِنْدي وَقِتْ',az:'ana yoo3aan bas ma 3indi wagt',en:"I'm hungry but I don't have time"},
+ {ar:'رِحِتْ الدَّوامْ وْبَعْدَيْنْ رِحِتْ المولْ',az:'ri7t el dawaam wo ba3dain ri7t el mall',en:'I went to work and then to the mall'},
+ {ar:'أحِبّ القَهْوَة بَسْ ما أحِبّ الچايْ',az:'a7ebb el gahwa bas ma a7ebb el chai',en:"I like coffee but I don't like tea"},
+ {ar:'هُوْ مَشْغولْ فَ ما بْيِطْلَعْ',az:'hu mashghool fa ma byitla3',en:"he's busy so he won't go out"},
+ {ar:'هٰذا الوَلَدْ اللّي شِفْتَه أمْسْ',az:'haadha el walad elly shiftah ams',en:"this is the boy I saw yesterday"},
+];
+const PREPS=[
+ {ar:'الفْلوسْ عَلى الطّاوْلَة',az:'el floos 3ala el taawla',en:'the money is on the table'},
+ {ar:'السَّيّارَة قِدّامْ البِيْتْ',az:'el sayyaara giddaam el bait',en:'the car is in front of the house'},
+ {ar:'فِيْ مَطْعَمْ يَمّ البِيْتْ',az:'fee mat3am yamm el bait',en:"there's a restaurant next to the house"},
+ {ar:'أنا فِيْ الدَّوامْ',az:'ana fee el dawaam',en:"I'm at work"},
+ {ar:'الكِتابْ وَرا الكُرْسي',az:'el kitaab wara el kursi',en:'the book is behind the chair'},
+ {ar:'دُبَيْ أكْبَرْ مِنْ الشّارْجَة',az:'Dubai akbar min el Sharja',en:'Dubai is bigger than Sharjah'},
+];
+function phraseItem(theme){const arr=(PHR[theme]||PHR2[theme]||[]);const p=pick(arr)||{ar:'؟',az:'?',en:'?'};return {ar:p.ar,az:p.az,en:p.en,tag:'phrase'};}
+
+/* ---- verb sentence builder (Petrov) ---- */
+const LAYERS=[{id:'present',name:'Present'},{id:'past',name:'Past'},{id:'future',name:'Future'},{id:'negation',name:'Negation'},{id:'questions',name:'Questions'},{id:'imperative',name:'Imperative'},{id:'mixed',name:'Mixed'}];
+function arFuture(f){if(f[0]==='أ')return 'بَ'+f.slice(1);if(f[0]==='آ')return 'با'+f.slice(1);return 'بْ'+f;}
+function cap(s){return s.charAt(0).toUpperCase()+s.slice(1);}
+function enStatement(V,P,tense,pol,obj){const inf=V.en[0],s=V.en[1],pa=V.en[2],o=' '+obj.en;
+ if(pol==='pos'){if(tense==='present')return `${P.en} ${P.third?s:inf}${o}`;if(tense==='past')return `${P.en} ${pa}${o}`;return `${P.en} will ${inf}${o}`;}
+ if(tense==='present')return `${P.en} ${P.third?"doesn't":"don't"} ${inf}${o}`;if(tense==='past')return `${P.en} didn't ${inf}${o}`;return `${P.en} won't ${inf}${o}`;}
+function verbPoolFor(verbSetId){if(verbSetId&&verbSetId!=='all'){const V=VERBS.find(v=>v.id===verbSetId);return V?[V]:VERBS;}
+ const d=PROG.drill,pool=[];VERBS.forEach(V=>{const m=(d.byKey&&d.byKey['V:'+V.id]&&d.byKey['V:'+V.id].miss)||0;const w=1+Math.min(4,m);for(let k=0;k<w;k++)pool.push(V);});return pool;}
+function buildItem(layer0,verbSetId){
+ const V=pick(verbPoolFor(verbSetId));let layer=layer0;if(layer==='mixed')layer=pick(['present','past','future','negation','questions','imperative']);
+ let tense='present',pol='pos',mood='statement';
+ if(layer==='past')tense='past';else if(layer==='future')tense='future';
+ else if(layer==='negation'){pol='neg';tense=pick(['present','past','future']);}
+ else if(layer==='questions'){mood='question';tense=pick(['present','past']);}
+ else if(layer==='imperative')mood='imperative';
+ if(tense==='future'&&V.noFut)tense=pick(['present','past']);
+ if(mood==='imperative'&&V.noImp){mood='statement';tense=pick(['present','past']);}
+ let pi;if(mood==='imperative')pi=pick([1,2,6]);else pi=ri(8);
+ const P=PRN[pi],obj=pick(V.objs);let ar,az,en;
+ if(mood==='imperative'){const idx=pi===1?0:(pi===2?1:2);const neg=Math.random()<0.4;
+  if(neg){az=`la ${V.az.pr[pi]} ${obj.az}`;ar=`لا ${V.ar.pr[pi]} ${obj.ar}`;en=`Don't ${V.en[0]} ${obj.en}!`;}
+  else{az=`${V.az.im[idx]} ${obj.az}`;ar=`${V.ar.im[idx]} ${obj.ar}`;en=`${cap(V.en[0])} ${obj.en}!`;}
+  layer='imperative';
+ }else{let vaz,var_;
+  if(tense==='present'){vaz=V.az.pr[pi];var_=V.ar.pr[pi];}else if(tense==='past'){vaz=V.az.pa[pi];var_=V.ar.pa[pi];}
+  else{vaz='b'+V.az.pr[pi];var_=arFuture(V.ar.pr[pi]);}
+  const negAz=pol==='neg'?'ma ':'',negAr=pol==='neg'?'ما ':'';
+  if(mood==='question'){const canWh=V.mode==='trans'||V.mode==='motion';const wh=canWh&&Math.random()<0.5;
+   if(wh){const qw=V.mode==='motion'?['wain','وِيْن','Where']:['shoo','شُو','What'];az=`${qw[0]} ${vaz}?`;ar=`${qw[1]} ${var_}؟`;
+    const aux=tense==='past'?'did':(P.third?'does':'do');en=`${qw[2]} ${aux} ${P.en} ${V.en[0]}?`;}
+   else{az=`${P.az} ${vaz} ${obj.az}?`;ar=`${P.ar} ${var_} ${obj.ar}؟`;const aux=tense==='past'?'Did':(P.third?'Does':'Do');en=`${aux} ${P.en} ${V.en[0]} ${obj.en}?`;}
+  }else{az=`${P.az} ${negAz}${vaz} ${obj.az}`.trim();ar=`${P.ar} ${negAr}${var_} ${obj.ar}`;en=enStatement(V,P,tense,pol,obj);}
+ }
+ return {V,layer,ar:ar.trim(),az:az.trim(),en:en.trim(),tag:(LAYERS.find(l=>l.id===layer)||{}).name||layer};
+}
+function genItem(spec){
+ if(spec.gen==='verb')return buildItem(spec.layer||'mixed',spec.verb||spec.verbSet||'all');
+ if(spec.gen==='phrase')return phraseItem(spec.theme);
+ if(spec.gen==='conn')return Object.assign({tag:'connectors'},pick(CONN));
+ if(spec.gen==='prep')return Object.assign({tag:'prepositions'},pick(PREPS));
+ if(spec.gen==='list')return Object.assign({tag:spec.tag||'grammar'},pick(spec.items));
+ if(GENR[spec.gen])return GENR[spec.gen]();
+ return {ar:'؟',az:'?',en:'?',tag:''};
+}
+
+/* ---- reusable infinite-drill widget ---- */
+const drills={};
+function drillWidgetHTML(id){return `
+ <div class="stage" id="${id}_stage"></div>
+ <div class="btnrow" style="margin-top:10px"><button class="btn blue" id="${id}_show" onclick="drillShowA('${id}')">Show answer</button>
+   <button class="btn ghost" onclick="drillNew('${id}')">↻ New</button></div>
+ <div class="grade" id="${id}_grade"><button class="btn blk" onclick="drillGr('${id}',0)">Missed it</button>
+   <button class="btn grn" onclick="drillGr('${id}',1)">Got it ✓</button></div>
+ <div class="note" style="text-align:center;margin-top:6px" id="${id}_sess">0 done</div>`;}
+function drillMount(id,spec,dir){drills[id]={spec,dir:dir||'both',cur:null,shown:false,sess:{a:0,c:0}};drillNew(id);}
+function drillNew(id){const d=drills[id];if(!d)return;d.cur=genItem(d.spec);d.shown=false;d.dirNow=d.dir==='both'?pick(['en2ar','ar2en']):d.dir;drillRender(id);}
+function drillRender(id){const d=drills[id];if(!d)return;const it=d.cur,st=document.getElementById(id+'_stage');if(!st)return;const tag=it.tag||'';
+ if(!d.shown){
+  if(d.dirNow==='en2ar')st.innerHTML=`<div class="tasktag">${esc(tag)}</div><div class="dir">EN → AR</div><div class="prompt">${esc(it.en)}</div><div class="note">say it in Emirati…</div>`;
+  else st.innerHTML=`<div class="tasktag">${esc(tag)}</div><div class="dir">AR → EN</div><div class="prompt ar">${it.ar}</div><div class="az">${esc(it.az)}</div><div class="note">what does it mean?</div>`;
+  const g=document.getElementById(id+'_grade');if(g)g.classList.remove('on');const s=document.getElementById(id+'_show');if(s)s.style.display='';
+ }else{st.innerHTML=`<div class="tasktag">${esc(tag)}</div><div class="prompt ar">${it.ar}</div><div class="az">${esc(it.az)}</div><div class="ansbox"><div class="en">${esc(it.en)}</div></div>`;
+  const g=document.getElementById(id+'_grade');if(g)g.classList.add('on');const s=document.getElementById(id+'_show');if(s)s.style.display='none';}}
+function drillShowA(id){if(drills[id]){drills[id].shown=true;drillRender(id);}}
+function drillGr(id,ok){const d=drills[id];if(!d)return;const key=d.spec.key||('G:'+d.spec.gen);recDrillKey(key,d.spec.label||d.cur.tag||d.spec.gen,ok);
+ d.sess.a++;if(ok)d.sess.c++;const s=document.getElementById(id+'_sess');if(s)s.textContent=`${d.sess.a} done · ${d.sess.c} right`;drillNew(id);}
+
+function renderHome(){
+ const v=document.getElementById('v-home');
+ const total=LESSONS.length,done=LESSONS.filter(l=>lp(l.id).done).length,pct=Math.round(done/total*100);
+ const d=PROG.drill,acc=d.a?Math.round(d.c/d.a*100):0;
+ const learned=Object.values(JSON.parse(localStorage.getItem('emi_srs')||'{}')).filter(b=>b>=4).length;
+ const weakD=Object.entries(d.byKey).map(([k,s])=>({k,label:s.label,miss:s.miss||0})).filter(x=>x.miss>0).sort((a,b)=>b.miss-a.miss).slice(0,5);
+ const weakL=LESSONS.filter(l=>lp(l.id).miss>0).map(l=>({l,miss:lp(l.id).miss})).sort((a,b)=>b.miss-a.miss).slice(0,4);
+ const next=LESSONS.find(l=>!lp(l.id).done);
+ let h=`<div class="intro-hero"><div class="flagline"></div><div class="ar big">أهْلاً وْ سَهْلاً</div><div class="az">ahlan wo sahlan</div>
+   <p style="margin:.4em 0 0">Work the lessons <b>in order</b> — each builds only on earlier ones. Then drill each until it's automatic. That's the Petrov method.</p></div>
+  <div class="tiles"><div class="tile grn"><b>${done}/${total}</b><span>lessons</span></div>
+   <div class="tile blue"><b>${d.a}</b><span>drills done</span></div><div class="tile ${acc>=70?'grn':'red'}"><b>${acc}%</b><span>drill accuracy</span></div></div>
+  <div class="card tight"><div style="display:flex;justify-content:space-between;margin-bottom:6px"><b>Course progress</b><span class="pill-count">${pct}%</span></div><div class="prog"><i style="width:${pct}%"></i></div></div>
+  <div class="btnrow" style="margin-top:12px">${next?`<button class="btn" onclick="openLesson('${next.id}')">▶︎ ${lp(next.id).seen?'Continue':'Start'}: ${esc(next.t)}</button>`:`<button class="btn grn" disabled>✓ All lessons done</button>`}
+   <button class="btn blue" onclick="go('drill')">🔁 Open drills</button></div>`;
+ if(weakD.length||weakL.length){h+=`<div class="hd"><span class="n">🎯</span><h2>Practice your weak spots</h2></div>`;
+  if(weakD.length){h+=`<p class="note">Topics you miss most — one tap to drill just these:</p>`;
+   weakD.forEach(w=>{h+=`<div class="weakrow"><span>🔁 ${esc(w.label||w.k)}</span><span class="mn">${w.miss} miss</span><button class="btn sm blue" style="flex:0 0 auto" onclick="drillPreset('${w.k}')">Drill</button></div>`;});}
+  if(weakL.length){h+=`<p class="note" style="margin-top:10px">Lessons with mistakes:</p>`;
+   weakL.forEach(w=>{h+=`<div class="weakrow"><span>📘 ${esc(w.l.t)}</span><span class="mn">${w.miss} miss</span><button class="btn sm gold" style="flex:0 0 auto" onclick="openLesson('${w.l.id}')">Review</button></div>`;});}
+ }else h+=`<div class="callout b" style="margin-top:18px">As you drill, your weakest topics show here with one-tap practice.</div>`;
+ h+=`<div class="card tight" style="margin-top:16px;text-align:center"><span class="note">${learned} words locked in via flashcards · </span><span class="reveal" style="border:none;padding:0;color:var(--red)" onclick="resetAll()">reset all progress</span></div>`;
+ v.innerHTML=h;
+}
+function resetAll(){if(confirm('Reset ALL progress (lessons, drills, flashcards)?')){localStorage.removeItem('emi_prog');localStorage.removeItem('emi_srs');location.reload();}}
+
+/* ================= LESSONS ================= */
+function renderLessons(){const v=document.getElementById('v-lessons');const done=LESSONS.filter(l=>lp(l.id).done).length;
+ let h=`<div class="hd"><span class="n">📘</span><h2>Course · ${done}/${LESSONS.length} done</h2></div>
+   <p class="lead">Ordered so nothing is used before it's taught. Each lesson: teach → new words → quick check → infinite drill.</p>`;
+ LESSONS.forEach((l,i)=>{const p=lp(l.id),cls=p.done?'done':(p.seen?'started':''),badge=p.done?'✓':(i+1);
+  const meta=p.a?`${p.c}/${p.a} correct${p.miss?` · ${p.miss} miss`:''}`:`${l.ex.length} checks${l.drill?' · ∞ drill':''}`;
+  h+=`<div class="lesson ${cls}" onclick="openLesson('${l.id}')"><div class="badge">${badge}</div><div class="lmeta"><b>${esc(l.t)}</b><small>${esc(l.sub)} · ${meta}</small></div><div class="arrow">›</div></div>`;});
+ v.innerHTML=h;
+}
+let curLesson=null,lessonSession={answered:new Set(),correct:0};
+function openLesson(id){curLesson=id;lp(id).seen=true;saveProg();go('lessons');
+ const L=LESSONS.find(x=>x.id===id),v=document.getElementById('v-lessons');
+ let h=`<span class="back" onclick="renderLessons()">‹ all lessons</span><div class="hd"><span class="n">📘</span><h2>${esc(L.t)}</h2></div><div class="card">${L.html}</div>`;
+ if(L.words&&L.words.length)h+=`<div class="hd"><span class="n">🆕</span><h2>New words in this lesson</h2></div>${rows(L.words)}`;
+ h+=`<div class="hd"><span class="n">✍️</span><h2>Quick check</h2></div><div id="exwrap"></div><div id="exdone"></div>`;
+ if(L.drill)h+=`<div class="hd"><span class="n">🔁</span><h2>Drill this lesson ∞</h2></div><p class="lead">Endless randomized sentences using only what this lesson taught. Grade yourself — misses show up on Home.</p>${drillWidgetHTML('lesson')}`;
+ v.innerHTML=h;lessonSession={answered:new Set(),correct:0};renderEx(L);
+ if(L.drill)drillMount('lesson',Object.assign({key:'L:'+L.id,label:L.t},L.drill),'both');
+}
+function renderEx(L){const wrap=document.getElementById('exwrap');let h='';L.ex.forEach((e,i)=>{h+=`<div class="card" id="ex${i}">`+exHTML(e,i)+`</div>`;});wrap.innerHTML=h;}
+function exHTML(e,i){
+ if(e.t==='say')return `<div class="en" style="font-weight:600">${i+1}. Say in Emirati: “${esc(e.q)}”</div><div id="sa${i}"><span class="reveal" onclick="revealSay(${i})">tap to reveal answer ▾</span></div>`;
+ const q=e.t==='en'?`What does this mean?<div class="gloss"><div class="ar">${e.q.ar}</div><div class="az">${esc(e.q.az)}</div></div>`:esc(e.q);
+ const opts=e.opts.map((o,j)=>{const label=(typeof o==='string')?esc(o):(o.ar?`<span class="ar">${o.ar}</span> <span class="az">${esc(o.az)}</span>`:esc(o.az));return `<button class="opt" id="o${i}_${j}" onclick="answerEx(${i},${j})">${label}</button>`;}).join('');
+ return `<div class="en" style="font-weight:600;margin-bottom:6px">${i+1}. ${q}</div>${opts}<div class="feedback" id="fb${i}"></div>`;
+}
+function curEx(){return LESSONS.find(x=>x.id===curLesson).ex;}
+function answerEx(i,j){const e=curEx()[i];if(lessonSession.answered.has(i))return;lessonSession.answered.add(i);const ok=j===e.a;
+ document.querySelectorAll(`#ex${i} .opt`).forEach((b,k)=>{b.disabled=true;if(k===e.a)b.classList.add('correct');if(k===j&&!ok)b.classList.add('wrong');});
+ document.getElementById('fb'+i).innerHTML=ok?`<span class="ok">✓ Correct</span>`:`<span class="no">✗ Not quite — the highlighted one is right</span>`;
+ if(ok)lessonSession.correct++;recLesson(curLesson,ok);checkLessonDone();}
+function revealSay(i){const e=curEx()[i];document.getElementById('sa'+i).innerHTML=`<div class="gloss"><div class="ar" style="font-size:1.4rem">${e.ans.ar}</div><div class="az">${esc(e.ans.az)}</div></div>
+   <div class="btnrow" style="margin-top:8px"><button class="btn sm grn" onclick="gradeSay(${i},1)">I got it right</button><button class="btn sm blk" onclick="gradeSay(${i},0)">I missed it</button></div>`;}
+function gradeSay(i,ok){if(lessonSession.answered.has(i))return;lessonSession.answered.add(i);if(ok)lessonSession.correct++;recLesson(curLesson,!!ok);
+ document.getElementById('sa'+i).innerHTML+=`<div class="feedback ${ok?'ok':'no'}">${ok?'✓ nice':'✗ marked for review'}</div>`;checkLessonDone();}
+function checkLessonDone(){const L=LESSONS.find(x=>x.id===curLesson),box=document.getElementById('exdone');
+ if(lessonSession.answered.size>=L.ex.length){lp(curLesson).done=true;saveProg();
+  box.innerHTML=`<div class="card" style="text-align:center;border-color:var(--grn)"><h3 style="color:var(--grn)">✓ Quick check complete</h3><p>Score: <b>${lessonSession.correct}/${L.ex.length}</b> — now drill it below until it's automatic.</p>
+    <div class="btnrow"><button class="btn grn" onclick="nextLesson()">Next lesson ›</button><button class="btn ghost" onclick="renderLessons()">Back to list</button></div></div>`;}}
+function nextLesson(){const i=LESSONS.findIndex(x=>x.id===curLesson),n=LESSONS[i+1];if(n)openLesson(n.id);else{renderHome();go('home');}}
+
+/* ================= DRILLS TAB ================= */
+let DR={presetKey:null,dir:'both',verbSet:'all',layer:'present'};
+function drillPresets(){const P=[];LESSONS.forEach(L=>{if(L.drill)P.push({key:'L:'+L.id,label:L.t,spec:Object.assign({key:'L:'+L.id,label:L.t},L.drill)});});return P;}
+function phrasePresets(){return Object.keys(PHR2).map(th=>({key:'P:'+th,label:th,spec:{gen:'phrase',theme:th,key:'P:'+th,label:th}}));}
+function allPresets(){return drillPresets().concat(phrasePresets());}
+function drillPreset(key){DR.presetKey=key;const p=allPresets().find(x=>x.key===key);if(p&&p.spec.layer)DR.layer=p.spec.layer;go('drill');renderDrill();}
+function renderDrill(){const v=document.getElementById('v-drill');const presets=allPresets();
+ if(!DR.presetKey||!presets.find(p=>p.key===DR.presetKey))DR.presetKey=presets[0].key;
+ const cur=presets.find(p=>p.key===DR.presetKey),isVerb=cur.spec.gen==='verb';
+ let h=`<div class="hd"><span class="n">🔁</span><h2>Drills</h2></div>
+  <p class="lead">Infinite practice, in course order. Produce the sentence out loud, reveal, grade yourself. <b>Regular reps beat long sessions.</b></p>
+  <label class="fld">Lesson focus</label><div class="chips">${drillPresets().map(p=>`<span class="chip ${p.key===DR.presetKey?'on':''}" onclick="pickPreset('${p.key}')">${esc(p.label)}</span>`).join('')}</div>
+  <label class="fld">Conversation packs</label><div class="chips">${phrasePresets().map(p=>`<span class="chip ${p.key===DR.presetKey?'on':''}" onclick="pickPreset('${p.key}')">💬 ${esc(p.label)}</span>`).join('')}</div>
+  <label class="fld">Direction</label><div class="chips"><span class="chip g ${DR.dir==='both'?'on':''}" onclick="setDrillDir('both')">Both ⇄</span>
+   <span class="chip g ${DR.dir==='en2ar'?'on':''}" onclick="setDrillDir('en2ar')">EN → AR</span><span class="chip g ${DR.dir==='ar2en'?'on':''}" onclick="setDrillDir('ar2en')">AR → EN</span></div>`;
+ if(isVerb){h+=`<label class="fld">Tense / layer (flexible)</label><div class="chips">${['present','past','future','negation','questions','imperative','mixed'].map(ly=>`<span class="chip b ${DR.layer===ly?'on':''}" onclick="setDrillLayer('${ly}')">${ly}</span>`).join('')}</div>
+   <label class="fld">Verb</label><div class="chips"><span class="chip ${DR.verbSet==='all'?'on':''}" onclick="setDrillVerb('all')">All (weighted)</span>${VERBS.map(V=>`<span class="chip ${DR.verbSet===V.id?'on':''}" onclick="setDrillVerb('${V.id}')">${esc(V.en[0])}</span>`).join('')}</div>
+   <div class="btnrow" style="margin:6px 0"><button class="btn sm ghost" onclick="showMatrix('${DR.verbSet==='all'?'go':DR.verbSet}')">📐 Verb matrix</button></div>`;}
+ h+=drillWidgetHTML('main')+`<div id="matrixbox"></div>`;v.innerHTML=h;
+ let spec=Object.assign({},cur.spec);if(isVerb){spec.layer=DR.layer;spec.verb=DR.verbSet;}
+ drillMount('main',spec,DR.dir);
+}
+function pickPreset(k){DR.presetKey=k;const p=allPresets().find(x=>x.key===k);if(p&&p.spec.gen==='verb'&&p.spec.layer)DR.layer=p.spec.layer;renderDrill();}
+function setDrillDir(dr){DR.dir=dr;renderDrill();}
+function setDrillLayer(l){DR.layer=l;renderDrill();}
+function setDrillVerb(vv){DR.verbSet=vv;renderDrill();}
+function showMatrix(id){const V=VERBS.find(x=>x.id===id)||VERBS[0],box=document.getElementById('matrixbox');
+ const labels=['I','you (m)','you (f)','he','she','we','you all','they'];let rows_='';
+ for(let i=0;i<8;i++){const fut=V.noFut?'—':`<span class="ar">${arFuture(V.ar.pr[i])}</span><br><span class="azc">b${V.az.pr[i]}</span>`;
+  rows_+=`<tr><td class="p">${labels[i]}</td><td><span class="ar">${V.ar.pa[i]}</span><br><span class="azc">${esc(V.az.pa[i])}</span></td><td><span class="ar">${V.ar.pr[i]}</span><br><span class="azc">${esc(V.az.pr[i])}</span></td><td>${fut}</td></tr>`;}
+ box.innerHTML=`<div class="card"><h3>Matrix · to ${esc(V.en[0])}</h3>
+   <div class="gloss" style="margin:2px 0 10px"><div class="ar" style="font-size:1.5rem">${V.ar.pa[3]} / ${V.ar.pr[3]}</div><div class="az">${esc(V.az.pa[3])} / ${esc(V.az.pr[3])}</div><div class="en note">dictionary form (“he ${esc(V.en[2])}” / “he ${esc(V.en[1])}”) — Arabic has no infinitive; verbs are cited by the “he” forms</div></div>
+   <table class="matrix"><tr><th></th><th>Past</th><th>Present</th><th>Future (b-)</th></tr>${rows_}</table>
+   ${V.noImp?'':`<p class="note" style="margin-top:8px">Imperative: <b class="az">${esc(V.az.im[0])}</b> / <b class="az">${esc(V.az.im[1])}</b> (f) · negative: <b class="az">la ${esc(V.az.pr[1])}</b></p>`}
+   <p class="note">Petrov drill: read every row aloud top-to-bottom in ~25 seconds, then switch verbs.</p></div>`;
+ box.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+/* ================= FLASHCARDS ================= */
+const SRS=JSON.parse(localStorage.getItem('emi_srs')||'{}');
+function saveSRS(){localStorage.setItem('emi_srs',JSON.stringify(SRS));}
+let deck=[],cur=null,flipped=false,csess={done:0,goal:20,right:0},cmode='both';
+function wordCards(){const out=[];
+ ['pronouns','questions','particles','connectors','prepositions','people','places','things','weather','time','adjectives','colors','adverbs','numbers'].forEach(c=>
+  (LEX[c]||[]).forEach((it,i)=>{const g=gform(it);out.push({id:'w:'+c+i,kind:'word',prompt:it.en,ar:g.ar,az:g.az});}));
+ EXT.filter(e=>e[4]<=(S.bandMax||1)).forEach((e,i)=>out.push({id:'e:'+i,kind:'word',prompt:e[0],ar:e[1],az:e[2]}));
+ return out;}
+function phraseCards(){const out=[];
+  Object.entries(PHR).forEach(([th,arr])=>arr.forEach((it,i)=>out.push({id:'p:'+th+i,kind:'phrase',prompt:it.en,ar:it.ar,az:it.az})));
+  Object.entries(PHR2).forEach(([th,arr])=>arr.forEach((it,i)=>out.push({id:'p2:'+th+i,kind:'phrase',prompt:it.en,ar:it.ar,az:it.az})));
+  return out;}
+function buildDeck(){deck=(cmode==='phrase'?[]:wordCards()).concat(cmode==='word'?[]:phraseCards());}
+function nextCard(){const weighted=[];deck.forEach(c=>{const b=SRS[c.id]||1;const w=6-b;for(let i=0;i<w;i++)weighted.push(c);});
+ cur=pick(weighted.length?weighted:deck);flip(false);}
+function flip(v){flipped=v;faceCard();}
+function faceCard(){const f=document.getElementById('flashface');if(!f||!cur)return;
+ if(!flipped){f.innerHTML=`<div class="kind">${cur.kind}</div><div class="front">Say in Emirati:</div>
+   <div style="font-size:1.4rem;font-weight:700">${esc(cur.prompt)}</div><div class="tap">tap to reveal</div>`;
+   document.getElementById('cgrade').classList.remove('on');document.getElementById('cshow').style.display='';}
+ else{f.innerHTML=`<div class="kind">${cur.kind}</div><div class="ar">${cur.ar}</div><div class="divider"></div>
+   <div class="az">${esc(cur.az)}</div><div class="en note">${esc(cur.prompt)}</div>`;
+   document.getElementById('cgrade').classList.add('on');document.getElementById('cshow').style.display='none';}}
+function cgrade(g){let b=SRS[cur.id]||1;if(g==='again')b=1;else if(g==='good')b=Math.min(5,b+1);else b=Math.min(5,b+2);
+ SRS[cur.id]=b;saveSRS();csess.done++;if(g!=='again')csess.right++;
+ const p=document.getElementById('csessprog');if(p)p.style.width=Math.min(100,csess.done/csess.goal*100)+'%';
+ document.getElementById('csessstat').textContent=csess.done+' done';nextCard();}
+function renderCards(){const v=document.getElementById('v-cards');
+ v.innerHTML=`<div class="hd"><span class="n">🎴</span><h2>Flashcards</h2></div>
+  <p class="lead">Spaced repetition over the whole word bank + every phrasebook line. Hard cards come back sooner.</p>
+  <div class="chips"><span class="chip ${cmode==='both'?'on':''}" onclick="setCmode('both')">Words + phrases</span>
+   <span class="chip ${cmode==='word'?'on':''}" onclick="setCmode('word')">Words</span>
+   <span class="chip ${cmode==='phrase'?'on':''}" onclick="setCmode('phrase')">Phrases</span></div>
+  <label class="fld">Vocabulary level — add a band once the core feels easy</label>${bandChips('cards')}
+  <div class="deckbar" style="display:flex;gap:8px;align-items:center;margin:8px 0"><div class="prog" style="flex:1"><i id="csessprog"></i></div><span class="pill-count" id="csessstat">0 done</span></div>
+  <div class="flash" id="flashface" onclick="if(!flipped)flip(true)"></div>
+  <div class="btnrow" style="margin-top:10px"><button class="btn" id="cshow" onclick="flip(true)">Show answer</button></div>
+  <div class="grade" id="cgrade"><button class="btn blk" onclick="cgrade('again')">Again</button>
+   <button class="btn gold" onclick="cgrade('good')">Good</button><button class="btn grn" onclick="cgrade('easy')">Easy</button></div>`;
+ buildDeck();csess={done:0,goal:20,right:0};nextCard();}
+function setCmode(m){cmode=m;renderCards();}
+
+/* ================= REFERENCE ================= */
+let refTab='phrases';
+function renderRef(){const v=document.getElementById('v-ref');
+ const tabs=[['phrases','🗣 Phrasebook'],['vocab','📚 Vocabulary'],['build','🧩 Builder'],['import','🔤 Arabicize'],['read','📖 Read']];
+ let h=`<div class="chips" style="margin-top:4px">${tabs.map(t=>`<span class="chip ${refTab===t[0]?'on':''}" onclick="setRef('${t[0]}')">${t[1]}</span>`).join('')}</div><div id="refbody"></div>`;
+ v.innerHTML=h; renderRefBody();}
+function setRef(t){refTab=t;renderRef();}
+function renderRefBody(){const b=document.getElementById('refbody');
+ if(refTab==='phrases'){let h=`<p class="lead">Phrases from the Al Ramsa A1–B2 books, plus a reviewed Emirati conversation phrasebook (${Object.values(PHR2).reduce((s,a)=>s+a.length,0)} lines).</p>`;
+   h+=`<h3 style="margin:10px 0 2px">From the course books</h3>`;
+   Object.entries(PHR).forEach(([th,arr])=>{h+=`<details><summary>${esc(th)} <span class="pill-count">(${arr.length})</span></summary><div class="body">${rows(arr)}</div></details>`;});
+   h+=`<h3 style="margin:16px 0 2px">Conversation phrasebook</h3>`;
+   Object.entries(PHR2).forEach(([th,arr])=>{h+=`<details><summary>${esc(th)} <span class="pill-count">(${arr.length})</span></summary><div class="body">${rows(arr)}</div></details>`;});
+   b.innerHTML=h;}
+ else if(refTab==='vocab'){b.innerHTML=`<p class="lead">The tested core word bank, plus graded frequency bands. Turn on a band when you're ready for it.</p>${bandChips('vocab')}<input type="text" id="vsearch" placeholder="🔎 search English or arabizi…" oninput="filterVocab(this.value)"><div id="vocabBox"></div>`;renderVocab('');}
+ else if(refTab==='build')renderBuild(b);
+ else if(refTab==='import')renderImport(b);
+ else if(refTab==='read')renderRead(b);
+}
+const VOCAB_GROUPS=[["Verbs (dictionary)","verbs_stub"],["People & family","people"],["Places","places"],["Things & food","things"],["Weather","weather"],["Time","time"],["Adjectives","adjectives"],["Colours","colors"],["Adverbs","adverbs"],["Questions","questions"],["Particles","particles"],["Connectors","connectors"],["Prepositions","prepositions"],["Numbers","numbers"]];
+function verbDict(){return VERBS.map(V=>({en:'to '+V.en[0],ar:V.ar.pr[3]+' / '+V.ar.pr[0],az:V.az.pr[3]+' / '+V.az.pr[0]}));}
+function renderVocab(q){const box=document.getElementById('vocabBox');if(!box)return;q=(q||'').toLowerCase().trim();let h='';
+ VOCAB_GROUPS.forEach(([title,key])=>{let arr=key==='verbs_stub'?verbDict():(LEX[key]||[]);
+  if(q)arr=arr.filter(it=>(it.en+' '+it.az).toLowerCase().includes(q));if(!arr.length)return;
+  h+=`<details${q?' open':''}><summary>${title} <span class="pill-count">(${arr.length})</span></summary><div class="body">${rows(arr)}</div></details>`;});
+ const posL={n:'Nouns',v:'Verbs',adj:'Adjectives',adv:'Adverbs',x:'Function / other'};
+ for(let bnd=2;bnd<=(S.bandMax||1);bnd++){['n','v','adj','adv','x'].forEach(p=>{
+   let arr=EXT.filter(e=>e[4]===bnd&&e[3]===p).map(e=>({en:e[0],ar:e[1],az:e[2]}));
+   if(q)arr=arr.filter(it=>(it.en+' '+it.az).toLowerCase().includes(q));if(!arr.length)return;
+   h+=`<details${q?' open':''}><summary>Band ${bnd} · ${posL[p]} <span class="pill-count">(${arr.length})</span></summary><div class="body">${rows(arr)}</div></details>`;});}
+ box.innerHTML=h||'<p class="note">No matches.</p>';}
+function filterVocab(q){renderVocab(q);}
+function renderBuild(b){let h=`<p class="lead">Arabic words grow from a <b>3-consonant root</b> poured into fixed <b>patterns</b>. Pick a root:</p>
+  <div class="chips">${Object.keys(ROOTS).map(r=>`<span class="chip" onclick="showRoot('${r}')">${r.replace(/ /g,'·')}</span>`).join('')}</div><div id="rootOut"></div>
+  <div class="hd"><span class="n">📐</span><h2>The core patterns</h2></div>`;
+ PATTERNS.forEach(p=>{h+=`<div class="pattern"><div class="tpl">${p.tpl}</div><div><b class="az">${p.az}</b> — ${esc(p.role)}<br><span class="note">e.g. ${esc(p.ex)}</span></div></div>`;});
+ b.innerHTML=h;showRoot('k t b');}
+function showRoot(r){const R=ROOTS[r];if(!R)return;
+ document.querySelectorAll('#refbody .chips .chip').forEach(c=>c.classList.toggle('on',c.textContent===r.replace(/ /g,'·')));
+ document.getElementById('rootOut').innerHTML=`<div class="card"><h3>Root ${R.ar.join(' · ')} <span class="az">(${r})</span></h3>${rows(R.forms.map(f=>({en:f[2],ar:f[0],az:f[1]})))}</div>`;}
+function transliterate(w){w=w.toLowerCase().replace(/[^a-z]/g,'');let ar='',az='',i=0;
+ while(i<w.length){const two=w.slice(i,i+2);if(DIGRAPH[two]){ar+=DIGRAPH[two][0];az+=DIGRAPH[two][1];i+=2;continue;}
+  const c=w[i];if(PHON[c]){ar+=PHON[c][0];az+=PHON[c][1];}else{ar+=c;az+=c;}i++;}return{ar,az};}
+function renderImport(b){b.innerHTML=`<div class="hd"><span class="n">🔤</span><h2>Arabicize any English word</h2></div>
+  <p class="lead">Missing a word? Import it. Type any English noun:</p>
+  <input type="text" id="impIn" placeholder="e.g. laptop, meeting, gym, download" oninput="doImport(this.value)"><div id="impOut"></div>
+  <div class="card"><h3>The 4 rules</h3><ol class="ex">
+   <li><b>Swap missing sounds:</b> P→B (laptop→<i>labtob</i>), V→F (video→<i>fidyo</i>).</li>
+   <li><b>Make it “the”:</b> add <b>el-</b>.</li><li><b>Plural:</b> add <b>-aat</b>.</li>
+   <li><b>Verb it:</b> wrap in <b>asawwi</b> (I do): <i>asawwi download</i>; future <i>basawwi</i>.</li></ol></div>`;
+ doImport('laptop');}
+function doImport(w){const out=document.getElementById('impOut');if(!out)return;w=(w||'').trim();if(!w){out.innerHTML='';return;}
+ const t=transliterate(w);const frames=[['أبا …','aba '+t.az,'I want a '+w],['عِنْدي …','3indi '+t.az,'I have a '+w],['وِيْنْ الـ… ؟','wain el '+t.az+'?','where is the '+w+'?'],['بَسَوّي … باچِرْ','basawwi '+t.az+' baacher',"I'll "+w+' tomorrow']];
+ let h=`<div class="card gloss" style="text-align:center"><div class="note">“${esc(w)}” →</div><div class="ar big">الـ${t.ar}</div><div class="az">el ${t.az}</div></div><div class="card"><h3>In a sentence</h3>`;
+ frames.forEach(f=>{h+=`<div class="gloss" style="margin:10px 0"><div class="ar">${f[0].replace('…',t.ar)}</div><div class="az">${esc(f[1])}</div><div class="en note">${esc(f[2])}</div></div>`;});
+ h+=`</div><div class="callout">Transliteration is approximate — say it, an Emirati will get it.</div>`;out.innerHTML=h;}
+function renderRead(b){let h=`<p class="lead">Read aloud; use Arabizi as a crutch, then turn it off.</p>`;
+ READ.forEach(t=>{h+=`<div class="card"><h3>${esc(t.title)}</h3>`;t.lines.forEach(l=>{h+=`<div class="gloss" style="margin:12px 0"><div class="ar" style="font-size:1.5rem">${l[0]}</div><div class="az">${esc(l[1])}</div><div class="en note">${esc(l[2])}</div></div>`;});h+=`</div>`;});
+ h+=`<div class="hd"><span class="n">✍️</span><h2>Translation drills</h2></div><p class="lead">Say each in Emirati, then reveal.</p>`;
+ DRILL_TXT.forEach(d=>{h+=`<div class="card tight"><div class="en" style="font-weight:600">${esc(d.en)}</div>
+   <div class="reveal" onclick="this.outerHTML='<div class=&quot;gloss&quot;><div class=&quot;ar&quot; style=&quot;font-size:1.4rem&quot;>${d.ar}</div><div class=&quot;az&quot;>${esc(d.az)}</div></div>'">tap to reveal ▾</div></div>`;});
+ b.innerHTML=h;}
+
+/* ================= NAV ================= */
+function go(tab){S.tab=tab;save();
+ document.querySelectorAll('.view').forEach(x=>x.classList.remove('on'));
+ document.getElementById('v-'+tab).classList.add('on');
+ document.querySelectorAll('nav.tabs button').forEach(b=>b.classList.toggle('on',b.dataset.v===tab));
+ window.scrollTo(0,0);}
+function renderAll(){renderHome();renderLessons();renderDrill();renderCards();renderRef();}
+applyToggles();renderAll();go(S.tab);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+# Third-party copyrighted source material (Al Ramsa sample books) — not redistributed
+*.pdf
+
+# OS / misc
+.DS_Store
