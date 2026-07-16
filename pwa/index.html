@@ -1000,11 +1000,12 @@ words:[
  {en:"he",ar:"هُوْ",az:"hu"},{en:"she",ar:"هِيْ",az:"hi"},{en:"we",ar:"إحْنا",az:"e7na"},
  {en:"you (pl)",ar:"إنْتُوا",az:"entoo"},{en:"they",ar:"هُمْ",az:"hum"},
  {en:"from",ar:"مِنْ",az:"min"},{en:"tired",ar:"تَعْبانْ",az:"ta3baan"},{en:"happy",ar:"مَبْسوطْ",az:"mabsoot"},
- {en:"hungry",ar:"يوعانْ",az:"yoo3aan"},{en:"busy",ar:"مَشْغولْ",az:"mashghool"},{en:"big",ar:"كِبيرْ",az:"kbeer"},{en:"nice",ar:"حِلو",az:"7elo"}],
+ {en:"hungry",ar:"يوعانْ",az:"yoo3aan"},{en:"busy",ar:"مَشْغولْ",az:"mashghool"},
+ {en:"and",ar:"وْ",az:"wo"},{en:"but / just",ar:"بَسْ",az:"bas"},{en:"a little",ar:"شْوَيْ",az:"shway"},{en:"very / a lot",ar:"وايِدْ",az:"wayed"}],
 html:`<p class="lead"><b>There is no “am / is / are”.</b> Put a pronoun next to a describing word and you have a sentence.</p>
 ${G("أنا تَعْبانْ","ana ta3baan","I'm tired")}
 ${G("هُوْ مِنْ دُبَيْ","hu min Dubai","he's from Dubai")}
-${G("إحْنا مَبْسوطينْ","e7na mabsooteen","we're happy")}
+${G("هِيْ تَعْبانَة","hi ta3baana","she's tired")}
 <div class="callout">Adjectives take <b>-a</b> for a female (ana ta3baan → ta3baan<b>a</b>). Your speaker gender (top-right) sets which one the drills use.</div>`,
 ex:[
  {t:'say',q:"I'm hungry",ans:{az:"ana yoo3aan",ar:"أنا يوعانْ"}},
@@ -1056,20 +1057,25 @@ words:[
  {en:"I take",ar:"آخِذْ",az:"aakhidh"},{en:"I put",ar:"أحُطّ",az:"a7ott"},{en:"I give",ar:"أعْطي",az:"a3ti"},
  {en:"I look for",ar:"أدَوِّرْ",az:"adawwir"},{en:"I go",ar:"أسيرْ / أروحْ",az:"aseer / aroo7"},{en:"I work",ar:"أشْتِغِلْ",az:"ashteghel"},
  {en:"I call",ar:"أتِّصِلْ",az:"attesel"},{en:"I travel",ar:"أسافِرْ",az:"asaafer"},{en:"I eat",ar:"آكِلْ",az:"aakil"},
- {en:"I drink",ar:"أشْرَبْ",az:"ashrab"},{en:"I sleep",ar:"أرْقُدْ",az:"argud"}],
+ {en:"I drink",ar:"أشْرَبْ",az:"ashrab"},{en:"I sleep",ar:"أرْقُدْ",az:"argud"},
+ {en:"Arabic",ar:"عَرَبي",az:"3arabi"},{en:"rice",ar:"عَيْشْ",az:"3aish"},{en:"water",ar:"مايْ",az:"maay"},{en:"the lesson",ar:"الدَّرِسْ",az:"el dars"}],
 html:`<p class="lead">To say “I do X”, start the verb with <b>a-</b> (أ). Every Arabic verb grows from a <b>3-letter root</b>; the “I” form pours it into the shape <b>a‑ _ _ i _</b>.</p>
 <table class="matrix"><tr><td class="p">root k·t·b <small>(writing)</small></td><td class="ar">أكْتِبْ</td><td class="azc">a-ktib = I write</td></tr>
 <tr><td class="p">root sh·r·b <small>(drinking)</small></td><td class="ar">أشْرَبْ</td><td class="azc">a-shrab = I drink</td></tr>
 <tr><td class="p">root l·3·b <small>(playing)</small></td><td class="ar">ألْعَبْ</td><td class="azc">a-l3ab = I play</td></tr></table>
 <div class="callout g">The payoff: the moment you know a root you can build “I …” — <b>k·t·b → aktib</b> (I write), <b>f·h·m → afham</b> (I understand). The <b>Word Builder</b> (Reference) shows how the same root makes the noun, the doer and the place too.</div>
 ${G("أرْمِسْ عَرَبي شْوَيْ بَسْ","armes 3arabi shway bas","I speak a little Arabic")}
-${G("أسيرْ المولْ وْبَعْدَيْنْ أرْقُدْ","aseer el mall wo ba3dain argud","I go to the mall and then I sleep")}
+${G("أسيرْ البِيْتْ وْ أرْقُدْ","aseer el bait wo argud","I go home and I sleep")}
 <div class="callout">A few verbs bend the vowels (hollow: aroo7 / aseer / ashoof; doubled: a7ebb / a7ott) — but they all still start with <b>a-</b>. The full “he/you/we…” set comes in the Present-tense lesson.</div>`,
 ex:[
  {t:'mcq',q:"The root k·t·b is about writing. So “I write” =",opts:[{az:"aktib",ar:"أكْتِبْ"},{az:"yiktib",ar:"يِكْتِبْ"},{az:"kitaab",ar:"كِتابْ"},{az:"maktab",ar:"مَكْتَبْ"}],a:0},
+ {t:'mcq',q:"The root sh·r·b is about drinking. So “I drink” =",opts:[{az:"ashrab",ar:"أشْرَبْ"},{az:"yishrab",ar:"يِشْرَبْ"},{az:"mashroob",ar:"مَشْروبْ"},{az:"shirabt",ar:"شِرَبْتْ"}],a:0},
+ {t:'mcq',q:"“I understand”",opts:[{az:"afham",ar:"أفْهَمْ"},{az:"yifham",ar:"يِفْهَمْ"},{az:"fahamt",ar:"فْهَمْتْ"},{az:"mafhoom",ar:"مَفْهومْ"}],a:0},
  {t:'say',q:"I speak a little Arabic",ans:{az:"armes 3arabi shway",ar:"أرْمِسْ عَرَبي شْوَيْ"}},
  {t:'say',q:"I go home",ans:{az:"aroo7 el bait",ar:"أروحْ البِيْتْ"}},
- {t:'mcq',q:"“I understand”",opts:[{az:"afham",ar:"أفْهَمْ"},{az:"yifham",ar:"يِفْهَمْ"},{az:"fahamt",ar:"فْهَمْتْ"},{az:"mafhoom",ar:"مَفْهومْ"}],a:0},
+ {t:'say',q:"I read a book",ans:{az:"agra kitaab",ar:"أقْرا كِتابْ"}},
+ {t:'say',q:"I want water",ans:{az:"aba maay",ar:"أبا مايْ"}},
+ {t:'say',q:"I eat rice",ans:{az:"aakil 3aish",ar:"آكِلْ عَيْشْ"}},
 ]},
 
 {id:"aboutme",t:"About me",sub:"name, age, where you live & work",drill:{gen:'aboutme'},
@@ -1078,7 +1084,11 @@ words:[
  {en:"living / I live (m)",ar:"ساكِنْ",az:"saakin"},{en:"the UAE",ar:"الإماراتْ",az:"el Emaraat"},
  {en:"for / since",ar:"مِنْ",az:"min"},{en:"I work at",ar:"أشْتِغِلْ فِيْ",az:"ashteghel fee"},
  {en:"I speak / chat",ar:"أرْمِسْ",az:"armes"},{en:"Arabic",ar:"عَرَبي",az:"3arabi"},
- {en:"how many years?",ar:"كَمْ سَنَة؟",az:"kam sana?"},{en:"welcome (to you)",ar:"حَيّاكْ اللهْ",az:"7ayyaak Allah"}],
+ {en:"how many years?",ar:"كَمْ سَنَة؟",az:"kam sana?"},{en:"welcome (to you)",ar:"حَيّاكْ اللهْ",az:"7ayyaak Allah"},
+ {en:"peace be upon you",ar:"السَّلامُ عَلَيْكُمْ",az:"salam 3alaikum"},{en:"how are you? (var.)",ar:"شْحالَكْ؟",az:"sh7aalak?"},{en:"what's up?",ar:"شَخْبارَكْ؟",az:"shakhbarek?"},{en:"fine, thank God",ar:"الحَمْدُلله بِخِيْرْ",az:"el 7amdillah bkhair"},
+ {en:"nice to meet you — the pleasure's ours",ar:"تْشَرَّفْنا — الشَّرَفْ لْنا",az:"tsharrafna — el sharaf lena"},
+ {en:"10 / 15 / 20 / 30 (years)",ar:"عَشْرْ / خَمْسْطَعَشْ / عِشْرينْ / ثْلاثينْ",az:"3ashar / khamsta3ash / 3ishreen / thalatheen"},
+ {en:"a company / a bank / a hospital",ar:"شَرِكَة / بَنْكْ / مُسْتَشْفى",az:"sherka / bank / mustashfa"}],
 html:`<p class="lead">Now introduce yourself. These frames reuse the “my …” endings (L4) and the “I …” verbs (L5).</p>
 ${G("أنا اِسْمي … وْ عُمْري … سَنَة","ana ismi … wo 3umri … sana","my name is … and I'm … years old")}
 ${G("أنا مِنْ … وْ ساكِنْ فِيْ الإماراتْ مِنْ … سَنَة","ana min … wo saakin fee el Emaraat min … sana","I'm from … and I've lived in the UAE for … years")}
@@ -1123,7 +1133,7 @@ words:[
  {en:"to sleep",ar:"أرْقُدْ",az:"argud"},{en:"tea",ar:"چايْ",az:"chai"}],
 html:`<p class="lead">These four take a noun <i>or</i> another action right after them.</p>
 ${G("أبا قَهْوَة","aba gahwa","I want coffee")}
-${G("أحِبّ أروحْ البَرّ","a7ebb aroo7 el barr","I like going to the desert")}
+${G("أحِبّ القَهْوَة","a7ebb el gahwa","I like coffee")}
 ${G("لازِمْ أشْتِغِلْ","laazim ashteghel","I have to work")}
 ${G("ما أقْدَرْ أروحْ","ma agdar aroo7","I can't go")}
 <div class="callout">Negate any of them with <b>ma</b> (from lesson 5): ma aba, ma agdar.</div>`,
@@ -1136,8 +1146,15 @@ ex:[
 {id:"present",t:"Present tense — the matrix",sub:"the verb engine (Petrov core)",drill:{gen:'verb',layer:'present'},
 words:[
  {en:"I / you / he / we (prefixes)",ar:"أ / تْ / يْ / نْ",az:"a- / t- / y- / n-"},
- {en:"to eat",ar:"ياكِلْ",az:"yaakil"},{en:"to drink",ar:"يِشْرَبْ",az:"yishrab"},{en:"to see",ar:"يْشوفْ",az:"yshoof"},
- {en:"rice",ar:"عَيْشْ",az:"3aish"},{en:"the desert",ar:"البَرّ",az:"el barr"},{en:"the mall",ar:"المولْ",az:"el mall"}],
+ {en:"to eat / drink / see",ar:"ياكِلْ / يِشْرَبْ / يْشوفْ",az:"yaakil / yishrab / yshoof"},
+ {en:"— drill objects (all shown with a translation) —",ar:"…",az:"…"},
+ {en:"tea / milk / bread",ar:"چايْ / حَليبْ / خُبِزْ",az:"chai / 7aleeb / khubz"},{en:"fish / an apple",ar:"سِمَچْ / تُفّاحَة",az:"simach / tuffaa7a"},
+ {en:"a movie / the sea",ar:"فيلمْ / البَحَرْ",az:"film / el ba7ar"},{en:"the mall / the desert / school",ar:"المولْ / البَرّ / المَدْرَسَة",az:"el mall / el barr / el madrasa"},
+ {en:"work / sport / homework",ar:"الشِّغِلْ / رِياضَة / الواجِبْ",az:"el sheghel / riyadha / el waajib"},{en:"a letter / a message",ar:"رِسالَة / مِسِجْ",az:"risaala / message"},
+ {en:"the door / window / bag / key",ar:"البابْ / الدِّريشَة / الشَّنْطَة / المِفْتاحْ",az:"el baab / el dreesha / el shanta / el muftaa7"},{en:"football / clothes",ar:"طابَة / هْدومْ",az:"taaba / hdoom"},
+ {en:"my friend(s) / my family",ar:"رَبْعي / أهْلي",az:"rab3i / ahli"},{en:"the answer / the way",ar:"الجَوابْ / الدَّرِبْ",az:"el jawaab / el darb"},
+ {en:"English / with / about",ar:"إنْقِليزي / وِيا / عَنْ",az:"ingleezi / wiya / 3an"},{en:"brother / the trip / on-to",ar:"أخوي / السَّفَرْ / عَلى",az:"akhooy / el safar / 3ala"},
+ {en:"today / tomorrow / early / here-there",ar:"اليومْ / باچِرْ / بَدْري / هِنِي · هِناكْ",az:"el youm / baacher / badri / hini · hinaak"}],
 html:`<p class="lead">Present verbs change the <b>front</b> letter for each person — this is the “multiplication table” you bring to automatism.</p>
 <table class="matrix"><tr><td class="p">I go</td><td class="ar">أروحْ</td><td class="azc">aroo7</td><td class="p">he goes</td><td class="ar">يْروحْ</td><td class="azc">yroo7</td></tr>
 <tr><td class="p">you go</td><td class="ar">تْروحْ</td><td class="azc">troo7</td><td class="p">we go</td><td class="ar">نْروحْ</td><td class="azc">nroo7</td></tr>
@@ -1198,7 +1215,7 @@ ex:[
 {id:"conn",t:"Connectors",drill:{gen:'conn'},sub:"turning fragments into talk",
 words:[
  {en:"and",ar:"وْ",az:"wo"},{en:"but",ar:"بَسْ",az:"bas"},{en:"because",ar:"عَشانْ",az:"3ashaan"},
- {en:"so",ar:"فَـ",az:"fa"},{en:"and then",ar:"وْبَعْدَيْنْ",az:"wo ba3dain"},{en:"with",ar:"وِيا",az:"wiya"},{en:"which/that",ar:"اللّي",az:"elly"}],
+ {en:"so",ar:"فَـ",az:"fa"},{en:"and then",ar:"وْبَعْدَيْنْ",az:"wo ba3dain"},{en:"with",ar:"وِيا",az:"wiya"},{en:"which/that",ar:"اللّي",az:"elly"},{en:"workplace / office hours",ar:"الدَّوامْ",az:"el dawaam"}],
 html:`<p class="lead">These stitch your short sentences together.</p>
 ${G("ما أبا أروحْ عَشانْ تَعْبانْ","ma aba aroo7 3ashaan ta3baan","I don't want to go because I'm tired")}
 ${G("رِحِتْ الدَّوامْ وْبَعْدَيْنْ رِحِتْ المولْ","ri7t el dawaam wo ba3dain ri7t el mall","I went to work and then to the mall")}`,
@@ -1211,7 +1228,8 @@ ex:[
 words:[
  {en:"in / at",ar:"فِيْ",az:"fee"},{en:"on",ar:"عَلى",az:"3ala"},{en:"next to",ar:"يَمّ",az:"yamm"},
  {en:"in front of",ar:"قِدّامْ",az:"giddaam"},{en:"behind",ar:"وَرا",az:"wara"},
- {en:"bigger",ar:"أكْبَرْ",az:"akbar"},{en:"nicer",ar:"أحْلى",az:"a7la"},{en:"the best",ar:"أحْسَنْ",az:"a7san"}],
+ {en:"bigger",ar:"أكْبَرْ",az:"akbar"},{en:"nicer",ar:"أحْلى",az:"a7la"},{en:"the best",ar:"أحْسَنْ",az:"a7san"},
+ {en:"table",ar:"الطّاوْلَة",az:"el taawla"},{en:"chair",ar:"الكُرْسي",az:"el kursi"},{en:"restaurant",ar:"المَطْعَمْ",az:"el mat3am"},{en:"thing",ar:"شِيْ",az:"shai"}],
 html:`<p class="lead">Place words, then comparison: “more/-er” = pattern <b>a‑‑‑</b>, “the most” adds <b>el</b>.</p>
 ${G("الفْلوسْ عَلى الطّاوْلَة","el floos 3ala el taawla","the money is on the table")}
 ${G("دُبَيْ أكْبَرْ مِنْ الشّارْجَة","Dubai akbar min el Sharja","Dubai is bigger than Sharjah")}
@@ -1227,7 +1245,8 @@ ex:[
  {en:"books",ar:"كُتُبْ",az:"kutub"},{en:"days",ar:"أيّامْ",az:"ayyaam"},{en:"restaurants",ar:"مَطاعِمْ",az:"mataa3im"},{en:"schools",ar:"مَدارِسْ",az:"madaaris"}]},
 words:[
  {en:"cars",ar:"سَيّاراتْ",az:"sayyaaraat"},{en:"houses",ar:"بْيوتْ",az:"byoot"},{en:"boys",ar:"أوْلادْ",az:"awlaad"},
- {en:"girls",ar:"بَناتْ",az:"banaat"},{en:"books",ar:"كُتُبْ",az:"kutub"},{en:"days",ar:"أيّامْ",az:"ayyaam"}],
+ {en:"girls",ar:"بَناتْ",az:"banaat"},{en:"books",ar:"كُتُبْ",az:"kutub"},{en:"days",ar:"أيّامْ",az:"ayyaam"},
+ {en:"hour → hours",ar:"ساعَة → ساعاتْ",az:"saa3a → saa3aat"},{en:"men",ar:"رْياييلْ",az:"ryaayeel"},{en:"restaurants",ar:"مَطاعِمْ",az:"mataa3im"},{en:"schools",ar:"مَدارِسْ",az:"madaaris"}],
 html:`<p class="lead">Arabic plurals mostly don't just “add -s”. Two things to know:</p>
 <h3>1. Feminine words (‑a) → add ‑aat</h3>
 ${G("سَيّارَة → سَيّاراتْ","sayyaara → sayyaaraat","car → cars")}
@@ -1249,7 +1268,7 @@ ex:[
  {en:"my friend's name",ar:"اِسِمْ رِبْعي",az:"ism rab3i"},{en:"the office door",ar:"بابْ المَكْتَبْ",az:"baab el maktab"}]},
 words:[
  {en:"my father's house",ar:"بِيْتْ أبوي",az:"bait ubooy"},{en:"the car key",ar:"مِفْتاحْ السَّيّارَة",az:"muftaa7 el sayyaara"},
- {en:"the door of the house",ar:"بابْ البِيْتْ",az:"baab el bait"}],
+ {en:"the door of the house",ar:"بابْ البِيْتْ",az:"baab el bait"},{en:"brother",ar:"أخوي",az:"akhooy"},{en:"office",ar:"المَكْتَبْ",az:"el maktab"}],
 html:`<p class="lead">To say “Y's X” or “the X of Y”, just put the two nouns together — <b>owned first, owner second</b>. No “of”, no apostrophe.</p>
 ${G("بِيْتْ أبوي","bait ubooy","my father's house (house-of-my-father)")}
 ${G("بابْ البِيْتْ","baab el bait","the house door (door-of-the-house)")}
@@ -1300,7 +1319,7 @@ ex:[
  {en:"if I had money, I'd buy a car",ar:"لو عِنْدي فْلوسْ، بَشْتِري سَيّارَة",az:"law 3indi floos, bashtri sayyaara"},{en:"if it rains, I'll stay home",ar:"إذا طاحْ مَطَرْ، بَقْعَدْ فِيْ البِيْتْ",az:"edha taa7 matar, bag3ad fee el bait"},
  {en:"if you're tired, sleep",ar:"إذا تَعْبانْ، اِرْقِدْ",az:"edha ta3baan, irgid"}]},
 words:[
- {en:"if (real)",ar:"إذا",az:"edha"},{en:"if (hypothetical)",ar:"لو",az:"law"}],
+ {en:"if (real)",ar:"إذا",az:"edha"},{en:"if (hypothetical)",ar:"لو",az:"law"},{en:"rain",ar:"مَطَرْ",az:"matar"}],
 html:`<p class="lead">Two “if”s: <b>edha</b> for real/likely conditions, <b>law</b> for hypothetical ones.</p>
 ${G("إذا رِحِتْ المولْ، بَتِّصِلْ عَلَيْكْ","edha ri7t el mall, battesel 3alaik","if I go to the mall, I'll call you")}
 ${G("لو عِنْدي فْلوسْ، بَشْتِري سَيّارَة","law 3indi floos, bashtri sayyaara","if I had money, I'd buy a car")}
@@ -1311,7 +1330,11 @@ ex:[
 ]},
 
 {id:"greet",t:"Greetings & courtesy",drill:{gen:'phrase',theme:"Greetings (A1)"},sub:"the full set (whole phrases)",
-words:[],
+words:[
+ {en:"hello",ar:"مَرْحَبا",az:"mar7aba"},{en:"hello (warm reply)",ar:"مَرْحَبا السّاعْ",az:"mar7aba essaa3"},
+ {en:"how are you?",ar:"اِشْحالَكْ؟",az:"esh7alek?"},{en:"fine, thank God",ar:"الحَمْدُلله بِخِيْرْ",az:"el 7amdulillah bkhair"},
+ {en:"may God reward you (thanks)",ar:"يْزاكْ اللهْ خِيْرْ",az:"yizaak Allah khair"},{en:"goodbye",ar:"مَعَ السَّلامَة",az:"ma3a essalama"},
+ {en:"nice to meet you",ar:"تْشَرَّفْنا",az:"tsharrafna"},{en:"(entering a home) knock-knock",ar:"هودْ هودْ",az:"hood hood"}],
 html:`<p class="lead">These are fixed whole phrases — learn them as chunks. Reply-pairs matter: Emiratis expect the matching answer.</p>
 ${G("مَرْحَبا — مَرْحَبا السّاعْ","mar7aba — mar7aba essaa3","hello — (warm reply) hello")}
 ${G("اِشْحالَكْ؟ — الحَمْدُلله بِخِيْرْ","esh7alek? — el 7amdulillah bkhair","how are you? — fine, thank God")}
@@ -1323,7 +1346,9 @@ ex:[
 ]},
 
 {id:"weath",t:"Weather & small talk",drill:{gen:'phrase',theme:"Weather (A2 & B2)"},sub:"chunks for daily chat",
-words:[],
+words:[
+ {en:"the weather",ar:"الجَوّ",az:"el jaw"},{en:"amazing / cool",ar:"روعَة",az:"raw3a"},{en:"rain",ar:"مَطَرْ",az:"matar"},
+ {en:"hot / heat",ar:"حَرّ",az:"7arr"},{en:"unbearably hot",ar:"حَرّ موتْ",az:"7arr moot"},{en:"it looks like…",ar:"شَكْلَه",az:"shaklah"}],
 html:`<p class="lead">Weather is the #1 small-talk opener. Learn these as phrases.</p>
 ${G("الجَوّ روعَة اليومْ","el jaw raw3a el youm","the weather is amazing today")}
 ${G("شَكْلَه بْيَطيحْ مَطَرْ","shaklah bytee7 matar","it looks like it'll rain")}
@@ -1334,7 +1359,10 @@ ex:[
 ]},
 
 {id:"opin",t:"Opinions & compliments",drill:{gen:'phrase',theme:"Opinions (B1)"},sub:"say what you think",
-words:[],
+words:[
+ {en:"what do you think? (m)",ar:"شُو رايَكْ؟",az:"shoo rayek?"},{en:"I think that…",ar:"أعْتِقِدْ إنّ",az:"a3teqed enna"},
+ {en:"the topic / issue",ar:"المَوْضوعْ",az:"el mawdoo3"},{en:"important",ar:"مُهِمّ",az:"muhim"},{en:"colour",ar:"لونْ",az:"loon"},
+ {en:"on you (m)",ar:"عَلَيْكْ",az:"3alaik"}],
 html:`<p class="lead">B1 conversation lives here: giving opinions and complimenting.</p>
 ${G("شُو رايَكْ نْروحْ المولْ؟","shoo rayek nroo7 el mall?","how about we go to the mall?")}
 ${G("أعْتِقِدْ إنّ المَوْضوعْ مُهِمّ","a3teqed enna el mawdoo3 muhim","I think the topic is important")}
@@ -1472,33 +1500,37 @@ const GENR={
   const v=pick(BANK.verbInf);return {ar:`${m.ar} ${v.ar}`,az:`${m.az} ${v.az}`,en:`${m.enV} ${v.en}`,tag:'want / can'};},
 };
 /* core "I ___" verbs (a- prefix) + about-me slots */
+/* objects use only words taught by lesson 5 (bait/kitaab/walad/gahwa/floos/sayyaara/ism
+   from L3–L4, plus 3arabi/3aish/maay/el dars introduced in this lesson); '' = no object */
 const CORE_IFORM=[
- {root:'k·t·b',az:'aktib',ar:'أكْتِبْ',en:'write',o:{ar:'رِسالَة',az:'risaala',en:'a letter'}},
+ {root:'k·t·b',az:'aktib',ar:'أكْتِبْ',en:'write',o:{ar:'اِسْمي',az:'ismi',en:'my name'}},
  {root:'g·r·a',az:'agra',ar:'أقْرا',en:'read',o:{ar:'كِتابْ',az:'kitaab',en:'a book'}},
- {root:'sh·w·f',az:'ashoof',ar:'أشوفْ',en:'see',o:{ar:'فيلمْ',az:'film',en:'a movie'}},
+ {root:'sh·w·f',az:'ashoof',ar:'أشوفْ',en:'see',o:{ar:'الوَلَدْ',az:'el walad',en:'the boy'}},
  {root:'sh·r·y',az:'ashtri',ar:'أشْتِري',en:'buy',o:{ar:'قَهْوَة',az:'gahwa',en:'coffee'}},
  {root:'k·l·m',az:'atkallam',ar:'أتْكَلَّمْ',en:'speak',o:{ar:'عَرَبي',az:'3arabi',en:'Arabic'}},
- {root:'r·m·s',az:'armes',ar:'أرْمِسْ',en:'chat',o:{ar:'وِيا رَبْعي',az:'wiya rab3i',en:'with my friends'}},
+ {root:'r·m·s',az:'armes',ar:'أرْمِسْ',en:'chat',o:{ar:'عَرَبي',az:'3arabi',en:'in Arabic'}},
  {root:'7·b·b',az:'a7ebb',ar:'أحِبّ',en:'love',o:{ar:'القَهْوَة',az:'el gahwa',en:'coffee'}},
  {root:'f·h·m',az:'afham',ar:'أفْهَمْ',en:'understand',o:{ar:'الدَّرِسْ',az:'el dars',en:'the lesson'}},
  {root:'b·gh·y',az:'aba',ar:'أبا',en:'want',o:{ar:'مايْ',az:'maay',en:'water'}},
- {root:'a·kh·dh',az:'aakhidh',ar:'آخِذْ',en:'take',o:{ar:'الشَّنْطَة',az:'el shanta',en:'the bag'}},
- {root:'7·t·t',az:'a7ott',ar:'أحُطّ',en:'put',o:{ar:'الفْلوسْ هِني',az:'el floos hini',en:'the money here'}},
- {root:'3·t·y',az:'a3ti',ar:'أعْطي',en:'give',o:{ar:'الوَلَدْ فْلوسْ',az:'el walad floos',en:'the boy money'}},
- {root:'d·w·r',az:'adawwir',ar:'أدَوِّرْ',en:'look for',o:{ar:'مِفْتاحي',az:'muftaa7i',en:'my key'}},
- {root:'s·y·r',az:'aseer',ar:'أسيرْ',en:'go',o:{ar:'المولْ',az:'el mall',en:'to the mall'}},
- {root:'sh·gh·l',az:'ashteghel',ar:'أشْتِغِلْ',en:'work',o:{ar:'فِيْ دُبَيْ',az:'fee Dubai',en:'in Dubai'}},
- {root:'w·s·l',az:'attesel',ar:'أتِّصِلْ',en:'call',o:{ar:'عَلى أخوي',az:'3ala akhooy',en:'my brother'}},
- {root:'s·f·r',az:'asaafer',ar:'أسافِرْ',en:'travel',o:{ar:'باچِرْ',az:'baacher',en:'tomorrow'}},
+ {root:'a·kh·dh',az:'aakhidh',ar:'آخِذْ',en:'take',o:{ar:'الكِتابْ',az:'el kitaab',en:'the book'}},
+ {root:'7·t·t',az:'a7ott',ar:'أحُطّ',en:'put',o:{ar:'الفْلوسْ',az:'el floos',en:'the money'}},
+ {root:'3·t·y',az:'a3ti',ar:'أعْطي',en:'give',o:{ar:'فْلوسْ',az:'floos',en:'money'}},
+ {root:'d·w·r',az:'adawwir',ar:'أدَوِّرْ',en:'look for',o:{ar:'السَّيّارَة',az:'el sayyaara',en:'the car'}},
+ {root:'s·y·r',az:'aseer',ar:'أسيرْ',en:'go',o:{ar:'البِيْتْ',az:'el bait',en:'home'}},
+ {root:'sh·gh·l',az:'ashteghel',ar:'أشْتِغِلْ',en:'work',o:{ar:'',az:'',en:''}},
+ {root:'w·s·l',az:'attesel',ar:'أتِّصِلْ',en:'call',o:{ar:'',az:'',en:''}},
+ {root:'s·f·r',az:'asaafer',ar:'أسافِرْ',en:'travel',o:{ar:'',az:'',en:''}},
  {root:'r·w·7',az:'aroo7',ar:'أروحْ',en:'go',o:{ar:'البِيْتْ',az:'el bait',en:'home'}},
  {root:'a·k·l',az:'aakil',ar:'آكِلْ',en:'eat',o:{ar:'عَيْشْ',az:'3aish',en:'rice'}},
- {root:'sh·r·b',az:'ashrab',ar:'أشْرَبْ',en:'drink',o:{ar:'چايْ',az:'chai',en:'tea'}},
- {root:'r·g·d',az:'argud',ar:'أرْقُدْ',en:'sleep',o:{ar:'بَدْري',az:'badri',en:'early'}},
+ {root:'sh·r·b',az:'ashrab',ar:'أشْرَبْ',en:'drink',o:{ar:'قَهْوَة',az:'gahwa',en:'coffee'}},
+ {root:'r·g·d',az:'argud',ar:'أرْقُدْ',en:'sleep',o:{ar:'',az:'',en:''}},
 ];
 const AM_COUNTRY=[{ar:'روسْيا',az:'Russia',en:'Russia'},{ar:'أمْريكا',az:'America',en:'America'},{ar:'الهِنْدْ',az:'el Hind',en:'India'},{ar:'مِصِرْ',az:'Masr',en:'Egypt'},{ar:'بْريطانْيا',az:'Britanya',en:'Britain'}];
 const AM_NUM=[{ar:'عَشْرْ',az:'3ashar',en:'10'},{ar:'خَمْسْطَعَشْ',az:'khamsta3ash',en:'15'},{ar:'عِشْرينْ',az:'3ishreen',en:'20'},{ar:'ثْلاثينْ',az:'thalatheen',en:'30'}];
 const AM_WORK=[{ar:'دُبَيْ',az:'Dubai',en:'Dubai'},{ar:'شَرِكَة',az:'sherka',en:'a company'},{ar:'البَنْكْ',az:'el bank',en:'a bank'},{ar:'المُسْتَشْفى',az:'el mustashfa',en:'a hospital'}];
-GENR.iform=function(){const v=pick(CORE_IFORM);const s=Math.random()<0.5?['أنا ','ana ']:['',''];return {ar:`${s[0]}${v.ar} ${v.o.ar}`,az:`${s[1]}${v.az} ${v.o.az}`,en:`I ${v.en} ${v.o.en}`,tag:'I-form verb'};};
+GENR.iform=function(){const v=pick(CORE_IFORM);const useAna=Math.random()<0.5;const pa=useAna?'أنا ':'',pz=useAna?'ana ':'';
+ const oa=v.o.ar?(' '+v.o.ar):'',oz=v.o.az?(' '+v.o.az):'',oe=v.o.en?(' '+v.o.en):'';
+ return {ar:(pa+v.ar+oa).trim(),az:(pz+v.az+oz).trim(),en:('I '+v.en+oe).trim(),tag:'I-form verb'};};
 GENR.aboutme=function(){const r=ri(5);
  if(r===0){const n=pick(AM_NUM);return {ar:`عُمْري ${n.ar} سَنَة`,az:`3umri ${n.az} sana`,en:`I'm ${n.en} years old`,tag:'about me'};}
  if(r===1){const c=pick(AM_COUNTRY);return {ar:`أنا مِنْ ${c.ar}`,az:`ana min ${c.az}`,en:`I'm from ${c.en}`,tag:'about me'};}
@@ -1511,7 +1543,7 @@ const CONN=[
  {ar:'رِحِتْ الدَّوامْ وْبَعْدَيْنْ رِحِتْ المولْ',az:'ri7t el dawaam wo ba3dain ri7t el mall',en:'I went to work and then to the mall'},
  {ar:'أحِبّ القَهْوَة بَسْ ما أحِبّ الچايْ',az:'a7ebb el gahwa bas ma a7ebb el chai',en:"I like coffee but I don't like tea"},
  {ar:'هُوْ مَشْغولْ فَ ما بْيِطْلَعْ',az:'hu mashghool fa ma byitla3',en:"he's busy so he won't go out"},
- {ar:'هٰذا الوَلَدْ اللّي شِفْتَه أمْسْ',az:'haadha el walad elly shiftah ams',en:"this is the boy I saw yesterday"},
+ {ar:'هٰذا البِيْتْ اللّي أبا',az:'haadha el bait elly aba',en:"this is the house that I want"},
 ];
 const PREPS=[
  {ar:'الفْلوسْ عَلى الطّاوْلَة',az:'el floos 3ala el taawla',en:'the money is on the table'},

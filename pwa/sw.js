@@ -1,6 +1,6 @@
 /* Service worker — offline cache for the Emirati Arabic course.
    Bump CACHE when you update index.html so devices fetch the new version. */
-const CACHE = "emirati-arabic-v2";
+const CACHE = "emirati-arabic-v3";
 const FILES = [
   "./",
   "./index.html",
