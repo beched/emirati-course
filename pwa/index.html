@@ -1232,13 +1232,12 @@ ${G("هُوْ مِنْ دُبَيْ","hu min Dubai","he's from Dubai")}
 ${G("هِيْ تَعْبانَة","hi ta3baana","she's tired")}
 <div class="callout">Adjectives take <b>-a</b> for a female (ana ta3baan → ta3baan<b>a</b>). Your speaker gender (top-right) sets which one the drills use.</div>`,
 ex:[
- {t:'say',q:"I'm hungry",ans:{az:"ana yoo3aan",ar:"أنا يوعانْ"}},
- {t:'say',q:"he's from Russia",ans:{az:"hu min Russia",ar:"هُوْ مِنْ روسْيا"}},
- {t:'mcq',q:"How do you say “she's busy”?",opts:[{az:"hi mashghoola",ar:"هِيْ مَشْغولَة"},{az:"hi mashghool",ar:"هِيْ مَشْغولْ"},{az:"ana mashghoola",ar:"أنا مَشْغولَة"},{az:"hu mashghool",ar:"هُوْ مَشْغولْ"}],a:0},
-,
- {t:'say',q:"he's hungry",ans:{az:"hu yoo3aan",ar:"هُوْ يوعانْ"}},
- {t:'say',q:"I'm from Russia",ans:{az:"ana min Russia",ar:"أنا مِنْ روسْيا"}},
- {t:'mcq',q:"“they”",opts:[{az:"hum",ar:"هُمْ"},{az:"e7na",ar:"إحْنا"},{az:"entoo",ar:"إنْتُوا"},{az:"hi",ar:"هِيْ"}],a:0}]},
+ {t:"say",q:"she's tired",ans:{az:"hi ta3baana",ar:"هِيْ تَعْبانَة"}},
+ {t:"say",q:"we're from Russia",ans:{az:"e7na min Russia",ar:"إحْنا مِنْ روسْيا"}},
+ {t:"say",q:"he's very hungry",ans:{az:"hu wayed yoo3aan",ar:"هُوْ وايِدْ يوعانْ"}},
+ {t:"say",q:"I'm happy but busy",ans:{az:"ana mabsoot bas mashghool",ar:"أنا مَبْسوطْ بَسْ مَشْغولْ"}},
+ {t:"mcq",q:"To address a woman, “you” is…",opts:[{az:"enti",ar:"إنْتِ"},{az:"enta",ar:"إنْتَ"},{az:"hi",ar:"هِيْ"},{az:"entoo",ar:"إنْتُوا"}],a:0},
+ {t:"mcq",q:"Which is the female form of “tired”?",opts:[{az:"ta3baana",ar:"تَعْبانَة"},{az:"ta3baan",ar:"تَعْبانْ"},{az:"mabsoot",ar:"مَبْسوطْ"},{az:"mashghool",ar:"مَشْغولْ"}],a:0}]},
 
 {id:"this",t:"This, that, the",sub:"pointing at things",drill:{gen:'thisis'},
 words:[
@@ -1937,6 +1936,8 @@ const LESSON_ORDER=[].concat(LEVELS.A1,LEVELS.A2,LEVELS.B1,LEVELS.B2);
 const LEVEL_OF={};Object.keys(LEVELS).forEach(lv=>LEVELS[lv].forEach(id=>LEVEL_OF[id]=lv));
 LESSONS.forEach(L=>{L.level=LEVEL_OF[L.id]||"A1";});
 LESSONS.sort((a,b)=>{const ia=LESSON_ORDER.indexOf(a.id),ib=LESSON_ORDER.indexOf(b.id);return (ia<0?99:ia)-(ib<0?99:ib);});
+/* phrase lessons TEACH their whole phrasebook theme, so the drill never quizzes an untaught phrase */
+LESSONS.forEach(L=>{if(L.drill&&L.drill.gen==='phrase'&&PHR[L.drill.theme]){L.words=PHR[L.drill.theme].map(p=>({en:p.en,ar:p.ar,az:p.az}));}});
 
 
 /* ===== reference data (roots, patterns, transliterator, reading) ===== */
@@ -2237,12 +2238,16 @@ function openLesson(id){curLesson=id;lp(id).seen=true;saveProg();go('lessons');
  let h=`<span class="back" onclick="backToLessons()">‹ all lessons</span><div class="hd"><span class="n">${L.level||'A1'}</span><h2>${esc(L.t)}</h2></div><div class="card">${L.html}</div>`;
  if(L.words&&L.words.length)h+=`<div class="hd"><span class="n">🆕</span><h2>New words in this lesson</h2></div>${rows(L.words)}`;
  h+=`<div class="hd"><span class="n">✍️</span><h2>Quick check</h2></div><div id="exwrap"></div><div id="exdone"></div>`;
- if(L.drill)h+=`<div class="hd"><span class="n">🔁</span><h2>Drill this lesson ∞</h2></div><p class="lead">Endless randomized sentences using only what this lesson taught. Grade yourself — misses show up on Home.</p>${drillWidgetHTML('lesson')}`;
- h+=`<div style="height:8px"></div><button class="btn ghost" style="width:100%" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ Back to top</button>`;
+ if(L.drill)h+=`<div class="hd"><span class="n">🔁</span><h2>Drill this lesson ∞</h2></div><p class="lead">Endless randomized sentences using only what this lesson taught. Grade yourself — misses show up on Home.</p>
+   <label class="fld">Direction</label><div id="lessondirwrap">${lessonDirChips('both')}</div>${drillWidgetHTML('lesson')}`;
+ const li=LESSONS.findIndex(x=>x.id===id),nxt=LESSONS[li+1];
+ h+=`<div class="btnrow" style="margin-top:14px"><button class="btn ghost" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ Top</button>${nxt?`<button class="btn" onclick="nextLesson()">Next: ${esc(nxt.t)} →</button>`:`<button class="btn grn" onclick="backToLessons()">✓ Finish · all lessons</button>`}</div>`;
  v.innerHTML=h;lessonSession={answered:new Set(),correct:0};renderEx(L);
  if(L.drill)drillMount('lesson',Object.assign({key:'L:'+L.id,label:L.t},L.drill),'both');
  setHdr(true);window.scrollTo(0,0);
 }
+function lessonDirChips(d){d=d||'both';return `<div class="chips">${[['both','Both ⇄'],['en2ar','EN → AR'],['ar2en','AR → EN']].map(x=>`<span class="chip g ${d===x[0]?'on':''}" onclick="setLessonDir('${x[0]}')">${x[1]}</span>`).join('')}</div>`;}
+function setLessonDir(dir){if(drills['lesson']){drills['lesson'].dir=dir;drillNew('lesson');}const c=document.getElementById('lessondirwrap');if(c)c.innerHTML=lessonDirChips(dir);}
 function shuffleEx(e){if(e.t==='say'||!e.opts)return;const idx=e.opts.map((_,i)=>i);
  for(let i=idx.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));const tmp=idx[i];idx[i]=idx[j];idx[j]=tmp;}
  e._opts=idx.map(k=>e.opts[k]);e._a=idx.indexOf(e.a);}
