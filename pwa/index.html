@@ -134,6 +134,13 @@ details .body{padding:0 0 12px}
 .lesson .lmeta b{display:block;font-size:.95rem}
 .lesson .lmeta small{color:var(--muted)}
 .lesson .arrow{color:var(--muted)}
+.hdrback{background:var(--card2);color:var(--ink);border:1px solid var(--line);border-radius:10px;
+  padding:6px 11px;font-size:.82rem;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap}
+.hdrback:active{transform:scale(.96)}
+.totop{position:fixed;right:14px;bottom:calc(74px + env(safe-area-inset-bottom));z-index:35;display:none;
+  width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:rgba(27,34,51,.92);
+  color:var(--ink);font-size:1.2rem;cursor:pointer;box-shadow:0 3px 12px rgba(0,0,0,.35)}
+.totop.on{display:block;animation:fade .2s ease}
 .levelhd{display:flex;align-items:center;justify-content:space-between;margin:22px 0 4px;padding:0 4px;
   font-size:.82rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--gold);
   border-bottom:1px solid var(--line);padding-bottom:6px}
@@ -188,8 +195,9 @@ ol.ex,ul.ex{padding-inline-start:20px}ol.ex li,ul.ex li{margin:.35em 0}
 <body>
 <header>
   <div class="wrap hrow">
-    <span class="logo">ع</span>
-    <div class="brand"><b>Emirati Arabic</b><small>Speak in 1 hour</small></div>
+    <button id="hdrBack" class="hdrback" onclick="backToLessons()" style="display:none">‹ Lessons</button>
+    <span id="hdrHome" class="hrow" style="gap:10px"><span class="logo">ع</span>
+    <div class="brand"><b>Emirati Arabic</b><small>Speak in 1 hour</small></div></span>
     <div class="toggles">
       <span class="tg on" id="tgAz" onclick="toggleAz()">Arabizi <b id="azState">ON</b></span>
       <span class="tg" id="tgGen" onclick="toggleGender()">Speaker <b id="genState">♂ male</b></span>
@@ -207,11 +215,13 @@ ol.ex,ul.ex{padding-inline-start:20px}ol.ex li,ul.ex li{margin:.35em 0}
 
 <nav class="tabs">
   <button class="on" data-v="home" onclick="go('home')"><span class="ic">📊</span>Home</button>
-  <button data-v="lessons" onclick="go('lessons')"><span class="ic">📘</span>Lessons</button>
+  <button data-v="lessons" onclick="backToLessons()"><span class="ic">📘</span>Lessons</button>
   <button data-v="drill" onclick="go('drill')"><span class="ic">🔁</span>Drills</button>
   <button data-v="cards" onclick="go('cards')"><span class="ic">🎴</span>Cards</button>
   <button data-v="ref" onclick="go('ref')"><span class="ic">📚</span>Reference</button>
 </nav>
+
+<button id="toTop" class="totop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
 
 <script>
 /* ============================================================
@@ -1817,7 +1827,7 @@ function resetAll(){if(confirm('Reset ALL progress (lessons, drills, flashcards)
 
 /* ================= LESSONS ================= */
 const LEVEL_NAMES={A1:'A1 · Beginner',A2:'A2 · Elementary',B1:'B1 · Intermediate',B2:'B2 · Upper-intermediate'};
-function renderLessons(){const v=document.getElementById('v-lessons');const doneAll=LESSONS.filter(l=>lp(l.id).done).length;
+function renderLessons(){const v=document.getElementById('v-lessons');setHdr(false);const doneAll=LESSONS.filter(l=>lp(l.id).done).length;
  let h=`<div class="hd"><span class="n">📘</span><h2>Course · ${doneAll}/${LESSONS.length} done</h2></div>
    <p class="lead">Grouped by level. Ordered so nothing is used before it's taught — teach → new words → quick check → infinite drill.</p>`;
  let gi=0;
@@ -1833,12 +1843,14 @@ function renderLessons(){const v=document.getElementById('v-lessons');const done
 let curLesson=null,lessonSession={answered:new Set(),correct:0};
 function openLesson(id){curLesson=id;lp(id).seen=true;saveProg();go('lessons');
  const L=LESSONS.find(x=>x.id===id),v=document.getElementById('v-lessons');
- let h=`<span class="back" onclick="renderLessons()">‹ all lessons</span><div class="hd"><span class="n">📘</span><h2>${esc(L.t)}</h2></div><div class="card">${L.html}</div>`;
+ let h=`<span class="back" onclick="backToLessons()">‹ all lessons</span><div class="hd"><span class="n">${L.level||'A1'}</span><h2>${esc(L.t)}</h2></div><div class="card">${L.html}</div>`;
  if(L.words&&L.words.length)h+=`<div class="hd"><span class="n">🆕</span><h2>New words in this lesson</h2></div>${rows(L.words)}`;
  h+=`<div class="hd"><span class="n">✍️</span><h2>Quick check</h2></div><div id="exwrap"></div><div id="exdone"></div>`;
  if(L.drill)h+=`<div class="hd"><span class="n">🔁</span><h2>Drill this lesson ∞</h2></div><p class="lead">Endless randomized sentences using only what this lesson taught. Grade yourself — misses show up on Home.</p>${drillWidgetHTML('lesson')}`;
+ h+=`<div style="height:8px"></div><button class="btn ghost" style="width:100%" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ Back to top</button>`;
  v.innerHTML=h;lessonSession={answered:new Set(),correct:0};renderEx(L);
  if(L.drill)drillMount('lesson',Object.assign({key:'L:'+L.id,label:L.t},L.drill),'both');
+ setHdr(true);window.scrollTo(0,0);
 }
 function renderEx(L){const wrap=document.getElementById('exwrap');let h='';L.ex.forEach((e,i)=>{h+=`<div class="card" id="ex${i}">`+exHTML(e,i)+`</div>`;});wrap.innerHTML=h;}
 function exHTML(e,i){
@@ -2011,8 +2023,13 @@ function go(tab){S.tab=tab;save();
  document.querySelectorAll('.view').forEach(x=>x.classList.remove('on'));
  document.getElementById('v-'+tab).classList.add('on');
  document.querySelectorAll('nav.tabs button').forEach(b=>b.classList.toggle('on',b.dataset.v===tab));
+ setHdr(false);
  if(tab==='home')renderHome();   /* refresh dashboard from latest progress each time it's opened */
  window.scrollTo(0,0);}
+function setHdr(inLesson){const b=document.getElementById('hdrBack'),hm=document.getElementById('hdrHome');
+ if(b)b.style.display=inLesson?'':'none';if(hm)hm.style.display=inLesson?'none':'';}
+function backToLessons(){go('lessons');renderLessons();}
+window.addEventListener('scroll',function(){const t=document.getElementById('toTop');if(t)t.classList.toggle('on',window.scrollY>320);});
 function renderAll(){renderHome();renderLessons();renderDrill();renderCards();renderRef();}
 applyToggles();renderAll();go(S.tab);
 
