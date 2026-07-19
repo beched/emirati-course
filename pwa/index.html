@@ -134,6 +134,9 @@ details .body{padding:0 0 12px}
 .lesson .lmeta b{display:block;font-size:.95rem}
 .lesson .lmeta small{color:var(--muted)}
 .lesson .arrow{color:var(--muted)}
+.levelhd{display:flex;align-items:center;justify-content:space-between;margin:22px 0 4px;padding:0 4px;
+  font-size:.82rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--gold);
+  border-bottom:1px solid var(--line);padding-bottom:6px}
 
 /* drill / quiz */
 .stage{background:linear-gradient(160deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:20px;
@@ -1431,7 +1434,110 @@ ex:[
  {t:'say',q:"I think the topic is important",ans:{az:"a3teqed enna el mawdoo3 muhim",ar:"أعْتِقِدْ إنّ المَوْضوعْ مُهِمّ"}},
  {t:'mcq',q:"“this colour is nice”",opts:[{az:"hal loon 7elo",ar:"هاللّونْ حِلو"},{az:"loon hal 7elo",ar:"لونْ هال حِلو"},{az:"7elo hal loon",ar:"حِلو هاللّونْ"},{az:"el loon hal",ar:"اللّونْ هال"}],a:0},
  {t:'en',q:{az:"shoo rayek?",ar:"شُو رايَكْ؟"},opts:["what do you think?","what's your name?","where are you?","how much?"],a:0}]},
+{id:"family",t:"Family & people",sub:"parents, siblings, kids",drill:{gen:'list',tag:'family',items:[
+ {en:"this is my father",ar:"هٰذا أبوي",az:"haadha ubooy"},
+ {en:"this is my mother",ar:"هٰذي أُمّي",az:"haadhi ommi"},
+ {en:"I have a brother and a sister",ar:"عِنْدي أخوي وْ أُخْتي",az:"3indi akhooy wo okhti"},
+ {en:"he is my brother",ar:"هُوْ أخوي",az:"hu akhooy"},
+ {en:"my family is really nice",ar:"أهْلي وايِدْ حِلو",az:"ahli wayed 7elo"},
+ {en:"this is my son",ar:"هٰذا وَلَدي",az:"haadha waladi"},
+ {en:"my grandfather is old",ar:"يِدّي كِبيرْ بِالعُمُرْ",az:"yiddi kbeer bil3umur"}]},
+words:[
+ {en:"my father",ar:"أبوي",az:"ubooy"},{en:"my mother",ar:"أُمّي",az:"ommi"},{en:"brother",ar:"أخوي",az:"akhooy"},{en:"sister",ar:"أُخْتي",az:"okhti"},
+ {en:"son / boy",ar:"وَلَدْ",az:"walad"},{en:"daughter / girl",ar:"بِنْتْ",az:"bent"},{en:"wife",ar:"الحُرْمَة",az:"el 7urma"},{en:"husband",ar:"الرَّيّالْ",az:"er-rayyaal"},
+ {en:"kids",ar:"عْيالْ",az:"3yaal"},{en:"grandfather / grandmother",ar:"يِدّي / يِدّتي",az:"yiddi / yiddeti"},{en:"family / relatives",ar:"الأهَلْ",az:"el ahal"},{en:"my family",ar:"أهْلي",az:"ahli"},{en:"old (in age)",ar:"كِبيرْ بِالعُمُرْ",az:"kbeer bil3umur"}],
+html:`<p class="lead">Talk about the people closest to you. Emiratis usually say “my dad / my mum” (<b>ubooy / ommi</b>) rather than the bare word.</p>
+${G("هٰذا أبوي وْ هٰذي أُمّي","haadha ubooy wo haadhi ommi","this is my father and this is my mother")}
+${G("عِنْدي أخوي وْ أُخْتي","3indi akhooy wo okhti","I have a brother and a sister")}
+${G("أهْلي وايِدْ حِلو","ahli wayed 7elo","my family is really nice")}
+<div class="callout">Only uses “this/that” and “have / my” you already know — just add the people words above.</div>`,
+ex:[
+ {t:'say',q:"this is my father",ans:{az:"haadha ubooy",ar:"هٰذا أبوي"}},
+ {t:'say',q:"I have a brother and a sister",ans:{az:"3indi akhooy wo okhti",ar:"عِنْدي أخوي وْ أُخْتي"}},
+ {t:'mcq',q:"“my mother”",opts:[{az:"ommi",ar:"أُمّي"},{az:"ubooy",ar:"أبوي"},{az:"okhti",ar:"أُخْتي"},{az:"ahli",ar:"أهْلي"}],a:0},
+ {t:'say',q:"this is my sister",ans:{az:"haadhi okhti",ar:"هٰذي أُخْتي"}},
+ {t:'mcq',q:"“brother”",opts:[{az:"akhooy",ar:"أخوي"},{az:"okhti",ar:"أُخْتي"},{az:"walad",ar:"وَلَدْ"},{az:"yiddi",ar:"يِدّي"}],a:0},
+ {t:'say',q:"my family is big",ans:{az:"ahli kbeer",ar:"أهْلي كِبيرْ"}}]},
+
+{id:"work",t:"Work & routine",sub:"what you do, every day",drill:{gen:'list',tag:'work',items:[
+ {en:"what do you do (for work)?",ar:"شُو تِشْتِغِلْ؟",az:"shoo tishtaghil?"},
+ {en:"I work at a company",ar:"أشْتِغِلْ فِيْ شَرِكَة",az:"ashteghel fee sherka"},
+ {en:"I'm a teacher",ar:"أنا مْدَرِّسْ",az:"ana mdarris"},
+ {en:"I go to work every day",ar:"أسيرْ الدَّوامْ كِلْ يومْ",az:"aseer el dawaam kil youm"},
+ {en:"my work is nice",ar:"شِغْلي حِلو",az:"shighli 7elo"},
+ {en:"I finish work early",ar:"أخَلِّصْ الدَّوامْ بَدْري",az:"akhalles el dawaam badri"}]},
+words:[
+ {en:"what do you do?",ar:"شُو تِشْتِغِلْ؟",az:"shoo tishtaghil?"},{en:"a company",ar:"شَرِكَة",az:"sherka"},{en:"office / work hours",ar:"الدَّوامْ",az:"el dawaam"},
+ {en:"teacher",ar:"مْدَرِّسْ",az:"mdarris"},{en:"doctor",ar:"دُكْتورْ",az:"doktoor"},{en:"engineer",ar:"مُهَنْدِسْ",az:"muhandis"},{en:"employee",ar:"مْوَظَّفْ",az:"mwadhdhaf"},
+ {en:"manager / boss",ar:"مْديرْ",az:"mdeer"},{en:"my work",ar:"شِغْلي",az:"shighli"},{en:"every day",ar:"كِلْ يومْ",az:"kil youm"},{en:"I finish",ar:"أخَلِّصْ",az:"akhalles"}],
+html:`<p class="lead">Say what you do. “I work at …” is <b>ashteghel fee …</b>; “I'm a [job]” needs no verb.</p>
+${G("شُو تِشْتِغِلْ؟ — أنا مُهَنْدِسْ","shoo tishtaghil? — ana muhandis","what do you do? — I'm an engineer")}
+${G("أشْتِغِلْ فِيْ شَرِكَة كِلْ يومْ","ashteghel fee sherka kil youm","I work at a company every day")}
+${G("أخَلِّصْ الدَّوامْ بَدْري","akhalles el dawaam badri","I finish work early")}`,
+ex:[
+ {t:'say',q:"I work at a company",ans:{az:"ashteghel fee sherka",ar:"أشْتِغِلْ فِيْ شَرِكَة"}},
+ {t:'mcq',q:"“what do you do (for work)?”",opts:[{az:"shoo tishtaghil?",ar:"شُو تِشْتِغِلْ؟"},{az:"wain tishtaghil?",ar:"وِيْنْ تِشْتِغِلْ؟"},{az:"shoo ismak?",ar:"شُو اِسْمَكْ؟"},{az:"kam tishtaghil?",ar:"كَمْ تِشْتِغِلْ؟"}],a:0},
+ {t:'say',q:"I'm a teacher",ans:{az:"ana mdarris",ar:"أنا مْدَرِّسْ"}},
+ {t:'mcq',q:"“doctor”",opts:[{az:"doktoor",ar:"دُكْتورْ"},{az:"muhandis",ar:"مُهَنْدِسْ"},{az:"mdarris",ar:"مْدَرِّسْ"},{az:"mdeer",ar:"مْديرْ"}],a:0},
+ {t:'say',q:"I go to work every day",ans:{az:"aseer el dawaam kil youm",ar:"أسيرْ الدَّوامْ كِلْ يومْ"}},
+ {t:'say',q:"my work is nice",ans:{az:"shighli 7elo",ar:"شِغْلي حِلو"}}]},
+
+{id:"fillers",t:"Filler words & flow",sub:"sound natural, not textbook",drill:{gen:'list',tag:'fillers',items:[
+ {en:"honestly, I don't know",ar:"بِصَراحَة، ما أدْري",az:"bsara7a, ma adri"},
+ {en:"okay then, let's go",ar:"إنْزَيْنْ، يَلّا نْروحْ",az:"inzain, yalla nroo7"},
+ {en:"it's fine, no worries",ar:"عادي، ما عَلَيْه",az:"3aadi, ma 3alaih"},
+ {en:"I mean, it's important",ar:"يَعْني، مُهِمّ",az:"ya3ni, muhim"},
+ {en:"enough, that's it",ar:"خَلاصْ، بَسْ",az:"khalaas, bas"},
+ {en:"by the way, I'm busy",ar:"عَلى فِكْرَة، أنا مَشْغولْ",az:"3ala fikra, ana mashghool"}]},
+words:[
+ {en:"I mean / like (filler)",ar:"يَعْني",az:"ya3ni"},{en:"honestly",ar:"بِصَراحَة",az:"bsara7a"},{en:"okay then / so",ar:"إنْزَيْنْ",az:"inzain"},
+ {en:"enough / done",ar:"خَلاصْ",az:"khalaas"},{en:"let's / c'mon",ar:"يَلّا",az:"yalla"},{en:"no worries / never mind",ar:"ما عَلَيْه",az:"ma 3alaih"},
+ {en:"by the way",ar:"عَلى فِكْرَة",az:"3ala fikra"},{en:"honestly / really (emphasis)",ar:"واللهْ",az:"wallah"},{en:"the main thing / anyway",ar:"المُهِمّ",az:"el muhim"},{en:"important",ar:"مُهِمّ",az:"muhim"},{en:"it's ok / normal",ar:"عادي",az:"3aadi"},{en:"I know / I'm aware",ar:"أدْري",az:"adri"}],
+html:`<p class="lead">These fill the gaps and make you sound like a local instead of a phrasebook.</p>
+${G("بِصَراحَة، ما أدْري","bsara7a, ma adri","honestly, I don't know")}
+${G("إنْزَيْنْ، يَلّا نْروحْ","inzain, yalla nroo7","okay then, let's go")}
+${G("عادي، ما عَلَيْه","3aadi, ma 3alaih","it's fine, no worries")}
+<div class="callout">Sprinkle these in: <b>ya3ni</b> (I mean), <b>yalla</b> (c'mon), <b>khalaas</b> (enough), <b>wallah</b> (honestly), <b>3aadi</b> (no biggie).</div>`,
+ex:[
+ {t:'mcq',q:"“I mean / like” (filler)",opts:[{az:"ya3ni",ar:"يَعْني"},{az:"yalla",ar:"يَلّا"},{az:"khalaas",ar:"خَلاصْ"},{az:"wallah",ar:"واللهْ"}],a:0},
+ {t:'say',q:"honestly, I don't know",ans:{az:"bsara7a, ma adri",ar:"بِصَراحَة، ما أدْري"}},
+ {t:'mcq',q:"“let's go / c'mon”",opts:[{az:"yalla",ar:"يَلّا"},{az:"3aadi",ar:"عادي"},{az:"inzain",ar:"إنْزَيْنْ"},{az:"khalaas",ar:"خَلاصْ"}],a:0},
+ {t:'say',q:"okay then, let's go",ans:{az:"inzain, yalla nroo7",ar:"إنْزَيْنْ، يَلّا نْروحْ"}},
+ {t:'mcq',q:"“no worries / never mind”",opts:[{az:"ma 3alaih",ar:"ما عَلَيْه"},{az:"muhim",ar:"مُهِمّ"},{az:"khalaas",ar:"خَلاصْ"},{az:"wallah",ar:"واللهْ"}],a:0},
+ {t:'say',q:"enough, that's it",ans:{az:"khalaas, bas",ar:"خَلاصْ، بَسْ"}}]},
+
+{id:"participles",t:"Participles: doer & done",sub:"states & -ing from a root",drill:{gen:'list',tag:'participles',items:[
+ {en:"I'm living in Dubai (a resident)",ar:"أنا ساكِنْ فِيْ دُبَيْ",az:"ana saakin fee Dubai"},
+ {en:"I'm busy right now",ar:"أنا مَشْغولْ الحِيْنْ",az:"ana mashghool el7een"},
+ {en:"the letter is written",ar:"الرِّسالَة مَكْتوبَة",az:"er-risaala maktooba"},
+ {en:"he's a writer",ar:"هُوْ كاتِبْ",az:"hu kaatib"},
+ {en:"the food is ready",ar:"الأكِلْ جاهِزْ",az:"el akil jaahiz"},
+ {en:"the key is available (present)",ar:"المِفْتاحْ مَوْجودْ",az:"el muftaa7 mawjood"}]},
+words:[
+ {en:"living / resident (doer)",ar:"ساكِنْ",az:"saakin"},{en:"busy (done)",ar:"مَشْغولْ",az:"mashghool"},{en:"writer (doer)",ar:"كاتِبْ",az:"kaatib"},
+ {en:"written (done)",ar:"مَكْتوبْ",az:"maktoob"},{en:"present / available",ar:"مَوْجودْ",az:"mawjood"},{en:"ready",ar:"جاهِزْ",az:"jaahiz"},{en:"well-known",ar:"مَعْروفْ",az:"ma3roof"},{en:"food",ar:"الأكِلْ",az:"el akil"},{en:"now",ar:"الحِيْنْ",az:"el7een"}],
+html:`<p class="lead">From one root you get two “‑ing / ‑ed” words: the <b>doer</b> (faa3il) and the <b>done</b> (maf3ool). They behave like adjectives / states.</p>
+<table class="matrix"><tr><td class="p">k·t·b (write)</td><td class="ar">كاتِبْ</td><td class="azc">kaatib = a writer / writing</td></tr>
+<tr><td class="p">k·t·b (write)</td><td class="ar">مَكْتوبْ</td><td class="azc">maktoob = written</td></tr>
+<tr><td class="p">s·k·n (live)</td><td class="ar">ساكِنْ</td><td class="azc">saakin = living / a resident</td></tr></table>
+${G("أنا ساكِنْ فِيْ دُبَيْ","ana saakin fee Dubai","I'm living in Dubai (a resident)")}
+${G("الأكِلْ جاهِزْ وْ الرِّسالَة مَكْتوبَة","el akil jaahiz wo er-risaala maktooba","the food is ready and the letter is written")}
+<div class="callout">You already use these — <b>saakin</b> (living), <b>mashghool</b> (busy), <b>mawjood</b> (present). This lesson just names the pattern so you can build your own.</div>`,
+ex:[
+ {t:'mcq',q:"The doer from k·t·b (“a writer”) is…",opts:[{az:"kaatib",ar:"كاتِبْ"},{az:"maktoob",ar:"مَكْتوبْ"},{az:"maktab",ar:"مَكْتَبْ"},{az:"kitaab",ar:"كِتابْ"}],a:0},
+ {t:'mcq',q:"“written” (the done form) is…",opts:[{az:"maktoob",ar:"مَكْتوبْ"},{az:"kaatib",ar:"كاتِبْ"},{az:"yiktib",ar:"يِكْتِبْ"},{az:"kitaaba",ar:"كِتابَة"}],a:0},
+ {t:'say',q:"I'm living in Dubai",ans:{az:"ana saakin fee Dubai",ar:"أنا ساكِنْ فِيْ دُبَيْ"}},
+ {t:'say',q:"the food is ready",ans:{az:"el akil jaahiz",ar:"الأكِلْ جاهِزْ"}},
+ {t:'mcq',q:"“present / available”",opts:[{az:"mawjood",ar:"مَوْجودْ"},{az:"maktoob",ar:"مَكْتوبْ"},{az:"saakin",ar:"ساكِنْ"},{az:"jaahiz",ar:"جاهِزْ"}],a:0},
+ {t:'say',q:"I'm busy right now",ans:{az:"ana mashghool el7een",ar:"أنا مَشْغولْ الحِيْنْ"}}]},
 ];
+/* ---- CEFR levels + ordering ---- */
+const LEVELS={A1:["sound","pron","greet","this","have","family","iform","aboutme","not","want","present","quest"],A2:["past","kaan","future","imp","conn","prep","work","weath","plural"],B1:["idafa","objsuf","cond","fillers","opin"],B2:["participles"]};
+const LESSON_ORDER=[].concat(LEVELS.A1,LEVELS.A2,LEVELS.B1,LEVELS.B2);
+const LEVEL_OF={};Object.keys(LEVELS).forEach(lv=>LEVELS[lv].forEach(id=>LEVEL_OF[id]=lv));
+LESSONS.forEach(L=>{L.level=LEVEL_OF[L.id]||"A1";});
+LESSONS.sort((a,b)=>{const ia=LESSON_ORDER.indexOf(a.id),ib=LESSON_ORDER.indexOf(b.id);return (ia<0?99:ia)-(ib<0?99:ib);});
+
 
 /* ===== reference data (roots, patterns, transliterator, reading) ===== */
 const PATTERNS=[
@@ -1710,12 +1816,18 @@ function renderHome(){
 function resetAll(){if(confirm('Reset ALL progress (lessons, drills, flashcards)?')){localStorage.removeItem('emi_prog');localStorage.removeItem('emi_srs');location.reload();}}
 
 /* ================= LESSONS ================= */
-function renderLessons(){const v=document.getElementById('v-lessons');const done=LESSONS.filter(l=>lp(l.id).done).length;
- let h=`<div class="hd"><span class="n">📘</span><h2>Course · ${done}/${LESSONS.length} done</h2></div>
-   <p class="lead">Ordered so nothing is used before it's taught. Each lesson: teach → new words → quick check → infinite drill.</p>`;
- LESSONS.forEach((l,i)=>{const p=lp(l.id),cls=p.done?'done':(p.seen?'started':''),badge=p.done?'✓':(i+1);
-  const meta=p.a?`${p.c}/${p.a} correct${p.miss?` · ${p.miss} miss`:''}`:`${l.ex.length} checks${l.drill?' · ∞ drill':''}`;
-  h+=`<div class="lesson ${cls}" onclick="openLesson('${l.id}')"><div class="badge">${badge}</div><div class="lmeta"><b>${esc(l.t)}</b><small>${esc(l.sub)} · ${meta}</small></div><div class="arrow">›</div></div>`;});
+const LEVEL_NAMES={A1:'A1 · Beginner',A2:'A2 · Elementary',B1:'B1 · Intermediate',B2:'B2 · Upper-intermediate'};
+function renderLessons(){const v=document.getElementById('v-lessons');const doneAll=LESSONS.filter(l=>lp(l.id).done).length;
+ let h=`<div class="hd"><span class="n">📘</span><h2>Course · ${doneAll}/${LESSONS.length} done</h2></div>
+   <p class="lead">Grouped by level. Ordered so nothing is used before it's taught — teach → new words → quick check → infinite drill.</p>`;
+ let gi=0;
+ ['A1','A2','B1','B2'].forEach(lv=>{const ls=LESSONS.filter(l=>l.level===lv);if(!ls.length)return;
+  const d=ls.filter(l=>lp(l.id).done).length;
+  h+=`<div class="levelhd"><b>${LEVEL_NAMES[lv]}</b><span class="pill-count">${d}/${ls.length}</span></div>`;
+  ls.forEach(l=>{gi++;const p=lp(l.id),cls=p.done?'done':(p.seen?'started':''),badge=p.done?'✓':gi;
+   const meta=p.a?`${p.c}/${p.a} correct${p.miss?` · ${p.miss} miss`:''}`:`${l.ex.length} checks${l.drill?' · ∞ drill':''}`;
+   h+=`<div class="lesson ${cls}" onclick="openLesson('${l.id}')"><div class="badge">${badge}</div><div class="lmeta"><b>${esc(l.t)}</b><small>${esc(l.sub)} · ${meta}</small></div><div class="arrow">›</div></div>`;});
+ });
  v.innerHTML=h;
 }
 let curLesson=null,lessonSession={answered:new Set(),correct:0};
