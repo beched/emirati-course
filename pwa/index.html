@@ -1880,7 +1880,8 @@ function drillRender(id){const d=drills[id];if(!d)return;const it=d.cur,st=docum
   const g=document.getElementById(id+'_grade');if(g)g.classList.remove('on');const s=document.getElementById(id+'_show');if(s)s.style.display='';
  }else{st.innerHTML=`<div class="tasktag">${esc(tag)}</div><div class="prompt ar">${it.ar}</div><div class="az">${esc(it.az)}</div><div class="ansbox"><div class="en">${esc(it.en)}</div></div>`;
   const g=document.getElementById(id+'_grade');if(g)g.classList.add('on');const s=document.getElementById(id+'_show');if(s)s.style.display='none';}}
-function drillShowA(id){if(drills[id]){drills[id].shown=true;drillRender(id);}}
+function drillShowA(id){if(drills[id]){drills[id].shown=true;drillRender(id);
+ const g=document.getElementById(id+'_grade');if(g)setTimeout(function(){g.scrollIntoView({behavior:'smooth',block:'center'});},30);}}
 function drillGr(id,ok){const d=drills[id];if(!d)return;const key=d.spec.key||('G:'+d.spec.gen);recDrillKey(key,d.spec.label||d.cur.tag||d.spec.gen,ok);
  d.sess.a++;if(ok)d.sess.c++;const s=document.getElementById(id+'_sess');if(s)s.textContent=`${d.sess.a} done · ${d.sess.c} right`;drillNew(id);}
 
@@ -2016,7 +2017,7 @@ function phraseCards(){const out=[];
 function buildDeck(){deck=(cmode==='phrase'?[]:wordCards()).concat(cmode==='word'?[]:phraseCards());}
 function nextCard(){const weighted=[];deck.forEach(c=>{const b=SRS[c.id]||1;const w=6-b;for(let i=0;i<w;i++)weighted.push(c);});
  cur=pick(weighted.length?weighted:deck);flip(false);}
-function flip(v){flipped=v;faceCard();}
+function flip(v){flipped=v;faceCard();if(v){const g=document.getElementById('cgrade');if(g)setTimeout(function(){g.scrollIntoView({behavior:'smooth',block:'center'});},30);}}
 function faceCard(){const f=document.getElementById('flashface');if(!f||!cur)return;
  if(!flipped){f.innerHTML=`<div class="kind">${cur.kind}</div><div class="front">Say in Emirati:</div>
    <div style="font-size:1.4rem;font-weight:700">${esc(cur.prompt)}</div><div class="tap">tap to reveal</div>`;
@@ -2099,7 +2100,27 @@ function doImport(w){const out=document.getElementById('impOut');if(!out)return;
  let h=`<div class="card gloss" style="text-align:center"><div class="note">“${esc(w)}” →</div><div class="ar big">الـ${t.ar}</div><div class="az">el ${t.az}</div></div><div class="card"><h3>In a sentence</h3>`;
  frames.forEach(f=>{h+=`<div class="gloss" style="margin:10px 0"><div class="ar">${f[0].replace('…',t.ar)}</div><div class="az">${esc(f[1])}</div><div class="en note">${esc(f[2])}</div></div>`;});
  h+=`</div><div class="callout">Transliteration is approximate — say it, an Emirati will get it.</div>`;out.innerHTML=h;}
-function renderRead(b){let h=`<p class="lead">Read aloud; use Arabizi as a crutch, then turn it off.</p>`;
+const TEXTS=[
+{level:"A1",title:"About me",en:"Hello! My name is Sami and I'm from Russia. I live in Dubai now. I have a brother and a sister. My family is really nice. I work at a company. I speak a little Arabic, and I love coffee.",
+ ar:"مَرْحَبا! أنا اِسْمي سامي وْ أنا مِنْ روسْيا. ساكِنْ فِيْ دُبَيْ الحِيْنْ. عِنْدي أخوي وْ أُخْتي. أهْلي وايِدْ حِلو. أشْتِغِلْ فِيْ شَرِكَة. أرْمِسْ عَرَبي شْوَيْ، وْ أحِبّ القَهْوَة.",
+ az:"mar7aba! ana ismi Sami wo ana min Russia. saakin fee Dubai el7een. 3indi akhooy wo okhti. ahli wayed 7elo. ashteghel fee sherka. armes 3arabi shway, wo a7ebb el gahwa."},
+{level:"A2",title:"My day & my past",en:"Yesterday I went to work early. I finished at five, then I went home. I was tired, so I slept. Tomorrow I'll go to the desert with my friends. The weather is amazing today. I used to live in Russia, but now I live in Dubai. I want to learn Arabic well.",
+ ar:"أمْسْ رِحِتْ الدَّوامْ بَدْري. خَلَّصْتْ السّاعَة خَمْسْ، بَعْدَيْنْ رِحِتْ البِيْتْ. كِنِتْ تَعْبانْ، فَ رَقَدْتْ. باچِرْ بَسيرْ البَرّ وِيا رَبْعي. الجَوّ روعَة اليومْ. كِنِتْ ساكِنْ فِيْ روسْيا، بَسْ الحِيْنْ ساكِنْ فِيْ دُبَيْ. أبا أتْعَلَّمْ عَرَبي زِيْنْ.",
+ az:"ams ri7t el dawaam badri. khallast essaa3a khams, ba3dain ri7t el bait. kint ta3baan, fa ragadt. baacher baseer el barr wiya rab3i. el jaw raw3a el youm. kint saakin fee Russia, bas el7een saakin fee Dubai. aba at3allam 3arabi zain."},
+{level:"B1",title:"Opinions & a plan",en:"Honestly, I think Dubai is the best city. My friend told me the weather in winter is amazing. If I have time on the weekend, I'll go to the sea. I feel that learning a language is important. I mean, if you talk with people every day, you learn fast.",
+ ar:"بِصَراحَة، أعْتِقِدْ إنّ دُبَيْ أحْسَنْ مَدينَة. رِبْعي قالْ لي إنّ الجَوّ فِيْ الشِّتا روعَة. إذا عِنْدي وَقِتْ فِيْ الوِيْكِنْدْ، بَسيرْ البَحَرْ. أحِسّ إنّ تَعَلُّمْ اللُّغَة مُهِمّ. يَعْني، إذا تِرْمِسْ وِيا النّاسْ كِلْ يومْ، تِتْعَلَّمْ بْسُرْعَة.",
+ az:"bsara7a, a3teqed enna Dubai a7san madeena. rab3i gaal li enna el jaw fee el shita raw3a. edha 3indi wagt fee el weekend, baseer el ba7ar. a7ess enna ta3allum el lugha muhim. ya3ni, edha tirmes wiya el naas kil youm, tit3allam bsur3a."},
+{level:"B2",title:"Ten years here",en:"I've been living in the Emirates for ten years. When I arrived, I didn't know any Arabic, but now I understand a lot. My work is nice and my manager is well-known. Honestly, the most important thing is the people — they're generous and kind. By the way, if you want to learn, don't be afraid to speak.",
+ ar:"أنا ساكِنْ فِيْ الإماراتْ مِنْ عَشْرْ سِنينْ. لَمّا وْصَلْتْ، ما كِنِتْ أعْرَفْ عَرَبي، بَسْ الحِيْنْ أفْهَمْ وايِدْ. شِغْلي حِلو وْ مْديري مَعْروفْ. بِصَراحَة، أهَمّ شِيْ النّاسْ — كُرَما وْ طَيّبينْ. عَلى فِكْرَة، إذا تْبا تِتْعَلَّمْ، لا تْخافْ تِرْمِسْ.",
+ az:"ana saakin fee el Emaraat min 3ashar sneen. lamma wsalt, ma kint a3ref 3arabi, bas el7een afham wayed. shighli 7elo wo mdeeri ma3roof. bsara7a, ahamm shai el naas — kurama wo tayybeen. 3ala fikra, edha tiba tit3allam, la tkhaaf tirmes."},
+];
+function revealText(k){const el=document.getElementById('txtout'+k);if(el)el.innerHTML=`<div class="gloss" style="margin-top:8px"><div class="ar" style="font-size:1.45rem;line-height:1.95">${TEXTS[k].ar}</div><div class="az" style="margin-top:6px">${esc(TEXTS[k].az)}</div></div>`;}
+function renderRead(b){let h=`<div class="hd"><span class="n">✍️</span><h2>Translate by level</h2></div>
+  <p class="lead">Read the English, say/write the whole thing in Emirati, then reveal to check. Match your level (A1 → B2).</p>`;
+ TEXTS.forEach((t,k)=>{h+=`<div class="card"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><b>${esc(t.title)}</b><span class="tag">${t.level}</span></div>
+   <div class="en" style="line-height:1.6">${esc(t.en)}</div>
+   <div class="reveal" style="margin-top:8px" onclick="revealText(${k})">tap to reveal the Emirati ▾</div><div id="txtout${k}"></div></div>`;});
+ h+=`<div class="hd"><span class="n">📖</span><h2>Reading passages</h2></div><p class="lead">Read aloud; use Arabizi as a crutch, then turn it off.</p>`;
  READ.forEach(t=>{h+=`<div class="card"><h3>${esc(t.title)}</h3>`;t.lines.forEach(l=>{h+=`<div class="gloss" style="margin:12px 0"><div class="ar" style="font-size:1.5rem">${l[0]}</div><div class="az">${esc(l[1])}</div><div class="en note">${esc(l[2])}</div></div>`;});h+=`</div>`;});
  h+=`<div class="hd"><span class="n">✍️</span><h2>Translation drills</h2></div><p class="lead">Say each in Emirati, then reveal.</p>`;
  DRILL_TXT.forEach(d=>{h+=`<div class="card tight"><div class="en" style="font-weight:600">${esc(d.en)}</div>
