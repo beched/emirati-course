@@ -1834,9 +1834,105 @@ ex:[
  {t:'say',q:"I think the topic is important",ans:{az:"a3teged enna el mawdoo3 muhim",ar:"أعْتِقِدْ إنّ المَوْضوعْ مُهِمّ"}},
  {t:'mcq',q:"“he told me”",opts:[{az:"gaal li",ar:"قالْ لي"},{az:"gilt lah",ar:"قِلْتْ لَه"},{az:"gaalat li",ar:"قالَتْ لي"},{az:"agool",ar:"أقولْ"}],a:0},
  {t:'say',q:"I feel he'll go out",ans:{az:"a7ess enna byitla3",ar:"أحِسّ إنَّه بْيِطْلَعْ"}}]},
+{id:"wish",t:"Wishes & hopes",sub:"yalait, atmanna, if only",drill:{gen:'list',tag:'wishes',items:[
+ {en:"I hope to go to the Emirates",ar:"أتْمَنّى أروحْ الإماراتْ",az:"atmanna aroo7 el Emaraat"},
+ {en:"I wish I had time",ar:"يا لَيْتْ عِنْدي وَقِتْ",az:"yalait 3indi wagt"},
+ {en:"it'd be nice if we went to the sea",ar:"كانْ زِيْنْ لو نْروحْ البَحَرْ",az:"kaan zain law nroo7 el ba7ar"},
+ {en:"I hope you're okay",ar:"أتْمَنّى إنَّكْ بِخِيْرْ",az:"atmanna ennak bkhair"},
+ {en:"I wish I could travel",ar:"يا لَيْتْ أقْدَرْ أسافِرْ",az:"yalait agdar asaafir"}]},
+words:[
+ {en:"I hope / wish for",ar:"أتْمَنّى",az:"atmanna"},{en:"if only / I wish",ar:"يا لَيْتْ",az:"yalait"},{en:"it'd be nice if",ar:"كانْ زِيْنْ لو",az:"kaan zain law"},{en:"that you're okay",ar:"إنَّكْ بِخِيْرْ",az:"ennak bkhair"}],
+html:`<p class="lead">Express what you hope for, or wish were true.</p>
+${G("أتْمَنّى أروحْ الإماراتْ","atmanna aroo7 el Emaraat","I hope to go to the Emirates")}
+${G("يا لَيْتْ عِنْدي وَقِتْ","yalait 3indi wagt","I wish I had time")}
+${G("كانْ زِيْنْ لو نْروحْ البَحَرْ","kaan zain law nroo7 el ba7ar","it'd be nice if we went to the sea")}
+<div class="callout"><b>atmanna</b> + verb = I hope to… · <b>yalait</b> + clause = if only… · <b>kaan zain law</b> = it'd be nice if…</div>`,
+ex:[
+ {t:'say',q:"I wish I had time",ans:{az:"yalait 3indi wagt",ar:"يا لَيْتْ عِنْدي وَقِتْ"}},
+ {t:'mcq',q:"“I hope to…”",opts:[{az:"atmanna",ar:"أتْمَنّى"},{az:"yalait",ar:"يا لَيْتْ"},{az:"laazim",ar:"لازِمْ"},{az:"agdar",ar:"أقْدَرْ"}],a:0},
+ {t:'say',q:"I hope to go to the Emirates",ans:{az:"atmanna aroo7 el Emaraat",ar:"أتْمَنّى أروحْ الإماراتْ"}},
+ {t:'mcq',q:"“it'd be nice if…”",opts:[{az:"kaan zain law",ar:"كانْ زِيْنْ لو"},{az:"yalait",ar:"يا لَيْتْ"},{az:"3ashaan",ar:"عَشانْ"},{az:"edha",ar:"إذا"}],a:0},
+ {t:'say',q:"I wish I could travel",ans:{az:"yalait agdar asaafir",ar:"يا لَيْتْ أقْدَرْ أسافِرْ"}}]},
+
+{id:"concess",t:"Although & anyway",sub:"ma3a enna, 3ala kil 7aal",drill:{gen:'list',tag:'discourse',items:[
+ {en:"although he's tired, he went to work",ar:"مَعَ إنَّه تَعْبانْ، راحْ الدَّوامْ",az:"ma3a enna ta3baan, raa7 el dawaam"},
+ {en:"anyway, I'm going",ar:"عَلى كِلْ حالْ، أنا بَسيرْ",az:"3ala kil 7aal, ana baseer"},
+ {en:"as for me, this is the best",ar:"بِالنِّسْبَة لي، هٰذا أحْسَنْ",az:"bilnisba li, haadha a7san"},
+ {en:"although it's expensive, I like it",ar:"مَعَ إنَّه غالي، أحِبّه",az:"ma3a enna ghaali, a7ebbah"},
+ {en:"on one hand it's nice",ar:"مِنْ ناحْيَة حِلو",az:"min naa7ya 7elo"}]},
+words:[
+ {en:"although",ar:"مَعَ إنّ",az:"ma3a enna"},{en:"anyway / in any case",ar:"عَلى كِلْ حالْ",az:"3ala kil 7aal"},{en:"as for me / for me",ar:"بِالنِّسْبَة لي",az:"bilnisba li"},{en:"on one hand",ar:"مِنْ ناحْيَة",az:"min naa7ya"},{en:"expensive",ar:"غالي",az:"ghaali"}],
+html:`<p class="lead">The connectors that make an argument flow.</p>
+${G("مَعَ إنَّه تَعْبانْ، راحْ الدَّوامْ","ma3a enna ta3baan, raa7 el dawaam","although he's tired, he went to work")}
+${G("عَلى كِلْ حالْ، أنا بَسيرْ","3ala kil 7aal, ana baseer","anyway, I'm going")}
+${G("بِالنِّسْبَة لي، هٰذا أحْسَنْ","bilnisba li, haadha a7san","as for me, this is the best")}`,
+ex:[
+ {t:'mcq',q:"“although”",opts:[{az:"ma3a enna",ar:"مَعَ إنّ"},{az:"3ashaan",ar:"عَشانْ"},{az:"edha",ar:"إذا"},{az:"3ala kil 7aal",ar:"عَلى كِلْ حالْ"}],a:0},
+ {t:'say',q:"anyway, I'm going",ans:{az:"3ala kil 7aal, ana baseer",ar:"عَلى كِلْ حالْ، أنا بَسيرْ"}},
+ {t:'mcq',q:"“as for me…”",opts:[{az:"bilnisba li",ar:"بِالنِّسْبَة لي"},{az:"ma3a enna",ar:"مَعَ إنّ"},{az:"min naa7ya",ar:"مِنْ ناحْيَة"},{az:"3ashan chee",ar:"عَشانْ چيْ"}],a:0},
+ {t:'say',q:"as for me, this is the best",ans:{az:"bilnisba li, haadha a7san",ar:"بِالنِّسْبَة لي، هٰذا أحْسَنْ"}},
+ {t:'say',q:"although it's expensive, I like it",ans:{az:"ma3a enna ghaali, a7ebbah",ar:"مَعَ إنَّه غالي، أحِبّه"}}]},
+
+{id:"cause",t:"Because & in order to",sub:"3ashaan, bsabab, that's why",drill:{gen:'list',tag:'cause',items:[
+ {en:"I went in order to buy coffee",ar:"رِحِتْ عَشانْ أشْتِري قَهْوَة",az:"ri7t 3ashaan ashtri gahwa"},
+ {en:"I didn't go because of the weather",ar:"ما رِحِتْ بِسَبَبْ الجَوّ",az:"ma ri7t bsabab el jaw"},
+ {en:"I'm tired, that's why I'll sleep",ar:"تَعْبانْ، عَشانْ چيْ بَرْقُدْ",az:"ta3baan, 3ashan chee bargud"},
+ {en:"I have time until five",ar:"عِنْدي وَقِتْ لَحَدّ السّاعَة خَمْسْ",az:"3indi wagt la7add essaa3a khams"},
+ {en:"I work in order to save money",ar:"أشْتِغِلْ عَشانْ أوَفِّرْ فْلوسْ",az:"ashteghel 3ashaan awaffir floos"}]},
+words:[
+ {en:"because / in order to",ar:"عَشانْ",az:"3ashaan"},{en:"because of (+ noun)",ar:"بِسَبَبْ",az:"bsabab"},{en:"that's why",ar:"عَشانْ چيْ",az:"3ashan chee"},{en:"until",ar:"لَحَدّ",az:"la7add"},{en:"I save (money)",ar:"أوَفِّرْ",az:"awaffir"}],
+html:`<p class="lead"><b>3ashaan</b> does double duty — “because” and “in order to”. For “because of + a noun”, use <b>bsabab</b>.</p>
+${G("رِحِتْ عَشانْ أشْتِري قَهْوَة","ri7t 3ashaan ashtri gahwa","I went in order to buy coffee")}
+${G("ما رِحِتْ بِسَبَبْ الجَوّ","ma ri7t bsabab el jaw","I didn't go because of the weather")}
+${G("تَعْبانْ، عَشانْ چيْ بَرْقُدْ","ta3baan, 3ashan chee bargud","I'm tired, that's why I'll sleep")}`,
+ex:[
+ {t:'mcq',q:"“because of (+ a noun)”",opts:[{az:"bsabab",ar:"بِسَبَبْ"},{az:"3ashaan",ar:"عَشانْ"},{az:"3ashan chee",ar:"عَشانْ چيْ"},{az:"la7add",ar:"لَحَدّ"}],a:0},
+ {t:'say',q:"I went in order to buy coffee",ans:{az:"ri7t 3ashaan ashtri gahwa",ar:"رِحِتْ عَشانْ أشْتِري قَهْوَة"}},
+ {t:'mcq',q:"“that's why”",opts:[{az:"3ashan chee",ar:"عَشانْ چيْ"},{az:"bsabab",ar:"بِسَبَبْ"},{az:"ma3a enna",ar:"مَعَ إنّ"},{az:"la7add",ar:"لَحَدّ"}],a:0},
+ {t:'say',q:"I didn't go because of the weather",ans:{az:"ma ri7t bsabab el jaw",ar:"ما رِحِتْ بِسَبَبْ الجَوّ"}},
+ {t:'say',q:"I work in order to save money",ans:{az:"ashteghel 3ashaan awaffir floos",ar:"أشْتِغِلْ عَشانْ أوَفِّرْ فْلوسْ"}}]},
+
+{id:"react",t:"Reactions & emphasis",sub:"wow, honestly, extremely",drill:{gen:'list',tag:'reactions',items:[
+ {en:"wow! it's very nice",ar:"يا سَلامْ! وايِدْ حِلو",az:"ya salaam! wayed 7elo"},
+ {en:"the weather is extremely hot",ar:"الجَوّ حَرّ موتْ",az:"el jaw 7arr moot"},
+ {en:"honestly, it's awesome",ar:"واللهْ فَظيعْ",az:"wallah fadhee3"},
+ {en:"it's insanely hot",ar:"حَرّ لاهوبْ",az:"7arr laahoub"},
+ {en:"mashallah, that's beautiful",ar:"ماشاءالله، وايِدْ حِلو",az:"mashallah, wayed 7elo"}]},
+words:[
+ {en:"wow!",ar:"يا سَلامْ",az:"ya salaam"},{en:"awesome / crazy",ar:"فَظيعْ",az:"fadhee3"},{en:"extremely (lit. to death)",ar:"موتْ",az:"moot"},{en:"intensely / a ton",ar:"لاهوبْ",az:"laahoub"},{en:"honestly / I swear",ar:"واللهْ",az:"wallah"},{en:"mashallah (admiration)",ar:"ماشاءالله",az:"mashallah"}],
+html:`<p class="lead">Spoken color — react and emphasize like a local.</p>
+${G("يا سَلامْ! وايِدْ حِلو","ya salaam! wayed 7elo","wow! it's very nice")}
+${G("الجَوّ حَرّ موتْ","el jaw 7arr moot","the weather is extremely hot (lit. hot to death)")}
+${G("واللهْ فَظيعْ!","wallah fadhee3","honestly, awesome!")}
+<div class="callout">Intensifiers come after the word: <b>7arr moot</b> (extremely hot), <b>7arr laahoub</b> (insanely hot). <b>fadhee3</b> swings both ways — “awful” or “awesome” by tone.</div>`,
+ex:[
+ {t:'mcq',q:"“wow!”",opts:[{az:"ya salaam",ar:"يا سَلامْ"},{az:"wallah",ar:"واللهْ"},{az:"khalaas",ar:"خَلاصْ"},{az:"yalla",ar:"يَلّا"}],a:0},
+ {t:'say',q:"the weather is extremely hot",ans:{az:"el jaw 7arr moot",ar:"الجَوّ حَرّ موتْ"}},
+ {t:'mcq',q:"“awesome / crazy”",opts:[{az:"fadhee3",ar:"فَظيعْ"},{az:"3aadi",ar:"عادي"},{az:"muhim",ar:"مُهِمّ"},{az:"za7ma",ar:"زَحْمَة"}],a:0},
+ {t:'say',q:"honestly, it's awesome",ans:{az:"wallah fadhee3",ar:"واللهْ فَظيعْ"}},
+ {t:'say',q:"wow! it's very nice",ans:{az:"ya salaam! wayed 7elo",ar:"يا سَلامْ! وايِدْ حِلو"}}]},
+
+{id:"degree",t:"The more…, depending on",sub:"kil ma, 3ala 7asab",drill:{gen:'list',tag:'degree',items:[
+ {en:"the more you talk, the more you learn",ar:"كِلْ ما تِرْمِسْ، كِلْ ما تِتْعَلَّمْ",az:"kil ma tirmes, kil ma tit3allam"},
+ {en:"it depends on the weather",ar:"عَلى حَسَبْ الجَوّ",az:"3ala 7asab el jaw"},
+ {en:"I work as much as I can",ar:"أشْتِغِلْ عَلى قَدّ ما أقْدَرْ",az:"ashteghel 3ala gadd ma agdar"},
+ {en:"the more, the better",ar:"كِلْ ما زادْ، أحْسَنْ",az:"kil ma zaad, a7san"},
+ {en:"it depends on you",ar:"عَلى حَسَبَكْ",az:"3ala 7asabak"}]},
+words:[
+ {en:"the more… the more…",ar:"كِلْ ما… كِلْ ما…",az:"kil ma… kil ma…"},{en:"depending on",ar:"عَلى حَسَبْ",az:"3ala 7asab"},{en:"as much as",ar:"عَلى قَدّ ما",az:"3ala gadd ma"},{en:"increased / more",ar:"زادْ",az:"zaad"}],
+html:`<p class="lead">Link two things by degree.</p>
+${G("كِلْ ما تِرْمِسْ، كِلْ ما تِتْعَلَّمْ","kil ma tirmes, kil ma tit3allam","the more you talk, the more you learn")}
+${G("عَلى حَسَبْ الجَوّ","3ala 7asab el jaw","it depends on the weather")}
+${G("أشْتِغِلْ عَلى قَدّ ما أقْدَرْ","ashteghel 3ala gadd ma agdar","I work as much as I can")}`,
+ex:[
+ {t:'say',q:"the more you talk, the more you learn",ans:{az:"kil ma tirmes, kil ma tit3allam",ar:"كِلْ ما تِرْمِسْ، كِلْ ما تِتْعَلَّمْ"}},
+ {t:'mcq',q:"“depending on”",opts:[{az:"3ala 7asab",ar:"عَلى حَسَبْ"},{az:"3ala gadd",ar:"عَلى قَدّ"},{az:"kil ma",ar:"كِلْ ما"},{az:"3ashaan",ar:"عَشانْ"}],a:0},
+ {t:'say',q:"I work as much as I can",ans:{az:"ashteghel 3ala gadd ma agdar",ar:"أشْتِغِلْ عَلى قَدّ ما أقْدَرْ"}},
+ {t:'mcq',q:"“the more…, the more…”",opts:[{az:"kil ma… kil ma",ar:"كِلْ ما… كِلْ ما"},{az:"3ala 7asab",ar:"عَلى حَسَبْ"},{az:"ma3a enna",ar:"مَعَ إنّ"},{az:"la7add",ar:"لَحَدّ"}],a:0},
+ {t:'say',q:"it depends on the weather",ans:{az:"3ala 7asab el jaw",ar:"عَلى حَسَبْ الجَوّ"}}]},
 ];
 /* ---- CEFR levels + ordering ---- */
-const LEVELS={A1:["sound","pron","greet","this","have","family","iform","aboutme","not","want","present","quest","numbers"],A2:["past","kaan","prog","future","imp","conn","prep","work","freq","weath","plural"],B1:["idafa","objsuf","cond","report","fillers","opin"],B2:["participles"]};
+const LEVELS={A1:["sound","pron","greet","this","have","family","iform","aboutme","not","want","present","quest","numbers"],A2:["past","kaan","prog","future","imp","conn","prep","work","freq","weath","plural"],B1:["idafa","objsuf","cond","report","fillers","opin"],B2:["participles","wish","concess","cause","react","degree"]};
 const LESSON_ORDER=[].concat(LEVELS.A1,LEVELS.A2,LEVELS.B1,LEVELS.B2);
 const LEVEL_OF={};Object.keys(LEVELS).forEach(lv=>LEVELS[lv].forEach(id=>LEVEL_OF[id]=lv));
 LESSONS.forEach(L=>{L.level=LEVEL_OF[L.id]||"A1";});
@@ -2310,19 +2406,24 @@ function doImport(w){const out=document.getElementById('impOut');if(!out)return;
  frames.forEach(f=>{h+=`<div class="gloss" style="margin:10px 0"><div class="ar">${f[0].replace('…',t.ar)}</div><div class="az">${esc(f[1])}</div><div class="en note">${esc(f[2])}</div></div>`;});
  h+=`</div><div class="callout">Transliteration is approximate — say it, an Emirati will get it.</div>`;out.innerHTML=h;}
 const TEXTS=[
-{level:"A1",title:"About me",en:"Hello! My name is Sami and I'm from Russia. I live in Dubai now. I have a brother and a sister. My family is really nice. I work at a company. I speak a little Arabic, and I love coffee.",
- ar:"مَرْحَبا! أنا اِسْمي سامي وْ أنا مِنْ روسْيا. ساكِنْ فِيْ دُبَيْ الحِيْنْ. عِنْدي أخوي وْ أُخْتي. أهْلي وايِدْ حِلو. أشْتِغِلْ فِيْ شَرِكَة. أرْمِسْ عَرَبي شْوَيْ، وْ أحِبّ القَهْوَة.",
- az:"mar7aba! ana ismi Sami wo ana min Russia. saakin fee Dubai el7een. 3indi akhooy wo okhti. ahli wayed 7elo. ashteghel fee sherka. armes 3arabi shway, wo a7ebb el gahwa."},
-{level:"A2",title:"My day & my past",en:"Yesterday I went to work early. I finished at five, then I went home. I was tired, so I slept. Tomorrow I'll go to the desert with my friends. The weather is amazing today. I used to live in Russia, but now I live in Dubai. I want to learn Arabic well.",
- ar:"أمْسْ رِحِتْ الدَّوامْ بَدْري. خَلَّصْتْ السّاعَة خَمْسْ، بَعْدَيْنْ رِحِتْ البِيْتْ. كِنِتْ تَعْبانْ، فَ رَقَدْتْ. باچِرْ بَسيرْ البَرّ وِيا رَبْعي. الجَوّ روعَة اليومْ. كِنِتْ ساكِنْ فِيْ روسْيا، بَسْ الحِيْنْ ساكِنْ فِيْ دُبَيْ. أبا أتْعَلَّمْ عَرَبي زِيْنْ.",
- az:"ams ri7t el dawaam badri. khallast essaa3a khams, ba3dain ri7t el bait. kint ta3baan, fa ragadt. baacher baseer el barr wiya rab3i. el jaw raw3a el youm. kint saakin fee Russia, bas el7een saakin fee Dubai. aba at3allam 3arabi zain."},
-{level:"B1",title:"Opinions & a plan",en:"Honestly, I think Dubai is the best city. My friend told me the weather in winter is amazing. If I have time on the weekend, I'll go to the sea. I feel that learning a language is important. I mean, if you talk with people every day, you learn fast.",
- ar:"بِصَراحَة، أعْتِقِدْ إنّ دُبَيْ أحْسَنْ مَدينَة. رِبْعي قالْ لي إنّ الجَوّ فِيْ الشِّتا روعَة. إذا عِنْدي وَقِتْ فِيْ الوِيْكِنْدْ، بَسيرْ البَحَرْ. أحِسّ إنّ تَعَلُّمْ اللُّغَة مُهِمّ. يَعْني، إذا تِرْمِسْ وِيا النّاسْ كِلْ يومْ، تِتْعَلَّمْ بْسُرْعَة.",
- az:"bsara7a, a3teged enna Dubai a7san madeena. rab3i gaal li enna el jaw fee el shita raw3a. edha 3indi wagt fee el weekend, baseer el ba7ar. a7ess enna ta3allum el lugha muhim. ya3ni, edha tirmes wiya el naas kil youm, tit3allam bsur3a."},
-{level:"B2",title:"Ten years here",en:"I've been living in the Emirates for ten years. When I arrived, I didn't know any Arabic, but now I understand a lot. My work is nice and my manager is well-known. Honestly, the most important thing is the people — they're generous and kind. By the way, if you want to learn, don't be afraid to speak.",
- ar:"أنا ساكِنْ فِيْ الإماراتْ مِنْ عَشْرْ سِنينْ. لَمّا وْصَلْتْ، ما كِنِتْ أعْرَفْ عَرَبي، بَسْ الحِيْنْ أفْهَمْ وايِدْ. شِغْلي حِلو وْ مْديري مَعْروفْ. بِصَراحَة، أهَمّ شِيْ النّاسْ — كُرَما وْ طَيّبينْ. عَلى فِكْرَة، إذا تْبا تِتْعَلَّمْ، لا تْخافْ تِرْمِسْ.",
- az:"ana saakin fee el Emaraat min 3ashar sneen. lamma wsalt, ma kint a3ref 3arabi, bas el7een afham wayed. shighli 7elo wo mdeeri ma3roof. bsara7a, ahamm shai el naas — kurama wo tayybeen. 3ala fikra, edha tiba tit3allam, la tkhaaf tirmes."},
+{level:"A1",title:"About me",
+ en:"Hello! My name is Sami. I'm from Russia, but now I live in Dubai. I have a small family: a father, a mother, a brother and a sister. My father is a teacher and my mother works at a company. I have a nice apartment near the sea. Every day I go to work early. I work at a company too. I speak a little Arabic, but I learn every day. I love coffee and I love the desert. The weather here is very hot, but it's okay. I'm happy in the Emirates.",
+ ar:"مَرْحَبا! أنا اِسْمي سامي. أنا مِنْ روسْيا، بَسْ الحِيْنْ ساكِنْ فِيْ دُبَيْ. عِنْدي أهَلْ صْغيرْ: أبوي، أُمّي، أخوي وْ أُخْتي. أبوي مْدَرِّسْ وْ أُمّي تِشْتِغِلْ فِيْ شَرِكَة. عِنْدي شَقّة حِلوَة يَمّ البَحَرْ. كِلْ يومْ أسيرْ الدَّوامْ بَدْري. أنا بَعَدْ أشْتِغِلْ فِيْ شَرِكَة. أرْمِسْ عَرَبي شْوَيْ، بَسْ أتْعَلَّمْ كِلْ يومْ. أحِبّ القَهْوَة وْ أحِبّ البَرّ. الجَوّ هِني وايِدْ حَرّ، بَسْ عادي. أنا مَبْسوطْ فِيْ الإماراتْ.",
+ az:"mar7aba! ana ismi Sami. ana min Russia, bas el7een saakin fee Dubai. 3indi ahal sgheer: ubooy, ommi, akhooy wo okhti. ubooy mdarris wo ommi tishtaghil fee sherka. 3indi sheggah 7elwa yamm el ba7ar. kil youm aseer el dawaam badri. ana ba3ad ashteghel fee sherka. armes 3arabi shway, bas at3allam kil youm. a7ebb el gahwa wo a7ebb el barr. el jaw hini wayed 7arr, bas 3aadi. ana mabsoot fee el Emaraat."},
+{level:"A2",title:"My weekend & my past",
+ en:"Yesterday was Friday, so I was free. In the morning I slept until ten, then I drank coffee and read a book. After that I called my friends and we went to the desert. The weather was amazing, so we stayed there until the evening. We ate and drank tea, and honestly it was really nice. I used to live in Russia, and there the weather was cold. Now I live in Dubai and I work every day. Tomorrow I'll go back to work, so I have to sleep early. Next weekend I want to go to the sea with my brother. I want to learn Arabic well and talk with people.",
+ ar:"أمْسْ كانْ يومْ الجُمْعَة، عَشانْ چيْ كِنِتْ فاضي. الصُّبِحْ رَقَدْتْ لَحَدّ عَشْرْ، بَعْدَيْنْ شِرِبْتْ قَهْوَة وْ قَريْتْ كِتابْ. بَعَدْ چِذي اتّصَلْتْ عَلى رَبْعي وْ رِحْنا البَرّ. الجَوّ كانْ روعَة، عَشانْ چيْ قِعَدْنا هْناكْ لَحَدّ المَسا. أكَلْنا وْ شِرِبْنا چايْ، وْ بِصَراحَة كانْ وايِدْ حِلو. كِنِتْ ساكِنْ فِيْ روسْيا، وْ هْناكْ الجَوّ كانْ بارِدْ. الحِيْنْ ساكِنْ فِيْ دُبَيْ وْ أشْتِغِلْ كِلْ يومْ. باچِرْ بَرْجَعْ الدَّوامْ، عَشانْ چيْ لازِمْ أرْقُدْ بَدْري. الوِيْكِنْدْ الياي أبا أسيرْ البَحَرْ وِيا أخوي. أبا أتْعَلَّمْ عَرَبي زِيْنْ وْ أرْمِسْ وِيا النّاسْ.",
+ az:"ams kaan youm el yum3a, 3ashan chee kint faadhi. el sub7 ragadt la7add 3ashar, ba3dain shiribt gahwa wo garait kitaab. ba3ad chidhi ittasalt 3ala rab3i wo ri7na el barr. el jaw kaan raw3a, 3ashan chee gi3adna hnaak la7add el masa. akalna wo shiribna chai, wo bsara7a kaan wayed 7elo. kint saakin fee Russia, wo hnaak el jaw kaan baarid. el7een saakin fee Dubai wo ashteghel kil youm. baacher barja3 el dawaam, 3ashan chee laazim argud badri. el weekend el yaay aba aseer el ba7ar wiya akhooy. aba at3allam 3arabi zain wo armes wiya el naas."},
+{level:"B1",title:"Opinions & plans",
+ en:"Honestly, I think Dubai is the best city in the Emirates. My friend told me the weather in winter is amazing, and I feel he's right. If I have time on the weekend, I'll go to the sea or the desert. I think learning a language is very important. I mean, if you talk with people every day, you learn fast, but if you only read books, it's slow. Last year I didn't know much Arabic, but now I understand well. Sometimes it's hard, and sometimes I make mistakes, but it's okay. What do you think — is Arabic hard? For me, it's not hard, it just needs patience. Anyway, I want to keep learning until I speak well.",
+ ar:"بِصَراحَة، أعْتِقِدْ إنّ دُبَيْ أحْسَنْ مَدينَة فِيْ الإماراتْ. رِبْعي قالْ لي إنّ الجَوّ فِيْ الشِّتا روعَة، وْ أحِسّ إنَّه صادِقْ. إذا عِنْدي وَقِتْ فِيْ الوِيْكِنْدْ، بَسيرْ البَحَرْ أوْ البَرّ. أعْتِقِدْ إنّ تَعَلُّمْ اللُّغَة وايِدْ مُهِمّ. يَعْني، إذا تِرْمِسْ وِيا النّاسْ كِلْ يومْ، تِتْعَلَّمْ بْسُرْعَة، بَسْ إذا بَسْ تِقْرا كُتُبْ، يْصيرْ بْطيءْ. السَّنَة اللّي فاتَتْ ما كِنِتْ أعْرَفْ وايِدْ عَرَبي، بَسْ الحِيْنْ أفْهَمْ زِيْنْ. أحْياناً صَعِبْ، وْ أحْياناً أغْلَطْ، بَسْ عادي. شُو رايَكْ — العَرَبي صَعِبْ؟ بِالنِّسْبَة لي، مُبْ صَعِبْ، بَسْ يِبْغى صَبِرْ. عَلى كِلْ حالْ، أبا أضِلّ أتْعَلَّمْ لَحَدّ ما أرْمِسْ زِيْنْ.",
+ az:"bsara7a, a3teged enna Dubai a7san madeena fee el Emaraat. rab3i gaal li enna el jaw fee el shita raw3a, wo a7ess ennah saadig. edha 3indi wagt fee el weekend, baseer el ba7ar aw el barr. a3teged enna ta3allum el lugha wayed muhim. ya3ni, edha tirmes wiya el naas kil youm, tit3allam bsur3a, bas edha bas tigra kutub, yseer btee'. el sana elly faatat ma kint a3ref wayed 3arabi, bas el7een afham zain. a7yaanan sa3ab, wo a7yaanan aghlat, bas 3aadi. shoo rayek — el 3arabi sa3ab? bilnisba li, mub sa3ab, bas yibgha sabr. 3ala kil 7aal, aba adhill at3allam la7add ma armes zain."},
+{level:"B2",title:"Ten years here",
+ en:"I've been living in the Emirates for ten years now. When I first arrived, I didn't know a single word of Arabic, and honestly it was hard. But little by little I started to understand, and now I speak a lot. My work is nice and my manager is well-known and generous. Although the summer is extremely hot, I love this country, because the people are kind. By the way, the most important thing when you learn a language is not to be afraid to speak. The more you talk, the more you learn — I wish someone had told me that at the beginning. I hope to stay here a long time, and God willing my kids will grow up speaking two languages. Anyway, whoever wants to learn should just start, and not wait.",
+ ar:"أنا ساكِنْ فِيْ الإماراتْ مِنْ عَشْرْ سِنينْ الحِيْنْ. أوّلْ ما وْصَلْتْ، ما كِنِتْ أعْرَفْ ولا كِلْمَة عَرَبي، وْ بِصَراحَة كانْ صَعِبْ. بَسْ شْوَيْ شْوَيْ بَدَيْتْ أفْهَمْ، وْ الحِيْنْ أرْمِسْ وايِدْ. شِغْلي حِلو وْ مْديري مَعْروفْ وْ كَريمْ. مَعَ إنّ الصَّيْفْ حَرّ موتْ، بَسْ أحِبّ هالدَّوْلَة، عَشانْ النّاسْ طَيّبينْ. عَلى فِكْرَة، أهَمّ شِيْ لَمّا تِتْعَلَّمْ لُغَة، إنَّكْ ما تْخافْ تِرْمِسْ. كِلْ ما تِرْمِسْ، كِلْ ما تِتْعَلَّمْ — يا لَيْتْ أحَدْ قالْ لي چِذي مِنْ البِدايَة. أتْمَنّى أضِلّ هِني وَقِتْ طَويلْ، وْ إنْ شاءَ الله عْيالي بْيِكْبَرونْ يِرْمِسونْ لُغَتَيْنْ. عَلى كِلْ حالْ، اللّي يْبا يِتْعَلَّمْ لازِمْ بَسْ يِبْدا، وْ ما يِنْتِظِرْ.",
+ az:"ana saakin fee el Emaraat min 3ashar sneen el7een. awwal ma wsalt, ma kint a3ref wala kilma 3arabi, wo bsara7a kaan sa3ab. bas shway shway badait afham, wo el7een armes wayed. shighli 7elo wo mdeeri ma3roof wo kareem. ma3a enna el sayf 7arr moot, bas a7ebb hal-dawla, 3ashaan el naas tayybeen. 3ala fikra, ahamm shai lamma tit3allam lugha, ennak ma tkhaaf tirmes. kil ma tirmes, kil ma tit3allam — yalait a7ad gaal li chidhi min el bidaaya. atmanna adhill hini wagt taweel, wo in shaa Allah 3yaali byikbaroon yirmisoon lughatain. 3ala kil 7aal, elly yiba yit3allam laazim bas yibda, wo ma yintidhir."},
 ];
+
 function revealText(k){const el=document.getElementById('txtout'+k);if(el)el.innerHTML=`<div class="gloss" style="margin-top:8px"><div class="ar" style="font-size:1.45rem;line-height:1.95">${TEXTS[k].ar}</div><div class="az" style="margin-top:6px">${esc(TEXTS[k].az)}</div></div>`;}
 function renderRead(b){let h=`<div class="hd"><span class="n">✍️</span><h2>Translate by level</h2></div>
   <p class="lead">Read the English, say/write the whole thing in Emirati, then reveal to check. Match your level (A1 → B2).</p>`;
