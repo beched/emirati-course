@@ -758,7 +758,7 @@ const PHR2 = {
  {en:"The manager wants you",ar:"المُديرْ يْباكْ",az:"el mudeer ybaak"},
  {en:"He's in his office",ar:"هو فِيْ مَكْتَبَه",az:"hu fee maktabah"},
  {en:"Is the meeting over?",ar:"خِلَصْ الاِجْتِماعْ؟",az:"khilas el ijtimaa3?"},
- {en:"I'll finish the report",ar:"بَخَلِّصْ التَّقْريرْ",az:"bakhalles et-taqreer"},
+ {en:"I'll finish the report",ar:"بَخَلِّصْ التَّقْريرْ",az:"bakhalles el taqreer"},
  {en:"I'm still working on it",ar:"بَعَدْني أشْتِغِلْ عَلَيْه",az:"ba3adni ashtaghil 3alaih"},
  {en:"I'll finish soon",ar:"جْريبْ أخَلِّصْ",az:"jreeb akhalles"},
  {en:"I already finished it",ar:"أصْلاً خَلَّصْتَه",az:"aslan khallastah"},
@@ -1993,9 +1993,53 @@ ex:[
  {t:'say',q:"I work as much as I can",ans:{az:"ashteghel 3ala gadd ma agdar",ar:"أشْتِغِلْ عَلى قَدّ ما أقْدَرْ"}},
  {t:'mcq',q:"“the more…, the more…”",opts:[{az:"kil ma… kil ma",ar:"كِلْ ما… كِلْ ما"},{az:"3ala 7asab",ar:"عَلى حَسَبْ"},{az:"ma3a enna",ar:"مَعَ إنّ"},{az:"la7add",ar:"لَحَدّ"}],a:0},
  {t:'say',q:"it depends on the weather",ans:{az:"3ala 7asab el jaw",ar:"عَلى حَسَبْ الجَوّ"}}]},
+
+{id:"worktalk",t:"Workplace & business",sub:"manager, meeting, report, deadline",drill:{gen:'list',tag:'work',items:[
+ {en:"the manager wants you in his office",ar:"المُديرْ يْباكْ فِيْ مَكْتَبَه",az:"el mudeer ybaak fee maktabah"},
+ {en:"I'll finish the report right away",ar:"بَخَلِّصْ التَّقْريرْ عَلى طولْ",az:"bakhalles el taqreer 3ala tool"},
+ {en:"I'm still working on the project",ar:"بَعَدْني أشْتِغِلْ عَلى المَشْروعْ",az:"ba3adni ashtaghil 3ala el mashroo3"},
+ {en:"when is the deadline?",ar:"مِتى موعِدْ التَّسْليمْ؟",az:"mata maw3id et-tasleem?"},
+ {en:"I have experience in the field",ar:"عِنْدي خِبْرَة فِيْ المَجالْ",az:"3indi khibra fee el majaal"},
+ {en:"get to the point (lit. give me the butter)",ar:"عَطْني الزِّبْدَة",az:"3atni el zibda"}]},
+words:[
+ {en:"manager",ar:"مُديرْ",az:"mudeer"},{en:"meeting",ar:"اِجْتِماعْ",az:"ijtimaa3"},{en:"project",ar:"مَشْروعْ",az:"mashroo3"},{en:"report",ar:"تَقْريرْ",az:"taqreer"},{en:"deadline",ar:"موعِدْ التَّسْليمْ",az:"maw3id et-tasleem"},{en:"salary",ar:"راتِبْ",az:"raatib"},{en:"department",ar:"قِسِمْ",az:"gisim"},{en:"experience",ar:"خِبْرَة",az:"khibra"},{en:"field / area",ar:"مَجالْ",az:"majaal"},{en:"job / position",ar:"وَظيفَة",az:"wadheefa"},{en:"office",ar:"مَكْتَبْ",az:"maktab"},{en:"he wants you",ar:"يْباكْ",az:"ybaak"},{en:"I'll finish",ar:"بَخَلِّصْ",az:"bakhalles"},{en:"right away",ar:"عَلى طولْ",az:"3ala tool"},{en:"I'll check",ar:"أشَيِّكْ",az:"ashayyik"},{en:"get to the point",ar:"عَطْني الزِّبْدَة",az:"3atni el zibda"},{en:"when",ar:"مِتى",az:"mata"},{en:"still / not yet",ar:"بَعَدْني",az:"ba3adni"},{en:"I work / I'm working",ar:"أشْتِغِلْ",az:"ashtaghil"}],
+html:`<p class="lead">Professional Emirati for the office — more specialized, so it sits at the top of B2.</p>
+${G("المُديرْ يْباكْ فِيْ مَكْتَبَه","el mudeer ybaak fee maktabah","the manager wants you in his office")}
+${G("بَخَلِّصْ التَّقْريرْ عَلى طولْ","bakhalles el taqreer 3ala tool","I'll finish the report right away")}
+${G("بَعَدْني أشْتِغِلْ عَلى المَشْروعْ","ba3adni ashtaghil 3ala el mashroo3","I'm still working on the project")}
+<div class="callout">In the office, formal words often keep the <b>q</b> sound: <b>taqreer</b> (report), <b>maw3id et-tasleem</b> (deadline). Idiom: <b>3atni el zibda</b> — literally “give me the butter,” i.e. get to the point.</div>`,
+ex:[
+ {t:'mcq',q:"“the manager wants you”",opts:[{az:"el mudeer ybaak",ar:"المُديرْ يْباكْ"},{az:"el mudeer raa7",ar:"المُديرْ راحْ"},{az:"el mudeer zain",ar:"المُديرْ زِيْنْ"},{az:"el mudeer hini",ar:"المُديرْ هِني"}],a:0},
+ {t:'say',q:"I'll finish the report right away",ans:{az:"bakhalles el taqreer 3ala tool",ar:"بَخَلِّصْ التَّقْريرْ عَلى طولْ"}},
+ {t:'mcq',q:"“deadline”",opts:[{az:"maw3id et-tasleem",ar:"موعِدْ التَّسْليمْ"},{az:"ijtimaa3",ar:"اِجْتِماعْ"},{az:"raatib",ar:"راتِبْ"},{az:"khibra",ar:"خِبْرَة"}],a:0},
+ {t:'say',q:"I'm still working on the project",ans:{az:"ba3adni ashtaghil 3ala el mashroo3",ar:"بَعَدْني أشْتِغِلْ عَلى المَشْروعْ"}},
+ {t:'mcq',q:"“get to the point” (idiom)",opts:[{az:"3atni el zibda",ar:"عَطْني الزِّبْدَة"},{az:"3ala tool",ar:"عَلى طولْ"},{az:"3ala 7asab",ar:"عَلى حَسَبْ"},{az:"ya salaam",ar:"يا سَلامْ"}],a:0},
+ {t:'say',q:"I have experience in the field",ans:{az:"3indi khibra fee el majaal",ar:"عِنْدي خِبْرَة فِيْ المَجالْ"}}]},
+
+{id:"onmeet",t:"Online meetings",sub:"link, screen, sound, connection",drill:{gen:'list',tag:'meeting',items:[
+ {en:"I'll send you the link",ar:"بَطَرِّشْ لَكْ الرّابِطْ",az:"batarrish lak el raabit"},
+ {en:"is the sound clear? I can't hear you well",ar:"الصّوتْ واضِحْ؟ ما أسْمَعَكْ زِيْنْ",az:"el soat waadhi7? ma asma3ak zain"},
+ {en:"the video isn't working",ar:"الفيديو ما يِشْتِغِلْ",az:"el video ma yishtaghil"},
+ {en:"let me share the screen",ar:"خَلّني أشارِكْ الشّاشَة",az:"khalni ashaarik el shaasha"},
+ {en:"check the internet, hold on a bit",ar:"شَيِّكْ النِّتْ، تْحَمَّلْ شْوَيْ",az:"shayyik el net, t7ammal shway"},
+ {en:"I'll record the meeting",ar:"بَسَجِّلْ الاِجْتِماعْ",az:"basajjil el ijtimaa3"}]},
+words:[
+ {en:"link",ar:"رابِطْ",az:"raabit"},{en:"sound / voice",ar:"صوتْ",az:"soat"},{en:"clear",ar:"واضِحْ",az:"waadhi7"},{en:"video",ar:"فيديو",az:"video"},{en:"internet / connection",ar:"نِتْ",az:"net"},{en:"screen",ar:"شاشَة",az:"shaasha"},{en:"page / tab",ar:"صَفْحَة",az:"saf7a"},{en:"to send",ar:"أطَرِّشْ",az:"atarrish"},{en:"to share",ar:"أشارِكْ",az:"ashaarik"},{en:"to record",ar:"أسَجِّلْ",az:"asajjil"},{en:"check! (imperative)",ar:"شَيِّكْ",az:"shayyik"},{en:"let me",ar:"خَلّني",az:"khalni"},{en:"I hear you",ar:"أسْمَعَكْ",az:"asma3ak"},{en:"can you repeat?",ar:"مُمْكِنْ تْعيدْ",az:"mumkin t3eed"},{en:"hold on a bit",ar:"تْحَمَّلْ شْوَيْ",az:"t7ammal shway"},{en:"go ahead",ar:"تْفَضَّلْ",az:"tfaddal"},{en:"to / for you (m)",ar:"لَكْ",az:"lak"},{en:"it works / is working",ar:"يِشْتِغِلْ",az:"yishtaghil"}],
+html:`<p class="lead">The language of video calls — the most modern, specialized set, so it closes B2.</p>
+${G("بَطَرِّشْ لَكْ الرّابِطْ","batarrish lak el raabit","I'll send you the link")}
+${G("الصّوتْ واضِحْ؟ ما أسْمَعَكْ زِيْنْ","el soat waadhi7? ma asma3ak zain","is the sound clear? I can't hear you well")}
+${G("خَلّني أشارِكْ الشّاشَة","khalni ashaarik el shaasha","let me share the screen")}
+<div class="callout">Loanwords stay as-is: <b>net</b>, <b>video</b>, and <b>link</b> (also <b>raabit</b>). “Check” is <b>shayyik</b>, from English. Polite call fillers: <b>tfaddal</b> (go ahead), <b>t7ammal shway</b> (hold on a sec).</div>`,
+ex:[
+ {t:'say',q:"I'll send you the link",ans:{az:"batarrish lak el raabit",ar:"بَطَرِّشْ لَكْ الرّابِطْ"}},
+ {t:'mcq',q:"“is the sound clear?”",opts:[{az:"el soat waadhi7?",ar:"الصّوتْ واضِحْ؟"},{az:"el video zain?",ar:"الفيديو زِيْنْ؟"},{az:"shayyik el net",ar:"شَيِّكْ النِّتْ"},{az:"mumkin t3eed?",ar:"مُمْكِنْ تْعيدْ؟"}],a:0},
+ {t:'mcq',q:"“check the internet”",opts:[{az:"shayyik el net",ar:"شَيِّكْ النِّتْ"},{az:"sakker el shaasha",ar:"سَكِّرْ الشّاشَة"},{az:"basajjil",ar:"بَسَجِّلْ"},{az:"tfaddal",ar:"تْفَضَّلْ"}],a:0},
+ {t:'say',q:"let me share the screen",ans:{az:"khalni ashaarik el shaasha",ar:"خَلّني أشارِكْ الشّاشَة"}},
+ {t:'mcq',q:"“can you repeat?”",opts:[{az:"mumkin t3eed?",ar:"مُمْكِنْ تْعيدْ؟"},{az:"t7ammal shway",ar:"تْحَمَّلْ شْوَيْ"},{az:"tfaddal",ar:"تْفَضَّلْ"},{az:"3ala tool",ar:"عَلى طولْ"}],a:0},
+ {t:'say',q:"I'll record the meeting",ans:{az:"basajjil el ijtimaa3",ar:"بَسَجِّلْ الاِجْتِماعْ"}}]},
 ];
 /* ---- CEFR levels + ordering ---- */
-const LEVELS={A1:["sound","pron","greet","this","have","family","iform","aboutme","not","want","present","quest","numbers"],A2:["past","kaan","prog","future","imp","conn","prep","work","freq","weath","plural"],B1:["idafa","objsuf","cond","report","fillers","opin"],B2:["participles","wish","concess","cause","react","degree"]};
+const LEVELS={A1:["sound","pron","greet","this","have","family","iform","aboutme","not","want","present","quest","numbers"],A2:["past","kaan","prog","future","imp","conn","prep","work","freq","weath","plural"],B1:["idafa","objsuf","cond","report","fillers","opin"],B2:["participles","wish","concess","cause","react","degree","worktalk","onmeet"]};
 const LESSON_ORDER=[].concat(LEVELS.A1,LEVELS.A2,LEVELS.B1,LEVELS.B2);
 const LEVEL_OF={};Object.keys(LEVELS).forEach(lv=>LEVELS[lv].forEach(id=>LEVEL_OF[id]=lv));
 LESSONS.forEach(L=>{L.level=LEVEL_OF[L.id]||"A1";});
