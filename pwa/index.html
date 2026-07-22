@@ -1460,22 +1460,23 @@ ex:[
 
 {id:"want",t:"Want · like · must · can",sub:"asking for things",drill:{gen:'want'},
 words:[
- {en:"I want",ar:"أبا",az:"aba"},{en:"I like / love",ar:"أحِبّ",az:"a7ebb"},{en:"I must / have to",ar:"لازِمْ",az:"laazim"},
+ {en:"I want",ar:"أبا",az:"aba"},{en:"you want (m / f)",ar:"تْبا / تْبينْ",az:"taba / tabeen"},{en:"I like / love",ar:"أحِبّ",az:"a7ebb"},{en:"I must / have to",ar:"لازِمْ",az:"laazim"},
  {en:"I can",ar:"أقْدَرْ",az:"agdar"},{en:"to go",ar:"أروحْ",az:"aroo7"},{en:"to work",ar:"أشْتِغِلْ",az:"ashteghel"},
- {en:"to sleep",ar:"أرْقُدْ",az:"argud"},{en:"tea",ar:"چايْ",az:"chai"}],
-html:`<p class="lead">These four take a noun <i>or</i> another action right after them.</p>
+ {en:"to sleep",ar:"أرْقُدْ",az:"argud"},{en:"tea",ar:"چايْ",az:"chai"},{en:"money",ar:"فْلوسْ",az:"floos"},{en:"a car",ar:"سَيّارَة",az:"sayyaara"}],
+html:`<p class="lead">These four take a noun <i>or</i> another action right after them — and they conjugate for the person (aba, <b>taba</b>, yaba…).</p>
 ${G("أبا قَهْوَة","aba gahwa","I want coffee")}
-${G("أحِبّ القَهْوَة","a7ebb el gahwa","I like coffee")}
-${G("لازِمْ أشْتِغِلْ","laazim ashteghel","I have to work")}
-${G("ما أقْدَرْ أروحْ","ma agdar aroo7","I can't go")}
-<div class="callout">Negate any of them with <b>ma</b> (from lesson 5): ma aba, ma agdar.</div>`,
+${G("تْبا چايْ؟","taba chai?","do you want tea? (m)")}
+${G("لازِمْ أشْتِغِلْ بَسْ ما أقْدَرْ","laazim ashteghel bas ma agdar","I have to work but I can't")}
+${G("أحِبّ أخوي","a7ebb akhooy","I love my brother")}
+<div class="callout">Negate any of them with <b>ma</b> (from “Saying NOT”): ma aba, ma agdar. Stack them with what you already know — a noun (<b>aba floos</b>), a verb (<b>laazim aroo7</b>), a person (<b>taba</b>?), or a contrast (<b>… bas …</b>).</div>`,
 ex:[
- {t:'say',q:"I want tea",ans:{az:"aba chai",ar:"أبا چايْ"}},
- {t:'say',q:"I have to sleep",ans:{az:"laazim argud",ar:"لازِمْ أرْقُدْ"}},
- {t:'say',q:"I can't work",ans:{az:"ma agdar ashteghel",ar:"ما أقْدَرْ أشْتِغِلْ"}},
- {t:'say',q:"I want coffee",ans:{az:"aba gahwa",ar:"أبا قَهْوَة"}},
- {t:'say',q:"I can't work",ans:{az:"ma agdar ashteghel",ar:"ما أقْدَرْ أشْتِغِلْ"}},
- {t:'mcq',q:"“I have to sleep”",opts:[{az:"laazim argud",ar:"لازِمْ أرْقُدْ"},{az:"aba argud",ar:"أبا أرْقُدْ"},{az:"agdar argud",ar:"أقْدَرْ أرْقُدْ"},{az:"ma argud",ar:"ما أرْقُدْ"}],a:0}]},
+ {t:'say',q:"do you want tea? (m)",ans:{az:"taba chai?",ar:"تْبا چايْ؟"}},
+ {t:'say',q:"I have to work but I can't",ans:{az:"laazim ashteghel bas ma agdar",ar:"لازِمْ أشْتِغِلْ بَسْ ما أقْدَرْ"}},
+ {t:'say',q:"I don't want money",ans:{az:"ma aba floos",ar:"ما أبا فْلوسْ"}},
+ {t:'say',q:"I love my brother",ans:{az:"a7ebb akhooy",ar:"أحِبّ أخوي"}},
+ {t:'mcq',q:"Which one means “I can't go”?",opts:[{az:"ma agdar aroo7",ar:"ما أقْدَرْ أروحْ"},{az:"aba aroo7",ar:"أبا أروحْ"},{az:"laazim aroo7",ar:"لازِمْ أروحْ"},{az:"agdar aroo7",ar:"أقْدَرْ أروحْ"}],a:0},
+ {t:'mcq',q:"“you want a car?” (to a man) is…",opts:[{az:"taba sayyaara?",ar:"تْبا سَيّارَة؟"},{az:"aba sayyaara",ar:"أبا سَيّارَة"},{az:"tabeen sayyaara?",ar:"تْبينْ سَيّارَة؟"},{az:"laazim sayyaara",ar:"لازِمْ سَيّارَة"}],a:0},
+ {t:'mcq',q:"Only one is “I have to sleep”. Which?",opts:[{az:"laazim argud",ar:"لازِمْ أرْقُدْ"},{az:"aba argud",ar:"أبا أرْقُدْ"},{az:"agdar argud",ar:"أقْدَرْ أرْقُدْ"},{az:"ma argud",ar:"ما أرْقُدْ"}],a:0}]},
 
 {id:"present",t:"Present tense — the matrix",sub:"the verb engine (Petrov core)",drill:{gen:'verb',layer:'present'},
 words:[
@@ -2300,6 +2301,7 @@ function buildItem(layer0,verbSetId){
  return {V,layer,ar:ar.trim(),az:az.trim(),en:en.trim(),tag:(LAYERS.find(l=>l.id===layer)||{}).name||layer};
 }
 function genItem(spec){
+ if(spec.gen==='cumulative')return buildCompound(spec.upto);
  if(spec.gen==='verb')return buildItem(spec.layer||'mixed',spec.verb||spec.verbSet||'all');
  if(spec.gen==='phrase')return phraseItem(spec.theme);
  if(spec.gen==='conn')return Object.assign({tag:'connectors'},pick(CONN));
@@ -2307,6 +2309,43 @@ function genItem(spec){
  if(spec.gen==='list')return Object.assign({tag:spec.tag||'grammar'},pick(spec.items));
  if(GENR[spec.gen])return GENR[spec.gen]();
  return {ar:'؟',az:'?',en:'?',tag:''};
+}
+/* ---- cumulative "review" generator: genuinely COMBINES structures taught so far ---- */
+function lessonRank(id){return LESSON_ORDER.indexOf(id);}
+function structOpen(introId,uptoId){const ri=lessonRank(introId);return ri>=0&&lessonRank(uptoId)>=ri;}
+const CTIME={present:[{az:'el youm',ar:'اليومْ',en:'today'},{az:'kil youm',ar:'كِلْ يومْ',en:'every day'},{az:'daayman',ar:'دايْماً',en:'always'},{az:'a7yaanan',ar:'أحْياناً',en:'sometimes'}],
+ past:[{az:'ams',ar:'أمْسْ',en:'yesterday'},{az:'gabel',ar:'قَبِلْ',en:'earlier'}],
+ future:[{az:'baacher',ar:'باچِرْ',en:'tomorrow'},{az:'ba3dain',ar:'بَعْدَيْنْ',en:'later'}]};
+const CREASON=[{az:'el jaw 7arr',ar:'الجَوّ حَرّ',en:'the weather is hot'},{az:'el jaw baarid',ar:'الجَوّ بارِدْ',en:'the weather is cold'},{az:'ma fee wagt',ar:'ما فيهْ وَقِتْ',en:"there's no time"},{az:'el shughl wayed',ar:'الشُّغِلْ وايِدْ',en:"there's a lot of work"},{az:'el darb za7ma',ar:'الدَّرِبْ زَحْمَة',en:'the road is jammed'}];
+function cModal(){const cands=VERBS.filter(v=>v.mode==='trans');const V=pick(cands),pi=ri(8),P=PRN[pi],obj=pick(V.objs);
+ const useWant=Math.random()<0.5;let maz,mar,men;
+ if(useWant){const W=VERBS.find(v=>v.id==='want');maz=W.az.pr[pi];mar=W.ar.pr[pi];men='want';}else{maz='laazim';mar='لازِمْ';men='have';}
+ const neg=Math.random()<0.3,vaz=V.az.pr[pi],var_=V.ar.pr[pi];
+ const az=`${P.az} ${neg?'ma ':''}${maz} ${vaz} ${obj.az}`.trim();
+ const ar=`${P.ar} ${neg?'ما ':''}${mar} ${var_} ${obj.ar}`.trim();
+ const to=men==='want'?'want to':'have to',tos=men==='want'?'wants to':'has to';
+ let phr=neg?`${P.third?"doesn't":"don't"} ${to}`:(P.third?tos:to);
+ const en=`${cap(P.en)} ${phr} ${V.en[0]} ${obj.en}`.trim();
+ return {ar,az,en,tag:'review · '+(useWant?'want +':'must +')+' verb'};}
+function cTime(uptoId){const opts=['present'];if(structOpen('past',uptoId))opts.push('past');if(structOpen('future',uptoId))opts.push('future');
+ const tense=pick(opts),it=buildItem(tense,'all'),adv=pick(CTIME[tense]);
+ return {ar:`${it.ar} ${adv.ar}`.trim(),az:`${it.az} ${adv.az}`.trim(),en:`${it.en} ${adv.en}`.trim(),tag:'review · verb + time'};}
+function cBecause(){const it=buildItem(pick(['present','past']),'all'),r=pick(CREASON);
+ return {ar:`${it.ar} عَشانْ ${r.ar}`.trim(),az:`${it.az} 3ashan ${r.az}`.trim(),en:`${it.en} because ${r.en}`.trim(),tag:'review · because'};}
+function cPrior(uptoId){const r=lessonRank(uptoId);const cands=LESSONS.filter(L=>L.drill&&L.drill.gen!=='cumulative'&&lessonRank(L.id)>=0&&lessonRank(L.id)<=r);
+ if(!cands.length)return null;const L=pick(cands);const it=genItem(Object.assign({},L.drill));if(it&&!it.tag)it.tag=L.t;return it;}
+function buildCompound(uptoId){const canVerb=structOpen('iform',uptoId);const roll=[];
+ if(canVerb){roll.push('plain','plain','plain');
+  if(structOpen('want',uptoId))roll.push('modal','modal');
+  if(structOpen('past',uptoId)||structOpen('future',uptoId)||structOpen('freq',uptoId))roll.push('time','time');
+  if(structOpen('conn',uptoId))roll.push('because');}
+ roll.push('prior');
+ const mode=pick(roll);
+ if(mode==='modal')return cModal();
+ if(mode==='time')return cTime(uptoId);
+ if(mode==='because')return cBecause();
+ if(mode==='prior'){const p=cPrior(uptoId);if(p)return p;}
+ return buildItem('mixed','all');
 }
 
 /* ---- reusable infinite-drill widget ---- */
@@ -2379,7 +2418,8 @@ function openLesson(id){curLesson=id;lp(id).seen=true;saveProg();go('lessons');
  let h=`<span class="back" onclick="backToLessons()">‹ all lessons</span><div class="hd"><span class="n">${L.level||'A1'}</span><h2>${esc(L.t)}</h2></div><div class="card">${L.html}</div>`;
  if(L.words&&L.words.length)h+=`<div class="hd"><span class="n">🆕</span><h2>New words in this lesson</h2></div>${rows(L.words)}`;
  h+=`<div class="hd"><span class="n">✍️</span><h2>Quick check</h2></div><div id="exwrap"></div><div id="exdone"></div>`;
- if(L.drill)h+=`<div class="hd"><span class="n">🔁</span><h2>Drill this lesson ∞</h2></div><p class="lead">Endless randomized sentences using only what this lesson taught. Grade yourself — misses show up on Home.</p>
+ if(L.drill)h+=`<div class="hd"><span class="n">🔁</span><h2>Drill ∞</h2></div><p class="lead">Endless randomized sentences. <b>This lesson</b> = only what this lesson taught. <b>+ Everything so far</b> = genuinely combines it with all earlier lessons (modals, tenses, negation, time, “because”…). Grade yourself — misses show up on Home.</p>
+   <label class="fld">Scope</label><div id="lessonmodewrap">${lessonModeChips('self')}</div>
    <label class="fld">Direction</label><div id="lessondirwrap">${lessonDirChips('both')}</div>${drillWidgetHTML('lesson')}`;
  const li=LESSONS.findIndex(x=>x.id===id),nxt=LESSONS[li+1];
  h+=`<div class="btnrow" style="margin-top:14px"><button class="btn ghost" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ Top</button>${nxt?`<button class="btn" onclick="nextLesson()">Next: ${esc(nxt.t)} →</button>`:`<button class="btn grn" onclick="backToLessons()">✓ Finish · all lessons</button>`}</div>`;
@@ -2387,6 +2427,10 @@ function openLesson(id){curLesson=id;lp(id).seen=true;saveProg();go('lessons');
  if(L.drill)drillMount('lesson',Object.assign({key:'L:'+L.id,label:L.t},L.drill),'both');
  setHdr(true);window.scrollTo(0,0);
 }
+function lessonModeChips(m){m=m||'self';return `<div class="chips">${[['self','This lesson'],['cumu','+ Everything so far']].map(x=>`<span class="chip b ${m===x[0]?'on':''}" onclick="setLessonMode('${x[0]}')">${x[1]}</span>`).join('')}</div>`;}
+function setLessonMode(m){const L=LESSONS.find(x=>x.id===curLesson);if(!L||!L.drill)return;const dir=(drills['lesson']&&drills['lesson'].dir)||'both';
+ const spec=m==='cumu'?{gen:'cumulative',upto:curLesson,key:'C:'+curLesson,label:L.t+' + review'}:Object.assign({key:'L:'+L.id,label:L.t},L.drill);
+ drillMount('lesson',spec,dir);const c=document.getElementById('lessonmodewrap');if(c)c.innerHTML=lessonModeChips(m);}
 function lessonDirChips(d){d=d||'both';return `<div class="chips">${[['both','Both ⇄'],['en2ar','EN → AR'],['ar2en','AR → EN']].map(x=>`<span class="chip g ${d===x[0]?'on':''}" onclick="setLessonDir('${x[0]}')">${x[1]}</span>`).join('')}</div>`;}
 function setLessonDir(dir){if(drills['lesson']){drills['lesson'].dir=dir;drillNew('lesson');}const c=document.getElementById('lessondirwrap');if(c)c.innerHTML=lessonDirChips(dir);}
 function shuffleEx(e){if(e.t==='say'||!e.opts)return;const idx=e.opts.map((_,i)=>i);
