@@ -2870,17 +2870,18 @@ function offlineHTML(){
     el.innerHTML='<div class="card tight" style="border-color:#2c6e49;padding:7px 12px"><span class="note">'+
       '✅ Ready for offline — all '+OFF.total+' files saved, works in airplane mode.</span></div>';return;}
   if(OFF.state==='busy'){el.innerHTML='<div class="card tight"><span class="note">⬇️ <b>Saving the app for offline…</b><br>'+
-    'This takes up to a minute on first launch. Keep the app open — when ✅ appears, you are set.</span></div>';return;}
+    'This takes up to a minute on first launch. Keep the app open — when ✅ appears, you are set.</span>'+diagLine()+'</div>';return;}
+  if(OFF.state==='working'&&!OFF.total){ OFF={state:'busy'}; }
   if(OFF.state==='working'){
     el.innerHTML='<div class="card tight"><span class="note">⬇️ Saving for offline… '+OFF.cached+' / '+OFF.total+
-      '<br>Keep the app open until you see ✅.</span></div>';return;}
+      '<br>Keep the app open until you see ✅.</span>'+diagLine()+'</div>';return;}
   if(OFF.state==='partial'){
     el.innerHTML='<div class="card tight" style="border-color:#8a6d1f"><span class="note">⚠️ <b>Offline is incomplete:</b> '+
       OFF.cached+' / '+OFF.total+' files. Connect to the internet and tap the button.</span>'+
-      '<div style="margin-top:8px"><button class="btn sm" onclick="offlineRepair()">Download for offline</button></div></div>';return;}
+      '<div style="margin-top:8px"><button class="btn sm" onclick="offlineRepair()">Download for offline</button></div>'+diagLine()+'</div>';return;}
   el.innerHTML='<div class="card tight" style="border-color:#8a3a3a"><span class="note">⚠️ <b>Offline mode is not active.</b> '+
     'Open the app with the internet on, wait 10-20 seconds and tap Retry. If that does not help, fully close the app and open it again.</span>'+
-    '<div style="margin-top:8px"><button class="btn sm" onclick="offlineRepair()">Retry</button></div></div>';
+    '<div style="margin-top:8px"><button class="btn sm" onclick="offlineRepair()">Retry</button></div>'+diagLine()+'</div>';
 }
 function applyStatus(st){
   if(!st){OFF={state:'none'};}
@@ -2888,6 +2889,24 @@ function applyStatus(st){
   else{OFF={state:'partial',cached:st.cached,total:st.total};}
   offlineHTML();
 }
+var DIAG='';
+async function diag(){
+  var d=[];
+  try{
+    var reg=await navigator.serviceWorker.getRegistration();
+    d.push('sw:'+(!reg?'none':(reg.installing?'installing':reg.waiting?'waiting':reg.active?'active':'?')));
+    d.push('ctrl:'+(navigator.serviceWorker.controller?'y':'n'));
+  }catch(e){ d.push('sw:err'); }
+  try{
+    var ks=await caches.keys(); var n=0;
+    if(ks.length){ var c=await caches.open(ks[0]); n=(await c.keys()).length; }
+    d.push('cache:'+(ks.length?ks[0].replace('emirati-arabic-','')+'/'+n:'none'));
+  }catch(e){ d.push('cache:err'); }
+  d.push(navigator.onLine?'online':'offline');
+  DIAG=d.join(' · ');
+  return DIAG;
+}
+function diagLine(){ return DIAG?'<div style="opacity:.55;font-size:.72rem;margin-top:6px">'+DIAG+'</div>':''; }
 async function swBusy(){
   try{ var reg=await navigator.serviceWorker.getRegistration();
        return {reg:reg, busy: !!(reg&&(reg.installing||reg.waiting))}; }
@@ -2903,7 +2922,7 @@ async function offlineCheck(budgetMs){
     else{
       var pr=await cacheProbe();
       if(pr&&pr.cached>=pr.total&&pr.total>0){ applyStatus(pr); return; }
-      var b=await swBusy(); var waited=Date.now()-t0;
+      var b=await swBusy(); var waited=Date.now()-t0; await diag();
       if(pr&&pr.cached>0){ OFF={state:'working',cached:pr.cached,total:pr.total}; offlineHTML(); }
       else if(b.busy){ OFF={state:'busy'}; offlineHTML(); }
       else if(!b.reg&&waited>20000){ applyStatus(null); return; }
@@ -2918,10 +2937,15 @@ async function offlineRepair(){
   if(!navigator.onLine){OFF={state:'partial',cached:OFF&&OFF.cached||0,total:OFF&&OFF.total||0};offlineHTML();
     alert('No internet. Connect to a network and try again — then everything downloads for offline use.');
     return Promise.resolve();}
-  OFF={state:'working',cached:OFF&&OFF.cached||0,total:OFF&&OFF.total||0}; offlineHTML();
-  var st=await swAsk({type:'repair'},120000);
-  if(st){applyStatus(st);return;}
-  // No worker reachable: re-register, then fall back to probing the cache.
+  OFF={state:'busy'}; await diag(); offlineHTML();
+  // An older worker has no message handler and would never answer, so push it
+  // out of the way first rather than waiting on a silent one.
+  try{
+    var reg=await navigator.serviceWorker.getRegistration();
+    if(reg){ if(reg.waiting) reg.waiting.postMessage('skipWaiting'); reg.update().catch(function(){}); }
+  }catch(e){}
+  var st=await swAsk({type:'repair'},20000);
+  if(st){ applyStatus(st); if(st.cached>=st.total) return; }
   try{ await navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'}); }catch(e){}
   await offlineCheck(180000);
 }
