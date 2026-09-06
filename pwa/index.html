@@ -2566,7 +2566,9 @@ function renderHome(){
    weakL.forEach(w=>{h+=`<div class="weakrow"><span>📘 ${esc(w.l.t)}</span><span class="mn">${w.miss} miss</span><button class="btn sm gold" style="flex:0 0 auto" onclick="openLesson('${w.l.id}')">Review</button></div>`;});}
  }else h+=`<div class="callout b" style="margin-top:18px">As you drill, your weakest topics show here with one-tap practice.</div>`;
  h+=`<div class="card tight" style="margin-top:16px;text-align:center"><span class="note">${learned} words locked in via flashcards · </span><span class="reveal" style="border:none;padding:0;color:var(--red)" onclick="resetAll()">reset all progress</span></div>`;
+ h+=`<div id="offlineCard"></div>`;
  v.innerHTML=h;
+ if(typeof offlineHTML==='function') offlineHTML();
 }
 function resetAll(){if(confirm('Reset ALL progress (lessons, drills, flashcards)?')){localStorage.removeItem('emi_prog');localStorage.removeItem('emi_srs');location.reload();}}
 
@@ -2817,7 +2819,71 @@ applyToggles();renderAll();go(S.tab);
 
 </script>
 <script>
-if("serviceWorker" in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("./sw.js").catch(function(e){console.log("SW reg failed",e)});});}
+/* ---- OFFLINE READINESS ----
+   On iOS a Home-Screen web app gets its own storage container: whatever Safari
+   cached is not visible here, so the app must precache once inside the installed
+   app itself. This card tells the learner whether that has actually happened. */
+function swAsk(msg,ms){
+  return new Promise(function(res){
+    var sw=navigator.serviceWorker&&navigator.serviceWorker.controller;
+    if(!sw){res(null);return;}
+    var ch=new MessageChannel(),done=false;
+    var t=setTimeout(function(){if(!done){done=true;res(null);}},ms||10000);
+    ch.port1.onmessage=function(e){if(!done){done=true;clearTimeout(t);res(e.data);}};
+    try{sw.postMessage(msg,[ch.port2]);}catch(e){clearTimeout(t);res(null);}
+  });
+}
+var OFF;
+function offlineHTML(){
+  var el=document.getElementById('offlineCard'); if(!el) return;
+  if(!OFF) OFF={state:'check'};
+  if(OFF.state==='check'){el.innerHTML='<div class="card tight" style="margin-top:16px"><span class="note">⏳ Checking offline readiness…</span></div>';return;}
+  if(OFF.state==='ready'){
+    el.innerHTML='<div class="card tight" style="margin-top:16px;border-color:#2c6e49"><span class="note">✅ <b>Ready for offline.</b> All '+OFF.total+
+      ' files saved — the app works with no internet at all, including airplane mode.</span></div>';return;}
+  if(OFF.state==='working'){
+    el.innerHTML='<div class="card tight" style="margin-top:16px"><span class="note">⬇️ Saving for offline… '+OFF.cached+' / '+OFF.total+
+      '<br>Keep the app open until you see ✅.</span></div>';return;}
+  if(OFF.state==='partial'){
+    el.innerHTML='<div class="card tight" style="margin-top:16px;border-color:#8a6d1f"><span class="note">⚠️ <b>Offline is incomplete:</b> '+
+      OFF.cached+' / '+OFF.total+' files. Connect to the internet and tap the button.</span>'+
+      '<div style="margin-top:8px"><button class="btn sm" onclick="offlineRepair()">Download for offline</button></div></div>';return;}
+  el.innerHTML='<div class="card tight" style="margin-top:16px;border-color:#8a3a3a"><span class="note">⚠️ <b>Offline mode is not active.</b> '+
+    'Open the app with the internet on, wait a couple of seconds, then reload this page.</span>'+
+    '<div style="margin-top:8px"><button class="btn sm" onclick="offlineRepair()">Retry</button></div></div>';
+}
+function applyStatus(st){
+  if(!st){OFF={state:'none'};}
+  else if(st.cached>=st.total){OFF={state:'ready',cached:st.cached,total:st.total};}
+  else{OFF={state:'partial',cached:st.cached,total:st.total};}
+  offlineHTML();
+}
+function offlineCheck(){return swAsk({type:'status'},8000).then(applyStatus);}
+function offlineRepair(){
+  if(!navigator.onLine){OFF={state:'partial',cached:OFF&&OFF.cached||0,total:OFF&&OFF.total||0};offlineHTML();
+    alert('No internet. Connect to a network and try again — then everything downloads for offline use.');
+    return Promise.resolve();}
+  OFF={state:'working',cached:OFF&&OFF.cached||0,total:OFF&&OFF.total||0}; offlineHTML();
+  return swAsk({type:'repair'},120000).then(applyStatus);
+}
+if(navigator.storage&&navigator.storage.persist){navigator.storage.persisted().then(function(p){if(!p)navigator.storage.persist();}).catch(function(){});}
+if("serviceWorker" in navigator){window.addEventListener("load",function(){
+  var hadCtrl=!!navigator.serviceWorker.controller;
+  navigator.serviceWorker.register("./sw.js",{updateViaCache:"none"}).then(function(reg){
+    var refreshing=false;
+    navigator.serviceWorker.addEventListener("controllerchange",function(){
+      if(refreshing||!hadCtrl)return; refreshing=true; location.reload();});
+    if(reg.waiting)reg.waiting.postMessage("skipWaiting");
+    reg.addEventListener("updatefound",function(){
+      var w=reg.installing; if(!w)return;
+      w.addEventListener("statechange",function(){
+        if(w.state==="installed"&&navigator.serviceWorker.controller)w.postMessage("skipWaiting");});});
+  }).catch(function(e){console.log("SW reg failed",e)});
+  navigator.serviceWorker.ready.then(function(){
+    if(navigator.serviceWorker.controller)offlineCheck();
+    else navigator.serviceWorker.addEventListener("controllerchange",function(){offlineCheck();});
+  }).catch(function(){});
+});} else {OFF={state:'none'};}
 </script>
 </body>
 </html>
