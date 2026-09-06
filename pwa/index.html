@@ -2823,15 +2823,43 @@ applyToggles();renderAll();go(S.tab);
    On iOS a Home-Screen web app gets its own storage container: whatever Safari
    cached is not visible here, so the app must precache once inside the installed
    app itself. This card tells the learner whether that has actually happened. */
-function swAsk(msg,ms){
+async function swWorker(){
+  if(!('serviceWorker' in navigator)) return null;
+  if(navigator.serviceWorker.controller) return navigator.serviceWorker.controller;
+  // A freshly installed Home-Screen app does NOT control the page that registered
+  // it (Safari's claim/controllerchange is unreliable), but the registration's
+  // active worker still answers postMessage -- use that instead.
+  var reg=null;
+  try{ reg=await navigator.serviceWorker.getRegistration(); }catch(e){}
+  if(!reg){ try{ reg=await navigator.serviceWorker.ready; }catch(e){} }
+  if(!reg) return null;
+  return reg.active||reg.waiting||navigator.serviceWorker.controller||null;
+}
+function swPost(sw,msg,ms){
   return new Promise(function(res){
-    var sw=navigator.serviceWorker&&navigator.serviceWorker.controller;
-    if(!sw){res(null);return;}
     var ch=new MessageChannel(),done=false;
     var t=setTimeout(function(){if(!done){done=true;res(null);}},ms||10000);
     ch.port1.onmessage=function(e){if(!done){done=true;clearTimeout(t);res(e.data);}};
     try{sw.postMessage(msg,[ch.port2]);}catch(e){clearTimeout(t);res(null);}
   });
+}
+async function swAsk(msg,ms){
+  var sw=await swWorker();
+  if(!sw) return null;
+  return swPost(sw,msg,ms);
+}
+/* Fallback that needs no service worker at all: look in Cache Storage directly.
+   Works even when the page is uncontrolled and messaging fails. */
+function mustHave(){
+  return ['./','./index.html','./manifest.json','./icon-180.png','./icon-192.png','./icon-512.png'];
+}
+async function cacheProbe(){
+  if(!('caches' in window)) return null;
+  try{
+    var want=mustHave(),n=0;
+    for(var i=0;i<want.length;i++){ if(await caches.match(want[i],{ignoreSearch:true,ignoreVary:true})) n++; }
+    return {total:want.length,cached:n};
+  }catch(e){ return null; }
 }
 var OFF;
 function offlineHTML(){
@@ -2841,6 +2869,8 @@ function offlineHTML(){
   if(OFF.state==='ready'){
     el.innerHTML='<div class="card tight" style="margin-top:16px;border-color:#2c6e49"><span class="note">✅ <b>Ready for offline.</b> All '+OFF.total+
       ' files saved — the app works with no internet at all, including airplane mode.</span></div>';return;}
+  if(OFF.state==='busy'){el.innerHTML='<div class="card tight" style="margin-top:16px"><span class="note">⬇️ <b>Saving the app for offline…</b><br>'+
+    'This takes up to a minute on first launch. Keep the app open — when ✅ appears, you are set.</span></div>';return;}
   if(OFF.state==='working'){
     el.innerHTML='<div class="card tight" style="margin-top:16px"><span class="note">⬇️ Saving for offline… '+OFF.cached+' / '+OFF.total+
       '<br>Keep the app open until you see ✅.</span></div>';return;}
@@ -2849,7 +2879,7 @@ function offlineHTML(){
       OFF.cached+' / '+OFF.total+' files. Connect to the internet and tap the button.</span>'+
       '<div style="margin-top:8px"><button class="btn sm" onclick="offlineRepair()">Download for offline</button></div></div>';return;}
   el.innerHTML='<div class="card tight" style="margin-top:16px;border-color:#8a3a3a"><span class="note">⚠️ <b>Offline mode is not active.</b> '+
-    'Open the app with the internet on, wait a couple of seconds, then reload this page.</span>'+
+    'Open the app with the internet on, wait 10-20 seconds and tap Retry. If that does not help, fully close the app and open it again.</span>'+
     '<div style="margin-top:8px"><button class="btn sm" onclick="offlineRepair()">Retry</button></div></div>';
 }
 function applyStatus(st){
@@ -2858,13 +2888,42 @@ function applyStatus(st){
   else{OFF={state:'partial',cached:st.cached,total:st.total};}
   offlineHTML();
 }
-function offlineCheck(){return swAsk({type:'status'},8000).then(applyStatus);}
-function offlineRepair(){
+async function swBusy(){
+  try{ var reg=await navigator.serviceWorker.getRegistration();
+       return {reg:reg, busy: !!(reg&&(reg.installing||reg.waiting))}; }
+  catch(e){ return {reg:null,busy:false}; }
+}
+/* Poll until the worker reports a full precache. Stay patient as long as a
+   worker is actually installing -- giving up early is what looked broken. */
+async function offlineCheck(budgetMs){
+  var t0=Date.now(); budgetMs=budgetMs||300000;
+  while(Date.now()-t0<budgetMs){
+    var st=await swAsk({type:'status'},4000);
+    if(st){ applyStatus(st); if(st.cached>=st.total) return; }
+    else{
+      var pr=await cacheProbe();
+      if(pr&&pr.cached>=pr.total&&pr.total>0){ applyStatus(pr); return; }
+      var b=await swBusy(); var waited=Date.now()-t0;
+      if(pr&&pr.cached>0){ OFF={state:'working',cached:pr.cached,total:pr.total}; offlineHTML(); }
+      else if(b.busy){ OFF={state:'busy'}; offlineHTML(); }
+      else if(!b.reg&&waited>20000){ applyStatus(null); return; }
+      else if(waited>60000){ applyStatus(null); return; }
+      else if(!OFF||OFF.state==='check'||OFF.state==='busy'){ OFF={state:'check'}; offlineHTML(); }
+    }
+    await new Promise(function(r){setTimeout(r,1500);});
+  }
+  if(!OFF||OFF.state==='check'||OFF.state==='busy') applyStatus(null);
+}
+async function offlineRepair(){
   if(!navigator.onLine){OFF={state:'partial',cached:OFF&&OFF.cached||0,total:OFF&&OFF.total||0};offlineHTML();
     alert('No internet. Connect to a network and try again — then everything downloads for offline use.');
     return Promise.resolve();}
   OFF={state:'working',cached:OFF&&OFF.cached||0,total:OFF&&OFF.total||0}; offlineHTML();
-  return swAsk({type:'repair'},120000).then(applyStatus);
+  var st=await swAsk({type:'repair'},120000);
+  if(st){applyStatus(st);return;}
+  // No worker reachable: re-register, then fall back to probing the cache.
+  try{ await navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'}); }catch(e){}
+  await offlineCheck(180000);
 }
 if(navigator.storage&&navigator.storage.persist){navigator.storage.persisted().then(function(p){if(!p)navigator.storage.persist();}).catch(function(){});}
 if("serviceWorker" in navigator){window.addEventListener("load",function(){
@@ -2879,10 +2938,8 @@ if("serviceWorker" in navigator){window.addEventListener("load",function(){
       w.addEventListener("statechange",function(){
         if(w.state==="installed"&&navigator.serviceWorker.controller)w.postMessage("skipWaiting");});});
   }).catch(function(e){console.log("SW reg failed",e)});
-  navigator.serviceWorker.ready.then(function(){
-    if(navigator.serviceWorker.controller)offlineCheck();
-    else navigator.serviceWorker.addEventListener("controllerchange",function(){offlineCheck();});
-  }).catch(function(){});
+  offlineCheck();
+  navigator.serviceWorker.addEventListener("controllerchange",function(){offlineCheck(4);});
 });} else {OFF={state:'none'};}
 </script>
 </body>
