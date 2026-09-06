@@ -206,6 +206,7 @@ ol.ex,ul.ex{padding-inline-start:20px}ol.ex li,ul.ex li{margin:.35em 0}
 </header>
 
 <main class="wrap">
+  <div id="offlineCard"></div>
   <section class="view on" id="v-home"></section>
   <section class="view" id="v-lessons"></section>
   <section class="view" id="v-drill"></section>
@@ -2566,8 +2567,7 @@ function renderHome(){
    weakL.forEach(w=>{h+=`<div class="weakrow"><span>📘 ${esc(w.l.t)}</span><span class="mn">${w.miss} miss</span><button class="btn sm gold" style="flex:0 0 auto" onclick="openLesson('${w.l.id}')">Review</button></div>`;});}
  }else h+=`<div class="callout b" style="margin-top:18px">As you drill, your weakest topics show here with one-tap practice.</div>`;
  h+=`<div class="card tight" style="margin-top:16px;text-align:center"><span class="note">${learned} words locked in via flashcards · </span><span class="reveal" style="border:none;padding:0;color:var(--red)" onclick="resetAll()">reset all progress</span></div>`;
- h+=`<div id="offlineCard"></div>`;
- v.innerHTML=h;
+  v.innerHTML=h;
  if(typeof offlineHTML==='function') offlineHTML();
 }
 function resetAll(){if(confirm('Reset ALL progress (lessons, drills, flashcards)?')){localStorage.removeItem('emi_prog');localStorage.removeItem('emi_srs');location.reload();}}
@@ -2865,20 +2865,20 @@ var OFF;
 function offlineHTML(){
   var el=document.getElementById('offlineCard'); if(!el) return;
   if(!OFF) OFF={state:'check'};
-  if(OFF.state==='check'){el.innerHTML='<div class="card tight" style="margin-top:16px"><span class="note">⏳ Checking offline readiness…</span></div>';return;}
+  if(OFF.state==='check'){el.innerHTML='<div class="card tight" style="padding:7px 12px"><span class="note">⏳ Checking offline readiness…</span></div>';return;}
   if(OFF.state==='ready'){
-    el.innerHTML='<div class="card tight" style="margin-top:16px;border-color:#2c6e49"><span class="note">✅ <b>Ready for offline.</b> All '+OFF.total+
-      ' files saved — the app works with no internet at all, including airplane mode.</span></div>';return;}
-  if(OFF.state==='busy'){el.innerHTML='<div class="card tight" style="margin-top:16px"><span class="note">⬇️ <b>Saving the app for offline…</b><br>'+
+    el.innerHTML='<div class="card tight" style="border-color:#2c6e49;padding:7px 12px"><span class="note">'+
+      '✅ Ready for offline — all '+OFF.total+' files saved, works in airplane mode.</span></div>';return;}
+  if(OFF.state==='busy'){el.innerHTML='<div class="card tight"><span class="note">⬇️ <b>Saving the app for offline…</b><br>'+
     'This takes up to a minute on first launch. Keep the app open — when ✅ appears, you are set.</span></div>';return;}
   if(OFF.state==='working'){
-    el.innerHTML='<div class="card tight" style="margin-top:16px"><span class="note">⬇️ Saving for offline… '+OFF.cached+' / '+OFF.total+
+    el.innerHTML='<div class="card tight"><span class="note">⬇️ Saving for offline… '+OFF.cached+' / '+OFF.total+
       '<br>Keep the app open until you see ✅.</span></div>';return;}
   if(OFF.state==='partial'){
-    el.innerHTML='<div class="card tight" style="margin-top:16px;border-color:#8a6d1f"><span class="note">⚠️ <b>Offline is incomplete:</b> '+
+    el.innerHTML='<div class="card tight" style="border-color:#8a6d1f"><span class="note">⚠️ <b>Offline is incomplete:</b> '+
       OFF.cached+' / '+OFF.total+' files. Connect to the internet and tap the button.</span>'+
       '<div style="margin-top:8px"><button class="btn sm" onclick="offlineRepair()">Download for offline</button></div></div>';return;}
-  el.innerHTML='<div class="card tight" style="margin-top:16px;border-color:#8a3a3a"><span class="note">⚠️ <b>Offline mode is not active.</b> '+
+  el.innerHTML='<div class="card tight" style="border-color:#8a3a3a"><span class="note">⚠️ <b>Offline mode is not active.</b> '+
     'Open the app with the internet on, wait 10-20 seconds and tap Retry. If that does not help, fully close the app and open it again.</span>'+
     '<div style="margin-top:8px"><button class="btn sm" onclick="offlineRepair()">Retry</button></div></div>';
 }
@@ -2940,7 +2940,7 @@ if("serviceWorker" in navigator){window.addEventListener("load",function(){
   }).catch(function(e){console.log("SW reg failed",e)});
   offlineCheck();
   navigator.serviceWorker.addEventListener("controllerchange",function(){offlineCheck(4);});
-});} else {OFF={state:'none'};}
+});} else {OFF={state:'none'};offlineHTML();}
 </script>
 </body>
 </html>
