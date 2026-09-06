@@ -31,7 +31,14 @@ A service worker needs HTTPS, so host it and install from Safari:
    Safari on your iPhone (all paths are relative, so it works from that sub‑path).
 3. Let it load fully, then **reload once** so the service worker takes control.
 4. **Share → Add to Home Screen** → it opens as a standalone app.
-5. Toggle **Airplane Mode** and reopen from the Home Screen — it works offline.
+5. **Open it from the Home Screen icon once while online** and wait for the green
+   **"✅ Ready for offline"** card on the home screen. This step is not optional: on iOS a
+   Home-Screen web app has its **own storage container**, so whatever Safari cached is
+   invisible to it and the installed app has to precache on its own. Skipping this is what
+   produces a blank white screen in airplane mode.
+6. Once you see ✅, toggle **Airplane Mode** and reopen from the Home Screen — it works
+   fully offline. If the card ever reads "Offline is incomplete", tap **Download for
+   offline** while connected.
 
 Alternative one‑click host: drag the **`pwa`** folder onto **app.netlify.com/drop**.
 
