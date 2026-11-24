@@ -168,6 +168,7 @@ details .body{padding:0 0 12px}
 .tilepool{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0;direction:rtl}
 .tile{background:var(--card2);border:1px solid var(--line);color:var(--ink);border-radius:10px;padding:6px 10px;cursor:pointer;font-family:inherit;display:flex;flex-direction:column;align-items:center;line-height:1.2}
 .tile .ar{font-size:1.3rem}.tile .az{font-size:.75rem}
+.card.redo{border-color:var(--red);box-shadow:0 0 0 2px color-mix(in srgb,var(--red) 25%,transparent)}
 .tile.used{visibility:hidden}
 .mgrid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
 .mgrid .opt{margin:0;text-align:center;padding:9px 8px}.mgrid .opt .ar{font-size:1.25rem}
@@ -293,7 +294,7 @@ people:[
  {en:"man",ar:"رَيّالْ",az:"rayyaal"},{en:"woman",ar:"حُرْمَة",az:"7urma"},{en:"boy / son",ar:"وَلَدْ",az:"walad"},
  {en:"girl / daughter",ar:"بِنْتْ",az:"bent"},{en:"kid",ar:"يّاهِلْ",az:"yaahil"},{en:"people",ar:"ناسْ",az:"naas"},
  {en:"my dad",ar:"أُبوي",az:"ubooy"},{en:"my mom",ar:"أُمّي",az:"ommi"},{en:"my brother",ar:"أخوي",az:"akhooy"},
- {en:"sister",ar:"أُخْتي",az:"okhti"},{en:"friend (m)",ar:"رَبيعْ",az:"rabee3"},{en:"friend (f)",ar:"رِبيعَة",az:"rabee3a"},
+ {en:"my sister",ar:"أُخْتي",az:"okhti"},{en:"friend (m)",ar:"رَبيعْ",az:"rabee3"},{en:"friend (f)",ar:"رِبيعَة",az:"rabee3a"},
  {en:"my friends",ar:"رَبْعي",az:"rab3i"},{en:"family",ar:"الأهَلْ",az:"el ahal"},{en:"neighbor",ar:"جارْ",az:"jaar"},
  {en:"name",ar:"اِسِمْ",az:"ism"},
 ],
@@ -387,7 +388,7 @@ const PHR = {
  {en:"How are you? (m / f / pl)",ar:"اِشْحالَكْ؟ / اِشْحالِچْ؟ / اِشْحالْكُم؟",az:"esh7alek? / esh7alech? / esh7alkum?"},
  {en:"Fine, thank God",ar:"الحَمْدُلله بِخِيْرْ",az:"el 7amdillah bkhair"},
  {en:"What's new? (m / f)",ar:"شَخْبارَكْ؟ / شَخْبارِچْ؟",az:"shakhbarek? / shakhbarech?"},
- {en:"Thank God, I'm good",ar:"الحَمْدُلله تَمامْ",az:"el 7amdulillah tamaam"},
+ {en:"Thank God, I'm good",ar:"الحَمْدُلله تَمامْ",az:"el 7amdillah tamaam"},
  {en:"Goodbye (reply the same)",ar:"مَعَ السَّلامَة",az:"ma3a essalama"},
  {en:"Nice to meet you",ar:"تْشَرَّفْنا",az:"tsharrafna"},
  {en:"(reply) the pleasure is ours",ar:"الشَّرَفْ لْنا",az:"el sharaf lena"},
@@ -426,7 +427,7 @@ const PHR = {
  {en:"The weather became nice",ar:"الجَوّ احْلَوّ",az:"el jaw e7lawo"},
  {en:"The weather today is cloudy",ar:"الجَوّ اليومْ مْغَيِّمْ",az:"el jaw el youm imghayyem"},
  {en:"The sky is cloudy",ar:"السَّما مْغَيّمَة",az:"el sama imghayyma"},
- {en:"It looks like it'll rain today",ar:"شَكْلَه بَيَطيحْ مَطَرْ اليومْ",az:"shaklah baytee7 matar el youm"},
+ {en:"It looks like it'll rain today",ar:"شَكْلَه بَيْطيحْ مَطَرْ اليومْ",az:"shaklah baytee7 matar el youm"},
  {en:"Mashallah, the rain is heavy today",ar:"ماشاءالله المَطَرْ غَزيرْ اليومْ",az:"mashallah el matar ghazeer el youm"},
  {en:"The weather is dusty today",ar:"اليومْ الجَوّ مْغَبِّرْ",az:"el youm el jaw imghabber"},
  {en:"It's very hot today",ar:"وايِدْ حَرّ اليومْ",az:"wayed 7arr el youm"},
@@ -1324,7 +1325,7 @@ const LESSONS=[
 <div class="callout"><b>o vs u:</b> both are short back-rounded vowels and Emiratis barely tell them apart — <b>u</b> is tighter (put), <b>o</b> a touch opener (obey). Only the <b>long oo</b> (“moon”) actually changes a word, so get the <i>length</i> right and don't sweat o vs u.</div>
 <div class="callout b"><b>Stress:</b> it is <b>not</b> fixed on the first syllable. It lands on a <b>long vowel</b> (aa/ee/oo); if a word has several, usually the <b>last</b> one — ma-<b>BSOOT</b>, ta3-<b>BAAN</b>, sa-<b>BAA7</b>, ma3loo-<b>MAAT</b>. No long vowel at all? Then stress the first syllable — <b>MAR</b>-7aba, <b>YID</b>-di. Arabic stress is light; clean consonants matter more.</div>
 <h3>Consonant clusters</h3>
-<div class="callout g"><b>Clusters are real — say them together.</b> Emirati keeps clusters that English and Fus7a break up: <b>bkhair</b>, <b>tsharrafna</b>, <b>sh7alek</b>, <b>bnroo7</b>. A <i>very light</i> helper schwa (ə, like the ‘a’ in “sofa”) may slip in — bᵊkhair — but it is <b>not</b> a full “i”. The one exception: the <b>b-</b> in bkhair is a shrunk <b>bi-</b> (“in”), so a faint “i” there is fine — <b>bikhair ≈ bkhair</b> — just keep it short and unstressed.</div>`,
+<div class="callout g"><b>Clusters are real — say them together.</b> Emirati keeps clusters that English and Fus7a break up: <b>bkhair</b>, <b>tsharrafna</b>, <b>sh7alek</b>, <b>shway</b>. A <i>very light</i> helper schwa (ə, like the ‘a’ in “sofa”) may slip in — bᵊkhair — but it is <b>not</b> a full “i”. The one exception: the <b>b-</b> in bkhair is a shrunk <b>bi-</b> (“in”), so a faint “i” there is fine — <b>bikhair ≈ bkhair</b> — just keep it short and unstressed.</div>`,
 ex:[
  {t:'mcq',q:"Which letter does “7” stand for?",opts:[{az:"ح"},{az:"خ"},{az:"ه"},{az:"ع"}],a:0},
  {t:'mcq',q:"Which letter does “3” stand for?",opts:[{az:"ع"},{az:"غ"},{az:"ء (hamza)"},{az:"ح"}],a:0},
@@ -1499,7 +1500,7 @@ ${G("حَيّاكْ اللهْ فِيْ الإماراتْ","7ayyaak Allah fee e
 ex:[
  {t:'say',q:"I'm 20 years old",ans:{az:"3umri 3ishreen sana",ar:"عُمْري عِشْرينْ سَنَة"}},
  {t:'say',q:"I work in Dubai",ans:{az:"ashteghel fee Dubai",ar:"أشْتِغِلْ فِيْ دُبَيْ"}},
- {t:'say',q:"I've lived in the UAE for 10 years",ans:{az:"saakin fee el Emaraat min 3ashar sneen",ar:"ساكِنْ فِيْ الإماراتْ مِنْ عَشْرْ سَنَة"}},
+ {t:'say',q:"I've lived in the UAE for 10 years",ans:{az:"saakin fee el Emaraat min 3ashar sneen",ar:"ساكِنْ فِيْ الإماراتْ مِنْ عَشْرْ سْنينْ"}},
  {t:'gap',q:"how many years (have you been) in the UAE?",s:{az:"___ sana fee el Emaraat?",ar:"___ سَنَة فِيْ الإماراتْ؟"},opts:[{az:"kam",ar:"كَمْ"},{az:"meta",ar:"مِتى"},{az:"wain",ar:"وِيْنْ"},{az:"shoo",ar:"شُو"}],a:0},
  {t:'say',q:"I'm from America",ans:{az:"ana min America",ar:"أنا مِنْ أمْريكا"}},
  {t:'mcq',q:"“welcome!” (to the UAE)",opts:[{az:"7ayyaak Allah",ar:"حَيّاكْ اللهْ"},{az:"ma3a essalama",ar:"مَعَ السَّلامَة"},{az:"tsharrafna",ar:"تْشَرَّفْنا"},{az:"shakhbarek",ar:"شَخْبارَكْ"}],a:0},
@@ -1603,7 +1604,7 @@ ex:[
  {t:'mcq',q:"Which prefix means “we”?",opts:[{az:"n‑",ar:"نْ"},{az:"a‑",ar:"أ"},{az:"t‑",ar:"تْ"},{az:"y‑",ar:"يْ"}],a:0},
  {t:'mcq',q:"“she eats” — remember she shares a prefix with “you (m)”.",opts:[{az:"taakil",ar:"تاكِلْ"},{az:"yaakil",ar:"ياكِلْ"},{az:"naakil",ar:"ناكِلْ"},{az:"taakleen",ar:"تاكْلينْ"}],a:0},
  {t:'mcq',q:"“they see”",opts:[{az:"yshoofoon",ar:"يْشوفونْ"},{az:"tshoofoon",ar:"تْشوفونْ"},{az:"nshoof",ar:"نْشوفْ"},{az:"shaafaw",ar:"شافوا"}],a:0},
-{t:'match',pairs:[{az:"nishrab",ar:"نِشْرَبْ",en:"we drink"},{az:"tishrabeen",ar:"تِشْرَبينْ",en:"you (f) drink"},{az:"yishrab",ar:"يِشْرَبْ",en:"he drinks"},{az:"yishraboon",ar:"يِشْرَبونْ",en:"they drink"},{az:"ashrab",ar:"أشْرَبْ",en:"I drink"}]},
+{t:'match',pairs:[{az:"nishrab",ar:"نِشْرَبْ",en:"we drink"},{az:"tishrabeen",ar:"تِشْرَبينْ",en:"you (f) drink"},{az:"yishrab",ar:"يِشْرَبْ",en:"he drinks"},{az:"yishrboon",ar:"يِشْرْبونْ",en:"they drink"},{az:"ashrab",ar:"أشْرَبْ",en:"I drink"}]},
  {t:'gap',q:"she sees the sea",s:{az:"hi ___ el ba7ar",ar:"هِيْ ___ البَحَرْ"},opts:[{az:"tshoof",ar:"تْشوفْ"},{az:"yshoof",ar:"يْشوفْ"},{az:"tshoofeen",ar:"تْشوفينْ"},{az:"ashoof",ar:"أشوفْ"}],a:0,why:"“she” and “you (m)” share t‑ with no ending; ‑een is only for “you (f)”."},
  {t:'build',q:"you (f) drink coffee and tea",ans:{az:"tishrabeen gahwa wo chai",ar:"تِشْرَبينْ قَهْوَة وْ چايْ"},extra:[{az:"tishrab",ar:"تِشْرَبْ"}]}]},
 
@@ -1767,7 +1768,7 @@ ex:[
 words:[
  {en:"cars",ar:"سَيّاراتْ",az:"sayyaaraat"},{en:"houses",ar:"بْيوتْ",az:"byoot"},{en:"boys",ar:"أوْلادْ",az:"awlaad"},
  {en:"girls",ar:"بَناتْ",az:"banaat"},{en:"books",ar:"كُتُبْ",az:"kutub"},{en:"days",ar:"أيّامْ",az:"ayyaam"},
- {en:"hour → hours",ar:"ساعَة → ساعاتْ",az:"saa3a → saa3aat"},{en:"men",ar:"رْياييلْ",az:"ryaayeel"},{en:"restaurants",ar:"مَطاعِمْ",az:"mataa3im"},{en:"schools",ar:"مَدارِسْ",az:"madaaris"},{en:"two cars (dual)",ar:"سَيّارَتِيْنْ",az:"sayyaaratain"},{en:"two houses (dual)",ar:"بِيْتِيْنْ",az:"baitain"}],
+ {en:"hour → hours",ar:"ساعَة → ساعاتْ",az:"saa3a → saa3aat"},{en:"men",ar:"رْياييلْ",az:"ryaayeel"},{en:"restaurants",ar:"مَطاعِمْ",az:"mataa3im"},{en:"schools",ar:"مَدارِسْ",az:"madaaris"},{en:"two cars (dual)",ar:"سَيّارَتَيْنْ",az:"sayyaaratain"},{en:"two houses (dual)",ar:"بِيْتَيْنْ",az:"baitain"}],
 html:`<p class="lead">Arabic plurals mostly don't just “add -s”. Two things to know:</p>
 <h3>1. Feminine words (‑a) → add ‑aat</h3>
 ${G("سَيّارَة → سَيّاراتْ","sayyaara → sayyaaraat","car → cars")}
@@ -1779,8 +1780,8 @@ ${G("كِتابْ → كُتُبْ","kitaab → kutub","book → books")}
 <div class="callout">There's no shortcut — broken plurals are learned per word (like English “man→men”). Drill the common ones; the rest you'll pick up by ear.</div>
 <h3>3. Exactly two = the dual (‑ain)</h3>
 <p class="lead">Emirati has a special form for <b>two</b> of something — you don't say “two cars”, you reshape the word.</p>
-${G("سَيّارَة → سَيّارَتِيْنْ","sayyaara → sayyaaratain","car → two cars")}
-${G("بِيْتْ → بِيْتِيْنْ","bait → baitain","house → two houses")}
+${G("سَيّارَة → سَيّارَتَيْنْ","sayyaara → sayyaaratain","car → two cars")}
+${G("بِيْتْ → بِيْتَيْنْ","bait → baitain","house → two houses")}
 ${G("عِنْدي أخَوَيْنْ","3indi akhawain","I have two brothers")}
 <div class="callout g">Add <b>-ain</b> to the noun. A feminine <b>-a</b> first hardens to <b>-at</b>: sayyaara → sayyaar<b>at</b>ain. Three or more goes back to the normal plural.</div>`,
 ex:[
@@ -1790,7 +1791,7 @@ ex:[
  {t:'mcq',q:"plural of وَلَدْ (boy)",opts:[{az:"awlaad",ar:"أوْلادْ"},{az:"waladaat",ar:"وَلَداتْ"},{az:"wulood",ar:"وُلودْ"},{az:"awlaadeen",ar:"أوْلادينْ"}],a:0},
  {t:'say',q:"days (plural)",ans:{az:"ayyaam",ar:"أيّامْ"}},
  {t:'mcq',q:"plural of بِنْتْ (girl)",opts:[{az:"banaat",ar:"بَناتْ"},{az:"bentaat",ar:"بِنْتاتْ"},{az:"bnoot",ar:"بْنوتْ"},{az:"abnaat",ar:"أبْناتْ"}],a:0},
- {t:'say',q:"two cars (the dual)",ans:{az:"sayyaaratain",ar:"سَيّارَتِيْنْ"}},
+ {t:'say',q:"two cars (the dual)",ans:{az:"sayyaaratain",ar:"سَيّارَتَيْنْ"}},
  {t:'mcq',q:"To say exactly two of something you add…",opts:[{az:"‑ain / ‑tain (sayyaaratain)",ar:"ـَيْنْ"},{az:"‑aat (sayyaaraat)",ar:"ـاتْ"},{az:"‑een",ar:"ـينْ"},{az:"ithnain in front",ar:"اثْنِيْنْ"}],a:0},
  {t:'say',q:"my friends are here",ans:{az:"rab3i hini",ar:"رَبْعي هِني"}},
 {t:'match',pairs:[{az:"kutub",ar:"كُتُبْ",en:"books"},{az:"ayyaam",ar:"أيّامْ",en:"days"},{az:"ryaayeel",ar:"رْيايِيلْ",en:"men"},{az:"madaaris",ar:"مَدارِسْ",en:"schools"},{az:"saa3aat",ar:"ساعاتْ",en:"hours"}]},
@@ -1861,10 +1862,10 @@ ex:[
  {t:'say',q:"they were eating",ans:{az:"kaanaw yaakloon",ar:"كانوا ياكْلونْ"}},
  {t:'mcq',q:"“you (m) were”",opts:[{az:"kint",ar:"كِنِتْ"},{az:"kaanat",ar:"كانَتْ"},{az:"kinna",ar:"كِنّا"},{az:"kaanaw",ar:"كانوا"}],a:0},
 {t:'gap',q:"she was sleeping",s:{az:"___ targud",ar:"___ تَرْقُدْ"},opts:[{az:"kaanat",ar:"كانَتْ"},{az:"kaan",ar:"كانْ"},{az:"kint",ar:"كِنِتْ"},{az:"kaanaw",ar:"كانوا"}],a:0},
- {t:'build',q:"yesterday I was tired, so I slept early",ans:{az:"ams kint ta3baan, fa rigadt badri",ar:"أمْسْ كِنِتْ تَعْبانْ، فَ رِقَدْتْ بَدْري"},extra:[{az:"argud",ar:"أرْقُدْ"}]}]},
+ {t:'build',q:"yesterday I was tired, so I slept early",ans:{az:"ams kint ta3baan, fa ragadt badri",ar:"أمْسْ كِنِتْ تَعْبانْ، فَ رَقَدْتْ بَدْري"},extra:[{az:"argud",ar:"أرْقُدْ"}]}]},
 
 {id:"cond",t:"If … (conditionals)",sub:"edha & law",drill:{gen:'list',tag:'conditional',items:[
- {en:"if I go to the mall, I'll call you",ar:"إذا رِحِتْ المولْ، بَتِّصِلْ عَلَيْكْ",az:"edha ri7t el mall, battesel 3alaik"},{en:"if you want, we'll go",ar:"إذا تْبا، بْنِروحْ",az:"edha taba, banroo7"},
+ {en:"if I go to the mall, I'll call you",ar:"إذا رِحِتْ المولْ، بَتِّصِلْ عَلَيْكْ",az:"edha ri7t el mall, battesel 3alaik"},{en:"if you want, we'll go",ar:"إذا تْبا، بَنْروحْ",az:"edha taba, banroo7"},
  {en:"if I had money, I'd buy a car",ar:"لو عِنْدي فْلوسْ، بَشْتِري سَيّارَة",az:"law 3indi floos, bashtri sayyaara"},{en:"if it rains, I'll stay home",ar:"إذا طاحْ مَطَرْ، بَقْعَدْ فِيْ البِيْتْ",az:"edha taa7 matar, bag3ad fee el bait"},
  {en:"if you're tired, sleep",ar:"إذا تَعْبانْ، اِرْقِدْ",az:"edha ta3baan, irgid"}]},
 words:[
@@ -1875,7 +1876,7 @@ ${G("لو عِنْدي فْلوسْ، بَشْتِري سَيّارَة","law 3i
 <div class="callout">Structure: <b>edha/law</b> + a clause, then your result (often a <b>b‑</b> future). Same building blocks you already know.</div>`,
 ex:[
  {t:'mcq',q:"Which “if” for a hypothetical (“if I had money…”)?",opts:[{az:"law",ar:"لو"},{az:"edha",ar:"إذا"},{az:"elly",ar:"اللّي"},{az:"3ashaan",ar:"عَشانْ"}],a:0},
- {t:'say',q:"if you want, we'll go",ans:{az:"edha taba, banroo7",ar:"إذا تْبا، بْنِروحْ"}},
+ {t:'say',q:"if you want, we'll go",ans:{az:"edha taba, banroo7",ar:"إذا تْبا، بَنْروحْ"}},
  {t:'say',q:"if it rains, I'll stay home",ans:{az:"edha taa7 matar, bag3ad fee el bait",ar:"إذا طاحْ مَطَرْ، بَقْعَدْ فِيْ البِيْتْ"}},
  {t:'say',q:"if you're tired, sleep",ans:{az:"edha ta3baan, irgid",ar:"إذا تَعْبانْ، اِرْقِدْ"}},
  {t:'mcq',q:"“if I go to the mall…”",opts:[{az:"edha ri7t el mall",ar:"إذا رِحِتْ المولْ"},{az:"law ri7t el mall",ar:"لو رِحِتْ المولْ"},{az:"edha el mall",ar:"إذا المولْ"},{az:"ma ri7t el mall",ar:"ما رِحِتْ المولْ"}],a:0},
@@ -1892,7 +1893,7 @@ words:[
  {en:"nice to meet you",ar:"تْشَرَّفْنا",az:"tsharrafna"},{en:"(entering a home) knock-knock",ar:"هودْ هودْ",az:"hood hood"}],
 html:`<p class="lead">These are fixed whole phrases — learn them as chunks. Reply-pairs matter: Emiratis expect the matching answer.</p>
 ${G("مَرْحَبا — مَرْحَبا السّاعْ","mar7aba — mar7aba essaa3","hello — (warm reply) hello")}
-${G("اِشْحالَكْ؟ — الحَمْدُلله بِخِيْرْ","esh7alek? — el 7amdulillah bkhair","how are you? — fine, thank God")}
+${G("اِشْحالَكْ؟ — الحَمْدُلله بِخِيْرْ","esh7alek? — el 7amdillah bkhair","how are you? — fine, thank God")}
 ${G("مَشْكورْ ما تْقَصِّرْ","mashkoor ma tgasser","thank you — you didn't fall short (a warm thanks)")}
 <div class="callout">“Yes” is <b>haih</b> (هَيْه), not na3am. To thank warmly: <b>yizaak Allah khair</b> or <b>mashkoor ma tgasser</b>. Say sorry with <b>aasif</b> (m) / <b>aasfa</b> (f). The full themed phrasebook lives in Reference → Phrasebook.</div>`,
 ex:[
@@ -1915,7 +1916,7 @@ words:[
  {en:"summer",ar:"صيْفْ",az:"sayf"},{en:"winter",ar:"شِتا",az:"shita"},{en:"autumn",ar:"خَريفْ",az:"khareef"},{en:"spring",ar:"رَبيعْ",az:"rabee3"}],
 html:`<p class="lead">Weather is the #1 small-talk opener. Learn these as phrases.</p>
 ${G("الجَوّ رَوْعَة اليومْ","el jaw raw3a el youm","the weather is amazing today")}
-${G("شَكْلَه بَيَطيحْ مَطَرْ","shaklah baytee7 matar","it looks like it'll rain")}
+${G("شَكْلَه بَيْطيحْ مَطَرْ","shaklah baytee7 matar","it looks like it'll rain")}
 ${G("فِيْ الصّيْفْ وايِدْ حَرّ، وْفِيْ الشِّتا بارِدْ","fee el sayf wayed 7arr, wo fee el shita baarid","in summer it's very hot, and in winter it's cold")}`,
 ex:[
  {t:'en',q:{az:"7arr moot",ar:"حَرّ موتْ"},opts:["unbearably hot","a bit hot","hot and humid","hotter than yesterday"],a:0},
@@ -1951,18 +1952,18 @@ ex:[
 {id:"family",t:"Family & people",sub:"parents, siblings, kids",drill:{gen:'list',tag:'family',items:[
  {en:"this is my father",ar:"هٰذا أُبوي",az:"haadha ubooy"},
  {en:"this is my mother",ar:"هٰذي أُمّي",az:"haadhi ommi"},
- {en:"I have a brother and a sister",ar:"عِنْدي أخوي وْ أُخْتي",az:"3indi akhooy wo okhti"},
+ {en:"I have a brother and a sister",ar:"عِنْدي أخْ وْ أُخْتْ",az:"3indi akh wo okht"},
  {en:"he is my brother",ar:"هُوْ أخوي",az:"hu akhooy"},
  {en:"my family is really nice",ar:"أهْلي وايِدْ حِلو",az:"ahli wayed 7elo"},
  {en:"this is my son",ar:"هٰذا وَلَدي",az:"haadha waladi"},
  {en:"my grandfather is old",ar:"يِدّي كِبيرْ بِالعُمُرْ",az:"yiddi kbeer bil3umur"}]},
 words:[
- {en:"my father",ar:"أُبوي",az:"ubooy"},{en:"my mother",ar:"أُمّي",az:"ommi"},{en:"my brother",ar:"أخوي",az:"akhooy"},{en:"sister",ar:"أُخْتي",az:"okhti"},
+ {en:"my father",ar:"أُبوي",az:"ubooy"},{en:"my mother",ar:"أُمّي",az:"ommi"},{en:"my brother",ar:"أخوي",az:"akhooy"},{en:"my sister",ar:"أُخْتي",az:"okhti"},
  {en:"son / boy",ar:"وَلَدْ",az:"walad"},{en:"daughter / girl",ar:"بِنْتْ",az:"bent"},{en:"wife",ar:"الحُرْمَة",az:"el 7urma"},{en:"husband",ar:"الرَّيّالْ",az:"er-rayyaal"},
  {en:"kids",ar:"عْيالْ",az:"3yaal"},{en:"grandfather / grandmother",ar:"يِدّي / يِدّتي",az:"yiddi / yiddeti"},{en:"family / relatives",ar:"الأهَلْ",az:"el ahal"},{en:"my family",ar:"أهْلي",az:"ahli"},{en:"old (in age)",ar:"كِبيرْ بِالعُمُرْ",az:"kbeer bil3umur"},{en:"two brothers (the dual)",ar:"أخَوَيْنْ",az:"akhawain"},{en:"my friend (m / f)",ar:"رَبيعي / رَبيعْتي",az:"rabee3i / rabee3ti"}],
 html:`<p class="lead">Talk about the people closest to you. Emiratis usually say “my dad / my mum” (<b>ubooy / ommi</b>) rather than the bare word.</p>
 ${G("هٰذا أُبوي وْ هٰذي أُمّي","haadha ubooy wo haadhi ommi","this is my father and this is my mother")}
-${G("عِنْدي أخوي وْ أُخْتي","3indi akhooy wo okhti","I have a brother and a sister")}
+${G("عِنْدي أخْ وْ أُخْتْ","3indi akh wo okht","I have a brother and a sister")}
 ${G("أهْلي وايِدْ حِلو","ahli wayed 7elo","my family is really nice")}
 <div class="callout">Only uses “this/that” and “have / my” you already know — just add the people words above.</div>`,
 ex:[
@@ -2150,13 +2151,13 @@ ex:[
  {en:"she said she's coming",ar:"قالَتْ إنّها بَتَيي",az:"gaalat enha batayi"},
  {en:"I think the topic is important",ar:"أعْتِقِدْ إنّ المَوْضوعْ مُهِمّ",az:"a3teged enna el mawdoo3 muhim"},
  {en:"I feel he'll go out",ar:"أحِسّ إنَّه بَيِطْلَعْ",az:"a7ess ennah bayitla3"},
- {en:"he told me he works in Dubai",ar:"قالْ لي إنَّه يِشْتِغِلْ فِيْ دُبَيْ",az:"gaal li enna yishteghel fee Dubai"}]},
+ {en:"he told me he works in Dubai",ar:"قالْ لي إنَّه يِشْتِغِلْ فِيْ دُبَيْ",az:"gaal li ennah yishteghel fee Dubai"}]},
 words:[
  {en:"he said / she said",ar:"قالْ / قالَتْ",az:"gaal / gaalat"},{en:"that (he said that…)",ar:"إنّ",az:"enna"},{en:"that he / that she",ar:"إنَّه / إنّها",az:"ennah / enha"},
  {en:"he told me",ar:"قالْ لي",az:"gaal li"},{en:"I feel that",ar:"أحِسّ إنّ",az:"a7ess enna"},{en:"I think that",ar:"أعْتِقِدْ إنّ",az:"a3teged enna"},{en:"the topic",ar:"المَوْضوعْ",az:"el mawdoo3"},{en:"important",ar:"مُهِمّ",az:"muhim"}],
 html:`<p class="lead">To report what someone said or thinks, use <b>enna</b> (“that”) + a normal clause — no tense-shifting like English.</p>
 ${G("قالْ إنَّه مَشْغولْ","gaal ennah mashghool","he said (that) he's busy")}
-${G("قالْ لي إنَّه يِشْتِغِلْ فِيْ دُبَيْ","gaal li enna yishteghel fee Dubai","he told me he works in Dubai")}
+${G("قالْ لي إنَّه يِشْتِغِلْ فِيْ دُبَيْ","gaal li ennah yishteghel fee Dubai","he told me he works in Dubai")}
 <div class="callout">Attach the person to <b>enna</b>: <b>enna</b> (that) · <b>ennah</b> (that he) · <b>enha</b> (that she). Works with gaal (said), a3teged (think), a7ess (feel).</div>`,
 ex:[
  {t:'say',q:"he said he's busy",ans:{az:"gaal ennah mashghool",ar:"قالْ إنَّه مَشْغولْ"}},
@@ -2189,15 +2190,15 @@ ex:[
  {t:'build',q:"I wish I had a big house",ans:{az:"ya lait 3indi bait kbeer",ar:"يا لَيْتْ عِنْدي بِيْتْ كِبيرْ"},extra:[{az:"atmanna",ar:"أتْمَنّى"}],why:"يا لَيْتْ is written as two words but said as one: yalait."}]},
 
 {id:"concess",t:"Although & anyway",sub:"ma3a enna, 3ala kil 7aal",drill:{gen:'list',tag:'discourse',items:[
- {en:"although he's tired, he went to work",ar:"مَعَ إنَّه تَعْبانْ، راحْ الدَّوامْ",az:"ma3a enna ta3baan, raa7 el dawaam"},
+ {en:"although he's tired, he went to work",ar:"مَعَ إنَّه تَعْبانْ، راحْ الدَّوامْ",az:"ma3a ennah ta3baan, raa7 el dawaam"},
  {en:"anyway, I'm going",ar:"عَلى كِلْ حالْ، أنا بَسيرْ",az:"3ala kil 7aal, ana baseer"},
  {en:"as for me, this is the best",ar:"بِالنِّسْبَة لي، هٰذا أحْسَنْ",az:"bilnisba li, haadha a7san"},
- {en:"although it's expensive, I like it",ar:"مَعَ إنَّه غالي، أحِبّه",az:"ma3a enna ghaali, a7ebbah"},
+ {en:"although it's expensive, I like it",ar:"مَعَ إنَّه غالي، أحِبّه",az:"ma3a ennah ghaali, a7ebbah"},
  {en:"on one hand it's nice",ar:"مِنْ ناحْيَة حِلو",az:"min naa7ya 7elo"}]},
 words:[
  {en:"although",ar:"مَعَ إنّ",az:"ma3a enna"},{en:"anyway / in any case",ar:"عَلى كِلْ حالْ",az:"3ala kil 7aal"},{en:"as for me / for me",ar:"بِالنِّسْبَة لي",az:"bilnisba li"},{en:"on one hand",ar:"مِنْ ناحْيَة",az:"min naa7ya"},{en:"expensive",ar:"غالي",az:"ghaali"}],
 html:`<p class="lead">The connectors that make an argument flow.</p>
-${G("مَعَ إنَّه تَعْبانْ، راحْ الدَّوامْ","ma3a enna ta3baan, raa7 el dawaam","although he's tired, he went to work")}
+${G("مَعَ إنَّه تَعْبانْ، راحْ الدَّوامْ","ma3a ennah ta3baan, raa7 el dawaam","although he's tired, he went to work")}
 ${G("عَلى كِلْ حالْ، أنا بَسيرْ","3ala kil 7aal, ana baseer","anyway, I'm going")}
 ${G("بِالنِّسْبَة لي، هٰذا أحْسَنْ","bilnisba li, haadha a7san","as for me, this is the best")}`,
 ex:[
@@ -2205,7 +2206,7 @@ ex:[
  {t:'say',q:"anyway, I'm going",ans:{az:"3ala kil 7aal, ana baseer",ar:"عَلى كِلْ حالْ، أنا بَسيرْ"}},
  {t:'mcq',q:"“as for me…”",opts:[{az:"bilnisba li",ar:"بِالنِّسْبَة لي"},{az:"ma3a enna",ar:"مَعَ إنّ"},{az:"min naa7ya",ar:"مِنْ ناحْيَة"},{az:"3ashan chee",ar:"عَشانْ چيْ"}],a:0},
  {t:'say',q:"as for me, this is the best",ans:{az:"bilnisba li, haadha a7san",ar:"بِالنِّسْبَة لي، هٰذا أحْسَنْ"}},
- {t:'say',q:"although it's expensive, I like it",ans:{az:"ma3a enna ghaali, a7ebbah",ar:"مَعَ إنَّه غالي، أحِبّه"}},
+ {t:'say',q:"although it's expensive, I like it",ans:{az:"ma3a ennah ghaali, a7ebbah",ar:"مَعَ إنَّه غالي، أحِبّه"}},
 {t:'gap',q:"although I'm tired, I'll go",s:{az:"___ ta3baan, baroo7",ar:"___ تَعْبانْ، بَروحْ"},opts:[{az:"ma3a enni",ar:"مَعَ إنّي"},{az:"3ashaan",ar:"عَشانْ"},{az:"bsabab",ar:"بِسَبَبْ"},{az:"bilnisba li",ar:"بِالنِّسْبَة لي"}],a:0,why:"enna takes the pronoun ending: enni (that I), ennak, ennah…"},
  {t:'build',q:"anyway, it's expensive but I like it",ans:{az:"3ala kil 7aal, ghaali bas a7ebbah",ar:"عَلى كِلْ حالْ، غالي بَسْ أحِبَّه"},extra:[{az:"ma3a",ar:"مَعَ"}]}]},
 
@@ -2313,7 +2314,7 @@ ex:[
 {id:"onmeet",t:"Online meetings",sub:"link, screen, mic, connection",drill:{gen:'list',tag:'meeting',items:[
  {en:"I'll send you the link",ar:"بَطَرِّشْ لَكْ الرّابِطْ",az:"batarrish lak el raabit"},
  {en:"is the sound clear? I can't hear you well",ar:"الصّوتْ واضِحْ؟ ما أسْمَعَكْ زِيْنْ",az:"el soat waadhi7? ma asma3ak zain"},
- {en:"turn off the mic, there's an echo",ar:"سَكِّرْ المايكْ، فيهْ صَدى",az:"sakker el mike, fee sada"},
+ {en:"turn off the mic, there's an echo",ar:"سَكِّرْ المايكْ، فِيْ صَدى",az:"sakker el mike, fee sada"},
  {en:"let me share the screen",ar:"خَلّني أشارِكْ الشّاشَة",az:"khalni ashaarik el shaasha"},
  {en:"the sound is breaking up, the wifi is weak",ar:"الصّوتْ يْقَطِّعْ، الوايْفايْ ضَعيفْ",az:"el soat ygatti3, el wifi dha3eef"},
  {en:"make the font bigger",ar:"كَبِّرْ الخَطّ",az:"kabber el khat"},
@@ -2323,10 +2324,10 @@ words:[
  {en:"to send",ar:"أطَرِّشْ",az:"atarrish"},{en:"to share",ar:"أشارِكْ",az:"ashaarik"},{en:"to record",ar:"أسَجِّلْ",az:"asajjil"},{en:"check! (imperative)",ar:"چَيِّكْ",az:"chayyek"},{en:"close! (imperative)",ar:"سَكِّرْ",az:"sakker"},{en:"make bigger! (imperative)",ar:"كَبِّرْ",az:"kabber"},{en:"download / put up! (imperative)",ar:"نَزِّلْ",az:"nazzel"},{en:"let me",ar:"خَلّني",az:"khalni"},{en:"I hear you",ar:"أسْمَعَكْ",az:"asma3ak"},{en:"can you repeat?",ar:"مُمْكِنْ تْعيدْ",az:"mumkin t3eed"},{en:"hold on a bit",ar:"تْحَمَّلْ شْوَيْ",az:"t7ammal shway"},{en:"go ahead",ar:"تْفَضَّلْ",az:"tfaddal"},{en:"to / for you (m)",ar:"لَكْ",az:"lak"},{en:"it works / is working",ar:"يِشْتِغِلْ",az:"yishteghel"}],
 html:`<p class="lead">The language of video calls — the most modern, specialized set, so it closes B2.</p>
 ${G("بَطَرِّشْ لَكْ الرّابِطْ","batarrish lak el raabit","I'll send you the link")}
-${G("سَكِّرْ المايكْ، فيهْ صَدى","sakker el mike, fee sada","turn off the mic, there's an echo")}
+${G("سَكِّرْ المايكْ، فِيْ صَدى","sakker el mike, fee sada","turn off the mic, there's an echo")}
 ${G("الصّوتْ يْقَطِّعْ، الوايْفايْ ضَعيفْ","el soat ygatti3, el wifi dha3eef","the sound is breaking up, the wifi is weak")}
 ${G("كَبِّرْ الخَطّ، خَلّني أشارِكْ الشّاشَة","kabber el khat, khalni ashaarik el shaasha","make the font bigger, let me share the screen")}
-<div class="callout">Loanwords stay as-is: <b>net</b>, <b>wifi</b>, <b>video</b>, <b>el mike</b>, <b>link</b> (also <b>raabit</b>). English-derived imperatives: <b>chayyek</b> (check), <b>sakker</b> (close), <b>kabber</b> (enlarge), <b>nazzel</b> (download). Call fillers: <b>tfaddal</b> (go ahead), <b>t7ammal shway</b> (hold on).</div>`,
+<div class="callout">Loanwords stay as-is: <b>net</b>, <b>wifi</b>, <b>video</b>, <b>el mike</b>, <b>link</b> (also <b>raabit</b>). Imperatives you'll hear: <b>chayyek</b> (check — from English), <b>sakker</b> (close / turn off), <b>kabber</b> (enlarge), <b>nazzel</b> (download). Call fillers: <b>tfaddal</b> (go ahead), <b>t7ammal shway</b> (hold on).</div>`,
 ex:[
  {t:'say',q:"I'll send you the link",ans:{az:"batarrish lak el raabit",ar:"بَطَرِّشْ لَكْ الرّابِطْ"}},
  {t:'mcq',q:"“is the sound clear?”",opts:[{az:"el soat waadhi7?",ar:"الصّوتْ واضِحْ؟"},{az:"el soat ygatti3?",ar:"الصّوتْ يْقَطِّعْ؟"},{az:"el video waadhi7?",ar:"الفيديو واضِحْ؟"},{az:"el soat dha3eef?",ar:"الصّوتْ ضَعيفْ؟"}],a:0},
@@ -2694,7 +2695,8 @@ function renderLessons(){const v=document.getElementById('v-lessons');setHdr(fal
  });
  v.innerHTML=h;
 }
-let curLesson=null,lessonSession={answered:new Set(),correct:0};
+const newSession=()=>({answered:new Set(),correct:0,missed:new Set(),retry:0,first:null});
+let curLesson=null,lessonSession=newSession();
 function openLesson(id){curLesson=id;lp(id).seen=true;saveProg();go('lessons');
  const L=LESSONS.find(x=>x.id===id),v=document.getElementById('v-lessons');
  let h=`<span class="back" onclick="backToLessons()">‹ all lessons</span><div class="hd"><span class="n">${L.level||'A1'}</span><h2>${esc(L.t)}</h2></div><div class="card">${L.html}</div>`;
@@ -2705,7 +2707,7 @@ function openLesson(id){curLesson=id;lp(id).seen=true;saveProg();go('lessons');
    <label class="fld">Direction</label><div id="lessondirwrap">${lessonDirChips('both')}</div>${drillWidgetHTML('lesson')}`;
  const li=LESSONS.findIndex(x=>x.id===id),nxt=LESSONS[li+1];
  h+=`<div class="btnrow" style="margin-top:14px"><button class="btn ghost" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ Top</button>${nxt?`<button class="btn" onclick="nextLesson()">Next: ${esc(nxt.t)} →</button>`:`<button class="btn grn" onclick="backToLessons()">✓ Finish · all lessons</button>`}</div>`;
- v.innerHTML=h;lessonSession={answered:new Set(),correct:0};renderEx(L);
+ v.innerHTML=h;lessonSession=newSession();renderEx(L);
  if(L.drill)drillMount('lesson',Object.assign({key:'L:'+L.id,label:L.t},L.drill),'both');
  setHdr(true);window.scrollTo(0,0);
 }
@@ -2749,7 +2751,7 @@ function exHTML(e,i){
  return kind+`<div class="en" style="font-weight:600;margin-bottom:6px">${i+1}. ${q}</div>${opts}<div class="feedback" id="fb${i}"></div>`;
 }
 function curEx(){return LESSONS.find(x=>x.id===curLesson).ex;}
-function exDone(i,ok){lessonSession.answered.add(i);if(ok)lessonSession.correct++;recLesson(curLesson,ok);checkLessonDone();}
+function exDone(i,ok){const s=lessonSession;s.answered.add(i);if(!s.retry&&ok)s.correct++;if(ok)s.missed.delete(i);else s.missed.add(i);recLesson(curLesson,ok);checkLessonDone();}
 function answerEx(i,j){const e=curEx()[i];if(lessonSession.answered.has(i))return;const corr=(e._a!=null?e._a:e.a);const ok=j===corr;
  document.querySelectorAll(`#ex${i} .opt`).forEach((b,k)=>{b.disabled=true;if(k===corr)b.classList.add('correct');if(k===j&&!ok)b.classList.add('wrong');});
  document.getElementById('fb'+i).innerHTML=(ok?`<span class="ok">✓ Correct</span>`:`<span class="no">✗ Not quite — the highlighted one is right</span>`)+(e.why?`<div class="note" style="font-weight:400;margin-top:4px">${e.why}</div>`:'');
@@ -2774,10 +2776,17 @@ function revealSay(i){const e=curEx()[i];document.getElementById('sa'+i).innerHT
    <div class="btnrow" style="margin-top:8px"><button class="btn sm grn" onclick="gradeSay(${i},1)">I got it right</button><button class="btn sm blk" onclick="gradeSay(${i},0)">I missed it</button></div>`;}
 function gradeSay(i,ok){if(lessonSession.answered.has(i))return;
  document.getElementById('sa'+i).innerHTML+=`<div class="feedback ${ok?'ok':'no'}">${ok?'✓ nice':'✗ marked for review'}</div>`;exDone(i,!!ok);}
-function checkLessonDone(){const L=LESSONS.find(x=>x.id===curLesson),box=document.getElementById('exdone');
- if(lessonSession.answered.size>=L.ex.length){lp(curLesson).done=true;saveProg();
-  box.innerHTML=`<div class="card" style="text-align:center;border-color:var(--grn)"><h3 style="color:var(--grn)">✓ Quick check complete</h3><p>Score: <b>${lessonSession.correct}/${L.ex.length}</b> — now drill it below until it's automatic.</p>
-    <div class="btnrow"><button class="btn grn" onclick="nextLesson()">Next lesson ›</button><button class="btn ghost" onclick="renderLessons()">Back to list</button></div></div>`;}}
+function checkLessonDone(){const L=LESSONS.find(x=>x.id===curLesson),box=document.getElementById('exdone'),s=lessonSession;
+ if(s.answered.size<L.ex.length)return;lp(curLesson).done=true;saveProg();if(s.first==null)s.first=s.correct;const n=s.missed.size;
+ const msg=n?`<b>${n}</b> still shaky — redo ${n>1?'them':'it'} now, while it's fresh.`:(s.retry?'Every miss fixed — now drill it below until it\'s automatic.':'Clean run — now drill it below until it\'s automatic.');
+ box.innerHTML=`<div class="card" style="text-align:center;border-color:var(${n?'--red':'--grn'})"><h3 style="color:var(${n?'--red':'--grn'})">${n?'Almost':'✓ Quick check complete'}</h3><p>First try: <b>${s.first}/${L.ex.length}</b> · ${msg}</p>
+   <div class="btnrow">${n?`<button class="btn grn" onclick="retryMissed()">Redo the ${n} I missed ↺</button><button class="btn ghost" onclick="nextLesson()">Skip · next lesson ›</button>`:`<button class="btn grn" onclick="nextLesson()">Next lesson ›</button><button class="btn ghost" onclick="renderLessons()">Back to list</button>`}</div></div>`;}
+/* re-ask only the missed checks, re-shuffled so the answer isn't where it was */
+function retryMissed(){const s=lessonSession,ex=curEx();s.retry++;const ids=[...s.missed].sort((a,b)=>a-b);
+ ids.forEach(i=>{s.answered.delete(i);const e=ex[i];
+  if(e.opts){const n=e.opts.length;shuffleEx(e,(e._a+1+Math.floor(Math.random()*(n-1)))%n);}
+  const c=document.getElementById('ex'+i);c.innerHTML=exHTML(e,i);c.classList.add('redo');});
+ document.getElementById('exdone').innerHTML='';const f=document.getElementById('ex'+ids[0]);if(f)f.scrollIntoView({behavior:'smooth',block:'start'});}
 function nextLesson(){const i=LESSONS.findIndex(x=>x.id===curLesson),n=LESSONS[i+1];if(n)openLesson(n.id);else{renderHome();go('home');}}
 
 /* ================= DRILLS TAB ================= */
