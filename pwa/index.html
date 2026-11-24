@@ -1812,7 +1812,10 @@ ex:[
  {t:'mcq',q:"“my brother's car” (note the ‑t)",opts:[{az:"sayyaarat akhooy",ar:"سَيّارَتْ أخوي"},{az:"sayyaara akhooy",ar:"سَيّارَة أخوي"},{az:"akhooy sayyaara",ar:"أخوي سَيّارَة"},{az:"el sayyaara akhooy",ar:"السَّيّارَة أخوي"}],a:0},
  {t:'say',q:"the car key",ans:{az:"muftaa7 el sayyaara",ar:"مِفْتاحْ السَّيّارَة"}},
  {t:'say',q:"my brother's book",ans:{az:"kitaab akhooy",ar:"كِتابْ أخوي"}},
- {t:'mcq',q:"“the house key”",opts:[{az:"muftaa7 el bait",ar:"مِفْتاحْ البِيْتْ"},{az:"el bait muftaa7",ar:"البِيْتْ مِفْتاحْ"},{az:"muftaa7 baiti",ar:"مِفْتاحْ بِيْتي"},{az:"el muftaa7 bait",ar:"المِفْتاحْ بِيْتْ"}],a:0}]},
+ {t:'mcq',q:"“the house key”",opts:[{az:"muftaa7 el bait",ar:"مِفْتاحْ البِيْتْ"},{az:"el bait muftaa7",ar:"البِيْتْ مِفْتاحْ"},{az:"muftaa7 baiti",ar:"مِفْتاحْ بِيْتي"},{az:"el muftaa7 bait",ar:"المِفْتاحْ بِيْتْ"}],a:0},
+{t:'match',pairs:[{az:"bait ubooy",ar:"بِيْتْ أُبوي",en:"my father's house"},{az:"muftaa7 el sayyaara",ar:"مِفْتاحْ السَّيّارَة",en:"the car key"},{az:"baab el bait",ar:"بابْ البِيْتْ",en:"the door of the house"},{az:"sayyaarat akhooy",ar:"سَيّارَتْ أخوي",en:"my brother's car"}]},
+ {t:'fix',q:"“the manager's office” — only one is right:",opts:[{az:"maktab el mudeer",ar:"مَكْتَبْ المُديرْ"},{az:"el maktab el mudeer",ar:"المَكْتَبْ المُديرْ"},{az:"el mudeer maktab",ar:"المُديرْ مَكْتَبْ"},{az:"maktab mudeer el",ar:"مَكْتَبْ مُديرْ الـ"}],a:0,why:"The first noun never takes el; only the last one does."},
+ {t:'build',q:"the key of my brother's car",ans:{az:"muftaa7 sayyaarat akhooy",ar:"مِفْتاحْ سَيّارَتْ أخوي"},extra:[{az:"sayyaara",ar:"سَيّارَة"}],why:"Feminine ‑a turns into ‑at when something follows it."}]},
 
 {id:"objsuf",t:"Him, her, them (on verbs)",sub:"object endings",drill:{gen:'list',tag:'object suffix',items:[
  {en:"I saw him",ar:"شِفْتَه",az:"shiftah"},{en:"I saw her",ar:"شِفْتْها",az:"shiftha"},{en:"I saw them",ar:"شِفْتْهُمْ",az:"shifthum"},
@@ -1831,7 +1834,10 @@ ex:[
  {t:'mcq',q:"“I love you” (to a woman)",opts:[{az:"a7ebbich",ar:"أحِبِّچْ"},{az:"a7ebbak",ar:"أحِبَّكْ"},{az:"a7ebbah",ar:"أحِبَّه"},{az:"a7ebbhum",ar:"أحِبّْهُمْ"}],a:0},
  {t:'say',q:"I understood you (m)",ans:{az:"fahamtak",ar:"فْهَمْتَكْ"}},
  {t:'say',q:"I saw them",ans:{az:"shifthum",ar:"شِفْتْهُمْ"}},
- {t:'mcq',q:"“give me”",opts:[{az:"3atni",ar:"عَطْني"},{az:"3atah",ar:"عَطَه"},{az:"3atha",ar:"عَطْها"},{az:"a3ti",ar:"أعْطي"}],a:0}]},
+ {t:'mcq',q:"“give me”",opts:[{az:"3atni",ar:"عَطْني"},{az:"3atah",ar:"عَطَه"},{az:"3atha",ar:"عَطْها"},{az:"a3ti",ar:"أعْطي"}],a:0},
+{t:'match',pairs:[{az:"shiftah",ar:"شِفْتَه",en:"I saw him"},{az:"shiftha",ar:"شِفْتْها",en:"I saw her"},{az:"shifthum",ar:"شِفْتْهُمْ",en:"I saw them"},{az:"shiftak",ar:"شِفْتَكْ",en:"I saw you (m)"},{az:"shiftich",ar:"شِفْتِچْ",en:"I saw you (f)"}]},
+ {t:'fix',q:"“I saw her yesterday” — only one is right:",opts:[{az:"shiftha ams",ar:"شِفْتْها أمْسْ"},{az:"shift hi ams",ar:"شِفْتْ هِيْ أمْسْ"},{az:"shiftah ams",ar:"شِفْتَه أمْسْ"},{az:"shifthum ams",ar:"شِفْتْهُمْ أمْسْ"}],a:0,why:"Object pronouns are glued on as endings, never a free hi / hu."},
+ {t:'build',q:"give me the key, please",ans:{az:"3atni el muftaa7 low sama7t",ar:"عَطْني المِفْتاحْ لو سَمَحْتْ"},extra:[{az:"3atah",ar:"عَطَه"}]}]},
 
 {id:"kaan",t:"Used to / was doing",sub:"kaan + present",drill:{gen:'list',tag:'kaan + present',items:[
  {en:"I used to work in Dubai",ar:"كِنِتْ أشْتِغِلْ فِيْ دُبَيْ",az:"kint ashteghel fee Dubai"},{en:"he was sleeping",ar:"كانْ يَرْقُدْ",az:"kaan yargud"},
@@ -1872,7 +1878,9 @@ ex:[
  {t:'say',q:"if you want, we'll go",ans:{az:"edha taba, banroo7",ar:"إذا تْبا، بْنِروحْ"}},
  {t:'say',q:"if it rains, I'll stay home",ans:{az:"edha taa7 matar, bag3ad fee el bait",ar:"إذا طاحْ مَطَرْ، بَقْعَدْ فِيْ البِيْتْ"}},
  {t:'say',q:"if you're tired, sleep",ans:{az:"edha ta3baan, irgid",ar:"إذا تَعْبانْ، اِرْقِدْ"}},
- {t:'mcq',q:"“if I go to the mall…”",opts:[{az:"edha ri7t el mall",ar:"إذا رِحِتْ المولْ"},{az:"law ri7t el mall",ar:"لو رِحِتْ المولْ"},{az:"edha el mall",ar:"إذا المولْ"},{az:"ma ri7t el mall",ar:"ما رِحِتْ المولْ"}],a:0}]},
+ {t:'mcq',q:"“if I go to the mall…”",opts:[{az:"edha ri7t el mall",ar:"إذا رِحِتْ المولْ"},{az:"law ri7t el mall",ar:"لو رِحِتْ المولْ"},{az:"edha el mall",ar:"إذا المولْ"},{az:"ma ri7t el mall",ar:"ما رِحِتْ المولْ"}],a:0},
+{t:'build',q:"if you're free tomorrow, we'll go to the desert",ans:{az:"edha faadi baacher, banroo7 el barr",ar:"إذا فاضي باچِرْ، بَنْروحْ البَرّ"},extra:[{az:"law",ar:"لو"}]},
+ {t:'gap',q:"if it rains, I'll stay home",s:{az:"edha taa7 matar, ___ fee el bait",ar:"إذا طاحْ مَطَرْ، ___ فِيْ البِيْتْ"},opts:[{az:"bag3ad",ar:"بَقْعَدْ"},{az:"ag3ad",ar:"أقْعَدْ"},{az:"g3adt",ar:"قْعَدْتْ"},{az:"kint ag3ad",ar:"كِنِتْ أقْعَدْ"}],a:0,why:"The result of a real “if” is a plain future: b‑."}]},
 
 {id:"greet",t:"Greetings & courtesy",drill:{gen:'phrase',theme:"Greetings (A1)"},sub:"the full set (whole phrases)",
 words:[
@@ -1936,8 +1944,10 @@ ex:[
  {t:'mcq',q:"“what do you think?” (to a man)",opts:[{az:"shoo rayek?",ar:"شُو رايَكْ؟"},{az:"shoo rayech?",ar:"شُو رايِچْ؟"},{az:"shoo raykum?",ar:"شُو رايْكُم؟"},{az:"shoo tabi?",ar:"شُو تْبي؟"}],a:0},
  {t:'en',q:{az:"a3teged enna…",ar:"أعْتِقِدْ إنّ…"},opts:["I think that…","honestly…","for me…","can I say…"],a:0},
  {t:'say',q:"I think the topic is important",ans:{az:"a3teged enna el mawdoo3 muhim",ar:"أعْتِقِدْ إنّ المَوْضوعْ مُهِمّ"}},
- {t:'mcq',q:"“this colour is nice”",opts:[{az:"hal loon 7elo",ar:"هاللّونْ حِلو"},{az:"loon hal 7elo",ar:"لونْ هال حِلو"},{az:"7elo hal loon",ar:"حِلو هاللّونْ"},{az:"el loon hal",ar:"اللّونْ هال"}],a:0},
- {t:'en',q:{az:"shoo rayek?",ar:"شُو رايَكْ؟"},opts:["what do you think?","what's your name?","where are you?","how much?"],a:0}]},
+ {t:'mcq',q:"“this colour is nice”",opts:[{az:"hal loon 7elo",ar:"هاللّونْ حِلو"},{az:"haadha loon 7elo",ar:"هٰذا لونْ حِلو"},{az:"hal loon 7elwa",ar:"هاللّونْ حِلْوَة"},{az:"hal loon a7la",ar:"هاللّونْ أحْلى"}],a:0,why:"<i>haadha loon 7elo</i> = “this is a nice colour”; <i>a7la</i> = nicer; loon is masculine."},
+ {t:'en',q:{az:"shoo rayek?",ar:"شُو رايَكْ؟"},opts:["what do you think?","what's your name?","where are you?","how much?"],a:0},
+{t:'gap',q:"what do you think? (to a woman)",s:{az:"shoo ___?",ar:"شُو ___؟"},opts:[{az:"rayech",ar:"رايِچْ"},{az:"rayek",ar:"رايَكْ"},{az:"raykum",ar:"رايْكُمْ"}],a:0},
+ {t:'build',q:"this colour looks nice on you (to a man)",ans:{az:"hal loon 7elo 3alaik",ar:"هاللّونْ حِلو عَلَيْكْ"},extra:[{az:"3alaich",ar:"عَلَيْچْ"}]}]},
 {id:"family",t:"Family & people",sub:"parents, siblings, kids",drill:{gen:'list',tag:'family',items:[
  {en:"this is my father",ar:"هٰذا أُبوي",az:"haadha ubooy"},
  {en:"this is my mother",ar:"هٰذي أُمّي",az:"haadhi ommi"},
@@ -2021,7 +2031,9 @@ ex:[
  {t:'mcq',q:"“let's go / c'mon”",opts:[{az:"yalla",ar:"يَلّا"},{az:"3aadi",ar:"عادي"},{az:"inzain",ar:"إنْزَيْنْ"},{az:"khalaas",ar:"خَلاصْ"}],a:0},
  {t:'say',q:"okay then, let's go",ans:{az:"inzain, yalla nroo7",ar:"إنْزَيْنْ، يَلّا نْروحْ"}},
  {t:'mcq',q:"“no worries / never mind”",opts:[{az:"ma 3alaih",ar:"ما عَلَيْه"},{az:"muhim",ar:"مُهِمّ"},{az:"khalaas",ar:"خَلاصْ"},{az:"wallah",ar:"واللهْ"}],a:0},
- {t:'say',q:"enough, that's it",ans:{az:"khalaas, bas",ar:"خَلاصْ، بَسْ"}}]},
+ {t:'say',q:"enough, that's it",ans:{az:"khalaas, bas",ar:"خَلاصْ، بَسْ"}},
+{t:'gap',q:"by the way, I'm busy tomorrow",s:{az:"3ala ___, ana mashghool baacher",ar:"عَلى ___، أنا مَشْغولْ باچِرْ"},opts:[{az:"fikra",ar:"فِكْرَة"},{az:"7asab",ar:"حَسَبْ"},{az:"kil 7aal",ar:"كِلْ حالْ"},{az:"tool",ar:"طولْ"}],a:0,why:"All four are real <i>3ala …</i> phrases: by the way · depending on · anyway · right away."},
+ {t:'match',pairs:[{az:"ya3ni",ar:"يَعْني",en:"I mean / like"},{az:"inzain",ar:"إنْزَيْنْ",en:"okay then"},{az:"khalaas",ar:"خَلاصْ",en:"enough / done"},{az:"ma 3alaih",ar:"ما عَلَيْه",en:"never mind"},{az:"3aadi",ar:"عادي",en:"it's ok / normal"}]}]},
 
 {id:"participles",t:"Participles: doer & done",sub:"states & -ing from a root",drill:{gen:'list',tag:'participles',items:[
  {en:"I'm living in Dubai (a resident)",ar:"أنا ساكِنْ فِيْ دُبَيْ",az:"ana saakin fee Dubai"},
@@ -2047,7 +2059,9 @@ ex:[
  {t:'say',q:"I'm living in Dubai",ans:{az:"ana saakin fee Dubai",ar:"أنا ساكِنْ فِيْ دُبَيْ"}},
  {t:'say',q:"the food is ready",ans:{az:"el akil jaahiz",ar:"الأكِلْ جاهِزْ"}},
  {t:'mcq',q:"“present / available”",opts:[{az:"mawjood",ar:"مَوْجودْ"},{az:"maktoob",ar:"مَكْتوبْ"},{az:"saakin",ar:"ساكِنْ"},{az:"jaahiz",ar:"جاهِزْ"}],a:0},
- {t:'say',q:"I'm busy right now",ans:{az:"ana mashghool el7een",ar:"أنا مَشْغولْ الحِيْنْ"}}]},
+ {t:'say',q:"I'm busy right now",ans:{az:"ana mashghool el7een",ar:"أنا مَشْغولْ الحِيْنْ"}},
+{t:'match',pairs:[{az:"kaatib",ar:"كاتِبْ",en:"writer"},{az:"maktoob",ar:"مَكْتوبْ",en:"written"},{az:"saakin",ar:"ساكِنْ",en:"living (resident)"},{az:"mawjood",ar:"مَوْجودْ",en:"present / available"},{az:"ma3roof",ar:"مَعْروفْ",en:"well-known"}]},
+ {t:'gap',q:"the key is on the table",s:{az:"el muftaa7 ___ 3ala el taawla",ar:"المِفْتاحْ ___ عَلى الطّاوْلَة"},opts:[{az:"mawjood",ar:"مَوْجودْ"},{az:"saakin",ar:"ساكِنْ"},{az:"maktoob",ar:"مَكْتوبْ"},{az:"ma3roof",ar:"مَعْروفْ"}],a:0}]},
 {id:"numbers",t:"Numbers, time & money",sub:"count, tell time, prices",drill:{gen:'list',tag:'numbers',items:[
  {en:"how much is this?",ar:"بْكَمْ هٰذا؟",az:"bkam haadha?"},
  {en:"it's fifty dirhams",ar:"خَمْسينْ دِرْهَمْ",az:"khamseen dirham"},
@@ -2132,24 +2146,26 @@ ex:[
  {t:'build',q:"usually I go to work early",ans:{az:"3aadatan aseer el dawaam badri",ar:"عادَةً أسيرْ الدَّوامْ بَدْري"},extra:[{az:"3umri",ar:"عُمْري"}]}]},
 
 {id:"report",t:"Reporting: he said that…",sub:"enna + a clause",drill:{gen:'list',tag:'reporting',items:[
- {en:"he said he's busy",ar:"قالْ إنَّه مَشْغولْ",az:"gaal enna mashghool"},
+ {en:"he said he's busy",ar:"قالْ إنَّه مَشْغولْ",az:"gaal ennah mashghool"},
  {en:"she said she's coming",ar:"قالَتْ إنّها بَتَيي",az:"gaalat enha batayi"},
  {en:"I think the topic is important",ar:"أعْتِقِدْ إنّ المَوْضوعْ مُهِمّ",az:"a3teged enna el mawdoo3 muhim"},
- {en:"I feel he'll go out",ar:"أحِسّ إنَّه بَيِطْلَعْ",az:"a7ess enna bayitla3"},
+ {en:"I feel he'll go out",ar:"أحِسّ إنَّه بَيِطْلَعْ",az:"a7ess ennah bayitla3"},
  {en:"he told me he works in Dubai",ar:"قالْ لي إنَّه يِشْتِغِلْ فِيْ دُبَيْ",az:"gaal li enna yishteghel fee Dubai"}]},
 words:[
- {en:"he said / she said",ar:"قالْ / قالَتْ",az:"gaal / gaalat"},{en:"that (he said that…)",ar:"إنّ",az:"enna"},{en:"that he / that she",ar:"إنَّه / إنّها",az:"enna / enha"},
+ {en:"he said / she said",ar:"قالْ / قالَتْ",az:"gaal / gaalat"},{en:"that (he said that…)",ar:"إنّ",az:"enna"},{en:"that he / that she",ar:"إنَّه / إنّها",az:"ennah / enha"},
  {en:"he told me",ar:"قالْ لي",az:"gaal li"},{en:"I feel that",ar:"أحِسّ إنّ",az:"a7ess enna"},{en:"I think that",ar:"أعْتِقِدْ إنّ",az:"a3teged enna"},{en:"the topic",ar:"المَوْضوعْ",az:"el mawdoo3"},{en:"important",ar:"مُهِمّ",az:"muhim"}],
 html:`<p class="lead">To report what someone said or thinks, use <b>enna</b> (“that”) + a normal clause — no tense-shifting like English.</p>
-${G("قالْ إنَّه مَشْغولْ","gaal enna mashghool","he said (that) he's busy")}
+${G("قالْ إنَّه مَشْغولْ","gaal ennah mashghool","he said (that) he's busy")}
 ${G("قالْ لي إنَّه يِشْتِغِلْ فِيْ دُبَيْ","gaal li enna yishteghel fee Dubai","he told me he works in Dubai")}
 <div class="callout">Attach the person to <b>enna</b>: <b>enna</b> (that) · <b>ennah</b> (that he) · <b>enha</b> (that she). Works with gaal (said), a3teged (think), a7ess (feel).</div>`,
 ex:[
- {t:'say',q:"he said he's busy",ans:{az:"gaal enna mashghool",ar:"قالْ إنَّه مَشْغولْ"}},
+ {t:'say',q:"he said he's busy",ans:{az:"gaal ennah mashghool",ar:"قالْ إنَّه مَشْغولْ"}},
  {t:'mcq',q:"“that” (he said that…)",opts:[{az:"enna",ar:"إنّ"},{az:"elly",ar:"اللّي"},{az:"edha",ar:"إذا"},{az:"3ashaan",ar:"عَشانْ"}],a:0},
  {t:'say',q:"I think the topic is important",ans:{az:"a3teged enna el mawdoo3 muhim",ar:"أعْتِقِدْ إنّ المَوْضوعْ مُهِمّ"}},
  {t:'mcq',q:"“he told me”",opts:[{az:"gaal li",ar:"قالْ لي"},{az:"gilt lah",ar:"قِلْتْ لَه"},{az:"gaalat li",ar:"قالَتْ لي"},{az:"agool",ar:"أقولْ"}],a:0},
- {t:'say',q:"I feel he'll go out",ans:{az:"a7ess enna bayitla3",ar:"أحِسّ إنَّه بَيِطْلَعْ"}}]},
+ {t:'say',q:"I feel he'll go out",ans:{az:"a7ess ennah bayitla3",ar:"أحِسّ إنَّه بَيِطْلَعْ"}},
+{t:'gap',q:"she said that she's tired",s:{az:"gaalat ___ ta3baana",ar:"قالَتْ ___ تَعْبانَة"},opts:[{az:"enha",ar:"إنّها"},{az:"ennah",ar:"إنَّه"},{az:"elly",ar:"اللّي"},{az:"edha",ar:"إذا"}],a:0},
+ {t:'build',q:"he told me that he'll go tomorrow",ans:{az:"gaal li ennah bayroo7 baacher",ar:"قالْ لي إنَّه بَيْروحْ باچِرْ"},extra:[{az:"gilt",ar:"قِلْتْ"}]}]},
 {id:"wish",t:"Wishes & hopes",sub:"yalait, atmanna, if only",drill:{gen:'list',tag:'wishes',items:[
  {en:"I hope to go to the Emirates",ar:"أتْمَنّى أروحْ الإماراتْ",az:"atmanna aroo7 el Emaraat"},
  {en:"I wish I had time",ar:"يا لَيْتْ عِنْدي وَقِتْ",az:"yalait 3indi wagt"},
@@ -2165,10 +2181,12 @@ ${G("كانْ زِيْنْ لو نْروحْ البَحَرْ","kaan zain law nr
 <div class="callout"><b>atmanna</b> + verb = I hope to… · <b>yalait</b> + clause = if only… · <b>kaan zain law</b> = it'd be nice if…</div>`,
 ex:[
  {t:'say',q:"I wish I had time",ans:{az:"yalait 3indi wagt",ar:"يا لَيْتْ عِنْدي وَقِتْ"}},
- {t:'mcq',q:"“I hope to…”",opts:[{az:"atmanna",ar:"أتْمَنّى"},{az:"yalait",ar:"يا لَيْتْ"},{az:"laazim",ar:"لازِمْ"},{az:"agdar",ar:"أقْدَرْ"}],a:0},
+ {t:'mcq',q:"“I hope to…”",opts:[{az:"atmanna",ar:"أتْمَنّى"},{az:"yalait",ar:"يا لَيْتْ"},{az:"a7ess",ar:"أحِسّ"},{az:"a3teged",ar:"أعْتِقِدْ"}],a:0,why:"<i>yalait</i> is for the unreal (“if only…”); <i>atmanna</i> for real hopes."},
  {t:'say',q:"I hope to go to the Emirates",ans:{az:"atmanna aroo7 el Emaraat",ar:"أتْمَنّى أروحْ الإماراتْ"}},
- {t:'mcq',q:"“it'd be nice if…”",opts:[{az:"kaan zain law",ar:"كانْ زِيْنْ لو"},{az:"yalait",ar:"يا لَيْتْ"},{az:"3ashaan",ar:"عَشانْ"},{az:"edha",ar:"إذا"}],a:0},
- {t:'say',q:"I wish I could travel",ans:{az:"yalait agdar asaafir",ar:"يا لَيْتْ أقْدَرْ أسافِرْ"}}]},
+ {t:'mcq',q:"“it'd be nice if…”",opts:[{az:"kaan zain law",ar:"كانْ زِيْنْ لو"},{az:"ma3a enna",ar:"مَعَ إنّ"},{az:"3ala 7asab",ar:"عَلى حَسَبْ"},{az:"3ashan chee",ar:"عَشانْ چيْ"}],a:0},
+ {t:'say',q:"I wish I could travel",ans:{az:"yalait agdar asaafir",ar:"يا لَيْتْ أقْدَرْ أسافِرْ"}},
+{t:'gap',q:"I hope you're okay (to a man)",s:{az:"atmanna ___ bkhair",ar:"أتْمَنّى ___ بْخِيْرْ"},opts:[{az:"ennak",ar:"إنَّكْ"},{az:"ennich",ar:"إنِّچْ"},{az:"elly",ar:"اللّي"},{az:"law",ar:"لو"}],a:0},
+ {t:'build',q:"I wish I had a big house",ans:{az:"ya lait 3indi bait kbeer",ar:"يا لَيْتْ عِنْدي بِيْتْ كِبيرْ"},extra:[{az:"atmanna",ar:"أتْمَنّى"}],why:"يا لَيْتْ is written as two words but said as one: yalait."}]},
 
 {id:"concess",t:"Although & anyway",sub:"ma3a enna, 3ala kil 7aal",drill:{gen:'list',tag:'discourse',items:[
  {en:"although he's tired, he went to work",ar:"مَعَ إنَّه تَعْبانْ، راحْ الدَّوامْ",az:"ma3a enna ta3baan, raa7 el dawaam"},
@@ -2187,7 +2205,9 @@ ex:[
  {t:'say',q:"anyway, I'm going",ans:{az:"3ala kil 7aal, ana baseer",ar:"عَلى كِلْ حالْ، أنا بَسيرْ"}},
  {t:'mcq',q:"“as for me…”",opts:[{az:"bilnisba li",ar:"بِالنِّسْبَة لي"},{az:"ma3a enna",ar:"مَعَ إنّ"},{az:"min naa7ya",ar:"مِنْ ناحْيَة"},{az:"3ashan chee",ar:"عَشانْ چيْ"}],a:0},
  {t:'say',q:"as for me, this is the best",ans:{az:"bilnisba li, haadha a7san",ar:"بِالنِّسْبَة لي، هٰذا أحْسَنْ"}},
- {t:'say',q:"although it's expensive, I like it",ans:{az:"ma3a enna ghaali, a7ebbah",ar:"مَعَ إنَّه غالي، أحِبّه"}}]},
+ {t:'say',q:"although it's expensive, I like it",ans:{az:"ma3a enna ghaali, a7ebbah",ar:"مَعَ إنَّه غالي، أحِبّه"}},
+{t:'gap',q:"although I'm tired, I'll go",s:{az:"___ ta3baan, baroo7",ar:"___ تَعْبانْ، بَروحْ"},opts:[{az:"ma3a enni",ar:"مَعَ إنّي"},{az:"3ashaan",ar:"عَشانْ"},{az:"bsabab",ar:"بِسَبَبْ"},{az:"bilnisba li",ar:"بِالنِّسْبَة لي"}],a:0,why:"enna takes the pronoun ending: enni (that I), ennak, ennah…"},
+ {t:'build',q:"anyway, it's expensive but I like it",ans:{az:"3ala kil 7aal, ghaali bas a7ebbah",ar:"عَلى كِلْ حالْ، غالي بَسْ أحِبَّه"},extra:[{az:"ma3a",ar:"مَعَ"}]}]},
 
 {id:"cause",t:"Because & in order to",sub:"3ashaan, bsabab, that's why",drill:{gen:'list',tag:'cause',items:[
  {en:"I went in order to buy coffee",ar:"رِحِتْ عَشانْ أشْتِري قَهْوَة",az:"ri7t 3ashaan ashtri gahwa"},
@@ -2206,7 +2226,9 @@ ex:[
  {t:'say',q:"I went in order to buy coffee",ans:{az:"ri7t 3ashaan ashtri gahwa",ar:"رِحِتْ عَشانْ أشْتِري قَهْوَة"}},
  {t:'mcq',q:"“that's why”",opts:[{az:"3ashan chee",ar:"عَشانْ چيْ"},{az:"bsabab",ar:"بِسَبَبْ"},{az:"ma3a enna",ar:"مَعَ إنّ"},{az:"la7add",ar:"لَحَدّ"}],a:0},
  {t:'say',q:"I didn't go because of the weather",ans:{az:"ma ri7t bsabab el jaw",ar:"ما رِحِتْ بِسَبَبْ الجَوّ"}},
- {t:'say',q:"I work in order to save money",ans:{az:"ashteghel 3ashaan awaffir floos",ar:"أشْتِغِلْ عَشانْ أوَفِّرْ فْلوسْ"}}]},
+ {t:'say',q:"I work in order to save money",ans:{az:"ashteghel 3ashaan awaffir floos",ar:"أشْتِغِلْ عَشانْ أوَفِّرْ فْلوسْ"}},
+{t:'gap',q:"I'm tired, that's why I'm going to sleep",s:{az:"ana ta3baan, ___ baroo7 argud",ar:"أنا تَعْبانْ، ___ بَروحْ أرْقُدْ"},opts:[{az:"3ashan chee",ar:"عَشانْ چيْ"},{az:"bsabab",ar:"بِسَبَبْ"},{az:"la7add",ar:"لَحَدّ"},{az:"ma3a enna",ar:"مَعَ إنّ"}],a:0},
+ {t:'build',q:"wait until I finish",ans:{az:"trayya la7add ma akhalles",ar:"تْرَيّا لَحَدّ ما أخَلِّصْ"},extra:[{az:"bsabab",ar:"بِسَبَبْ"}],why:"<i>trayya</i> is the Emirati “wait!”."}]},
 
 {id:"react",t:"Reactions & emphasis",sub:"wow, honestly, extremely",drill:{gen:'list',tag:'reactions',items:[
  {en:"wow! it's very nice",ar:"يا سَلامْ! وايِدْ حِلو",az:"ya salaam! wayed 7elo"},
@@ -2226,7 +2248,9 @@ ex:[
  {t:'say',q:"the weather is extremely hot",ans:{az:"el jaw 7arr moot",ar:"الجَوّ حَرّ موتْ"}},
  {t:'mcq',q:"“awesome / crazy”",opts:[{az:"fadhee3",ar:"فَظيعْ"},{az:"3aadi",ar:"عادي"},{az:"muhim",ar:"مُهِمّ"},{az:"za7ma",ar:"زَحْمَة"}],a:0},
  {t:'say',q:"honestly, it's awesome",ans:{az:"wallah fadhee3",ar:"واللهْ فَظيعْ"}},
- {t:'say',q:"wow! it's very nice",ans:{az:"ya salaam! wayed 7elo",ar:"يا سَلامْ! وايِدْ حِلو"}}]},
+ {t:'say',q:"wow! it's very nice",ans:{az:"ya salaam! wayed 7elo",ar:"يا سَلامْ! وايِدْ حِلو"}},
+{t:'match',pairs:[{az:"ya salaam",ar:"يا سَلامْ",en:"wow!"},{az:"fadhee3",ar:"فَظيعْ",en:"awesome / crazy"},{az:"7arr moot",ar:"حَرّ موتْ",en:"unbearably hot"},{az:"wallah",ar:"واللهْ",en:"honestly / I swear"},{az:"mashallah",ar:"ماشاللهْ",en:"(admiring) how great"}]},
+ {t:'build',q:"wow, your car is awesome, mashallah",ans:{az:"ya salaam, sayyaartak fadhee3a, mashallah",ar:"يا سَلامْ، سَيّارْتَكْ فَظيعَة، ماشاللهْ"},extra:[{az:"fadhee3",ar:"فَظيعْ"}],why:"fadhee3 agrees with sayyaara → fadhee3a."}]},
 
 {id:"degree",t:"The more…, depending on",sub:"kil ma, 3ala 7asab",drill:{gen:'list',tag:'degree',items:[
  {en:"the more you talk, the more you learn",ar:"كِلْ ما تِرْمِسْ، كِلْ ما تِتْعَلَّمْ",az:"kil ma tirmes, kil ma tit3allam"},
@@ -2245,7 +2269,9 @@ ex:[
  {t:'mcq',q:"“depending on”",opts:[{az:"3ala 7asab",ar:"عَلى حَسَبْ"},{az:"3ala gadd",ar:"عَلى قَدّ"},{az:"kil ma",ar:"كِلْ ما"},{az:"3ashaan",ar:"عَشانْ"}],a:0},
  {t:'say',q:"I work as much as I can",ans:{az:"ashteghel 3ala gadd ma agdar",ar:"أشْتِغِلْ عَلى قَدّ ما أقْدَرْ"}},
  {t:'mcq',q:"“the more…, the more…”",opts:[{az:"kil ma… kil ma",ar:"كِلْ ما… كِلْ ما"},{az:"3ala 7asab",ar:"عَلى حَسَبْ"},{az:"ma3a enna",ar:"مَعَ إنّ"},{az:"la7add",ar:"لَحَدّ"}],a:0},
- {t:'say',q:"it depends on the weather",ans:{az:"3ala 7asab el jaw",ar:"عَلى حَسَبْ الجَوّ"}}]},
+ {t:'say',q:"it depends on the weather",ans:{az:"3ala 7asab el jaw",ar:"عَلى حَسَبْ الجَوّ"}},
+{t:'gap',q:"it depends on the weather",s:{az:"3ala ___ el jaw",ar:"عَلى ___ الجَوّ"},opts:[{az:"7asab",ar:"حَسَبْ"},{az:"gadd",ar:"قَدّ"},{az:"tool",ar:"طولْ"},{az:"fikra",ar:"فِكْرَة"}],a:0},
+ {t:'build',q:"the more you read, the more you understand",ans:{az:"kil ma tigra, kil ma tifham",ar:"كِلْ ما تِقْرا، كِلْ ما تِفْهَمْ"},extra:[{az:"3ala",ar:"عَلى"}]}]},
 
 {id:"worktalk",t:"Workplace & business",sub:"manager, meeting, leave, promotion",drill:{gen:'list',tag:'work',items:[
  {en:"the manager wants you in his office",ar:"المُديرْ يْباكْ فِيْ مَكْتَبَه",az:"el mudeer ybaak fee maktabah"},
@@ -2272,14 +2298,17 @@ ex:[
  {t:'say',q:"I'll finish the report right away",ans:{az:"bakhalles el taqreer 3ala tool",ar:"بَخَلِّصْ التَّقْريرْ عَلى طولْ"}},
  {t:'mcq',q:"“the meeting was postponed”",opts:[{az:"it'ajjal el ijtimaa3",ar:"تأجَّلْ الاِجْتِماعْ"},{az:"khilas el ijtimaa3",ar:"خِلَصْ الاِجْتِماعْ"},{az:"bada el ijtimaa3",ar:"بَدا الاِجْتِماعْ"},{az:"raa7 el ijtimaa3",ar:"راحْ الاِجْتِماعْ"}],a:0},
  {t:'say',q:"I want to take annual leave",ans:{az:"aba aakhidh ejaaza sanawiyya",ar:"أبا آخِذْ إجازَة سَنَوِيَّة"}},
- {t:'mcq',q:"“deadline”",opts:[{az:"maw3id et-tasleem",ar:"موعِدْ التَّسْليمْ"},{az:"ijtimaa3",ar:"اِجْتِماعْ"},{az:"raatib",ar:"راتِبْ"},{az:"khibra",ar:"خِبْرَة"}],a:0},
+ {t:'mcq',q:"“deadline”",opts:[{az:"maw3id et-tasleem",ar:"موعِدْ التَّسْليمْ"},{az:"maw3id el ijtimaa3",ar:"موعِدْ الاِجْتِماعْ"},{az:"ejaaza sanawiyya",ar:"إجازَة سَنَوِيَّة"},{az:"mas'ool el mashroo3",ar:"مَسْؤولْ المَشْروعْ"}],a:0,why:"In practice many offices just say <i>el deadline</i>."},
  {t:'say',q:"congrats on the promotion!",ans:{az:"mabrook el tarqiya",ar:"مَبْروكْ التَّرْقِيَة"}},
  {t:'mcq',q:"“get to the point” (idiom)",opts:[{az:"3atni el zibda",ar:"عَطْني الزِّبْدَة"},{az:"3ala tool",ar:"عَلى طولْ"},{az:"3ala 7asab",ar:"عَلى حَسَبْ"},{az:"ya salaam",ar:"يا سَلامْ"}],a:0},
  {t:'say',q:"I'm still working on the project",ans:{az:"ba3adni ashteghel 3ala el mashroo3",ar:"بَعَدْني أشْتِغِلْ عَلى المَشْروعْ"}},
  {t:'say',q:"how many employees do you have at the company?",ans:{az:"kam mwadhdhaf 3indakum fee el shareka?",ar:"كَمْ مْوَظَّفْ عِنْدَكُمْ فِيْ الشَّرِكَة؟"}},
  {t:'mcq',q:"“a government company” (not a private one)",opts:[{az:"shareka 7ukoomiyya",ar:"شَرِكَة حُكومِيَّة"},{az:"shareka khaassa",ar:"شَرِكَة خاصَّة"},{az:"mwaatneen",ar:"مْواطْنينْ"},{az:"ejaazaat",ar:"إجازاتْ"}],a:0},
  {t:'say',q:"I have a lot of responsibility at work",ans:{az:"3indi mas'ooliyya wayed fee el dawaam",ar:"عِنْدي مَسْؤولِيَّة وايِدْ فِيْ الدَّوامْ"}},
- {t:'en',q:{az:"zumala",ar:"زُمَلا"},opts:["colleagues","leave days","managers","companies"],a:0}]},
+ {t:'en',q:{az:"zumala",ar:"زُمَلا"},opts:["colleagues","leave days","managers","companies"],a:0},
+{t:'match',pairs:[{az:"mudeer",ar:"مُديرْ",en:"manager"},{az:"ijtimaa3",ar:"اِجْتِماعْ",en:"meeting"},{az:"raatib",ar:"راتِبْ",en:"salary"},{az:"zumala",ar:"زُمَلا",en:"colleagues"},{az:"ejaaza",ar:"إجازَة",en:"leave / holiday"}]},
+ {t:'gap',q:"the meeting was cancelled",s:{az:"___ el ijtimaa3",ar:"___ الاِجْتِماعْ"},opts:[{az:"itkansal",ar:"اِتْكَنْسَلْ"},{az:"it'ajjal",ar:"تأجَّلْ"},{az:"khilas",ar:"خِلَصْ"},{az:"bada",ar:"بَدا"}],a:0},
+ {t:'build',q:"the manager wants the report tomorrow",ans:{az:"el mudeer yaba el taqreer baacher",ar:"المُديرْ يْبا التَّقْريرْ باچِرْ"},extra:[{az:"ybaak",ar:"يْباكْ"}]}]},
 
 {id:"onmeet",t:"Online meetings",sub:"link, screen, mic, connection",drill:{gen:'list',tag:'meeting',items:[
  {en:"I'll send you the link",ar:"بَطَرِّشْ لَكْ الرّابِطْ",az:"batarrish lak el raabit"},
@@ -2300,13 +2329,16 @@ ${G("كَبِّرْ الخَطّ، خَلّني أشارِكْ الشّاشَة"
 <div class="callout">Loanwords stay as-is: <b>net</b>, <b>wifi</b>, <b>video</b>, <b>el mike</b>, <b>link</b> (also <b>raabit</b>). English-derived imperatives: <b>chayyek</b> (check), <b>sakker</b> (close), <b>kabber</b> (enlarge), <b>nazzel</b> (download). Call fillers: <b>tfaddal</b> (go ahead), <b>t7ammal shway</b> (hold on).</div>`,
 ex:[
  {t:'say',q:"I'll send you the link",ans:{az:"batarrish lak el raabit",ar:"بَطَرِّشْ لَكْ الرّابِطْ"}},
- {t:'mcq',q:"“is the sound clear?”",opts:[{az:"el soat waadhi7?",ar:"الصّوتْ واضِحْ؟"},{az:"el video zain?",ar:"الفيديو زِيْنْ؟"},{az:"chayyek el net",ar:"چَيِّكْ النِّتْ"},{az:"mumkin t3eed?",ar:"مُمْكِنْ تْعيدْ؟"}],a:0},
- {t:'mcq',q:"“turn off the mic”",opts:[{az:"sakker el mike",ar:"سَكِّرْ المايكْ"},{az:"kabber el khat",ar:"كَبِّرْ الخَطّ"},{az:"chayyek el net",ar:"چَيِّكْ النِّتْ"},{az:"basajjil",ar:"بَسَجِّلْ"}],a:0},
+ {t:'mcq',q:"“is the sound clear?”",opts:[{az:"el soat waadhi7?",ar:"الصّوتْ واضِحْ؟"},{az:"el soat ygatti3?",ar:"الصّوتْ يْقَطِّعْ؟"},{az:"el video waadhi7?",ar:"الفيديو واضِحْ؟"},{az:"el soat dha3eef?",ar:"الصّوتْ ضَعيفْ؟"}],a:0},
+ {t:'mcq',q:"“turn off the mic”",opts:[{az:"sakker el mike",ar:"سَكِّرْ المايكْ"},{az:"chayyek el mike",ar:"چَيِّكْ المايكْ"},{az:"sakker el shaasha",ar:"سَكِّرْ الشّاشَة"},{az:"kabber el soat",ar:"كَبِّرْ الصّوتْ"}],a:0},
  {t:'say',q:"the sound is breaking up, the wifi is weak",ans:{az:"el soat ygatti3, el wifi dha3eef",ar:"الصّوتْ يْقَطِّعْ، الوايْفايْ ضَعيفْ"}},
  {t:'mcq',q:"“make the font bigger”",opts:[{az:"kabber el khat",ar:"كَبِّرْ الخَطّ"},{az:"sakker el mike",ar:"سَكِّرْ المايكْ"},{az:"nazzel el tatbeeg",ar:"نَزِّلْ التَّطْبيقْ"},{az:"chayyek el net",ar:"چَيِّكْ النِّتْ"}],a:0},
  {t:'say',q:"let me share the screen",ans:{az:"khalni ashaarik el shaasha",ar:"خَلّني أشارِكْ الشّاشَة"}},
  {t:'mcq',q:"“can you repeat?”",opts:[{az:"mumkin t3eed?",ar:"مُمْكِنْ تْعيدْ؟"},{az:"t7ammal shway",ar:"تْحَمَّلْ شْوَيْ"},{az:"tfaddal",ar:"تْفَضَّلْ"},{az:"3ala tool",ar:"عَلى طولْ"}],a:0},
- {t:'say',q:"I'll record the meeting",ans:{az:"basajjil el ijtimaa3",ar:"بَسَجِّلْ الاِجْتِماعْ"}}]},
+ {t:'say',q:"I'll record the meeting",ans:{az:"basajjil el ijtimaa3",ar:"بَسَجِّلْ الاِجْتِماعْ"}},
+{t:'match',pairs:[{az:"sakker",ar:"سَكِّرْ",en:"close / turn off!"},{az:"kabber",ar:"كَبِّرْ",en:"make bigger!"},{az:"nazzel",ar:"نَزِّلْ",en:"download!"},{az:"chayyek",ar:"چَيِّكْ",en:"check!"},{az:"tfaddal",ar:"تْفَضَّلْ",en:"go ahead"}]},
+ {t:'gap',q:"I can't hear you well, the sound keeps cutting out",s:{az:"ma asma3ak zain, el soat ___",ar:"ما أسْمَعَكْ زِيْنْ، الصّوتْ ___"},opts:[{az:"ygatti3",ar:"يْقَطِّعْ"},{az:"waadhi7",ar:"واضِحْ"},{az:"yishteghel",ar:"يِشْتِغِلْ"},{az:"mawjood",ar:"مَوْجودْ"}],a:0},
+ {t:'build',q:"can you share the screen?",ans:{az:"mumkin tshaarik el shaasha?",ar:"مُمْكِنْ تْشارِكْ الشّاشَة؟"},extra:[{az:"ashaarik",ar:"أشارِكْ"}]}]},
 ];
 /* ---- CEFR levels + ordering ---- */
 const LEVELS={A1:["sound","pron","greet","this","have","family","iform","aboutme","not","want","present","quest","numbers"],A2:["past","kaan","prog","future","imp","conn","prep","work","freq","weath","plural"],B1:["idafa","objsuf","cond","report","fillers","opin"],B2:["participles","wish","concess","cause","react","degree","worktalk","onmeet"]};
